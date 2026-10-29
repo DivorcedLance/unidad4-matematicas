@@ -131,6 +131,9 @@ article.ej.flash{box-shadow:0 0 0 3px var(--blue)}
 .teo-body ol,.teo-body ul{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:4px}
 .teo-card .teo-go{margin-left:0;align-self:flex-start}
 
+.plan-box{border-left:3px solid var(--purple);background:var(--purple-soft);border-radius:0 8px 8px 0;padding:10px 14px}
+.plan-box .plan-t{font-family:var(--f-display);font-weight:700;font-size:.85rem;color:var(--purple);margin-bottom:6px}
+.plan-box ul{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:6px}
 .chip.ok{color:var(--green);background:var(--green-soft)}
 .chip.bad{color:var(--red);background:var(--red-soft)}
 .chip.warnc{color:var(--amber);background:var(--amber-soft)}
@@ -318,64 +321,47 @@ window.MathJax={
 
   <div class="box" id="t-par-def">
     <h2>¿Qué es una parábola?</h2>
-    <p>Una parábola vertical es el conjunto de puntos \((x,y)\) que cumplen</p>
-    <div class="math">\[y=ax^2+bx+c,\qquad a\neq0.\]</div>
+    <div class="math">\[y=ax^2+bx+c,\qquad a\neq0\]</div>
     <ul>
-      <li>Si \(a\gt0\), la parábola abre hacia arriba y el vértice es el punto más bajo (valor <b>mínimo</b>).</li>
-      <li>Si \(a\lt0\), abre hacia abajo y el vértice es el punto más alto (valor <b>máximo</b>).</li>
-    </ul></div>
+      <li>\(a\gt0\): abre hacia arriba; el vértice es el punto más bajo (<b>mínimo</b>).</li>
+      <li>\(a\lt0\): abre hacia abajo; el vértice es el punto más alto (<b>máximo</b>).</li>
+    </ul>
+  </div>
 
   <div class="box" id="t-par-vertice">
     <h2 class="t-az">1. El vértice</h2>
-    <p>El vértice es \(\az{V=(h,k)}\). Se halla en tres pasos:</p>
-    <div class="steps-box"><ol>
-      <li>Despejar \(y\) hasta que quede \(y=ax^2+bx+c\) e identificar \(a\), \(b\) y \(c\).</li>
-      <li>\(\az{h=\dfrac{-b}{2a}}\).</li>
-      <li>\(\az{k}\) = reemplazar \(x=\az h\) en la ecuación.</li>
-    </ol></div>
+    <div class="steps-box"><ol><li>Despejar \(y\) y anotar \(a\), \(b\), \(c\).</li><li>\(\az{h=\dfrac{-b}{2a}}\)</li><li>\(\az k\): reemplazar \(x=\az h\) en la ecuación.</li></ol></div>
+    <div class="plan-box"><p class="plan-t">¿Cuándo se usa?</p><ul><li>Cuando piden un <b>máximo</b> o un <b>mínimo</b>: área máxima, utilidad máxima, costo mínimo, altura máxima.</li><li>\(\az h\) es el valor de \(x\) que lo produce (por ejemplo, el lado del terreno o las unidades vendidas) y \(\az k\) es ese máximo o mínimo.</li><li>Si el problema es de texto, primero hay que <b>armar la función</b>: escribir la cantidad que se quiere maximizar en términos de una sola variable. Ejemplo: perímetro fijo \(2x+2y=L\), de donde \(y=\frac L2-x\); entonces \(A=x\cdot y=x\left(\frac L2-x\right)\).</li><li>Una parábola es simétrica respecto al vértice: dos valores de \(x\) a la misma distancia de \(\az h\) dan la misma \(y\). Por eso el punto más bajo de un cable o el más alto de un arco está justo en el medio.</li></ul></div>
     <button class="sim-btn box-link" type="button" data-goto="ex-t-par-vertice">Ver ejemplos de esta parte →</button>
   </div>
 
   <div class="box" id="t-par-interceptos">
     <h2 class="t-na">2. Interceptos con los ejes</h2>
-    <div class="steps-box"><ol>
-      <li>Con el eje \(y\): \(\na{x=0\to y=\,?}\). Siempre da \(y=c\).</li>
-      <li>Con el eje \(x\): \(\na{y=0\to x=\,?}\). Se resuelve \(ax^2+bx+c=0\) por aspa simple o con la fórmula general.</li>
-    </ol></div>
-    <p>El discriminante \(\Delta=b^2-4ac\) dice cuántas veces corta al eje \(x\):</p>
-    <ul>
-      <li>\(\Delta\gt0\): dos interceptos.</li>
-      <li>\(\Delta=0\): uno solo (el vértice está sobre el eje \(x\)).</li>
-      <li>\(\Delta\lt0\): no corta al eje \(x\).</li>
-    </ul>
+    <div class="steps-box"><ol><li>Eje \(y\): \(\na{x=0\to y=c}\).</li><li>Eje \(x\): \(\na{y=0}\) y resolver \(ax^2+bx+c=0\) por aspa simple (o fórmula general si no sale).</li></ol></div>
+    <p>Si \(\Delta=b^2-4ac\lt0\), no corta al eje \(x\).</p>
     <button class="sim-btn box-link" type="button" data-goto="ex-t-par-interceptos">Ver ejemplos de esta parte →</button>
   </div>
 
   <div class="box" id="t-par-interseccion">
     <h2 class="t-mo">3. Intersección con una recta u otra parábola</h2>
-    <div class="steps-box"><ol>
-      <li>Armar el sistema con las dos ecuaciones.</li>
-      <li>Igualar las \(y\) y pasar todo a un lado: queda una ecuación cuadrática.</li>
-      <li>Resolverla. Cada \(\mo x\) se reemplaza en una de las ecuaciones para hallar su \(y\).</li>
-    </ol></div>
-    <p>El discriminante de esa cuadrática decide: \(\Delta\gt0\) dos puntos, \(\Delta=0\) un punto (se tocan, son tangentes), \(\Delta\lt0\) no se cortan.</p>
+    <div class="steps-box"><ol><li>Armar el sistema \(\mo{\begin{cases}y=\dots\\y=\dots\end{cases}}\) e igualar las \(y\).</li><li>Pasar todo a un lado y resolver la cuadrática.</li><li>Reemplazar cada \(\mo x\) en una ecuación para hallar su \(y\).</li></ol></div>
+    <div class="plan-box"><p class="plan-t">Lo que hay que entender</p><ul><li>Cada solución \(x\) de la cuadrática es un punto de corte. Por eso el <b>número de soluciones</b> es el número de puntos donde se cruzan.</li><li>Si el enunciado dice "se cortan en un único punto", "se tocan" o "son tangentes", la cuadrática tiene una sola solución: se plantea \(\Delta=0\) y de ahí sale el parámetro desconocido (\(k\), \(a\), etc.).</li><li>Si hay dos valores posibles del parámetro, se usa el otro dato (por ejemplo, "el punto está en el IIIC") para elegir. Para eso se calcula el punto con cada valor.</li><li>Cuidado: si al igualar desaparece \(x^2\), ya no es cuadrática. Hay que analizar ese caso aparte (ejercicio 6).</li></ul></div>
     <button class="sim-btn box-link" type="button" data-goto="ex-t-par-interseccion">Ver ejemplos de esta parte →</button>
   </div>
 
   <div class="box" id="t-par-tangente">
     <h2 class="t-ma">4. Recta tangente a la parábola</h2>
-    <p>La pendiente de la recta tangente a \(y=ax^2+bx+c\) en el punto \(\ma{(x_0,y_0)}\) es</p>
-    <div class="math">\[\na{m}=2a\,\ma{x_0}+b\]</div>
-    <p>y la recta se escribe con punto-pendiente: \(y-\ma{y_0}=\na m(x-\ma{x_0})\).</p>
-    <p>Otra forma, sin la fórmula: la recta es tangente cuando el sistema recta-parábola da \(\Delta=0\).</p>
+    <div class="steps-box"><ol><li>Pendiente en \(\ma{(x_0,y_0)}\): \(\na m=2a\,\ma{x_0}+b\).</li><li>Recta: \(y-\ma{y_0}=\na m(x-\ma{x_0})\).</li></ol></div>
+    <p>Si no se conoce el punto, se usa la idea anterior: sistema recta-parábola y \(\Delta=0\).</p>
     <button class="sim-btn box-link" type="button" data-goto="ex-t-par-tangente">Ver ejemplos de esta parte →</button>
   </div>
 
   <div class="box" id="t-par-area">
     <h2 class="t-ve">5. Área de un triángulo con sus vértices</h2>
-    <p>Se escriben los vértices en columna, repitiendo el primero al final, y se multiplica en cruz:</p>
+    <p>Vértices en columna, repitiendo el primero; productos en cruz:</p>
     <div class="math d-only">\[A=\frac12\left|\begin{matrix}x_1&amp;y_1\\x_2&amp;y_2\\x_3&amp;y_3\\x_1&amp;y_1\end{matrix}\right|=\frac12\Big|\big(x_1y_2+x_2y_3+x_3y_1\big)-\big(y_1x_2+y_2x_3+y_3x_1\big)\Big|\]</div>
     <div class="math m-only">\[\begin{aligned}A &=\frac12\left|\begin{matrix}x_1&amp;y_1\\x_2&amp;y_2\\x_3&amp;y_3\\x_1&amp;y_1\end{matrix}\right|\\&=\frac12\Big|\big(x_1y_2+x_2y_3+x_3y_1\big)\\&\qquad-\big(y_1x_2+y_2x_3+y_3x_1\big)\Big|\end{aligned}\]</div>
+    <p>Si un lado está sobre un eje, es más rápido \(A=\frac{\text{base}\cdot\text{altura}}2\).</p>
     <button class="sim-btn box-link" type="button" data-goto="ex-p4">Ver un ejemplo →</button>
   </div>
 </div>
@@ -1537,76 +1523,53 @@ window.MathJax={
 
   <div class="box" id="t-cir-def">
     <h2>¿Qué es una circunferencia?</h2>
-    <p>Es el conjunto de puntos que están a la misma distancia \(\az r\) (el radio) de un punto fijo \(\az{C=(h,k)}\) (el centro). Su ecuación ordinaria es</p>
-    <div class="math">\[(x-\az h)^2+(y-\az k)^2=\az r^2,\qquad r\gt0.\]</div>
+    <p>Todos los puntos a distancia \(\az r\) del centro \(\az{C=(h,k)}\):</p>
+    <div class="math">\[(x-\az h)^2+(y-\az k)^2=\az r^2\]</div>
     <button class="sim-btn box-link" type="button" data-goto="ex-t-cir-def">Ver ejemplos de esta parte →</button>
   </div>
 
   <div class="box" id="t-cir-completar">
     <h2 class="t-ma">1. Completar cuadrados</h2>
-    <p>Completar cuadrados es escribir \(x^2+bx\) como un cuadrado perfecto menos un número. Se basa en el binomio al cuadrado:</p>
-    <div class="math">\[(x+\ma n)^2=x^2+2\ma n\,x+\ma n^2\]</div>
-    <p>El número que acompaña a \(x\) es \(2\ma n\). Entonces \(\ma n\) es <b>la mitad</b> del coeficiente de \(x\), y lo que sobra es \(\ma n^2\):</p>
     <div class="math">\[x^2+bx=\left(x+\ma{\tfrac b2}\right)^2-\left(\ma{\tfrac b2}\right)^2\]</div>
-    <div class="steps-box"><ol>
-      <li>Tomar la mitad del número que acompaña a \(x\) (con su signo).</li>
-      <li>Escribir \((x+\text{mitad})^2\).</li>
-      <li>Restar la mitad al cuadrado, porque al desarrollar el paréntesis aparece de más.</li>
-    </ol></div>
+    <div class="steps-box"><ol><li>Mitad del número que acompaña a \(x\), con su signo: \(\ma{\tfrac b2}\).</li><li>Escribir \(\left(x+\ma{\tfrac b2}\right)^2\).</li><li>Restar \(\left(\ma{\tfrac b2}\right)^2\).</li></ol></div>
+    <p>Si \(x^2\) tiene un coeficiente distinto de 1, primero se saca factor común (o se divide toda la ecuación).</p>
     <button class="sim-btn box-link" type="button" data-goto="ex-t-cir-completar">Ver ejemplos de esta parte →</button>
   </div>
 
   <div class="box" id="t-cir-centro">
     <h2 class="t-az">2. Hallar centro y radio</h2>
-    <p>Cuando la ecuación viene desarrollada, por ejemplo \(x^2+y^2+Dx+Ey+F=0\):</p>
-    <div class="steps-box"><ol>
-      <li>Juntar las <span class="hl-am">\(x\)</span>, juntar las <span class="hl-ce">\(y\)</span> y mandar lo demás al otro lado del igual.</li>
-      <li>Completar cuadrados en \(x\) y en \(y\): \(x^2+bx=\left(x+\frac b2\right)^2-\left(\frac b2\right)^2\).</li>
-      <li>Pasar todos los números sueltos al otro lado del igual.</li>
-      <li>El número que queda solo es \(\az{r^2}\).</li>
-    </ol></div>
-    <p>Si \(x^2\) e \(y^2\) tienen el mismo coeficiente distinto de 1 (por ejemplo, 2), primero se divide toda la ecuación entre ese número.</p>
-<p>Si al final el número es 0, la ecuación es un solo punto; si es negativo, no hay ningún punto. En ninguno de los dos casos es una circunferencia.</p>
+    <div class="steps-box"><ol><li>Si \(x^2\) e \(y^2\) tienen coeficiente distinto de 1, dividir todo entre ese número.</li><li>Juntar las <span class="hl-am">\(x\)</span> y las <span class="hl-ce">\(y\)</span>; el número suelto al otro lado.</li><li>Completar cuadrados en cada grupo.</li><li>Pasar los números al otro lado: lo que queda es \(\az{r^2}\).</li></ol></div>
+    <p>Si al final queda 0 o un número negativo, no es circunferencia.</p>
     <button class="sim-btn box-link" type="button" data-goto="ex-t-cir-centro">Ver ejemplos de esta parte →</button>
   </div>
 
   <div class="box" id="t-cir-ejes">
     <h2 class="t-na">3. Interceptos y tangencia con los ejes</h2>
-    <ul>
-      <li>Con el eje \(y\): \(\na{x=0\to y=\,?}\). Con el eje \(x\): \(\na{y=0\to x=\,?}\).</li>
-      <li>La circunferencia es tangente al eje \(x\) cuando el radio es igual a la altura del centro: \(r=|k|\).</li>
-      <li>Es tangente al eje \(y\) cuando \(r=|h|\).</li>
-    </ul>
+    <p>Interceptos: \(\na{x=0}\) para el eje \(y\) y \(\na{y=0}\) para el eje \(x\).</p>
+    <div class="plan-box"><p class="plan-t">Tangente a un eje: el planteamiento</p><ul><li>"Tangente" significa que la circunferencia solo toca al eje en un punto. Eso pasa cuando el radio es exactamente la distancia del centro al eje.</li><li>La distancia del centro \((h,k)\) al eje \(x\) es su altura \(|k|\). Tangente al eje \(x\): \(\az r=|\az k|\).</li><li>La distancia al eje \(y\) es \(|h|\). Tangente al eje \(y\): \(\az r=|\az h|\).</li><li>Si el radio es menor que esa distancia, no lo toca; si es mayor, lo corta en dos puntos.</li><li>Ejemplo: \((x-4)^2+(y-1)^2=17-k\) es tangente al eje \(x\) si \(r^2=1^2\), o sea \(17-k=1\).</li></ul></div>
     <button class="sim-btn box-link" type="button" data-goto="ex-t-cir-ejes">Ver ejemplos de esta parte →</button>
   </div>
 
   <div class="box" id="t-cir-recta">
     <h2 class="t-mo">4. Recta y circunferencia</h2>
-    <p>Para saber dónde se cortan, se reemplaza \(y=mx+b\) en la ecuación de la circunferencia. Sale una cuadrática en \(x\):</p>
-    <ul>
-      <li>\(\Delta\gt0\): la recta corta en dos puntos (secante).</li>
-      <li>\(\Delta=0\): la toca en un solo punto (tangente).</li>
-      <li>\(\Delta\lt0\): no la corta.</li>
-    </ul>
+    <div class="steps-box"><ol><li>Armar el sistema con las dos ecuaciones.</li><li>Despejar \(y\) de la recta y reemplazarla en la circunferencia.</li><li>Resolver la cuadrática en \(x\) y hallar cada \(y\) con la recta.</li></ol></div>
+    <p>Dos soluciones: la corta. Una: es tangente (\(\Delta=0\)). Ninguna: no la toca.</p>
     <button class="sim-btn box-link" type="button" data-goto="ex-t-cir-recta">Ver ejemplos de esta parte →</button>
   </div>
 
   <div class="box" id="t-cir-tangente">
-    <h2 class="t-ma">5. Recta tangente en un punto</h2>
-    <p>La recta tangente es perpendicular al radio que llega al punto de tangencia \(\ma T\):</p>
+    <h2 class="t-ma">5. Recta tangente</h2>
+    <p>La idea clave: <b>la tangente es perpendicular al radio</b> que llega al punto de tangencia \(\ma T\):</p>
     <div class="math">\[\na{m}\cdot\text{rc}(\ma T,\az C)=-1\]</div>
+    <div class="plan-box"><p class="plan-t">Cómo se usa según lo que te den</p><ul><li><b>Conoces el punto \(\ma T\) de la circunferencia.</b> Pendiente del radio \(\text{rc}(\ma T,\az C)\), luego \(\na m=-\frac1{\text{rc}}\) y punto-pendiente por \(\ma T\).</li><li><b>Conoces la recta tangente y el punto \(\ma T\), y buscas la circunferencia</b> (ejercicio 3). El centro está sobre la perpendicular a la recta que pasa por \(\ma T\), a una distancia \(r\) de \(\ma T\). Hay dos centros posibles, uno a cada lado de la recta.</li><li><b>Las tangentes salen de un punto \(P\) de afuera</b> (ejercicio 6). El punto de tangencia es desconocido: llámalo \(\ma{T=(a,b)}\). Se plantean dos ecuaciones: \(\ma T\) está en la circunferencia y el radio \(C\ma T\) es perpendicular a \(\ma TP\). Siempre salen dos tangentes.</li></ul></div>
     <button class="sim-btn box-link" type="button" data-goto="ex-t-cir-tangente">Ver ejemplos de esta parte →</button>
   </div>
 
   <div class="box" id="t-cir-condiciones">
     <h2>6. Encontrar una circunferencia con condiciones</h2>
-    <p>Se plantean las incógnitas \(h\), \(k\), \(r\) y se usa cada dato:</p>
-    <ul>
-      <li>"Pasa por el punto \(\ma{(x_1,y_1)}\)": se reemplaza, \((\ma{x_1}-h)^2+(\ma{y_1}-k)^2=r^2\).</li>
-      <li>"El centro está sobre el eje \(x\)": \(k=0\). "Sobre el eje \(y\)": \(h=0\).</li>
-      <li>"Es tangente a una recta en \(T\)": el centro está en la perpendicular a esa recta que pasa por \(T\).</li>
-    </ul>
-    <p>Con dos ecuaciones que tienen \(r^2\), se igualan para eliminar \(r^2\).</p>
+    <p>Las incógnitas son \(h\), \(k\) y \(r\). Cada dato del enunciado se traduce en una ecuación o en un valor:</p>
+    <div class="plan-box"><p class="plan-t">Traducción de los datos</p><ul><li>"Pasa por \(\ma{(x_1,y_1)}\)": reemplazar el punto, \((\ma{x_1}-h)^2+(\ma{y_1}-k)^2=r^2\). "Pasa por el origen": \(h^2+k^2=r^2\).</li><li>"Centro sobre el eje \(x\)": \(k=0\). "Sobre el eje \(y\)": \(h=0\). "Abscisa \(-12\)": \(h=-12\).</li><li>"Centro en el IIIC": \(h\lt0\) y \(k\lt0\). Sirve para elegir entre dos soluciones.</li><li>"Tangente al eje \(x\)": \(r=|k|\). "Tangente a la recta \(l\) en \(T\)": el centro está sobre la perpendicular a \(l\) por \(T\).</li><li>Si dos ecuaciones terminan en \(r^2\), se igualan para eliminar \(r^2\) y queda una ecuación más simple.</li></ul></div>
+    <p>Se necesitan tantas condiciones como incógnitas falten.</p>
     <button class="sim-btn box-link" type="button" data-goto="ex-c5">Ver un ejemplo →</button>
   </div>
 </div>
@@ -2790,45 +2753,32 @@ window.MathJax={
   <div class="box" id="t-od-variables">
     <h2>Variables y gráfico</h2>
     <ul>
-      <li>\(q\) = cantidad (eje horizontal) y \(p\) = precio unitario (eje vertical). Siempre \(p\ge0\) y \(q\ge0\).</li>
-      <li><span class="t-az">Oferta</span>: lo que el productor <b>vende</b>. Si sube el precio, ofrece más, así que su pendiente es <b>positiva</b>.</li>
-      <li><span class="t-na">Demanda</span>: lo que el consumidor <b>compra</b>. Si sube el precio, compra menos, así que su pendiente es <b>negativa</b>.</li>
-    </ul></div>
+      <li>\(q\) = cantidad (eje horizontal); \(p\) = precio unitario (eje vertical); siempre \(p\ge0\), \(q\ge0\).</li>
+      <li><span class="t-az">Oferta</span> (vende): pendiente <b>positiva</b>. <span class="t-na">Demanda</span> (compra): pendiente <b>negativa</b>.</li>
+    </ul>
+  </div>
 
   <div class="box" id="t-od-ecuacion">
     <h2>1. Ecuación de la oferta o la demanda</h2>
-    <div class="steps-box"><ol>
-      <li>Escribir los datos como puntos \((q,p)\): "vende 10 unidades a 40 soles" es \((10,40)\).</li>
-      <li>Pendiente: \(m=\dfrac{p_2-p_1}{q_2-q_1}\).</li>
-      <li>Punto-pendiente: \(p-p_0=m(q-q_0)\) y despejar \(p\).</li>
-    </ol></div>
-    <ul>
-      <li>"Por cada aumento de 10 soles, compra 2 unidades menos" significa \(m=\dfrac{\Delta p}{\Delta q}=\dfrac{10}{-2}=-5\).</li>
-      <li>Si la ecuación viene como \(q=\dots\) (por ejemplo \(q=100-6p\)), se despeja \(p\).</li>
-    </ul>
+    <div class="steps-box"><ol><li>Pasar los datos a puntos \((q,p)\) o a una pendiente.</li><li>\(m=\dfrac{p_2-p_1}{q_2-q_1}\).</li><li>\(p-p_0=m(q-q_0)\) y despejar \(p\).</li></ol></div>
+    <div class="plan-box"><p class="plan-t">Lo difícil es traducir el enunciado</p><ul><li>"Vende 10 unidades a 40 soles <b>cada una</b>": punto \((10,40)\).</li><li>"Vende 31 unidades a 31 soles" (sin "cada una"): es el total, precio unitario \(31\div31=1\), punto \((31,1)\). "Gasta 100 soles en 2 unidades": \((2,50)\).</li><li>"Por cada aumento de 10 soles, compra 2 unidades menos": \(m=\dfrac{\Delta p}{\Delta q}=\dfrac{10}{-2}=-5\). "Por cada sol que sube, oferta 1 más": \(m=\dfrac11=1\).</li><li>"El precio baja 20 %": \(p\to0.8p\). "La cantidad se triplica": \(q\to3q\). Así salen dos puntos de la misma recta.</li><li>"Perpendicular a la demanda": \(m_O\cdot m_D=-1\).</li><li>Si la ecuación viene como \(q=\dots\), se despeja \(p\).</li><li>Si falta un dato (por ejemplo, no dicen la cantidad de equilibrio), se le pone nombre, \(\mo a\), y se busca otra condición que lo determine: un excedente, una pendiente calculada de dos formas, etc.</li></ul></div>
     <button class="sim-btn box-link" type="button" data-goto="ex-t-od-completo">Ver ejemplos de esta parte →</button>
   </div>
 
   <div class="box" id="t-od-equilibrio">
     <h2 class="t-mo">2. Punto de equilibrio</h2>
-    <p>Es donde se cruzan la oferta y la demanda: \(\mo{(q_e,p_e)}\). Se halla resolviendo el sistema:</p>
-    <div class="math">\[\mo{\begin{cases}O:\ p=m_1q+b_1\\D:\ p=m_2q+b_2\end{cases}}\]</div>
-    <p>\(p_e\) es el precio de mercado y \(q_e\) la cantidad de mercado.</p>
+    <p>Es donde se cruzan oferta y demanda: sistema \(\mo{\begin{cases}O:\ p=m_1q+b_1\\D:\ p=m_2q+b_2\end{cases}}\), igualar y despejar \(\mo{q_e}\), luego \(\mo{p_e}\).</p>
+    <p>"El precio con el que se demanda la misma cantidad de dos bienes" también es un sistema: se igualan las dos demandas.</p>
     <button class="sim-btn box-link" type="button" data-goto="ex-t-od-completo">Ver ejemplos de esta parte →</button>
   </div>
 
   <div class="box" id="t-od-excedentes">
     <h2>3. Excedentes</h2>
-    <p>\(b_2\) es donde la demanda corta al eje \(p\) y \(b_1\) donde lo corta la oferta.</p>
-    <div class="math d-only">\[\text{EC (consumidor)}=\frac{\mo{q_e}\,(b_2-\mo{p_e})}{2}\qquad\qquad\text{EP (productor)}=\frac{\mo{q_e}\,(\mo{p_e}-b_1)}{2}\]</div>
-    <div class="math m-only">\[\text{EC (consumidor)} =\frac{\mo{q_e}\,(b_2-\mo{p_e})}{2}\]</div>
-    <div class="math m-only">\[\text{EP (productor)} =\frac{\mo{q_e}\,(\mo{p_e}-b_1)}{2}\]</div>
-    <div class="math">\[E=EC+EP\]</div>
-    <ul>
-      <li>El <b>EC</b> es el triángulo entre la demanda, el eje \(p\) y la recta \(p=p_e\) (por encima de \(p_e\)).</li>
-      <li>El <b>EP</b> es el triángulo entre la oferta, el eje \(p\) y la recta \(p=p_e\) (por debajo de \(p_e\)).</li>
-      <li>Si la oferta corta al eje \(p\) en un valor negativo (\(b_1\lt0\)), como \(p\ge0\) el EP es un <b>trapecio</b> entre \(p=0\) y \(p=p_e\): \(EP=\dfrac{(q_0+q_e)\,p_e}{2}\), donde \(q_0\) es donde la oferta corta al eje \(q\).</li>
-    </ul>
+    <p>\(b_2\): corte de la demanda con el eje \(p\). \(b_1\): corte de la oferta.</p>
+    <div class="math d-only">\[EC=\frac{\mo{q_e}\,(b_2-\mo{p_e})}{2}\qquad\qquad EP=\frac{\mo{q_e}\,(\mo{p_e}-b_1)}{2}\]</div>
+    <div class="math m-only">\[EC=\frac{\mo{q_e}\,(b_2-\mo{p_e})}{2}\]</div>
+    <div class="math m-only">\[EP=\frac{\mo{q_e}\,(\mo{p_e}-b_1)}{2}\]</div>
+    <div class="plan-box"><p class="plan-t">Lo que hay que entender</p><ul><li>Son <b>áreas de triángulos</b> en el gráfico: el EC está entre la demanda y la recta \(p=\mo{p_e}\) (arriba); el EP, entre la recta \(p=\mo{p_e}\) y la oferta (abajo). Dibujarlos evita errores.</li><li>Si la oferta corta el eje \(p\) en un valor negativo, el EP no es un triángulo, porque el precio no puede ser negativo. Es un <b>trapecio</b> entre \(p=0\) y \(p=\mo{p_e}\): \(EP=\dfrac{(q_0+\mo{q_e})\,\mo{p_e}}2\), con \(q_0\) el corte de la oferta con el eje \(q\).</li><li>Si te dan el excedente y falta \(\mo{q_e}\) o un corte, el excedente se convierte en una ecuación: \(\frac{\text{base}\cdot\text{altura}}2=\) dato.</li></ul></div>
     <button class="sim-btn box-link" type="button" data-goto="ex-t-od-completo">Ver ejemplos de esta parte →</button>
   </div>
 
