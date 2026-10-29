@@ -707,65 +707,110 @@ window.MathJax={
 
   <h2 class="ex-group" id="grp-parabolas-teo">Ejemplos de la teoría</h2>
   <article class="ej ex ex-teo" id="ex-t-par-vertice">
-    <div class="ej-head"><h3>El vértice</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-vertice">Ver la teoría ↑</button></span></div>
+    <div class="ej-head"><span class="num">T1</span><h3>Vértice y forma canónica</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-vertice">Ver la teoría ↑</button></span></div>
+    <div class="enun">Halle el vértice de la parábola \(y=x^2+6x+8\) y escriba su ecuación en forma canónica \(y-k=a(x-h)^2\).</div>
     <div class="sol">
-<h4>Ejemplo: \(y=x^2+6x+8\)</h4>
-    <p>\(a=1\), \(b=6\), \(c=8\).</p>
-    <div class="math">\[\az{h}=\frac{-6}{2\cdot1}=\az{-3}\]</div>
-    <div class="math">\[\az{k}=(\az{-3})^2+6(\az{-3})+8=9-18+8=\az{-1}\]</div>
-    <div class="math">\[\az{V=(-3,-1)}\]</div>
-    <p>Con el vértice, la ecuación también se puede escribir en forma canónica \(y-\az k=a(x-\az h)^2\):</p>
-    <div class="math">\[y-(\az{-1})=1\,(x-(\az{-3}))^2\iff y+1=(x+3)^2\]</div>
-    <h4>Ejemplo con \(a\lt0\): \(y=-2x^2-48x+200\)</h4>
-    <div class="math">\[\az h=\frac{-(-48)}{2(-2)}=\frac{48}{-4}=\az{-12}\]</div>
-    <div class="math">\[\az k=-2(\az{-12})^2-48(\az{-12})+200=-288+576+200=\az{488}\]</div>
-    <p>Como \(a=-2\lt0\), el valor <b>máximo</b> de \(y\) es 488 y se alcanza en \(x=-12\).</p>
+      <p class="paso">Paso 1 · Identificar a, b, c</p>
+      <p>\(a=1,\quad b=6,\quad c=8\)</p>
+      <p class="paso">Paso 2 · Hallar h</p>
+      <div class="math">\[\az h=\frac{-b}{2a}=\frac{-6}{2\cdot1}=\az{-3}\]</div>
+      <p class="paso">Paso 3 · Hallar k (reemplazar x = h = −3)</p>
+      <div class="math">\[\az k=(\az{-3})^2+6(\az{-3})+8=9-18+8=\az{-1}\]</div>
+      <div class="math">\[\az{V=(-3,-1)}\]</div>
+      <p class="paso">Paso 4 · Forma canónica</p>
+      <p>Reemplazamos \(a=1\), \(\az h=\az{-3}\) y \(\az k=\az{-1}\) en \(y-k=a(x-h)^2\):</p>
+      <div class="math">\[y-(\az{-1})=1\,(x-(\az{-3}))^2\]</div>
+      <div class="math">\[y+1=(x+3)^2\]</div>
     </div>
+    <div class="resp"><b>Respuesta</b>\(V=(-3,-1)\); forma canónica \(y+1=(x+3)^2\).</div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-par-vertice-2">
+    <div class="ej-head"><span class="num">T2</span><h3>Valor máximo</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-def" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-vertice">Ver la teoría ↑</button></span></div>
+    <div class="enun">Determine el vértice de la parábola \(y=-2x^2-48x+200\) e indique si \(y\) tiene un valor máximo o mínimo, y cuál es.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Identificar a, b, c</p>
+      <p>\(a=-2,\quad b=-48,\quad c=200\)</p>
+      <p class="paso">Paso 2 · Hallar h</p>
+      <div class="math">\[\az h=\frac{-(-48)}{2(-2)}=\frac{48}{-4}=\az{-12}\]</div>
+      <p class="paso">Paso 3 · Hallar k (reemplazar x = −12)</p>
+      <div class="math">\[\az k=-2(\az{-12})^2-48(\az{-12})+200=-288+576+200=\az{488}\]</div>
+      <p class="paso">Paso 4 · ¿Máximo o mínimo?</p>
+      <p>Como \(a=-2\lt 0\), la parábola abre hacia abajo: el vértice es el punto más alto, así que \(k\) es un valor <b>máximo</b>.</p>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(V=(-12,488)\); el valor máximo de \(y\) es 488, en \(x=-12\).</div>
   </article>
 
   <article class="ej ex ex-teo" id="ex-t-par-interceptos">
-    <div class="ej-head"><h3>Interceptos con los ejes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-interceptos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-interceptos">Ver la teoría ↑</button></span></div>
+    <div class="ej-head"><span class="num">T3</span><h3>Interceptos con los ejes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-interceptos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-interceptos">Ver la teoría ↑</button></span></div>
+    <div class="enun">Halle los puntos donde la parábola \(y=x^2+6x+8\) corta a los ejes coordenados.</div>
     <div class="sol">
-<h4>Ejemplo: \(y=x^2+6x+8\)</h4>
-    <div class="math">\[\na{x=0}\to y=(\na0)^2+6(\na0)+8=8\]</div>
-    <div class="math">\[\na{(0,8)}\]</div>
-    <div class="aspa-wrap"><div class="aspa2" aria-label="Aspa simple"><span class="a-pre">\(\na{y=0}\to\)</span><span class="a-lead">\(x^2\)</span><span class="a-mid">\(+6x\)</span><span class="a-c">\(+8\)</span><span class="a-eq">\(=0\)</span><span class="a-v1">\(x\)</span><svg class="cross" viewBox="0 0 54 44" preserveAspectRatio="none" aria-hidden="true"><line x1="4" y1="6" x2="50" y2="38"/><line x1="4" y1="38" x2="50" y2="6"/></svg><span class="a-r1">\(+4\)</span><span class="a-v2">\(x\)</span><span class="a-r2">\(+2\)</span><span class="a-chk">Comprobación: \(x(+2)+x(+4)=6x\) ✓</span><span class="a-fac">\((x+4)(x+2)\)</span><span class="a-eq2">\(=0\)</span><span class="a-roots">\(x=\na{-4}\qquad x=\na{-2}\)</span><span class="a-pts">\(\na{(-4,0)}\qquad\na{(-2,0)}\)</span></div></div>
-    <div class="plot" id="g-tp1"></div>
+      <p class="paso">Paso 1 · Intercepto con el eje y</p>
+      <div class="math">\[\na{x=0}\to y=(\na0)^2+6(\na0)+8=8\]</div>
+      <div class="math">\[\na{(0,8)}\]</div>
+      <p class="paso">Paso 2 · Interceptos con el eje x</p>
+      <div class="aspa-wrap"><div class="aspa2" aria-label="Aspa simple"><span class="a-pre">\(\na{y=0}\to\)</span><span class="a-lead">\(x^2\)</span><span class="a-mid">\(+6x\)</span><span class="a-c">\(+8\)</span><span class="a-eq">\(=0\)</span><span class="a-v1">\(x\)</span><svg class="cross" viewBox="0 0 54 44" preserveAspectRatio="none" aria-hidden="true"><line x1="4" y1="6" x2="50" y2="38"/><line x1="4" y1="38" x2="50" y2="6"/></svg><span class="a-r1">\(+4\)</span><span class="a-v2">\(x\)</span><span class="a-r2">\(+2\)</span><span class="a-chk">Comprobación: \(x(+2)+x(+4)=6x\) ✓</span><span class="a-fac">\((x+4)(x+2)\)</span><span class="a-eq2">\(=0\)</span><span class="a-roots">\(x=\na{-4}\qquad x=\na{-2}\)</span><span class="a-pts">\(\na{(-4,0)}\qquad\na{(-2,0)}\)</span></div></div>
+      <p class="paso">Paso 3 · Gráfica</p>
+      <div class="plot" id="g-tp1"></div>
     </div>
+    <div class="resp"><b>Respuesta</b>Eje \(y\): \((0,8)\). Eje \(x\): \((-4,0)\) y \((-2,0)\).</div>
   </article>
 
   <article class="ej ex ex-teo" id="ex-t-par-interseccion">
-    <div class="ej-head"><h3>Intersección con una recta</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-interseccion" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-interseccion">Ver la teoría ↑</button></span></div>
+    <div class="ej-head"><span class="num">T4</span><h3>Intersección de una parábola y una recta</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-interseccion" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-interseccion">Ver la teoría ↑</button></span></div>
+    <div class="enun">Halle los puntos de intersección de la parábola \(y=x^2\) y la recta \(y=x+2\).</div>
     <div class="sol">
-<h4>Ejemplo sencillo: \(y=x^2\) e \(y=x+2\)</h4>
-    <div class="math">\[\mo{\begin{cases}y=x^2\\y=x+2\end{cases}}\]</div>
-    <div class="math">\[x^2=x+2\]</div>
-    <div class="aspa-wrap"><div class="aspa2" aria-label="Aspa simple"><span class="a-lead">\(x^2\)</span><span class="a-mid">\(-x\)</span><span class="a-c">\(-2\)</span><span class="a-eq">\(=0\)</span><span class="a-v1">\(x\)</span><svg class="cross" viewBox="0 0 54 44" preserveAspectRatio="none" aria-hidden="true"><line x1="4" y1="6" x2="50" y2="38"/><line x1="4" y1="38" x2="50" y2="6"/></svg><span class="a-r1">\(-2\)</span><span class="a-v2">\(x\)</span><span class="a-r2">\(+1\)</span><span class="a-chk">Comprobación: \(x(+1)+x(-2)=-x\) ✓</span><span class="a-fac">\((x-2)(x+1)\)</span><span class="a-eq2">\(=0\)</span><span class="a-roots">\(x=\mo2\qquad x=\mo{-1}\)</span></div></div>
-    <p>Reemplazamos cada \(x\) en la recta \(y=x+2\):</p>
-    <div class="math">\[x=\mo2\to y=\mo2+2=4\qquad\mo{(2,4)}\]</div>
-    <div class="math">\[x=\mo{-1}\to y=\mo{-1}+2=1\qquad\mo{(-1,1)}\]</div>
+      <p class="paso">Paso 1 · Sistema de ecuaciones</p>
+      <p>Para hallar las intersecciones se arma un sistema con las dos ecuaciones:</p>
+      <div class="math">\[\mo{\begin{cases}y=x^2\\y=x+2\end{cases}}\]</div>
+      <p class="paso">Paso 2 · Igualar y resolver</p>
+      <div class="math">\[x^2=x+2\]</div>
+      <div class="aspa-wrap"><div class="aspa2" aria-label="Aspa simple"><span class="a-lead">\(x^2\)</span><span class="a-mid">\(-x\)</span><span class="a-c">\(-2\)</span><span class="a-eq">\(=0\)</span><span class="a-v1">\(x\)</span><svg class="cross" viewBox="0 0 54 44" preserveAspectRatio="none" aria-hidden="true"><line x1="4" y1="6" x2="50" y2="38"/><line x1="4" y1="38" x2="50" y2="6"/></svg><span class="a-r1">\(-2\)</span><span class="a-v2">\(x\)</span><span class="a-r2">\(+1\)</span><span class="a-chk">Comprobación: \(x(+1)+x(-2)=-x\) ✓</span><span class="a-fac">\((x-2)(x+1)\)</span><span class="a-eq2">\(=0\)</span><span class="a-roots">\(x=\mo2\qquad x=\mo{-1}\)</span></div></div>
+      <p class="paso">Paso 3 · Hallar y (reemplazar en la recta)</p>
+      <div class="math">\[x=\mo2\to y=\mo2+2=4\qquad\mo{(2,4)}\]</div>
+      <div class="math">\[x=\mo{-1}\to y=\mo{-1}+2=1\qquad\mo{(-1,1)}\]</div>
     </div>
+    <div class="resp"><b>Respuesta</b>\((2,4)\) y \((-1,1)\).</div>
   </article>
 
   <article class="ej ex ex-teo" id="ex-t-par-tangente">
-    <div class="ej-head"><h3>Recta tangente a la parábola</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-tangente">Ver la teoría ↑</button></span></div>
+    <div class="ej-head"><span class="num">T5</span><h3>Recta tangente (caso sencillo)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-tangente">Ver la teoría ↑</button></span></div>
+    <div class="enun">Halle la ecuación de la recta tangente a la parábola \(y=x^2\) en el punto \((2,4)\).</div>
     <div class="sol">
-<h4>Ejemplo sencillo: \(y=x^2\) en \(\ma{(2,4)}\)</h4>
-    <p>Aquí \(a=1\), \(b=0\) y \(\ma{x_0=2}\):</p>
-    <div class="math">\[\na m=2(1)(\ma2)+0=\na4\]</div>
-    <div class="math">\[y-\ma4=\na4(x-\ma2)\]</div>
-    <div class="math">\[y=4x-4\]</div>
-    <p>Comprobación: \(x^2=4x-4\), es decir \(x^2-4x+4=0\), que es \((x-2)^2=0\): una sola solución.</p>
-    <h4>Otro ejemplo, con \(b\neq0\): \(y=x^2+2x\) en \(\ma{(1,3)}\)</h4>
-    <div class="math">\[\na m=2(1)(\ma1)+2=\na4\]</div>
-    <div class="math">\[y-\ma3=\na4(x-\ma1)\]</div>
-    <div class="math">\[y=4x-1\]</div>
-    <p>Comprobación:</p>
-    <div class="math">\[x^2+2x=4x-1\]</div>
-    <div class="math">\[x^2-2x+1=0\]</div>
-    <div class="math">\[(x-1)^2=0\]</div>
-    <p>Hay una sola solución.</p>
+      <p class="paso">Paso 1 · Datos</p>
+      <p>\(a=1,\ b=0,\ c=0\) y el punto de tangencia es \(\ma{(x_0,y_0)=(2,4)}\).</p>
+      <p class="paso">Paso 2 · Pendiente</p>
+      <div class="math">\[\na m=2a\,\ma{x_0}+b=2(1)(\ma2)+0=\na4\]</div>
+      <p class="paso">Paso 3 · Ecuación punto-pendiente</p>
+      <div class="math">\[y-\ma4=\na4(x-\ma2)\]</div>
+      <div class="math">\[y-4=4x-8\]</div>
+      <div class="math">\[y=4x-4\]</div>
+      <p class="paso">Comprobación</p>
+      <div class="math">\[x^2=4x-4\]</div>
+      <div class="math">\[x^2-4x+4=0\]</div>
+      <div class="math">\[(x-2)^2=0\]</div>
+      <p>Una sola solución: la recta toca a la parábola en un solo punto.</p>
     </div>
+    <div class="resp"><b>Respuesta</b>\(y=4x-4\)</div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-par-tangente-2">
+    <div class="ej-head"><span class="num">T6</span><h3>Recta tangente con b distinto de 0</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-tangente">Ver la teoría ↑</button></span></div>
+    <div class="enun">Halle la ecuación de la recta tangente a la parábola \(y=x^2+2x\) en el punto \((1,3)\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Datos</p>
+      <p>\(a=1,\ b=2,\ c=0\) y el punto de tangencia es \(\ma{(x_0,y_0)=(1,3)}\).</p>
+      <p class="paso">Paso 2 · Pendiente</p>
+      <div class="math">\[\na m=2a\,\ma{x_0}+b=2(1)(\ma1)+2=\na4\]</div>
+      <p class="paso">Paso 3 · Ecuación punto-pendiente</p>
+      <div class="math">\[y-\ma3=\na4(x-\ma1)\]</div>
+      <div class="math">\[y=4x-1\]</div>
+      <p class="paso">Comprobación</p>
+      <div class="math">\[x^2+2x=4x-1\]</div>
+      <div class="math">\[x^2-2x+1=0\]</div>
+      <div class="math">\[(x-1)^2=0\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(y=4x-1\)</div>
   </article>
 
   <h2 class="ex-group" id="grp-parabolas-unidad">Ejemplos parecidos a los ejercicios de la unidad</h2>
@@ -1832,147 +1877,191 @@ window.MathJax={
 
   <h2 class="ex-group" id="grp-circunferencias-teo">Ejemplos de la teoría</h2>
   <article class="ej ex ex-teo" id="ex-t-cir-def">
-    <div class="ej-head"><h3>Ecuación ordinaria</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-def" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-def">Ver la teoría ↑</button></span></div>
+    <div class="ej-head"><span class="num">T1</span><h3>Ecuación ordinaria</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-def" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-def">Ver la teoría ↑</button></span></div>
+    <div class="enun">Escriba la ecuación de la circunferencia de centro \((3,3)\) y radio 2.</div>
     <div class="sol">
-<p>Ejemplo: centro \(\az{(3,3)}\) y radio \(\az2\) dan \((x-\az3)^2+(y-\az3)^2=\az2^2=4\).</p>
+      <p class="paso">Paso 1 · Fórmula</p>
+      <div class="math">\[(x-\az h)^2+(y-\az k)^2=\az r^2\]</div>
+      <p class="paso">Paso 2 · Reemplazar h = 3, k = 3, r = 2</p>
+      <div class="math">\[(x-\az3)^2+(y-\az3)^2=\az2^2\]</div>
+      <div class="math">\[(x-3)^2+(y-3)^2=4\]</div>
     </div>
+    <div class="resp"><b>Respuesta</b>\((x-3)^2+(y-3)^2=4\)</div>
   </article>
 
   <article class="ej ex ex-teo" id="ex-t-cir-completar">
-    <div class="ej-head"><h3>Completar cuadrados</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-completar" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-completar">Ver la teoría ↑</button></span></div>
+    <div class="ej-head"><span class="num">T2</span><h3>Completar cuadrados</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-completar" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-completar">Ver la teoría ↑</button></span></div>
+    <div class="enun">Complete el cuadrado en cada expresión:<br>a) \(x^2+6x\) &nbsp; b) \(x^2-10x\) &nbsp; c) \(y^2+4y\)<br>d) \(x^2-5x\) &nbsp; e) \(2x^2-12x\) &nbsp; f) \(x^2-8x+15\)</div>
     <div class="sol">
-<h4>Ejemplo 1: \(x^2+6x\)</h4>
-    <p>La mitad de \(6\) es \(\ma3\):</p>
-    <div class="math">\[x^2+6x=(x+\ma3)^2-\ma3^2=(x+3)^2-9\]</div>
-    <p>Comprobación: \((x+3)^2-9=x^2+6x+9-9=x^2+6x\) ✓</p>
-    <h4>Ejemplo 2: \(x^2-10x\)</h4>
-    <p>La mitad de \(-10\) es \(\ma{-5}\):</p>
-    <div class="math">\[x^2-10x=(x-\ma5)^2-\ma5^2=(x-5)^2-25\]</div>
-    <h4>Ejemplo 3: \(y^2+4y\) (con la otra variable es igual)</h4>
-    <p>La mitad de \(4\) es \(\ma2\):</p>
-    <div class="math">\[y^2+4y=(y+\ma2)^2-\ma2^2=(y+2)^2-4\]</div>
-    <h4>Ejemplo 4: \(x^2-5x\) (mitad con fracción)</h4>
-    <p>La mitad de \(-5\) es \(\ma{-\frac52}\):</p>
-    <div class="math">\[x^2-5x=\left(x-\ma{\tfrac52}\right)^2-\left(\ma{\tfrac52}\right)^2=\left(x-\tfrac52\right)^2-\tfrac{25}4\]</div>
-    <h4>Ejemplo 5: \(2x^2-12x\) (coeficiente distinto de 1)</h4>
-    <p>Primero se saca factor común el número que acompaña a \(x^2\), y se completa dentro del paréntesis:</p>
-    <div class="math">\[2x^2-12x=2(x^2-6x)\]</div>
-    <div class="math">\[2(x^2-6x)=2\big[(x-\ma3)^2-\ma3^2\big]=2\big[(x-3)^2-9\big]=2(x-3)^2-18\]</div>
-    <h4>Ejemplo 6: un trinomio completo, \(x^2-8x+15\)</h4>
-    <p>Se completa el cuadrado con \(x^2-8x\) y el número suelto se suma al final:</p>
-    <div class="math">\[x^2-8x+15=(x-\ma4)^2-\ma4^2+15=(x-4)^2-16+15=(x-4)^2-1\]</div>
-    <p>Así la parábola \(y=x^2-8x+15\) queda como \(y-(\az{-1})=(x-\az4)^2\), con vértice \(\az{(4,-1)}\): el mismo que da \(h=\frac{-b}{2a}\).</p>
-    <h4>En una circunferencia: \(x^2+y^2-2x+6y-6=0\)</h4>
-    <p>Se completa por separado el grupo de las \(x\) y el de las \(y\):</p>
-    <div class="math">\[\am{x^2-2x}+\ce{y^2+6y}=6\]</div>
-    <div class="math">\[\am{(x-1)^2-1}+\ce{(y+3)^2-9}=6\]</div>
-    <div class="math">\[(x-1)^2+(y+3)^2=6+1+9=16=4^2\]</div>
-    <p>Centro \(\az{(1,-3)}\) y radio \(\az4\). Los pasos completos para hallar centro y radio están en la sección 2.</p>
+      <p class="paso">a) \(x^2+6x\)</p>
+      <p>La mitad de 6 es \(\ma3\):</p>
+      <div class="math">\[x^2+6x=(x+\ma3)^2-\ma3^2=(x+3)^2-9\]</div>
+      <p>Comprobación: \((x+3)^2-9=x^2+6x+9-9=x^2+6x\) ✓</p>
+      <p class="paso">b) \(x^2-10x\)</p>
+      <p>La mitad de −10 es \(\ma{-5}\):</p>
+      <div class="math">\[x^2-10x=(x-\ma5)^2-\ma5^2=(x-5)^2-25\]</div>
+      <p class="paso">c) \(y^2+4y\)</p>
+      <p>Con la otra variable es igual. La mitad de 4 es \(\ma2\):</p>
+      <div class="math">\[y^2+4y=(y+\ma2)^2-\ma2^2=(y+2)^2-4\]</div>
+      <p class="paso">d) \(x^2-5x\)</p>
+      <p>La mitad de −5 es \(\ma{-\tfrac52}\):</p>
+      <div class="math">\[x^2-5x=\left(x-\ma{\tfrac52}\right)^2-\left(\ma{\tfrac52}\right)^2=\left(x-\tfrac52\right)^2-\tfrac{25}4\]</div>
+      <p class="paso">e) \(2x^2-12x\)</p>
+      <p>Primero se saca factor común 2:</p>
+      <div class="math">\[2x^2-12x=2(x^2-6x)\]</div>
+      <div class="math">\[=2\big[(x-\ma3)^2-\ma3^2\big]=2(x-3)^2-18\]</div>
+      <p class="paso">f) \(x^2-8x+15\)</p>
+      <p>Se completa con \(x^2-8x\) y el 15 se suma al final:</p>
+      <div class="math">\[x^2-8x+15=(x-\ma4)^2-\ma4^2+15\]</div>
+      <div class="math">\[=(x-4)^2-16+15=(x-4)^2-1\]</div>
     </div>
+    <div class="resp"><b>Respuesta</b>a) \((x+3)^2-9\) · b) \((x-5)^2-25\) · c) \((y+2)^2-4\) · d) \(\left(x-\frac52\right)^2-\frac{25}4\) · e) \(2(x-3)^2-18\) · f) \((x-4)^2-1\)</div>
   </article>
 
   <article class="ej ex ex-teo" id="ex-t-cir-completar-2">
-    <div class="ej-head"><h3>Completar cuadrados: casos más difíciles</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-completar" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-completar">Ver la teoría ↑</button></span></div>
+    <div class="ej-head"><span class="num">T3</span><h3>Completar cuadrados: casos más difíciles</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-completar" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-completar">Ver la teoría ↑</button></span></div>
+    <div class="enun">Complete el cuadrado en cada caso:<br>a) \(-x^2+6x\) &nbsp; b) \(3x^2+12x-1\) &nbsp; c) \(x^2+3x+1\)<br>d) \(2x^2-5x\) &nbsp; e) \(x^2+\tfrac23x\)<br>f) Escriba \(4x^2+4y^2-8x+12y-3=0\) con los cuadrados completados.</div>
     <div class="sol">
-<p>En estos casos se muestra únicamente cómo queda el cuadrado completado. La mitad va en magenta.</p>
-    <h4>a) Coeficiente negativo: \(-x^2+6x\)</h4>
-    <p>Sacamos factor común \(-1\) y completamos dentro:</p>
-    <div class="math">\[-x^2+6x=-(x^2-6x)\]</div>
-    <div class="math">\[=-\big[(x-\ma3)^2-\ma3^2\big]\]</div>
-    <div class="math">\[=-(x-3)^2+9\]</div>
-    <p>Ojo: el \(-9\) de adentro sale como \(+9\), porque se multiplica por \(-1\).</p>
-    <h4>b) Coeficiente distinto de 1 y número suelto: \(3x^2+12x-1\)</h4>
-    <div class="math">\[3x^2+12x-1=3(x^2+4x)-1\]</div>
-    <div class="math">\[=3\big[(x+\ma2)^2-\ma2^2\big]-1\]</div>
-    <div class="math">\[=3(x+2)^2-12-1\]</div>
-    <div class="math">\[=3(x+2)^2-13\]</div>
-    <p>El \(-4\) de adentro se multiplica por 3 al salir: \(3\cdot(-4)=-12\).</p>
-    <h4>c) Coeficiente impar: \(x^2+3x+1\)</h4>
-    <p>La mitad de 3 es \(\ma{\tfrac32}\):</p>
-    <div class="math">\[x^2+3x+1=\left(x+\ma{\tfrac32}\right)^2-\left(\ma{\tfrac32}\right)^2+1\]</div>
-    <div class="math">\[=\left(x+\tfrac32\right)^2-\tfrac94+\tfrac44\]</div>
-    <div class="math">\[=\left(x+\tfrac32\right)^2-\tfrac54\]</div>
-    <h4>d) Factor común y fracción a la vez: \(2x^2-5x\)</h4>
-    <div class="math">\[2x^2-5x=2\left(x^2-\tfrac52x\right)\]</div>
-    <p>La mitad de \(-\tfrac52\) es \(\ma{-\tfrac54}\):</p>
-    <div class="math">\[=2\left[\left(x-\ma{\tfrac54}\right)^2-\left(\ma{\tfrac54}\right)^2\right]\]</div>
-    <div class="math">\[=2\left(x-\tfrac54\right)^2-2\cdot\tfrac{25}{16}\]</div>
-    <div class="math">\[=2\left(x-\tfrac54\right)^2-\tfrac{25}8\]</div>
-    <h4>e) Coeficiente fraccionario: \(x^2+\tfrac23x\)</h4>
-    <p>La mitad de \(\tfrac23\) es \(\ma{\tfrac13}\):</p>
-    <div class="math">\[x^2+\tfrac23x=\left(x+\ma{\tfrac13}\right)^2-\left(\ma{\tfrac13}\right)^2=\left(x+\tfrac13\right)^2-\tfrac19\]</div>
-    <h4>f) Dos variables con coeficiente 4: \(4x^2+4y^2-8x+12y-3=0\)</h4>
-    <p>Primero se divide todo entre 4 y luego se completa cada grupo:</p>
-    <div class="math">\[x^2+y^2-2x+3y-\tfrac34=0\]</div>
-    <div class="math">\[\am{x^2-2x}+\ce{y^2+3y}=\tfrac34\]</div>
-    <div class="math">\[\am{(x-\ma1)^2-\ma1^2}+\ce{\left(y+\ma{\tfrac32}\right)^2-\left(\ma{\tfrac32}\right)^2}=\tfrac34\]</div>
-    <div class="math">\[(x-1)^2+\left(y+\tfrac32\right)^2=\tfrac34+1+\tfrac94=4\]</div>
+      <p class="paso">a) Coeficiente negativo: \(-x^2+6x\)</p>
+      <p>Sacamos factor común \(-1\) y completamos dentro:</p>
+      <div class="math">\[-x^2+6x=-(x^2-6x)\]</div>
+      <div class="math">\[=-\big[(x-\ma3)^2-\ma3^2\big]\]</div>
+      <div class="math">\[=-(x-3)^2+9\]</div>
+      <p>El −9 de adentro sale como +9, porque se multiplica por −1.</p>
+      <p class="paso">b) Factor común y número suelto: \(3x^2+12x-1\)</p>
+      <div class="math">\[3x^2+12x-1=3(x^2+4x)-1\]</div>
+      <div class="math">\[=3\big[(x+\ma2)^2-\ma2^2\big]-1\]</div>
+      <div class="math">\[=3(x+2)^2-12-1=3(x+2)^2-13\]</div>
+      <p>El −4 de adentro se multiplica por 3 al salir: \(3\cdot(-4)=-12\).</p>
+      <p class="paso">c) Coeficiente impar: \(x^2+3x+1\)</p>
+      <p>La mitad de 3 es \(\ma{\tfrac32}\):</p>
+      <div class="math">\[x^2+3x+1=\left(x+\ma{\tfrac32}\right)^2-\left(\ma{\tfrac32}\right)^2+1\]</div>
+      <div class="math">\[=\left(x+\tfrac32\right)^2-\tfrac94+\tfrac44=\left(x+\tfrac32\right)^2-\tfrac54\]</div>
+      <p class="paso">d) Factor común y fracción: \(2x^2-5x\)</p>
+      <div class="math">\[2x^2-5x=2\left(x^2-\tfrac52x\right)\]</div>
+      <p>La mitad de \(-\tfrac52\) es \(\ma{-\tfrac54}\):</p>
+      <div class="math">\[=2\left[\left(x-\ma{\tfrac54}\right)^2-\left(\ma{\tfrac54}\right)^2\right]\]</div>
+      <div class="math">\[=2\left(x-\tfrac54\right)^2-2\cdot\tfrac{25}{16}=2\left(x-\tfrac54\right)^2-\tfrac{25}8\]</div>
+      <p class="paso">e) Coeficiente fraccionario: \(x^2+\tfrac23x\)</p>
+      <p>La mitad de \(\tfrac23\) es \(\ma{\tfrac13}\):</p>
+      <div class="math">\[x^2+\tfrac23x=\left(x+\ma{\tfrac13}\right)^2-\left(\ma{\tfrac13}\right)^2=\left(x+\tfrac13\right)^2-\tfrac19\]</div>
+      <p class="paso">f) Dos variables con coeficiente 4</p>
+      <p>Primero se divide todo entre 4 y luego se completa cada grupo:</p>
+      <div class="math">\[x^2+y^2-2x+3y-\tfrac34=0\]</div>
+      <div class="math">\[\am{x^2-2x}+\ce{y^2+3y}=\tfrac34\]</div>
+      <div class="math">\[\am{(x-\ma1)^2-\ma1^2}+\ce{\left(y+\ma{\tfrac32}\right)^2-\left(\ma{\tfrac32}\right)^2}=\tfrac34\]</div>
+      <div class="math">\[(x-1)^2+\left(y+\tfrac32\right)^2=\tfrac34+1+\tfrac94=4\]</div>
     </div>
+    <div class="resp"><b>Respuesta</b>a) \(-(x-3)^2+9\) · b) \(3(x+2)^2-13\) · c) \(\left(x+\frac32\right)^2-\frac54\) · d) \(2\left(x-\frac54\right)^2-\frac{25}8\) · e) \(\left(x+\frac13\right)^2-\frac19\) · f) \((x-1)^2+\left(y+\frac32\right)^2=4\)</div>
   </article>
 
   <article class="ej ex ex-teo" id="ex-t-cir-centro">
-    <div class="ej-head"><h3>Centro y radio</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-centro">Ver la teoría ↑</button></span></div>
+    <div class="ej-head"><span class="num">T4</span><h3>Centro y radio</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-completar" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-centro">Ver la teoría ↑</button></span></div>
+    <div class="enun">Halle el centro y el radio de la circunferencia \(x^2+y^2+4x-6y-12=0\) y grafíquela.</div>
     <div class="sol">
-<h4>Ejemplo: \(x^2+y^2+4x-6y-12=0\)</h4>
-    <div class="math">\[\am{x^2+4x}+\ce{y^2-6y}=12\]</div>
-    <div class="math">\[\am{(x+2)^2-2^2}+\ce{(y-3)^2-3^2}=12\]</div>
-    <div class="math">\[(x+2)^2+(y-3)^2=12+4+9=25=5^2\]</div>
-    <div class="math">\[(x-(\az{-2}))^2+(y-\az3)^2=\az5^2\]</div>
-    <div class="math">\[\az{C=(-2,3)},\ \az{r=5}\]</div>
-    <div class="plot" id="g-tc1"></div>
+      <p class="paso">Paso 1 · Juntar las x y las y</p>
+      <div class="math">\[\am{x^2+4x}+\ce{y^2-6y}=12\]</div>
+      <p class="paso">Paso 2 · Completar cuadrados</p>
+      <div class="math">\[\am{(x+2)^2-2^2}+\ce{(y-3)^2-3^2}=12\]</div>
+      <p class="paso">Paso 3 · Pasar los números al otro lado</p>
+      <div class="math">\[(x+2)^2+(y-3)^2=12+4+9=25=5^2\]</div>
+      <p class="paso">Paso 4 · Leer centro y radio</p>
+      <div class="math">\[(x-(\az{-2}))^2+(y-\az3)^2=\az5^2\]</div>
+      <div class="plot" id="g-tc1"></div>
     </div>
+    <div class="resp"><b>Respuesta</b>\(C=(-2,3)\), \(r=5\).</div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-cir-centro-2">
+    <div class="ej-head"><span class="num">T5</span><h3>Centro y radio (otra ecuación)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-completar" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-centro">Ver la teoría ↑</button></span></div>
+    <div class="enun">Halle el centro y el radio de la circunferencia \(x^2+y^2-2x+6y-6=0\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Juntar las x y las y</p>
+      <div class="math">\[\am{x^2-2x}+\ce{y^2+6y}=6\]</div>
+      <p class="paso">Paso 2 · Completar cuadrados</p>
+      <div class="math">\[\am{(x-1)^2-1}+\ce{(y+3)^2-9}=6\]</div>
+      <p class="paso">Paso 3 · Pasar los números al otro lado</p>
+      <div class="math">\[(x-1)^2+(y+3)^2=6+1+9=16=4^2\]</div>
+      <p class="paso">Paso 4 · Leer centro y radio</p>
+      <div class="math">\[(x-\az1)^2+(y-(\az{-3}))^2=\az4^2\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(C=(1,-3)\), \(r=4\).</div>
   </article>
 
   <article class="ej ex ex-teo" id="ex-t-cir-ejes">
-    <div class="ej-head"><h3>Interceptos y tangencia con los ejes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-ejes">Ver la teoría ↑</button></span></div>
+    <div class="ej-head"><span class="num">T6</span><h3>Interceptos y tangencia con los ejes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-ejes">Ver la teoría ↑</button></span></div>
+    <div class="enun">Para la circunferencia \((x-3)^2+(y-2)^2=4\), halle sus interceptos con los ejes e indique si es tangente a alguno de ellos.</div>
     <div class="sol">
-<h4>Ejemplo sencillo: \((x-3)^2+(y-2)^2=4\)</h4>
-    <p>Centro \(\az{(3,2)}\), radio \(\az2\). La altura del centro es \(|2|=2=r\): es tangente al eje \(x\).</p>
-    <div class="math">\[\na{y=0}:\ (x-3)^2+(\na0-2)^2=4\]</div>
-    <div class="math">\[(x-3)^2=0\]</div>
-    <div class="math">\[x=3\qquad\na{(3,0)}\ \text{(un solo punto: tangente)}\]</div>
-    <div class="math">\[\na{x=0}:\ (\na0-3)^2+(y-2)^2=4\]</div>
-    <div class="math">\[(y-2)^2=-5\]</div>
-    <p>Un cuadrado no puede ser negativo: no corta al eje \(y\) (la distancia del centro al eje \(y\) es 3, mayor que el radio).</p>
+      <p class="paso">Paso 1 · Centro y radio</p>
+      <p>Centro \(\az{(3,2)}\), radio \(\az2\).</p>
+      <p class="paso">Paso 2 · Eje x (y = 0)</p>
+      <div class="math">\[\na{y=0}:\ (x-3)^2+(\na0-2)^2=4\]</div>
+      <div class="math">\[(x-3)^2=0\]</div>
+      <div class="math">\[x=3\qquad\na{(3,0)}\]</div>
+      <p>Sale un solo punto: es tangente al eje \(x\). Coincide con la regla \(r=|k|=2\).</p>
+      <p class="paso">Paso 3 · Eje y (x = 0)</p>
+      <div class="math">\[\na{x=0}:\ (\na0-3)^2+(y-2)^2=4\]</div>
+      <div class="math">\[(y-2)^2=-5\]</div>
+      <p>Un cuadrado no puede ser negativo: no corta al eje \(y\). La distancia del centro al eje \(y\) es 3, mayor que el radio.</p>
     </div>
+    <div class="resp"><b>Respuesta</b>Es tangente al eje \(x\) en \((3,0)\) y no corta al eje \(y\).</div>
   </article>
 
   <article class="ej ex ex-teo" id="ex-t-cir-recta">
-    <div class="ej-head"><h3>Recta y circunferencia</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-recta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-recta">Ver la teoría ↑</button></span></div>
+    <div class="ej-head"><span class="num">T7</span><h3>Recta y circunferencia</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-recta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-recta">Ver la teoría ↑</button></span></div>
+    <div class="enun">Halle los puntos donde la recta \(y=x+2\) corta a la circunferencia \(x^2+y^2=10\).</div>
     <div class="sol">
-<h4>Ejemplo sencillo: \(x^2+y^2=10\) y \(y=x+2\)</h4>
-    <div class="math">\[\mo{\begin{cases}x^2+y^2=10\\y=x+2\end{cases}}\]</div>
-    <p>Reemplazamos \(y=x+2\) en la circunferencia:</p>
-    <div class="math">\[x^2+(\mo{x+2})^2=10\]</div>
-    <div class="math">\[x^2+x^2+4x+4=10\]</div>
-    <div class="math">\[2x^2+4x-6=0\]</div>
-    <p>Dividimos entre 2:</p>
-    <div class="aspa-wrap"><div class="aspa2" aria-label="Aspa simple"><span class="a-lead">\(x^2\)</span><span class="a-mid">\(+2x\)</span><span class="a-c">\(-3\)</span><span class="a-eq">\(=0\)</span><span class="a-v1">\(x\)</span><svg class="cross" viewBox="0 0 54 44" preserveAspectRatio="none" aria-hidden="true"><line x1="4" y1="6" x2="50" y2="38"/><line x1="4" y1="38" x2="50" y2="6"/></svg><span class="a-r1">\(+3\)</span><span class="a-v2">\(x\)</span><span class="a-r2">\(-1\)</span><span class="a-chk">Comprobación: \(x(-1)+x(+3)=2x\) ✓</span><span class="a-fac">\((x+3)(x-1)\)</span><span class="a-eq2">\(=0\)</span><span class="a-roots">\(x=\mo{-3}\qquad x=\mo1\)</span></div></div>
-    <div class="math">\[x=\mo1\to y=\mo1+2=3\qquad\mo{(1,3)}\]</div>
-    <div class="math">\[x=\mo{-3}\to y=\mo{-3}+2=-1\qquad\mo{(-3,-1)}\]</div>
-    <p>Dos soluciones: la recta es secante.</p>
+      <p class="paso">Paso 1 · Sistema</p>
+      <div class="math">\[\mo{\begin{cases}x^2+y^2=10\\y=x+2\end{cases}}\]</div>
+      <p class="paso">Paso 2 · Reemplazar la recta en la circunferencia</p>
+      <div class="math">\[x^2+(\mo{x+2})^2=10\]</div>
+      <div class="math">\[x^2+x^2+4x+4=10\]</div>
+      <div class="math">\[2x^2+4x-6=0\]</div>
+      <p>Dividimos entre 2:</p>
+      <div class="aspa-wrap"><div class="aspa2" aria-label="Aspa simple"><span class="a-lead">\(x^2\)</span><span class="a-mid">\(+2x\)</span><span class="a-c">\(-3\)</span><span class="a-eq">\(=0\)</span><span class="a-v1">\(x\)</span><svg class="cross" viewBox="0 0 54 44" preserveAspectRatio="none" aria-hidden="true"><line x1="4" y1="6" x2="50" y2="38"/><line x1="4" y1="38" x2="50" y2="6"/></svg><span class="a-r1">\(+3\)</span><span class="a-v2">\(x\)</span><span class="a-r2">\(-1\)</span><span class="a-chk">Comprobación: \(x(-1)+x(+3)=2x\) ✓</span><span class="a-fac">\((x+3)(x-1)\)</span><span class="a-eq2">\(=0\)</span><span class="a-roots">\(x=\mo{-3}\qquad x=\mo1\)</span></div></div>
+      <p class="paso">Paso 3 · Hallar y</p>
+      <div class="math">\[x=\mo1\to y=\mo1+2=3\qquad\mo{(1,3)}\]</div>
+      <div class="math">\[x=\mo{-3}\to y=\mo{-3}+2=-1\qquad\mo{(-3,-1)}\]</div>
+      <p>Hay dos soluciones: la recta es secante.</p>
     </div>
+    <div class="resp"><b>Respuesta</b>\((1,3)\) y \((-3,-1)\).</div>
   </article>
 
   <article class="ej ex ex-teo" id="ex-t-cir-tangente">
-    <div class="ej-head"><h3>Recta tangente en un punto</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-tangente">Ver la teoría ↑</button></span></div>
+    <div class="ej-head"><span class="num">T8</span><h3>Recta tangente (centro en el origen)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-tangente">Ver la teoría ↑</button></span></div>
+    <div class="enun">Halle la ecuación de la recta tangente a la circunferencia \(x^2+y^2=25\) en el punto \(T=(3,4)\).</div>
     <div class="sol">
-<h4>Ejemplo sencillo: tangente a \(x^2+y^2=25\) en \(\ma{T=(3,4)}\)</h4>
-    <p>El centro es \(\az{O=(0,0)}\). Pendiente del radio y de la tangente:</p>
-    <div class="math">\[\text{rc}(\ma T,\az O)=\frac{\ma4-\az0}{\ma3-\az0}=\frac43\]</div>
-    <div class="math">\[\na m\cdot\tfrac43=-1\]</div>
-    <div class="math">\[\na m=-\tfrac34\]</div>
-    <div class="math">\[y-\ma4=\na{-\tfrac34}(x-\ma3)\]</div>
-    <h4>Otro ejemplo, cuando el centro no es el origen: tangente a \(x^2-6x+y^2-8y=0\) en \(\ma{T=(7,7)}\)</h4>
-    <div class="math">\[\am{x^2-6x}+\ce{y^2-8y}=0\]</div>
-    <div class="math">\[\am{(x-3)^2-9}+\ce{(y-4)^2-16}=0\]</div>
-    <div class="math">\[(x-\az3)^2+(y-\az4)^2=\az5^2\]</div>
-    <p>Centro \(\az{C=(3,4)}\), radio \(\az5\).</p>
-    <div class="math">\[\text{rc}(\ma T,\az C)=\frac{\ma7-\az4}{\ma7-\az3}=\frac34\]</div>
-    <div class="math">\[\na m=-\frac43\]</div>
-    <div class="math">\[y-\ma7=\na{-\tfrac43}(x-\ma7)\]</div>
-    <div class="plot" id="g-tc2"></div>
+      <p class="paso">Paso 1 · Centro</p>
+      <p>El centro es \(\az{O=(0,0)}\).</p>
+      <p class="paso">Paso 2 · Pendiente del radio OT</p>
+      <div class="math">\[\text{rc}(\ma T,\az O)=\frac{\ma4-\az0}{\ma3-\az0}=\frac43\]</div>
+      <p class="paso">Paso 3 · Pendiente de la tangente (perpendicular al radio)</p>
+      <div class="math">\[\na m\cdot\tfrac43=-1\]</div>
+      <div class="math">\[\na m=-\tfrac34\]</div>
+      <p class="paso">Paso 4 · Ecuación punto-pendiente</p>
+      <div class="math">\[y-\ma4=\na{-\tfrac34}(x-\ma3)\]</div>
     </div>
+    <div class="resp"><b>Respuesta</b>\(y-4=-\frac34(x-3)\)</div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-cir-tangente-2">
+    <div class="ej-head"><span class="num">T9</span><h3>Recta tangente (centro fuera del origen)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-tangente t-cir-completar" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-tangente">Ver la teoría ↑</button></span></div>
+    <div class="enun">Halle la ecuación de la recta tangente a la circunferencia \(x^2-6x+y^2-8y=0\) en el punto \(T=(7,7)\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Centro y radio</p>
+      <div class="math">\[\am{x^2-6x}+\ce{y^2-8y}=0\]</div>
+      <div class="math">\[\am{(x-3)^2-9}+\ce{(y-4)^2-16}=0\]</div>
+      <div class="math">\[(x-\az3)^2+(y-\az4)^2=\az5^2\]</div>
+      <p class="paso">Paso 2 · Pendiente del radio CT</p>
+      <div class="math">\[\text{rc}(\ma T,\az C)=\frac{\ma7-\az4}{\ma7-\az3}=\frac34\]</div>
+      <p class="paso">Paso 3 · Pendiente de la tangente</p>
+      <div class="math">\[\na m\cdot\tfrac34=-1\]</div>
+      <div class="math">\[\na m=-\tfrac43\]</div>
+      <p class="paso">Paso 4 · Ecuación punto-pendiente</p>
+      <div class="math">\[y-\ma7=\na{-\tfrac43}(x-\ma7)\]</div>
+      <div class="plot" id="g-tc2"></div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(y-7=-\frac43(x-7)\)</div>
   </article>
 
   <h2 class="ex-group" id="grp-circunferencias-unidad">Ejemplos parecidos a los ejercicios de la unidad</h2>
@@ -2867,30 +2956,30 @@ window.MathJax={
 
   <h2 class="ex-group" id="grp-oferta-demanda-teo">Ejemplos de la teoría</h2>
   <article class="ej ex ex-teo" id="ex-t-od-completo">
-    <div class="ej-head"><h3>Ejemplo completo: oferta, demanda, equilibrio y excedentes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-od-ecuacion">Ver la teoría ↑</button></span></div>
+    <div class="ej-head"><span class="num">T1</span><h3>Oferta, demanda, equilibrio y excedentes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-od-ecuacion">Ver la teoría ↑</button></span></div>
+    <div class="enun">Un productor oferta 5 unidades cuando el precio unitario es 30 soles y 10 unidades cuando es 40 soles. Un comprador puede gastar 100 soles en 2 unidades y, por cada 10 soles de aumento en el precio, deja de comprar 2 unidades. Suponiendo que la oferta y la demanda son lineales:<br>a) Halle sus ecuaciones y explique el significado de las pendientes.<br>b) Halle el punto de equilibrio.<br>c) Calcule los excedentes del consumidor y del productor.</div>
     <div class="sol">
-<p class="enun">Un productor oferta 5 unidades de un producto cuando el precio unitario llega a 30 soles, y ofertará 10 unidades cuando el precio alcance los 40 soles. Al mismo tiempo, un comprador puede gastar 100 soles en dos unidades y, por cada 10 soles de aumento en el precio unitario, dejará de comprar 2 unidades. Asumiendo que la oferta y la demanda son lineales, descríbalas y explique el significado de las pendientes.</p>
-    <p class="paso">Oferta con (5, 30) y (10, 40)</p>
-    <div class="math">\[m=\frac{\az{40}-\az{30}}{\az{10}-\az5}=\frac{10}{5}=2\]</div>
-    <div class="math">\[p-\az{30}=2(q-\az5)\]</div>
-    <div class="math">\[\az{p=2q+20}\]</div>
-    <p class="paso">Demanda</p>
-    <p>"100 soles en 2 unidades" es un precio de 50 por unidad: \(\na{(2,50)}\). La pendiente es \(m=\frac{10}{-2}=-5\).</p>
-    <div class="math">\[p-\na{50}=-5(q-\na2)\]</div>
-    <div class="math">\[\na{p=-5q+60}\]</div>
-    <p>Las pendientes significan: el productor pide 2 soles más por cada unidad extra, y el consumidor paga 5 soles menos por cada unidad extra.</p>
-    <p class="paso">Equilibrio</p>
-    <div class="math">\[\mo{2q+20=-5q+60}\]</div>
-    <div class="math">\[7q=40\]</div>
-    <div class="math">\[q_e=\frac{40}7\]</div>
-    <div class="math">\[p_e=2\left(\mo{\tfrac{40}7}\right)+20=\frac{80}7+\frac{140}7=\frac{220}7\]</div>
-    <div class="math">\[\mo{\left(\tfrac{40}7,\tfrac{220}7\right)}\]</div>
-    <p class="paso">Excedentes</p>
-    <div class="math">\[EC=\frac{\ve{\frac{40}7}\left(60-\mo{\frac{220}7}\right)}2=\frac{\frac{40}7\cdot\frac{200}7}{2}=\frac{4000}{49}\]</div>
-    <div class="math">\[EP=\frac{\ve{\frac{40}7}\left(\mo{\frac{220}7}-20\right)}2=\frac{\frac{40}7\cdot\frac{80}7}2=\frac{1600}{49}\]</div>
-    <p>Excedente total: \(\frac{5600}{49}=\frac{800}7\).</p>
-    <div class="plot" id="g-to1"></div>
+      <p class="paso">a) Oferta con (5, 30) y (10, 40)</p>
+      <div class="math">\[m=\frac{\az{40}-\az{30}}{\az{10}-\az5}=\frac{10}{5}=2\]</div>
+      <div class="math">\[p-\az{30}=2(q-\az5)\]</div>
+      <div class="math">\[\az{p=2q+20}\]</div>
+      <p class="paso">a) Demanda</p>
+      <p>"100 soles en 2 unidades" es un precio de 50 por unidad: \(\na{(2,50)}\). La pendiente es \(m=\frac{10}{-2}=-5\).</p>
+      <div class="math">\[p-\na{50}=-5(q-\na2)\]</div>
+      <div class="math">\[\na{p=-5q+60}\]</div>
+      <p>Significado: el productor pide 2 soles más por cada unidad extra, y el consumidor paga 5 soles menos por cada unidad extra.</p>
+      <p class="paso">b) Equilibrio</p>
+      <div class="math">\[\mo{2q+20=-5q+60}\]</div>
+      <div class="math">\[7q=40\]</div>
+      <div class="math">\[q_e=\frac{40}7\]</div>
+      <div class="math">\[p_e=2\left(\mo{\tfrac{40}7}\right)+20=\frac{80}7+\frac{140}7=\frac{220}7\]</div>
+      <div class="math">\[\mo{\left(\tfrac{40}7,\tfrac{220}7\right)}\]</div>
+      <p class="paso">c) Excedentes</p>
+      <div class="math">\[EC=\frac{\ve{\frac{40}7}\left(60-\mo{\frac{220}7}\right)}2=\frac{\frac{40}7\cdot\frac{200}7}{2}=\frac{4000}{49}\]</div>
+      <div class="math">\[EP=\frac{\ve{\frac{40}7}\left(\mo{\frac{220}7}-20\right)}2=\frac{\frac{40}7\cdot\frac{80}7}2=\frac{1600}{49}\]</div>
+      <div class="plot" id="g-to1"></div>
     </div>
+    <div class="resp"><b>Respuesta</b>a) \(O:p=2q+20\), \(D:p=-5q+60\) · b) \(\left(\frac{40}7,\frac{220}7\right)\) · c) \(EC=\frac{4000}{49}\), \(EP=\frac{1600}{49}\)</div>
   </article>
 
   <h2 class="ex-group" id="grp-oferta-demanda-unidad">Ejemplos parecidos a los ejercicios de la unidad</h2>
