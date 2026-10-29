@@ -1,0 +1,16 @@
+{
+  "name": "Unidad 4: Teoría y Ejercicios",
+  "short_name": "Unidad 4",
+  "description": "Parábolas, circunferencias y oferta y demanda: teoría, ejercicios resueltos paso a paso y ejemplos de práctica.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f7fa",
+  "theme_color": "#1f5fd1",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

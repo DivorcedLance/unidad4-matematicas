@@ -531,7 +531,7 @@
   const root=document.documentElement, mq=window.matchMedia('(prefers-color-scheme: dark)');
   const isDark=()=>{const t=root.getAttribute('data-theme');return t?t==='dark':mq.matches};
   const themeBtn=document.getElementById('theme-btn'), themeTxt=document.getElementById('theme-txt');
-  function paintBtn(){const d=isDark();themeTxt.textContent=d?'Modo claro':'Modo oscuro';themeBtn.setAttribute('aria-label',d?'Cambiar a modo claro':'Cambiar a modo oscuro')}
+  function paintBtn(){const d=isDark();const mt=document.getElementById('meta-theme');if(mt)mt.setAttribute('content',d?'#11141b':'#f6f7fa');themeTxt.textContent=d?'Modo claro':'Modo oscuro';themeBtn.setAttribute('aria-label',d?'Cambiar a modo claro':'Cambiar a modo oscuro')}
   themeBtn.addEventListener('click',()=>{const next=isDark()?'light':'dark';root.setAttribute('data-theme',next);try{localStorage.setItem('tema',next)}catch(e){}paintBtn()});
   mq.addEventListener&&mq.addEventListener('change',paintBtn);
   paintBtn();
