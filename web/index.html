@@ -106,7 +106,7 @@ article.ej.flash{box-shadow:0 0 0 3px var(--blue)}
 .teo-body h2{font-size:1.05rem}
 .teo-body ol,.teo-body ul{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:4px}
 .teo-card .teo-go{margin-left:0;align-self:flex-start}
-@media (max-width:560px){.teo-card{left:12px!important;right:12px;width:auto;top:auto!important;bottom:12px;max-height:65vh}}
+
 .chip.ok{color:var(--green);background:var(--green-soft)}
 .chip.bad{color:var(--red);background:var(--red-soft)}
 .chip.warnc{color:var(--amber);background:var(--amber-soft)}
@@ -172,7 +172,7 @@ svg.sk .sk-var{font-style:italic;font-family:var(--f-body);font-size:19px}
 svg.sk .sk-az{fill:var(--blue)} svg.sk text.sk-na{fill:var(--orange)} svg.sk .sk-ma{fill:var(--magenta)}
 svg.sk .sk-ve{fill:var(--green)} svg.sk .sk-dt{fill:var(--magenta)}
 svg.sk .sk-cap{font-size:14px;font-weight:600;fill:var(--muted)}
-@media (max-width:600px){.aspa2 .a-chk{grid-column:1 / 6;grid-row:7;justify-self:center;padding-left:0;margin-top:6px;white-space:normal;text-align:center}}
+@media (max-width:600px){.aspa2 .a-chk{grid-column:1 / -1;grid-row:7;justify-self:center;padding-left:0;margin-top:6px;white-space:normal;text-align:center;width:0;min-width:100%}}
 .t-az{color:var(--blue);font-weight:600} .t-na{color:var(--orange);font-weight:600} .t-mo{color:var(--purple);font-weight:600} .t-ve{color:var(--green);font-weight:600} .t-ma{color:var(--magenta);font-weight:600}
 .hl-am{background:var(--hl-yellow);padding:0 3px;border-radius:3px} .hl-ce{background:var(--hl-cyan);padding:0 3px;border-radius:3px}
 /* colores dentro de las fórmulas (MathJax SVG) */
@@ -186,6 +186,58 @@ mjx-container rect[fill="cyan"]{fill:var(--hl-cyan)}
 :focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 @media (max-width:480px){body{font-size:16px} h1{font-size:1.8rem} article.ej,.box{padding:14px} .tab{padding:8px 11px;font-size:.92rem}}
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important}}
+
+/* ---------- fórmulas: versión de celular y ajuste de ancho ---------- */
+.math.m-only{display:none}
+.math.scrolls{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);padding-bottom:4px}
+/* ---------- tarjeta arrastrable ---------- */
+.teo-card .teo-top{cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;gap:8px;justify-content:flex-start}
+.teo-card.dragging .teo-top{cursor:grabbing}
+.teo-card .teo-top .teo-close{margin-left:auto}
+.teo-grip{width:14px;height:18px;flex:none;background-image:radial-gradient(circle,var(--muted) 1.4px,transparent 1.6px);background-size:7px 6px;opacity:.8}
+.teo-hint{font-size:.72rem;color:var(--muted);font-family:var(--f-body);font-style:italic}
+.teo-card.pinned{border-width:2px}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{gap:16px;padding-block:20px 64px}
+  .top{flex-wrap:nowrap;align-items:flex-start}
+  .top .label{font-size:.66rem;line-height:1.5;min-width:0}
+  .theme-btn{padding:5px 10px;font-size:.78rem;white-space:nowrap;flex:none}
+  h1{font-size:1.55rem}
+  header .lead{font-size:.92rem}
+  .topics{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .topic{padding:10px 8px;border-radius:10px;text-align:center;justify-content:center}
+  .topic .t-name{font-size:.86rem;line-height:1.25}
+  .topic .t-sub{display:none}
+  .tabs{gap:2px;overflow:visible}
+  .tab{flex:1;text-align:center;padding:8px 4px;font-size:.88rem}
+  .tab-long{display:none}
+  .tab-n{font-size:.78em;opacity:.8}
+  .legend{font-size:.82rem;padding:8px 12px}
+  article.ej,.box{padding:14px 12px}
+  .ej-head{gap:6px 10px}
+  .ej-head h3{font-size:1rem}
+  .head-btns{margin-left:0;width:100%;justify-content:flex-start}
+  .sim-btn,.teo-btn{font-size:.76rem;padding:5px 11px}
+  .enun{font-size:.9rem;padding-left:10px}
+  .paso{font-size:.86rem}
+  .math.d-only{display:none}
+  .math.m-only{display:block}
+  .resp,.err,.warn{padding:10px 12px}
+  .jump{gap:5px}
+  .jump button{min-width:36px;padding:7px 6px}
+  /* tablas de errores como tarjetas */
+  .tbl table{min-width:0}
+  .tbl thead{display:none}
+  .tbl table,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
+  .tbl tr{border:1px solid var(--rule);border-radius:8px;padding:8px 10px;margin-bottom:8px}
+  .tbl td{border:none;padding:3px 0;white-space:normal}
+  .tbl td:first-child{font-size:.95rem}
+  .tbl td:first-child::before{content:"Ejercicio "}
+  .tbl td[data-label]:not(:first-child)::before{content:attr(data-label) ": ";display:block;font-family:var(--f-display);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .aspa2{font-size:1rem;column-gap:6px}
+  .teo-card{width:calc(100vw - 24px);max-height:62vh}
+}
 </style>
 
 <script>
@@ -224,7 +276,7 @@ window.MathJax={
 
 <div class="tabs" role="tablist" aria-label="Contenido">
   <button class="tab" role="tab" id="tab-teoria" data-tab="teoria" aria-selected="true">Teoría</button>
-  <button class="tab" role="tab" id="tab-ejercicios" data-tab="ejercicios" aria-selected="false">Ejercicios resueltos</button>
+  <button class="tab" role="tab" id="tab-ejercicios" data-tab="ejercicios" aria-selected="false">Ejercicios</button>
   <button class="tab" role="tab" id="tab-ejemplos" data-tab="ejemplos" aria-selected="false">Ejemplos</button>
 </div>
 
@@ -298,7 +350,8 @@ window.MathJax={
   <div class="box" id="t-par-area">
     <h2 class="t-ve">5. Área de un triángulo con sus vértices</h2>
     <p>Se escriben los vértices en columna, repitiendo el primero al final, y se multiplica en cruz:</p>
-    <div class="math">\[A=\frac12\left|\begin{matrix}x_1&amp;y_1\\x_2&amp;y_2\\x_3&amp;y_3\\x_1&amp;y_1\end{matrix}\right|=\frac12\Big|\big(x_1y_2+x_2y_3+x_3y_1\big)-\big(y_1x_2+y_2x_3+y_3x_1\big)\Big|\]</div>
+    <div class="math d-only">\[A=\frac12\left|\begin{matrix}x_1&amp;y_1\\x_2&amp;y_2\\x_3&amp;y_3\\x_1&amp;y_1\end{matrix}\right|=\frac12\Big|\big(x_1y_2+x_2y_3+x_3y_1\big)-\big(y_1x_2+y_2x_3+y_3x_1\big)\Big|\]</div>
+    <div class="math m-only">\[\begin{aligned}A &=\frac12\left|\begin{matrix}x_1&amp;y_1\\x_2&amp;y_2\\x_3&amp;y_3\\x_1&amp;y_1\end{matrix}\right|\\&=\frac12\Big|\big(x_1y_2+x_2y_3+x_3y_1\big)\\&\qquad-\big(y_1x_2+y_2x_3+y_3x_1\big)\Big|\end{aligned}\]</div>
     <button class="sim-btn box-link" type="button" data-goto="ex-p4">Ver un ejemplo →</button>
   </div>
 </div>
@@ -409,7 +462,8 @@ window.MathJax={
       <div class="math">\[\mo{(-1,4)}\]</div>
       <p class="paso">Paso 3 · Área del triángulo</p>
       <p>Vértices: \(\az{(1,0)}\), \(\mo{(2,1)}\) y \(\mo{(-1,4)}\).</p>
-      <div class="math">\[\ve A=\frac12\left|\begin{matrix}\az1&amp;\az0\\\mo2&amp;\mo1\\\mo{-1}&amp;\mo4\\\az1&amp;\az0\end{matrix}\right|=\frac12\Big|\big(1\cdot1+2\cdot4+(-1)\cdot0\big)-\big(0\cdot2+1\cdot(-1)+4\cdot1\big)\Big|\]</div>
+      <div class="math d-only">\[\ve A=\frac12\left|\begin{matrix}\az1&amp;\az0\\\mo2&amp;\mo1\\\mo{-1}&amp;\mo4\\\az1&amp;\az0\end{matrix}\right|=\frac12\Big|\big(1\cdot1+2\cdot4+(-1)\cdot0\big)-\big(0\cdot2+1\cdot(-1)+4\cdot1\big)\Big|\]</div>
+      <div class="math m-only">\[\begin{aligned}\ve A &=\frac12\left|\begin{matrix}\az1&amp;\az0\\\mo2&amp;\mo1\\\mo{-1}&amp;\mo4\\\az1&amp;\az0\end{matrix}\right|\\&=\frac12\Big|\big(1\cdot1+2\cdot4+(-1)\cdot0\big)\\&\qquad-\big(0\cdot2+1\cdot(-1)+4\cdot1\big)\Big|\end{aligned}\]</div>
       <div class="math">\[\ve A=\frac12\big|(1+8+0)-(0-1+4)\big|=\frac12(9-3)=\ve{3}\]</div>
       <div class="plot" id="g-p4"></div>
     </div>
@@ -453,7 +507,8 @@ window.MathJax={
       <p>Cada solución \(x\) de esta ecuación da un punto de intersección. Entonces hay un único punto cuando esta ecuación tiene una única solución.</p>
       <p class="paso">Paso 2 · Observar que x = 1 siempre es solución</p>
       <p>Reemplazando \(x=\mo1\):</p>
-      <div class="math">\[(a-b)(\mo1)^2+(b-c)(\mo1)+(c-a)=a-b+b-c+c-a=0\]</div>
+      <div class="math d-only">\[(a-b)(\mo1)^2+(b-c)(\mo1)+(c-a)=a-b+b-c+c-a=0\]</div>
+      <div class="math m-only">\[\begin{aligned}(a-b)(\mo1)^2+(b-c)(\mo1)+(c-a) &=a-b+b-c+c-a\\&=0\end{aligned}\]</div>
       <p>Por eso se puede factorizar \((x-1)\):</p>
       <div class="math">\[(x-1)\big[(a-b)x-(c-a)\big]=0\]</div>
       <p class="paso">Paso 3 · Caso a ≠ b</p>
@@ -464,7 +519,8 @@ window.MathJax={
       <div class="math">\[a=\frac{b+c}{2}\]</div>
       <p class="paso">Paso 4 · Caso a = b</p>
       <p>Reemplazando \(b=\ma a\), la ecuación queda de primer grado:</p>
-      <div class="math">\[(\ma a-c)x+(c-a)=(a-c)x-(a-c)=(a-c)(x-1)=0\]</div>
+      <div class="math d-only">\[(\ma a-c)x+(c-a)=(a-c)x-(a-c)=(a-c)(x-1)=0\]</div>
+      <div class="math m-only">\[\begin{aligned}(\ma a-c)x+(c-a) &=(a-c)x-(a-c)\\&=(a-c)(x-1)\\&=0\end{aligned}\]</div>
       <ul>
         <li>Si \(a\neq c\): solo \(x=1\). Hay un único punto.</li>
         <li>Si \(a=c\) (es decir, \(a=b=c\)): queda \(0=0\). Las dos parábolas son la misma y tienen infinitos puntos en común.</li>
@@ -568,7 +624,8 @@ window.MathJax={
       <div class="math">\[y=\frac{x^2}{400}+10\]</div>
       <p class="paso">Paso 3 · 50 m a la derecha de la torre izquierda</p>
       <div class="math">\[x=-200+50=\ma{-150}\]</div>
-      <div class="math">\[y=\frac{(\ma{-150})^2}{400}+10=\frac{22\,500}{400}+10=56.25+10=66.25=\frac{265}4\ \text{m}\]</div>
+      <div class="math d-only">\[y=\frac{(\ma{-150})^2}{400}+10=\frac{22\,500}{400}+10=56.25+10=66.25=\frac{265}4\ \text{m}\]</div>
+      <div class="math m-only">\[\begin{aligned}y &=\frac{(\ma{-150})^2}{400}+10\\&=\frac{22\,500}{400}+10\\&=56.25+10\\&=66.25\\&=\frac{265}4\ \text{m}\end{aligned}\]</div>
       <p class="paso">Paso 4 · Punto a 14 m de altura</p>
       <div class="math">\[\frac{x^2}{400}+10=\ma{14}\]</div>
       <div class="math">\[x^2=1600\]</div>
@@ -591,9 +648,12 @@ window.MathJax={
       <p class="paso">Paso 2 · Evaluar cada afirmación</p>
       <p><b>a) «La utilidad máxima es 2 000 dólares y se obtiene con 4 000 CDs.»</b> Falso. El máximo es 4 000 dólares con 2 000 CDs. Con 4 000 CDs: \(U(\ma4)=4(\ma4)-(\ma4)^2=16-16=0\).</p>
       <p><b>b) «U con 1 000 CDs = U con 3 000 CDs.»</b> Verdadero.</p>
-      <div class="math">\[U(\ma1)=4(\ma1)-(\ma1)^2=3\qquad U(\ma3)=4(\ma3)-(\ma3)^2=12-9=3\]</div>
+      <div class="math d-only">\[U(\ma1)=4(\ma1)-(\ma1)^2=3\qquad U(\ma3)=4(\ma3)-(\ma3)^2=12-9=3\]</div>
+      <div class="math m-only">\[\begin{aligned}U(\ma1) &=4(\ma1)-(\ma1)^2\\&=3\end{aligned}\]</div>
+      <div class="math m-only">\[\begin{aligned}U(\ma3) &=4(\ma3)-(\ma3)^2\\&=12-9\\&=3\end{aligned}\]</div>
       <p><b>c) «U con 1 800 CDs &gt; U con 3 000 CDs.»</b> Verdadero.</p>
-      <div class="math">\[U(\ma{1.8})=4(\ma{1.8})-(\ma{1.8})^2=7.2-3.24=3.96\gt3=U(3)\]</div>
+      <div class="math d-only">\[U(\ma{1.8})=4(\ma{1.8})-(\ma{1.8})^2=7.2-3.24=3.96\gt3=U(3)\]</div>
+      <div class="math m-only">\[\begin{aligned}U(\ma{1.8}) &=4(\ma{1.8})-(\ma{1.8})^2\\&=7.2-3.24\\&=3.96\gt3\\&=U(3)\end{aligned}\]</div>
       <p><b>d) «No hay beneficio si x ≥ 4 000.»</b> Verdadero. \(U(x)=x(4-x)\): en \(x=4\) vale 0 y para \(x\gt4\) es negativa.</p>
       <div class="plot" id="g-p9"></div>
     </div>
@@ -605,7 +665,9 @@ window.MathJax={
     <div class="enun">Dadas las parábolas de ecuaciones \(9y=8x^2+32x+44\ \wedge\ 9y=-4x^2+8x+32\):<br>• Indique los vértices de las parábolas.<br>• Indique los puntos de intersección de las parábolas con los ejes coordenados.<br>• Indique el o los puntos de intersección entre las parábolas.<br>• Grafique las parábolas.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Despejar y</p>
-      <div class="math">\[P_1:\ y=\frac89x^2+\frac{32}9x+\frac{44}9\qquad\qquad P_2:\ y=-\frac49x^2+\frac89x+\frac{32}9\]</div>
+      <div class="math d-only">\[P_1:\ y=\frac89x^2+\frac{32}9x+\frac{44}9\qquad\qquad P_2:\ y=-\frac49x^2+\frac89x+\frac{32}9\]</div>
+      <div class="math m-only">\[P_1:\ y =\frac89x^2+\frac{32}9x+\frac{44}9\]</div>
+      <div class="math m-only">\[P_2:\ y =-\frac49x^2+\frac89x+\frac{32}9\]</div>
       <p class="paso">Paso 2 · Vértice de P₁</p>
       <div class="math">\[\az{h_1}=\frac{-\frac{32}9}{2\cdot\frac89}=\frac{-\frac{32}9}{\frac{16}9}=\az{-2}\]</div>
       <div class="math">\[9y=8(\az{-2})^2+32(\az{-2})+44=32-64+44=12\]</div>
@@ -654,7 +716,8 @@ window.MathJax={
       <div class="math">\[\na{y=0}\to-x^2+4x+6=0\]</div>
       <div class="math">\[x^2-4x-6=0\]</div>
       <p>No hay dos enteros que multiplicados den \(-6\) y sumados den \(-4\), así que no sale por aspa. Usamos la fórmula general con \(a=1\), \(b=-4\), \(c=-6\):</p>
-      <div class="math">\[x=\frac{-(-4)\pm\sqrt{(-4)^2-4(1)(-6)}}{2(1)}=\frac{4\pm\sqrt{40}}2=\frac{4\pm2\sqrt{10}}2=2\pm\sqrt{10}\]</div>
+      <div class="math d-only">\[x=\frac{-(-4)\pm\sqrt{(-4)^2-4(1)(-6)}}{2(1)}=\frac{4\pm\sqrt{40}}2=\frac{4\pm2\sqrt{10}}2=2\pm\sqrt{10}\]</div>
+      <div class="math m-only">\[\begin{aligned}x &=\frac{-(-4)\pm\sqrt{(-4)^2-4(1)(-6)}}{2(1)}\\&=\frac{4\pm\sqrt{40}}2\\&=\frac{4\pm2\sqrt{10}}2\\&=2\pm\sqrt{10}\end{aligned}\]</div>
       <div class="math">\[\na{(2-\sqrt{10},0)}\qquad\na{(2+\sqrt{10},0)}\]</div>
       <p>Con el eje \(y\): \(\na{x=0}\to y=-(\na0)^2+4(\na0)+6=6\), punto \(\na{(0,6)}\).</p>
       <p class="paso">Paso 3 · Área</p>
@@ -734,7 +797,8 @@ window.MathJax={
       <p class="paso">Paso 2 · Hallar h</p>
       <div class="math">\[\az h=\frac{-(-48)}{2(-2)}=\frac{48}{-4}=\az{-12}\]</div>
       <p class="paso">Paso 3 · Hallar k (reemplazar x = −12)</p>
-      <div class="math">\[\az k=-2(\az{-12})^2-48(\az{-12})+200=-288+576+200=\az{488}\]</div>
+      <div class="math d-only">\[\az k=-2(\az{-12})^2-48(\az{-12})+200=-288+576+200=\az{488}\]</div>
+      <div class="math m-only">\[\begin{aligned}\az k &=-2(\az{-12})^2-48(\az{-12})+200\\&=-288+576+200\\&=\az{488}\end{aligned}\]</div>
       <p class="paso">Paso 4 · ¿Máximo o mínimo?</p>
       <p>Como \(a=-2\lt 0\), la parábola abre hacia abajo: el vértice es el punto más alto, así que \(k\) es un valor <b>máximo</b>.</p>
     </div>
@@ -954,7 +1018,8 @@ window.MathJax={
       <div class="math">\[\mo{(4,4)}\]</div>
       <p class="paso">Paso 3 · Área del triángulo</p>
       <p>Vértices: \(\az{(2,0)}\), \(\mo{(1,1)}\) y \(\mo{(4,4)}\).</p>
-      <div class="math">\[\ve A=\frac12\left|\begin{matrix}\az2&\az0\\\mo1&\mo1\\\mo4&\mo4\\\az2&\az0\end{matrix}\right|=\frac12\Big|\big(2\cdot1+1\cdot4+4\cdot0\big)-\big(0\cdot1+1\cdot4+4\cdot2\big)\Big|\]</div>
+      <div class="math d-only">\[\ve A=\frac12\left|\begin{matrix}\az2&\az0\\\mo1&\mo1\\\mo4&\mo4\\\az2&\az0\end{matrix}\right|=\frac12\Big|\big(2\cdot1+1\cdot4+4\cdot0\big)-\big(0\cdot1+1\cdot4+4\cdot2\big)\Big|\]</div>
+      <div class="math m-only">\[\begin{aligned}\ve A &=\frac12\left|\begin{matrix}\az2&\az0\\\mo1&\mo1\\\mo4&\mo4\\\az2&\az0\end{matrix}\right|\\&=\frac12\Big|\big(2\cdot1+1\cdot4+4\cdot0\big)\\&\qquad-\big(0\cdot1+1\cdot4+4\cdot2\big)\Big|\end{aligned}\]</div>
       <div class="math">\[\ve A=\frac12\big|6-12\big|=\frac12(6)=\ve3\]</div>
       <div class="plot" id="g-ex-p4"></div>
     </div>
@@ -976,7 +1041,8 @@ window.MathJax={
       <div class="math">\[x=\mo4\to y=\mo4+1=5\qquad\mo{(4,5)}\]</div>
       <div class="math">\[x=\mo{-1}\to y=\mo{-1}+1=0\qquad\mo{(-1,0)}\]</div>
       <p class="paso">Paso 3 · Área del triángulo</p>
-      <div class="math">\[\ve A=\frac12\left|\begin{matrix}\az1&\az{-4}\\\mo4&\mo5\\\mo{-1}&\mo0\\\az1&\az{-4}\end{matrix}\right|=\frac12\Big|\big(1\cdot5+4\cdot0+(-1)(-4)\big)-\big((-4)\cdot4+5\cdot(-1)+0\cdot1\big)\Big|\]</div>
+      <div class="math d-only">\[\ve A=\frac12\left|\begin{matrix}\az1&\az{-4}\\\mo4&\mo5\\\mo{-1}&\mo0\\\az1&\az{-4}\end{matrix}\right|=\frac12\Big|\big(1\cdot5+4\cdot0+(-1)(-4)\big)-\big((-4)\cdot4+5\cdot(-1)+0\cdot1\big)\Big|\]</div>
+      <div class="math m-only">\[\begin{aligned}\ve A &=\frac12\left|\begin{matrix}\az1&\az{-4}\\\mo4&\mo5\\\mo{-1}&\mo0\\\az1&\az{-4}\end{matrix}\right|\\&=\frac12\Big|\big(1\cdot5+4\cdot0+(-1)(-4)\big)\\&\qquad-\big((-4)\cdot4+5\cdot(-1)+0\cdot1\big)\Big|\end{aligned}\]</div>
       <div class="math">\[\ve A=\frac12\big|9-(-21)\big|=\frac12(30)=\ve{15}\]</div>
       <div class="plot" id="g-ex-p4b"></div>
     </div>
@@ -1230,7 +1296,9 @@ window.MathJax={
       <div class="math">\[U(\ma1)=-(\ma1)^2+8(\ma1)-12=-5\]</div>
       <p>Pierde 5 000 dólares.</p>
       <p><b>c)</b> Falso: son iguales.</p>
-      <div class="math">\[U(\ma3)=-9+24-12=3\qquad U(\ma5)=-25+40-12=3\]</div>
+      <div class="math d-only">\[U(\ma3)=-9+24-12=3\qquad U(\ma5)=-25+40-12=3\]</div>
+      <div class="math m-only">\[\begin{aligned}U(\ma3) &=-9+24-12\\&=3\end{aligned}\]</div>
+      <div class="math m-only">\[\begin{aligned}U(\ma5) &=-25+40-12\\&=3\end{aligned}\]</div>
       <p><b>d)</b> Verdadero, por el paso 2.</p>
       <div class="plot" id="g-ex-p9b"></div>
     </div>
@@ -1397,8 +1465,12 @@ window.MathJax={
       <div class="math">\[k=1\qquad k=-1\]</div>
       <p class="paso">Paso 3 · Punto de tangencia</p>
       <p>La única raíz es \(x=\frac{-b}{2a}=\frac{-2}{2k}=-\frac1k\):</p>
-      <div class="math">\[k=1:\quad x=\ma{-1},\quad y=-2(\ma{-1})-1=1\qquad\ma{(-1,1)}\in\text{IIC}\]</div>
-      <div class="math">\[k=-1:\quad x=\ma1,\quad y=-2(\ma1)+1=-1\qquad\ma{(1,-1)}\in\text{IVC}\]</div>
+      <div class="math d-only">\[k=1:\quad x=\ma{-1},\quad y=-2(\ma{-1})-1=1\qquad\ma{(-1,1)}\in\text{IIC}\]</div>
+      <div class="math m-only">\[\begin{aligned}k &=1:\quad x\\&=\ma{-1},\quad y\\&=-2(\ma{-1})-1\\&=1\end{aligned}\]</div>
+      <div class="math m-only">\[\ma{(-1,1)}\in\text{IIC}\]</div>
+      <div class="math d-only">\[k=-1:\quad x=\ma1,\quad y=-2(\ma1)+1=-1\qquad\ma{(1,-1)}\in\text{IVC}\]</div>
+      <div class="math m-only">\[\begin{aligned}k &=-1:\quad x\\&=\ma1,\quad y\\&=-2(\ma1)+1\\&=-1\end{aligned}\]</div>
+      <div class="math m-only">\[\ma{(1,-1)}\in\text{IVC}\]</div>
       <p class="paso">Comprobación con k = −1</p>
       <div class="math">\[-x^2=-2x+1\]</div>
       <div class="math">\[x^2-2x+1=0\]</div>
@@ -1534,7 +1606,8 @@ window.MathJax={
       <div class="math">\[(x-\az0)^2+(y-\az1)^2=\az1^2\]</div>
       <p>\(\az{C=(0,1)}\), \(\az{r=1}\)</p>
       <p class="paso">b) \(2x^2+2(y-1)^2-3=15\)</p>
-      <div class="math">\[2x^2+2(y-1)^2=18\ \xrightarrow{\ \div2\ }\ (x-\az0)^2+(y-\az1)^2=9=\az3^2\]</div>
+      <div class="math d-only">\[2x^2+2(y-1)^2=18\ \xrightarrow{\ \div2\ }\ (x-\az0)^2+(y-\az1)^2=9=\az3^2\]</div>
+      <div class="math m-only">\[\begin{aligned}2x^2+2(y-1)^2 &=18\ \xrightarrow{\ \div2\ }\ (x-\az0)^2+(y-\az1)^2\\&=9\\&=\az3^2\end{aligned}\]</div>
       <p>\(\az{C=(0,1)}\), \(\az{r=3}\)</p>
       <p class="paso">c) \(x^2+2x+y^2-2y=0\)</p>
       <div class="math">\[\am{x^2+2x}+\ce{y^2-2y}=0\]</div>
@@ -1558,7 +1631,8 @@ window.MathJax={
       <div class="math">\[\am{2(x-1)^2}+\ce{2y^2-2y}=3\]</div>
       <div class="math">\[\am{2(x-1)^2}+\ce{2\left[\left(y-\tfrac12\right)^2-\tfrac14\right]}=3\]</div>
       <div class="math">\[2(x-1)^2+2\left(y-\tfrac12\right)^2-\tfrac12=3\]</div>
-      <div class="math">\[2(x-1)^2+2\left(y-\tfrac12\right)^2=\tfrac72\ \xrightarrow{\ \div2\ }\ (x-\az1)^2+\left(y-\az{\tfrac12}\right)^2=\tfrac74=\left(\az{\tfrac{\sqrt7}2}\right)^2\]</div>
+      <div class="math d-only">\[2(x-1)^2+2\left(y-\tfrac12\right)^2=\tfrac72\ \xrightarrow{\ \div2\ }\ (x-\az1)^2+\left(y-\az{\tfrac12}\right)^2=\tfrac74=\left(\az{\tfrac{\sqrt7}2}\right)^2\]</div>
+      <div class="math m-only">\[\begin{aligned}2(x-1)^2+2\left(y-\tfrac12\right)^2 &=\tfrac72\ \xrightarrow{\ \div2\ }\ (x-\az1)^2+\left(y-\az{\tfrac12}\right)^2\\&=\tfrac74\\&=\left(\az{\tfrac{\sqrt7}2}\right)^2\end{aligned}\]</div>
       <p>\(\az{C=(1,\frac12)}\), \(\az{r=\frac{\sqrt7}2}\)</p>
     </div>
     <div class="resp"><b>Respuesta</b>a) \((0,1)\), 1 · b) \((0,1)\), 3 · c) \((-1,1)\), \(\sqrt2\) · d) \((1,\frac12)\), \(\frac{\sqrt5}2\) · e) \((-2,3)\), 5 · f) \((1,\frac12)\), \(\frac{\sqrt7}2\)</div>
@@ -1579,7 +1653,8 @@ window.MathJax={
       <div class="math">\[17-k=(\az1)^2\]</div>
       <div class="math">\[k=16\]</div>
       <p class="paso">Comprobación</p>
-      <div class="math">\[(x-4)^2+(y-1)^2=1,\quad \na{y=0}:\ (x-4)^2+(\na0-1)^2=1\]</div>
+      <div class="math d-only">\[(x-4)^2+(y-1)^2=1,\quad \na{y=0}:\ (x-4)^2+(\na0-1)^2=1\]</div>
+      <div class="math m-only">\[\begin{aligned}(x-4)^2+(y-1)^2 &=1,\quad \na{y=0}:\ (x-4)^2+(\na0-1)^2\\&=1\end{aligned}\]</div>
       <div class="math">\[(x-4)^2=0\]</div>
       <div class="math">\[x=4\]</div>
       <p>Hay un solo punto, \((4,0)\).</p>
@@ -1729,7 +1804,9 @@ window.MathJax={
       <div class="math">\[\na m=\tfrac43\]</div>
       <div class="math">\[y-(\ma{-3})=\na{\tfrac43}(x-\ma4)\]</div>
       <p class="paso">Comprobación (las dos pasan por P = (7, 1))</p>
-      <div class="math">\[1-4=-\tfrac34(7-3)=-3\ ✓\qquad 1+3=\tfrac43(7-4)=4\ ✓\]</div>
+      <div class="math d-only">\[1-4=-\tfrac34(7-3)=-3\ ✓\qquad 1+3=\tfrac43(7-4)=4\ ✓\]</div>
+      <div class="math m-only">\[\begin{aligned}1-4 &=-\tfrac34(7-3)\\&=-3\ ✓\end{aligned}\]</div>
+      <div class="math m-only">\[\begin{aligned}1+3 &=\tfrac43(7-4)\\&=4\ ✓\end{aligned}\]</div>
       <div class="plot" id="g-c6"></div>
     </div>
     <div class="resp"><b>Respuesta</b>\(y-4=-\frac34(x-3)\) y \(y+3=\frac43(x-4)\)</div>
@@ -1813,7 +1890,8 @@ window.MathJax={
       <div class="math">\[\na{x=0}\to y=\na0-2=-2\]</div>
       <div class="math">\[\na{(0,-2)}\]</div>
       <p class="paso">Paso 2 · Área con el determinante</p>
-      <div class="math">\[\ve A=\frac12\left|\begin{matrix}\az{-1}&amp;\az1\\\na2&amp;\na0\\\na0&amp;\na{-2}\\\az{-1}&amp;\az1\end{matrix}\right|=\frac12\Big|\big((-1)(0)+2(-2)+0(1)\big)-\big(1(2)+0(0)+(-2)(-1)\big)\Big|\]</div>
+      <div class="math d-only">\[\ve A=\frac12\left|\begin{matrix}\az{-1}&amp;\az1\\\na2&amp;\na0\\\na0&amp;\na{-2}\\\az{-1}&amp;\az1\end{matrix}\right|=\frac12\Big|\big((-1)(0)+2(-2)+0(1)\big)-\big(1(2)+0(0)+(-2)(-1)\big)\Big|\]</div>
+      <div class="math m-only">\[\begin{aligned}\ve A &=\frac12\left|\begin{matrix}\az{-1}&amp;\az1\\\na2&amp;\na0\\\na0&amp;\na{-2}\\\az{-1}&amp;\az1\end{matrix}\right|\\&=\frac12\Big|\big((-1)(0)+2(-2)+0(1)\big)\\&\qquad-\big(1(2)+0(0)+(-2)(-1)\big)\Big|\end{aligned}\]</div>
       <div class="math">\[\ve A=\frac12\big|(0-4+0)-(2+0+2)\big|=\frac12|-8|=\ve4\]</div>
       <div class="plot" id="g-c10"></div>
     </div>
@@ -1853,7 +1931,9 @@ window.MathJax={
       <p>Dividimos entre 2:</p>
       <div class="aspa-wrap"><div class="aspa2" aria-label="Aspa simple"><span class="a-lead">\(x^2\)</span><span class="a-mid">\(-8x\)</span><span class="a-c">\(+7\)</span><span class="a-eq">\(=0\)</span><span class="a-v1">\(x\)</span><svg class="cross" viewBox="0 0 54 44" preserveAspectRatio="none" aria-hidden="true"><line x1="4" y1="6" x2="50" y2="38"/><line x1="4" y1="38" x2="50" y2="6"/></svg><span class="a-r1">\(-1\)</span><span class="a-v2">\(x\)</span><span class="a-r2">\(-7\)</span><span class="a-chk">Comprobación: \(x(-7)+x(-1)=-8x\) ✓</span><span class="a-fac">\((x-1)(x-7)\)</span><span class="a-eq2">\(=0\)</span><span class="a-roots">\(x=\mo1\qquad x=\mo7\)</span><span class="a-pts">\(\mo{A=(1,1)}\qquad\mo{B=(7,7)}\)</span></div></div>
       <p class="paso">Paso 2 · Distancias</p>
-      <div class="math">\[d(\ma P,\mo A)=\sqrt{(\mo1-\ma0)^2+(\mo1-\ma0)^2}=\sqrt2\qquad d(\ma P,\mo B)=\sqrt{(\mo7-\ma0)^2+(\mo7-\ma0)^2}=\sqrt{98}=7\sqrt2\]</div>
+      <div class="math d-only">\[d(\ma P,\mo A)=\sqrt{(\mo1-\ma0)^2+(\mo1-\ma0)^2}=\sqrt2\qquad d(\ma P,\mo B)=\sqrt{(\mo7-\ma0)^2+(\mo7-\ma0)^2}=\sqrt{98}=7\sqrt2\]</div>
+      <div class="math m-only">\[\begin{aligned}d(\ma P,\mo A) &=\sqrt{(\mo1-\ma0)^2+(\mo1-\ma0)^2}\\&=\sqrt2\end{aligned}\]</div>
+      <div class="math m-only">\[\begin{aligned}d(\ma P,\mo B) &=\sqrt{(\mo7-\ma0)^2+(\mo7-\ma0)^2}\\&=\sqrt{98}\\&=7\sqrt2\end{aligned}\]</div>
       <p class="paso">Paso 3 · Potencia</p>
       <div class="math">\[\text{Pot}=\sqrt2\cdot7\sqrt2=7\cdot2=14\]</div>
       <div class="plot" id="g-c12"></div>
@@ -2251,7 +2331,9 @@ window.MathJax={
       <div class="math">\[(x-2)^2=9\]</div>
       <div class="math">\[x-2=3\qquad x-2=-3\]</div>
       <div class="math">\[x=\mo5\to y=1+\tfrac43(\mo5-2)=1+4=5\qquad\mo{(5,5)}\]</div>
-      <div class="math">\[x=\mo{-1}\to y=1+\tfrac43(\mo{-1}-2)=1-4=-3\qquad\mo{(-1,-3)}\]</div>
+      <div class="math d-only">\[x=\mo{-1}\to y=1+\tfrac43(\mo{-1}-2)=1-4=-3\qquad\mo{(-1,-3)}\]</div>
+      <div class="math m-only">\[\begin{aligned}x &=\mo{-1}\to y\\&=1+\tfrac43(\mo{-1}-2)\\&=1-4\\&=-3\end{aligned}\]</div>
+      <div class="math m-only">\[\mo{(-1,-3)}\]</div>
       <div class="plot" id="g-ex-c4"></div>
     </div>
     <div class="resp"><b>Respuesta</b>\((5,5)\) y \((-1,-3)\)</div>
@@ -2527,7 +2609,8 @@ window.MathJax={
       <div class="math">\[\na{y=0}\to \na0=x-2\to x=2\qquad\na{(2,0)}\]</div>
       <div class="math">\[\na{x=0}\to y=\na0-2=-2\qquad\na{(0,-2)}\]</div>
       <p class="paso">Paso 2 · Área con el determinante</p>
-      <div class="math">\[\ve A=\frac12\left|\begin{matrix}\az{-1}&\az2\\\na2&\na0\\\na0&\na{-2}\\\az{-1}&\az2\end{matrix}\right|=\frac12\Big|\big((-1)(0)+2(-2)+0(2)\big)-\big(2(2)+0(0)+(-2)(-1)\big)\Big|\]</div>
+      <div class="math d-only">\[\ve A=\frac12\left|\begin{matrix}\az{-1}&\az2\\\na2&\na0\\\na0&\na{-2}\\\az{-1}&\az2\end{matrix}\right|=\frac12\Big|\big((-1)(0)+2(-2)+0(2)\big)-\big(2(2)+0(0)+(-2)(-1)\big)\Big|\]</div>
+      <div class="math m-only">\[\begin{aligned}\ve A &=\frac12\left|\begin{matrix}\az{-1}&\az2\\\na2&\na0\\\na0&\na{-2}\\\az{-1}&\az2\end{matrix}\right|\\&=\frac12\Big|\big((-1)(0)+2(-2)+0(2)\big)\\&\qquad-\big(2(2)+0(0)+(-2)(-1)\big)\Big|\end{aligned}\]</div>
       <div class="math">\[\ve A=\frac12\big|(0-4+0)-(4+0+2)\big|=\frac12|-10|=\ve5\]</div>
       <div class="plot" id="g-ex-c10"></div>
     </div>
@@ -2542,7 +2625,8 @@ window.MathJax={
       <div class="math">\[\na{y=0}\to x=2\qquad\na{(2,0)}\]</div>
       <div class="math">\[\na{x=0}\to y=2\qquad\na{(0,2)}\]</div>
       <p class="paso">Paso 2 · Determinante</p>
-      <div class="math">\[\ve A=\frac12\left|\begin{matrix}\az2&\az3\\\na2&\na0\\\na0&\na2\\\az2&\az3\end{matrix}\right|=\frac12\Big|\big(2\cdot0+2\cdot2+0\cdot3\big)-\big(3\cdot2+0\cdot0+2\cdot2\big)\Big|\]</div>
+      <div class="math d-only">\[\ve A=\frac12\left|\begin{matrix}\az2&\az3\\\na2&\na0\\\na0&\na2\\\az2&\az3\end{matrix}\right|=\frac12\Big|\big(2\cdot0+2\cdot2+0\cdot3\big)-\big(3\cdot2+0\cdot0+2\cdot2\big)\Big|\]</div>
+      <div class="math m-only">\[\begin{aligned}\ve A &=\frac12\left|\begin{matrix}\az2&\az3\\\na2&\na0\\\na0&\na2\\\az2&\az3\end{matrix}\right|\\&=\frac12\Big|\big(2\cdot0+2\cdot2+0\cdot3\big)\\&\qquad-\big(3\cdot2+0\cdot0+2\cdot2\big)\Big|\end{aligned}\]</div>
       <div class="math">\[\ve A=\frac12|4-10|=\ve3\]</div>
       <div class="plot" id="g-ex-c10b"></div>
     </div>
@@ -2637,10 +2721,9 @@ window.MathJax={
   <div class="legend" aria-label="Colores">
     <span><i class="dot" style="background:var(--blue)"></i>oferta (vende)</span>
     <span><i class="dot" style="background:var(--orange)"></i>demanda (compra)</span>
-    <span><i class="dot" style="background:var(--purple)"></i>punto de equilibrio</span>
+    <span><i class="dot" style="background:var(--purple)"></i>equilibrio: punto, cantidad qₑ y precio pₑ</span>
     <span><i class="sw" style="background:var(--orange);opacity:.55"></i>excedente del consumidor (EC)</span>
     <span><i class="sw" style="background:var(--blue);opacity:.45"></i>excedente del productor (EP)</span>
-    <span><i class="dot" style="background:var(--green)"></i>cantidad de equilibrio qₑ</span>
     <span class="note">Los puntos de la oferta se reemplazan en azul, los de la demanda en naranja y los del equilibrio en morado.</span>
   </div>
 
@@ -2677,7 +2760,9 @@ window.MathJax={
   <div class="box" id="t-od-excedentes">
     <h2>3. Excedentes</h2>
     <p>\(b_2\) es donde la demanda corta al eje \(p\) y \(b_1\) donde lo corta la oferta.</p>
-    <div class="math">\[\text{EC (consumidor)}=\frac{\ve{q_e}\,(b_2-\mo{p_e})}{2}\qquad\qquad\text{EP (productor)}=\frac{\ve{q_e}\,(\mo{p_e}-b_1)}{2}\]</div>
+    <div class="math d-only">\[\text{EC (consumidor)}=\frac{\mo{q_e}\,(b_2-\mo{p_e})}{2}\qquad\qquad\text{EP (productor)}=\frac{\mo{q_e}\,(\mo{p_e}-b_1)}{2}\]</div>
+    <div class="math m-only">\[\text{EC (consumidor)} =\frac{\mo{q_e}\,(b_2-\mo{p_e})}{2}\]</div>
+    <div class="math m-only">\[\text{EP (productor)} =\frac{\mo{q_e}\,(\mo{p_e}-b_1)}{2}\]</div>
     <div class="math">\[E=EC+EP\]</div>
     <ul>
       <li>El <b>EC</b> es el triángulo entre la demanda, el eje \(p\) y la recta \(p=p_e\) (por encima de \(p_e\)).</li>
@@ -2694,10 +2779,9 @@ window.MathJax={
   <div class="legend" aria-label="Colores">
     <span><i class="dot" style="background:var(--blue)"></i>oferta</span>
     <span><i class="dot" style="background:var(--orange)"></i>demanda</span>
-    <span><i class="dot" style="background:var(--purple)"></i>equilibrio</span>
+    <span><i class="dot" style="background:var(--purple)"></i>equilibrio: punto, cantidad qₑ y precio pₑ</span>
     <span><i class="sw" style="background:var(--orange);opacity:.55"></i>EC</span>
     <span><i class="sw" style="background:var(--blue);opacity:.45"></i>EP</span>
-    <span><i class="dot" style="background:var(--green)"></i>qₑ</span>
     <span class="note">Los números reemplazados van del color de la recta a la que pertenecen.</span>
   </div>
   <div class="box">
@@ -2705,19 +2789,19 @@ window.MathJax={
     <div class="tbl"><table>
       <thead><tr><th>Ejercicio</th><th>Qué pasa</th><th>Lo correcto</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td><b>Enunciado mal planteado.</b> Con 31 unidades a 31 soles y 34 a 68 soles el equilibrio sale \((29.44;\ 11.76)\), no \((52,8)\).</td><td>La respuesta de la unidad sale con 31 unidades a S/ 1 y 34 unidades a S/ 2.</td></tr>
+        
         <tr><td>2</td><td><b>Enunciado y respuesta no coinciden.</b> El enunciado dice 52 unidades y la respuesta usa 54.</td><td>Con 52: \(EC=\frac{676}3\) y \(EP=320\). Con 54 salen 243 y 336.</td></tr>
       </tbody>
     </table></div>
   </div>
   <div class="jump" aria-label="Ir al ejercicio">
-    <button class="warnc" data-go="od1">1</button><button class="warnc" data-go="od2">2</button><button data-go="od3">3</button><button data-go="od4">4</button><button data-go="od5">5</button><button data-go="od6">6</button><button data-go="od7">7</button><button data-go="od8">8</button>
+    <button data-go="od1">1</button><button class="warnc" data-go="od2">2</button><button data-go="od3">3</button><button data-go="od4">4</button><button data-go="od5">5</button><button data-go="od6">6</button><button data-go="od7">7</button><button data-go="od8">8</button>
   </div>
 
   <article class="ej" id="od1">
-    <div class="ej-head"><span class="num">1</span><h3>Demanda q = 100 − 6p</h3><span class="chip warnc">Enunciado mal planteado</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-od1">Ver ejemplos similares →</button></span></div>
+    <div class="ej-head"><span class="num">1</span><h3>Demanda q = 100 − 6p</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-od1">Ver ejemplos similares →</button></span></div>
     <p class="enun">En un mercado los consumidores tienen una demanda dada por la ecuación \(q=100-6p\). Los productores desean vender 31 unidades a 31 soles y 34 unidades a 68 soles. Encuentre la ecuación de la demanda, el punto de equilibrio, el excedente del consumidor y el del productor.</p>
-    <div class="warn"><b>Sobre los datos:</b> con \((31,31)\) y \((34,68)\) la oferta sería \(p=\frac{37}3q-\frac{1054}3\). Cortaría el eje \(p\) en \(-351.3\) y el equilibrio saldría \(q=29.44\), \(p=11.76\), sin relación con la respuesta. La respuesta de la unidad, \((52,8)\), sale con <b>31 unidades a S/ 1 y 34 unidades a S/ 2</b>. Lo resolvemos con esos datos.</div>
+    
     <div class="sol">
       <p class="paso">Paso 1 · Demanda (despejar p)</p>
       <div class="math">\[q=100-6p\]</div>
@@ -2727,12 +2811,14 @@ window.MathJax={
       <div class="math">\[\na{\left(0,\tfrac{50}3\right)}\]</div>
       <div class="math">\[p=0\to q=100-6(\na0)=100\]</div>
       <div class="math">\[\na{(100,0)}\]</div>
-      <p class="paso">Paso 2 · Oferta con los puntos (31, 1) y (34, 2)</p>
+      <p class="paso">Paso 2 · Oferta: precio por unidad</p>
+      <p>"31 unidades a 31 soles" es el precio total: cada unidad cuesta \(31\div31=1\) sol. Igual, "34 unidades a 68 soles" da \(68\div34=2\) soles por unidad. Los puntos \((q,p)\) son \(\az{(31,1)}\) y \(\az{(34,2)}\).</p>
+      <p class="paso">Paso 3 · Oferta con los puntos (31, 1) y (34, 2)</p>
       <div class="math">\[m=\frac{\az2-\az1}{\az{34}-\az{31}}=\frac13\]</div>
       <div class="math">\[p-\az1=\tfrac13(q-\az{31})\]</div>
       <div class="math">\[p=\tfrac13q-\tfrac{31}3+1\]</div>
       <div class="math">\[\az{p=\tfrac13q-\tfrac{28}3}\]</div>
-      <p class="paso">Paso 3 · Equilibrio (sistema)</p>
+      <p class="paso">Paso 4 · Equilibrio (sistema)</p>
       <div class="math">\[\mo{\begin{cases}p=\frac13q-\frac{28}3\\q=100-6p\end{cases}}\]</div>
       <p>Reemplazamos la \(q\) de la demanda en la oferta:</p>
       <div class="math">\[p=\tfrac13(\na{100-6p})-\tfrac{28}3=\tfrac{100}3-2p-\tfrac{28}3\]</div>
@@ -2740,14 +2826,14 @@ window.MathJax={
       <div class="math">\[p=\mo8\]</div>
       <div class="math">\[q=100-6(\mo8)=100-48=52\]</div>
       <div class="math">\[\mo{(52,8)}\]</div>
-      <p class="paso">Paso 4 · Excedente del consumidor (triángulo)</p>
-      <div class="math">\[EC=\frac{\ve{52}\left(\frac{50}3-\mo8\right)}{2}=\frac{52\cdot\frac{26}3}{2}=\frac{676}3\approx225.33\]</div>
-      <p class="paso">Paso 5 · Excedente del productor (trapecio)</p>
+      <p class="paso">Paso 5 · Excedente del consumidor (triángulo)</p>
+      <div class="math">\[EC=\frac{\mo{52}\left(\frac{50}3-\mo8\right)}{2}=\frac{52\cdot\frac{26}3}{2}=\frac{676}3\approx225.33\]</div>
+      <p class="paso">Paso 6 · Excedente del productor (trapecio)</p>
       <p>La oferta corta el eje \(p\) en \(-\frac{28}3\lt0\). Como \(p\ge0\), la región empieza en \(p=0\):</p>
       <div class="math">\[p=0\to\ 0=\tfrac13q-\tfrac{28}3\]</div>
       <div class="math">\[q_0=28\]</div>
       <p>El trapecio tiene lados horizontales de 28 (en \(p=0\)) y 52 (en \(p=8\)), y altura 8:</p>
-      <div class="math">\[EP=\frac{(28+\ve{52})\cdot\mo8}{2}=320\]</div>
+      <div class="math">\[EP=\frac{(28+\mo{52})\cdot\mo8}{2}=320\]</div>
       <div class="plot" id="g-od1"></div>
     </div>
     <div class="resp"><b>Respuesta</b>\(D:p=-\frac q6+\frac{50}3\); equilibrio \((52,8)\); \(EC=\frac{676}3\) soles; \(EP=320\) soles.</div>
@@ -2764,16 +2850,20 @@ window.MathJax={
         <li>Oferta: \(52+30=82\), punto \(\az{(82,18)}\).</li>
       </ul>
       <p class="paso">Paso 2 · Pendientes</p>
-      <div class="math">\[m_O=\frac{\az{18}-\mo8}{\az{82}-\mo{52}}=\frac{10}{30}=\frac13\qquad\qquad m_D=\frac{\na{18}-\mo8}{\na{-8}-\mo{52}}=\frac{10}{-60}=-\frac16\]</div>
+      <div class="math d-only">\[m_O=\frac{\az{18}-\mo8}{\az{82}-\mo{52}}=\frac{10}{30}=\frac13\qquad\qquad m_D=\frac{\na{18}-\mo8}{\na{-8}-\mo{52}}=\frac{10}{-60}=-\frac16\]</div>
+      <div class="math m-only">\[\begin{aligned}m_O &=\frac{\az{18}-\mo8}{\az{82}-\mo{52}}\\&=\frac{10}{30}\\&=\frac13\end{aligned}\]</div>
+      <div class="math m-only">\[\begin{aligned}m_D &=\frac{\na{18}-\mo8}{\na{-8}-\mo{52}}\\&=\frac{10}{-60}\\&=-\frac16\end{aligned}\]</div>
       <p class="paso">Paso 3 · Ecuaciones (las dos pasan por el equilibrio)</p>
       <div class="math">\[\az{O:}\ p-\mo8=\tfrac13(q-\mo{52})\iff \az{p=\tfrac q3-\tfrac{28}3}\]</div>
       <div class="math">\[\na{D:}\ p-\mo8=-\tfrac16(q-\mo{52})\iff \na{p=-\tfrac q6+\tfrac{50}3}\]</div>
       <p class="paso">Paso 4 · Cortes con el eje p (q = 0)</p>
-      <div class="math">\[D:\ p=8-\tfrac16(0-52)=8+\tfrac{52}6=\tfrac{50}3\qquad O:\ p=8+\tfrac13(0-52)=8-\tfrac{52}3=-\tfrac{28}3\lt0\]</div>
+      <div class="math d-only">\[D:\ p=8-\tfrac16(0-52)=8+\tfrac{52}6=\tfrac{50}3\qquad O:\ p=8+\tfrac13(0-52)=8-\tfrac{52}3=-\tfrac{28}3\lt0\]</div>
+      <div class="math m-only">\[\begin{aligned}D:\ p &=8-\tfrac16(0-52)\\&=8+\tfrac{52}6\\&=\tfrac{50}3\end{aligned}\]</div>
+      <div class="math m-only">\[\begin{aligned}O:\ p &=8+\tfrac13(0-52)\\&=8-\tfrac{52}3\\&=-\tfrac{28}3\lt0\end{aligned}\]</div>
       <p class="paso">Paso 5 · Excedentes</p>
-      <div class="math">\[EC=\frac{\ve{52}\left(\frac{50}3-\mo8\right)}2=\frac{676}3\]</div>
+      <div class="math">\[EC=\frac{\mo{52}\left(\frac{50}3-\mo8\right)}2=\frac{676}3\]</div>
       <p>La oferta llega a \(p=0\) en \(q=28\), así que el EP es un trapecio:</p>
-      <div class="math">\[EP=\frac{(28+\ve{52})\cdot\mo8}2=320\]</div>
+      <div class="math">\[EP=\frac{(28+\mo{52})\cdot\mo8}2=320\]</div>
       <p>Es exactamente el mismo mercado del ejercicio 1, con el mismo gráfico.</p>
     </div>
     <div class="resp"><b>Respuesta (con 52, como dice el enunciado)</b>\(O:p-8=\frac13(q-52)\), \(D:p-8=-\frac16(q-52)\), equilibrio \((52,8)\), \(EC=\frac{676}3\), \(EP=320\).</div>
@@ -2787,15 +2877,20 @@ window.MathJax={
       <p class="paso">Paso 1 · Cantidad de equilibrio</p>
       <div class="math">\[\mo{m_1q+b_1=m_2q+b_2}\]</div>
       <div class="math">\[(m_1-m_2)q=b_2-b_1\]</div>
-      <div class="math">\[\ve{q_e=\frac{b_2-b_1}{m_1-m_2}}\]</div>
+      <div class="math">\[\mo{q_e=\frac{b_2-b_1}{m_1-m_2}}\]</div>
       <p class="paso">Paso 2 · Precio de equilibrio (reemplazar q<sub>e</sub> en la oferta)</p>
-      <div class="math">\[p_e=m_1\cdot\ve{\frac{b_2-b_1}{m_1-m_2}}+b_1=\frac{m_1b_2-m_1b_1+b_1m_1-b_1m_2}{m_1-m_2}=\mo{\frac{m_1b_2-m_2b_1}{m_1-m_2}}\]</div>
+      <div class="math d-only">\[p_e=m_1\cdot\mo{\frac{b_2-b_1}{m_1-m_2}}+b_1=\frac{m_1b_2-m_1b_1+b_1m_1-b_1m_2}{m_1-m_2}=\mo{\frac{m_1b_2-m_2b_1}{m_1-m_2}}\]</div>
+      <div class="math m-only">\[\begin{aligned}p_e &=m_1\cdot\mo{\frac{b_2-b_1}{m_1-m_2}}+b_1\\&=\frac{m_1b_2-m_1b_1+b_1m_1-b_1m_2}{m_1-m_2}\\&=\mo{\frac{m_1b_2-m_2b_1}{m_1-m_2}}\end{aligned}\]</div>
       <p class="paso">Paso 3 · Alturas de los triángulos</p>
-      <div class="math">\[b_2-\mo{p_e}=\frac{b_2(m_1-m_2)-m_1b_2+m_2b_1}{m_1-m_2}=\frac{-m_2(b_2-b_1)}{m_1-m_2}\]</div>
-      <div class="math">\[\mo{p_e}-b_1=\frac{m_1b_2-m_2b_1-b_1(m_1-m_2)}{m_1-m_2}=\frac{m_1(b_2-b_1)}{m_1-m_2}\]</div>
+      <div class="math d-only">\[b_2-\mo{p_e}=\frac{b_2(m_1-m_2)-m_1b_2+m_2b_1}{m_1-m_2}=\frac{-m_2(b_2-b_1)}{m_1-m_2}\]</div>
+      <div class="math m-only">\[\begin{aligned}b_2-\mo{p_e} &=\frac{b_2(m_1-m_2)-m_1b_2+m_2b_1}{m_1-m_2}\\&=\frac{-m_2(b_2-b_1)}{m_1-m_2}\end{aligned}\]</div>
+      <div class="math d-only">\[\mo{p_e}-b_1=\frac{m_1b_2-m_2b_1-b_1(m_1-m_2)}{m_1-m_2}=\frac{m_1(b_2-b_1)}{m_1-m_2}\]</div>
+      <div class="math m-only">\[\begin{aligned}\mo{p_e}-b_1 &=\frac{m_1b_2-m_2b_1-b_1(m_1-m_2)}{m_1-m_2}\\&=\frac{m_1(b_2-b_1)}{m_1-m_2}\end{aligned}\]</div>
       <p class="paso">Paso 4 · Excedentes</p>
-      <div class="math">\[EC=\frac{\ve{q_e}(b_2-p_e)}2=\frac12\cdot\ve{\frac{b_2-b_1}{m_1-m_2}}\cdot\frac{-m_2(b_2-b_1)}{m_1-m_2}=-m_2\frac{(b_1-b_2)^2}{2(m_1-m_2)^2}\]</div>
-      <div class="math">\[EP=\frac{\ve{q_e}(p_e-b_1)}2=\frac12\cdot\ve{\frac{b_2-b_1}{m_1-m_2}}\cdot\frac{m_1(b_2-b_1)}{m_1-m_2}=m_1\frac{(b_1-b_2)^2}{2(m_1-m_2)^2}\]</div>
+      <div class="math d-only">\[EC=\frac{\mo{q_e}(b_2-p_e)}2=\frac12\cdot\mo{\frac{b_2-b_1}{m_1-m_2}}\cdot\frac{-m_2(b_2-b_1)}{m_1-m_2}=-m_2\frac{(b_1-b_2)^2}{2(m_1-m_2)^2}\]</div>
+      <div class="math m-only">\[\begin{aligned}EC &=\frac{\mo{q_e}(b_2-p_e)}2\\&=\frac12\cdot\mo{\frac{b_2-b_1}{m_1-m_2}}\cdot\frac{-m_2(b_2-b_1)}{m_1-m_2}\\&=-m_2\frac{(b_1-b_2)^2}{2(m_1-m_2)^2}\end{aligned}\]</div>
+      <div class="math d-only">\[EP=\frac{\mo{q_e}(p_e-b_1)}2=\frac12\cdot\mo{\frac{b_2-b_1}{m_1-m_2}}\cdot\frac{m_1(b_2-b_1)}{m_1-m_2}=m_1\frac{(b_1-b_2)^2}{2(m_1-m_2)^2}\]</div>
+      <div class="math m-only">\[\begin{aligned}EP &=\frac{\mo{q_e}(p_e-b_1)}2\\&=\frac12\cdot\mo{\frac{b_2-b_1}{m_1-m_2}}\cdot\frac{m_1(b_2-b_1)}{m_1-m_2}\\&=m_1\frac{(b_1-b_2)^2}{2(m_1-m_2)^2}\end{aligned}\]</div>
       <p>Como \(b_1\gt0\), aquí el EP sí es un triángulo.</p>
     </div>
     <div class="resp"><b>Respuesta</b>\(p_e=\frac{m_1b_2-b_1m_2}{m_1-m_2}\), \(EC=-m_2\frac{(b_1-b_2)^2}{2(m_1-m_2)^2}\), \(EP=m_1\frac{(b_1-b_2)^2}{2(m_1-m_2)^2}\)</div>
@@ -2816,7 +2911,7 @@ window.MathJax={
       <div class="math">\[\az{p=q-a+3}\]</div>
       <div class="math">\[q=0\to p=0-a+3=3-a\quad(\text{corte con el eje }p)\]</div>
       <p class="paso">Paso 3 · Excedente del productor</p>
-      <div class="math">\[EP=\frac{\ve a\,[\mo3-(3-a)]}{2}=\frac{a\cdot a}{2}=2\]</div>
+      <div class="math">\[EP=\frac{\mo a\,[\mo3-(3-a)]}{2}=\frac{a\cdot a}{2}=2\]</div>
       <div class="math">\[a^2=4\]</div>
       <div class="math">\[a=2\]</div>
       <p>(Se descarta \(a=-2\) porque una cantidad no puede ser negativa.)</p>
@@ -2911,8 +3006,8 @@ window.MathJax={
       <p class="paso">a) Paso 1 · Datos</p>
       <p>40 monedas por 5 botellas son 8 por botella: \(\na{(5,8)}\) está en la demanda. El equilibrio es \(\mo{(a,7)}\), con \(a=q_e\) desconocido.</p>
       <p class="paso">a) Paso 2 · Usar el excedente</p>
-      <p>El EC es un triángulo de base \(\ve a\) y altura \(b_2-7\), donde \(b_2\) es el corte de la demanda con el eje \(p\). Entonces</p>
-      <div class="math">\[\frac{\ve a\,(b_2-\mo7)}{2}=10\]</div>
+      <p>El EC es un triángulo de base \(\mo a\) y altura \(b_2-7\), donde \(b_2\) es el corte de la demanda con el eje \(p\). Entonces</p>
+      <div class="math">\[\frac{\mo a\,(b_2-\mo7)}{2}=10\]</div>
       <div class="math">\[b_2-7=\frac{20}{a}\]</div>
       <p class="paso">a) Paso 3 · La pendiente de la demanda calculada de dos formas</p>
       <div class="math">\[\text{con }\na{(5,8)}\text{ y }\mo{(a,7)}:\quad m=\frac{\mo7-\na8}{\mo a-\na5}=\frac{-1}{a-5}\]</div>
@@ -2923,8 +3018,8 @@ window.MathJax={
       <div class="math">\[(a-10)^2=0\]</div>
       <div class="math">\[a=10\]</div>
       <p class="paso">a) Paso 4 · Ecuación (reemplazar a = 10)</p>
-      <div class="math">\[b_2=7+\tfrac{20}{\ve{10}}=9\]</div>
-      <div class="math">\[m=\frac{-1}{\ve{10}-5}=-\frac15\]</div>
+      <div class="math">\[b_2=7+\tfrac{20}{\mo{10}}=9\]</div>
+      <div class="math">\[m=\frac{-1}{\mo{10}-5}=-\frac15\]</div>
       <div class="math">\[\na{D:\ p=-\tfrac q5+9}\]</div>
       <p class="paso">b) Oferta</p>
       <p>Con 20 botellas el capitán pagaría \(p=-\frac{\na{20}}5+9=5\). Los productores piden 7 más, es decir \(5+7=12\). Eso da el punto \(\az{(20,12)}\). La oferta también pasa por el equilibrio \(\mo{(10,7)}\):</p>
@@ -2934,7 +3029,7 @@ window.MathJax={
       <p>Para 4 botellas más: \(\Delta p=m_O\cdot\Delta q=\frac12\cdot4=2\) monedas.</p>
       <p class="paso">c) Excedente del productor</p>
       <p>La oferta corta el eje \(p\) en \(b_1=2\):</p>
-      <div class="math">\[EP=\frac{\ve{10}\,(\mo7-2)}{2}=25\]</div>
+      <div class="math">\[EP=\frac{\mo{10}\,(\mo7-2)}{2}=25\]</div>
       <div class="plot" id="g-od8"></div>
     </div>
     <div class="resp"><b>Respuesta</b>a) \(D:p=-\frac q5+9\) · b) 2 monedas de oro · c) 25 monedas de oro</div>
@@ -2945,10 +3040,9 @@ window.MathJax={
   <div class="legend" aria-label="Colores">
     <span><i class="dot" style="background:var(--blue)"></i>oferta</span>
     <span><i class="dot" style="background:var(--orange)"></i>demanda</span>
-    <span><i class="dot" style="background:var(--purple)"></i>equilibrio</span>
+    <span><i class="dot" style="background:var(--purple)"></i>equilibrio: punto, cantidad qₑ y precio pₑ</span>
     <span><i class="sw" style="background:var(--orange);opacity:.55"></i>EC</span>
     <span><i class="sw" style="background:var(--blue);opacity:.45"></i>EP</span>
-    <span><i class="dot" style="background:var(--green)"></i>qₑ</span>
     <span class="note">Los números reemplazados van del color de la recta a la que pertenecen.</span>
   </div>
   <div class="box"><h3>Ejemplos de práctica</h3><p>Primero están los ejemplos de la teoría. Después hay dos ejemplos por cada ejercicio de la unidad (por ejemplo, 3.1 y 3.2 se parecen al ejercicio 3), armados para que los resultados salgan exactos. Los botones con números llevan a los ejemplos de cada ejercicio. El botón de cada ejemplo lleva al ejercicio parecido de la unidad, y desde la unidad el botón «Ver ejemplos similares» trae aquí.</p></div>
@@ -2975,8 +3069,8 @@ window.MathJax={
       <div class="math">\[p_e=2\left(\mo{\tfrac{40}7}\right)+20=\frac{80}7+\frac{140}7=\frac{220}7\]</div>
       <div class="math">\[\mo{\left(\tfrac{40}7,\tfrac{220}7\right)}\]</div>
       <p class="paso">c) Excedentes</p>
-      <div class="math">\[EC=\frac{\ve{\frac{40}7}\left(60-\mo{\frac{220}7}\right)}2=\frac{\frac{40}7\cdot\frac{200}7}{2}=\frac{4000}{49}\]</div>
-      <div class="math">\[EP=\frac{\ve{\frac{40}7}\left(\mo{\frac{220}7}-20\right)}2=\frac{\frac{40}7\cdot\frac{80}7}2=\frac{1600}{49}\]</div>
+      <div class="math">\[EC=\frac{\mo{\frac{40}7}\left(60-\mo{\frac{220}7}\right)}2=\frac{\frac{40}7\cdot\frac{200}7}{2}=\frac{4000}{49}\]</div>
+      <div class="math">\[EP=\frac{\mo{\frac{40}7}\left(\mo{\frac{220}7}-20\right)}2=\frac{\frac{40}7\cdot\frac{80}7}2=\frac{1600}{49}\]</div>
       <div class="plot" id="g-to1"></div>
     </div>
     <div class="resp"><b>Respuesta</b>a) \(O:p=2q+20\), \(D:p=-5q+60\) · b) \(\left(\frac{40}7,\frac{220}7\right)\) · c) \(EC=\frac{4000}{49}\), \(EP=\frac{1600}{49}\)</div>
@@ -3008,8 +3102,8 @@ window.MathJax={
       <div class="math">\[\mo{(24,14)}\]</div>
       <p class="paso">Paso 4 · Excedentes</p>
       <p>La demanda corta el eje \(p\) en \(b_2=20\) y la oferta en \(b_1=2\):</p>
-      <div class="math">\[EC=\frac{\ve{24}\,(20-\mo{14})}{2}=\frac{24\cdot6}2=72\]</div>
-      <div class="math">\[EP=\frac{\ve{24}\,(\mo{14}-2)}{2}=\frac{24\cdot12}2=144\]</div>
+      <div class="math">\[EC=\frac{\mo{24}\,(20-\mo{14})}{2}=\frac{24\cdot6}2=72\]</div>
+      <div class="math">\[EP=\frac{\mo{24}\,(\mo{14}-2)}{2}=\frac{24\cdot12}2=144\]</div>
       <div class="plot" id="g-ex-od1"></div>
     </div>
     <div class="resp"><b>Respuesta</b>\(D:p=-\frac q4+20\); equilibrio \((24,14)\); \(EC=72\) soles; \(EP=144\) soles.</div>
@@ -3034,8 +3128,8 @@ window.MathJax={
       <div class="math">\[q=90-3(\mo{18})=36\]</div>
       <div class="math">\[\mo{(36,18)}\]</div>
       <p class="paso">Paso 4 · Excedentes</p>
-      <div class="math">\[EC=\frac{\ve{36}(30-\mo{18})}2=216\]</div>
-      <div class="math">\[EP=\frac{\ve{36}(\mo{18}-6)}2=216\]</div>
+      <div class="math">\[EC=\frac{\mo{36}(30-\mo{18})}2=216\]</div>
+      <div class="math">\[EP=\frac{\mo{36}(\mo{18}-6)}2=216\]</div>
       <div class="plot" id="g-ex-od1b"></div>
     </div>
     <div class="resp"><b>Respuesta</b>\(D:p=-\frac q3+30\); \((36,18)\); \(EC=216\); \(EP=216\).</div>
@@ -3058,8 +3152,8 @@ window.MathJax={
       <div class="math">\[\na{p=-\tfrac14q+20}\]</div>
       <p class="paso">Paso 4 · Excedentes</p>
       <p>Cortes con el eje \(p\): \(b_2=20\) (demanda) y \(b_1=5\) (oferta). Los dos son positivos, así que los excedentes son triángulos.</p>
-      <div class="math">\[EC=\frac{\ve{40}\,(20-\mo{10})}{2}=200\]</div>
-      <div class="math">\[EP=\frac{\ve{40}\,(\mo{10}-5)}{2}=100\]</div>
+      <div class="math">\[EC=\frac{\mo{40}\,(20-\mo{10})}{2}=200\]</div>
+      <div class="math">\[EP=\frac{\mo{40}\,(\mo{10}-5)}{2}=100\]</div>
       <div class="plot" id="g-ex-od2"></div>
     </div>
     <div class="resp"><b>Respuesta</b>\(O:p=\frac q8+5\), \(D:p=-\frac q4+20\), \(EC=200\), \(EP=100\).</div>
@@ -3077,8 +3171,8 @@ window.MathJax={
       <div class="math">\[\az{O:}\ p-\mo{12}=\tfrac16(q-\mo{30})\]</div>
       <div class="math">\[\az{p=\tfrac16q+7}\]</div>
       <p class="paso">Paso 3 · Excedentes</p>
-      <div class="math">\[EC=\frac{\ve{30}(22-\mo{12})}2=150\]</div>
-      <div class="math">\[EP=\frac{\ve{30}(\mo{12}-7)}2=75\]</div>
+      <div class="math">\[EC=\frac{\mo{30}(22-\mo{12})}2=150\]</div>
+      <div class="math">\[EP=\frac{\mo{30}(\mo{12}-7)}2=75\]</div>
       <div class="plot" id="g-ex-od2b"></div>
     </div>
     <div class="resp"><b>Respuesta</b>\(O:p=\frac q6+7\), \(D:p=-\frac q3+22\), \(EC=150\), \(EP=75\).</div>
@@ -3093,15 +3187,17 @@ window.MathJax={
       <p class="paso">Paso 2 · Equilibrio directo</p>
       <div class="math">\[\mo{2q+4=-3q+24}\]</div>
       <div class="math">\[5q=20\]</div>
-      <div class="math">\[\ve{q_e=4}\]</div>
+      <div class="math">\[\mo{q_e=4}\]</div>
       <div class="math">\[p_e=2(\ve4)+4=\mo{12}\]</div>
       <p class="paso">Paso 3 · Con la fórmula</p>
-      <div class="math">\[p_e=\frac{m_1b_2-m_2b_1}{m_1-m_2}=\frac{2(24)-(-3)(4)}{2-(-3)}=\frac{48+12}{5}=12\ ✓\]</div>
+      <div class="math d-only">\[p_e=\frac{m_1b_2-m_2b_1}{m_1-m_2}=\frac{2(24)-(-3)(4)}{2-(-3)}=\frac{48+12}{5}=12\ ✓\]</div>
+      <div class="math m-only">\[\begin{aligned}p_e &=\frac{m_1b_2-m_2b_1}{m_1-m_2}\\&=\frac{2(24)-(-3)(4)}{2-(-3)}\\&=\frac{48+12}{5}\\&=12\ ✓\end{aligned}\]</div>
       <p class="paso">Paso 4 · Excedentes directos</p>
       <div class="math">\[EC=\frac{\ve4\,(24-\mo{12})}2=24\]</div>
       <div class="math">\[EP=\frac{\ve4\,(\mo{12}-4)}2=16\]</div>
       <p class="paso">Paso 5 · Excedentes con la fórmula</p>
-      <div class="math">\[EC=-m_2\frac{(b_1-b_2)^2}{2(m_1-m_2)^2}=3\cdot\frac{(-20)^2}{2(5)^2}=3\cdot\frac{400}{50}=24\ ✓\]</div>
+      <div class="math d-only">\[EC=-m_2\frac{(b_1-b_2)^2}{2(m_1-m_2)^2}=3\cdot\frac{(-20)^2}{2(5)^2}=3\cdot\frac{400}{50}=24\ ✓\]</div>
+      <div class="math m-only">\[\begin{aligned}EC &=-m_2\frac{(b_1-b_2)^2}{2(m_1-m_2)^2}\\&=3\cdot\frac{(-20)^2}{2(5)^2}\\&=3\cdot\frac{400}{50}\\&=24\ ✓\end{aligned}\]</div>
       <div class="math">\[EP=m_1\frac{(b_1-b_2)^2}{2(m_1-m_2)^2}=2\cdot\frac{400}{50}=16\ ✓\]</div>
       <div class="plot" id="g-ex-od3"></div>
     </div>
@@ -3116,7 +3212,7 @@ window.MathJax={
       <p>\(m_1=1,\ b_1=2,\ m_2=-2,\ b_2=14\).</p>
       <p class="paso">Paso 2 · Directo</p>
       <div class="math">\[\mo{q+2=-2q+14}\]</div>
-      <div class="math">\[\ve{q_e=4},\quad p_e=\mo6\]</div>
+      <div class="math">\[\mo{q_e=4},\quad p_e=\mo6\]</div>
       <div class="math">\[EC=\frac{4(14-6)}2=16\qquad EP=\frac{4(6-2)}2=8\]</div>
       <p class="paso">Paso 3 · Con las fórmulas</p>
       <div class="math">\[p_e=\frac{1(14)-(-2)(2)}{1-(-2)}=\frac{18}3=6\ ✓\]</div>
@@ -3140,7 +3236,7 @@ window.MathJax={
       <div class="math">\[\az{p=\tfrac12q-\tfrac a2+6}\]</div>
       <div class="math">\[q=0\to p=6-\tfrac a2\quad(\text{corte con el eje }p)\]</div>
       <p class="paso">Paso 3 · Excedente del productor</p>
-      <div class="math">\[EP=\frac{\ve a\left[\mo6-\left(6-\frac a2\right)\right]}{2}=\frac{a\cdot\frac a2}{2}=\frac{a^2}4\]</div>
+      <div class="math">\[EP=\frac{\mo a\left[\mo6-\left(6-\frac a2\right)\right]}{2}=\frac{a\cdot\frac a2}{2}=\frac{a^2}4\]</div>
       <div class="math">\[\frac{a^2}4=9\]</div>
       <div class="math">\[a^2=36\]</div>
       <div class="math">\[a=6\]</div>
@@ -3164,7 +3260,7 @@ window.MathJax={
       <div class="math">\[\na{p=-\tfrac13q+\tfrac a3+5}\]</div>
       <div class="math">\[q=0\to p=5+\tfrac a3\quad(\text{corte } b_2)\]</div>
       <p class="paso">Paso 3 · Excedente del consumidor</p>
-      <div class="math">\[EC=\frac{\ve a\left[\left(5+\frac a3\right)-\mo5\right]}{2}=\frac{a^2}6\]</div>
+      <div class="math">\[EC=\frac{\mo a\left[\left(5+\frac a3\right)-\mo5\right]}{2}=\frac{a^2}6\]</div>
       <div class="math">\[\frac{a^2}6=6\]</div>
       <div class="math">\[a^2=36\]</div>
       <div class="math">\[a=6\]</div>
@@ -3318,8 +3414,8 @@ window.MathJax={
       <p class="paso">a) Paso 1 · Datos</p>
       <p>32 monedas por 4 botellas son 8 por botella: \(\na{(4,8)}\) está en la demanda. El equilibrio es \(\mo{(a,6)}\), con \(a=q_e\) desconocido.</p>
       <p class="paso">a) Paso 2 · Usar el excedente</p>
-      <p>El EC es un triángulo de base \(\ve a\) y altura \(b_2-6\), donde \(b_2\) es el corte de la demanda con el eje \(p\). Entonces</p>
-      <div class="math">\[\frac{\ve a\,(b_2-\mo6)}{2}=16\]</div>
+      <p>El EC es un triángulo de base \(\mo a\) y altura \(b_2-6\), donde \(b_2\) es el corte de la demanda con el eje \(p\). Entonces</p>
+      <div class="math">\[\frac{\mo a\,(b_2-\mo6)}{2}=16\]</div>
       <div class="math">\[b_2-6=\frac{32}{a}\]</div>
       <p class="paso">a) Paso 3 · La pendiente de la demanda calculada de dos formas</p>
       <div class="math">\[\text{con }\na{(4,8)}\text{ y }\mo{(a,6)}:\quad m=\frac{\mo6-\na8}{\mo a-\na4}=\frac{-2}{a-4}\]</div>
@@ -3354,7 +3450,7 @@ window.MathJax={
       <p class="paso">a) Datos</p>
       <p>21 monedas por 3 botellas: \(\na{(3,7)}\). Equilibrio \(\mo{(a,4)}\).</p>
       <p class="paso">a) Excedente</p>
-      <div class="math">\[\frac{\ve a(b_2-\mo4)}2=18\]</div>
+      <div class="math">\[\frac{\mo a(b_2-\mo4)}2=18\]</div>
       <div class="math">\[b_2-4=\frac{36}a\]</div>
       <p class="paso">a) Pendiente de dos formas</p>
       <div class="math">\[\frac{\mo4-\na7}{\mo a-\na3}=\frac{\mo4-b_2}{\mo a}\]</div>
@@ -3382,7 +3478,7 @@ window.MathJax={
 
 </div>
 
-<div class="teo-card" id="teo-card" role="dialog" aria-label="Teoría" hidden><div class="teo-top"><span class="label">Teoría que se usa</span><button class="teo-close" type="button" aria-label="Cerrar">×</button></div><div class="teo-body"></div><button class="sim-btn teo-go" type="button">Ir a la teoría completa →</button></div>
+<div class="teo-card" id="teo-card" role="dialog" aria-label="Teoría" hidden><div class="teo-top" title="Arrastra para moverla"><span class="teo-grip" aria-hidden="true"></span><span class="label">Teoría que se usa</span><span class="teo-hint">arrástrala</span><button class="teo-close" type="button" aria-label="Cerrar">×</button></div><div class="teo-body"></div><button class="sim-btn teo-go" type="button">Ir a la teoría completa →</button></div>
 <script src="app.js"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@
   function fmt(v){return (Math.round(v*100)/100).toString().replace('-','−')}
   function plot(id,o){
     const host=document.getElementById(id); if(!host) return;
-    const W=o.w||500, pad=30, padL=o.padL||46;
+    const narrow=window.innerWidth<560; const W=o.w||(narrow?400:500), pad=narrow?26:30, padL=o.padL||(narrow?40:46);
     const [x0,x1]=o.x,[y0,y1]=o.y;
     const iw=W-padL-pad;
     const H=o.h || (o.eq ? Math.round(2*pad+(y1-y0)/(x1-x0)*iw) : 340);
@@ -384,23 +384,42 @@
       n.textContent=n.textContent.slice(k[0].length);
     });
   }
+  /* achica las fórmulas que no entran (hasta 72 %); si aun así no entran, se desplazan */
+  function fitMath(root){
+    root.querySelectorAll('.math').forEach(m=>{
+      if(!m.offsetParent) return;
+      const c=m.querySelector('mjx-container'); if(!c) return;
+      c.style.fontSize=''; m.classList.remove('scrolls');
+      const w=m.clientWidth, sw=m.scrollWidth;
+      if(sw<=w+1) return;
+      const k=Math.max(0.72,w/sw*0.98);
+      c.style.fontSize=(k*100).toFixed(1)+'%';
+      if(m.scrollWidth>m.clientWidth+1) m.classList.add('scrolls');
+    });
+  }
+  /* etiquetas para la tabla de errores en formato tarjeta */
+  document.querySelectorAll('.tbl table').forEach(t=>{
+    const hs=[...t.querySelectorAll('thead th')].map(th=>th.textContent.trim());
+    t.querySelectorAll('tbody tr').forEach(tr=>[...tr.children].forEach((td,i)=>{ if(hs[i]) td.dataset.label=hs[i] }));
+  });
   function typeset(panel){
     if(!window.__mj||done.has(panel.id)) return;
     done.add(panel.id);
-    chain=chain.then(()=>MathJax.typesetPromise([panel])).then(()=>gluePunct(panel)).catch(()=>{});
+    chain=chain.then(()=>MathJax.typesetPromise([panel])).then(()=>{gluePunct(panel);fitMath(panel)}).catch(()=>{});
   }
   function render(){
     document.querySelectorAll('.topic').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.topic===topic)));
     document.querySelectorAll('.tab').forEach(b=>{const on=b.dataset.tab===tab;b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1});
     document.querySelectorAll('.panel').forEach(p=>{p.hidden=p.id!=='pn-'+topic+'-'+tab});
     const n={parabolas:12,circunferencias:12,'oferta-demanda':8}[topic];
-    document.getElementById('tab-ejercicios').textContent='Ejercicios resueltos ('+n+')';
-    document.getElementById('tab-ejemplos').textContent='Ejemplos ('+2*n+')';
+    document.getElementById('tab-ejercicios').innerHTML='Ejercicios<span class="tab-long"> resueltos</span> <span class="tab-n">('+n+')</span>';
+    document.getElementById('tab-ejemplos').innerHTML='Ejemplos <span class="tab-n">('+document.querySelectorAll('#pn-'+topic+'-ejemplos article.ex').length+')</span>';
     document.getElementById('tab-ejemplos').setAttribute('aria-controls','pn-'+topic+'-ejemplos');
     const panel=document.getElementById('pn-'+topic+'-'+tab);
     document.getElementById('tab-teoria').setAttribute('aria-controls','pn-'+topic+'-teoria');
     document.getElementById('tab-ejercicios').setAttribute('aria-controls','pn-'+topic+'-ejercicios');
     typeset(panel);
+    if(done.has(panel.id)) chain.then(()=>requestAnimationFrame(()=>fitMath(panel)));
   }
   const TABS=['ejercicios','ejemplos'];
   function fromHash(){
@@ -425,52 +444,76 @@
     chain.then(()=>requestAnimationFrame(()=>el.scrollIntoView({behavior:smooth?'smooth':'auto',block:'start'})));
   }
   document.querySelectorAll('[data-goto]:not(.teo-go)').forEach(b=>b.addEventListener('click',()=>goTo(b.dataset.goto)));
-  /* ---------- tarjeta flotante de teoría ---------- */
-  const card=document.getElementById('teo-card'), cardBody=card.querySelector('.teo-body'), cardGo=card.querySelector('.teo-go');
-  const cache={}; let curBtn=null, pinned=false, hideT=null;
+  /* ---------- tarjeta flotante de teoría (se puede arrastrar y queda abierta) ---------- */
+  const card=document.getElementById('teo-card'), cardBody=card.querySelector('.teo-body'), cardGo=card.querySelector('.teo-go'), cardTop=card.querySelector('.teo-top');
+  const cache={}; let curBtn=null, pinned=false, moved=false, hideT=null;
   const canHover=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  function clamp(x,y){
+    const w=card.offsetWidth, h=card.offsetHeight, vw=window.innerWidth, vh=window.innerHeight;
+    return [Math.max(8,Math.min(x,vw-w-8)), Math.max(8,Math.min(y,vh-Math.min(h,vh-16)-8))];
+  }
+  function setPos(x,y){ const [cx,cy]=clamp(x,y); card.style.left=cx+'px'; card.style.top=cy+'px'; }
   function place(){
-    if(!curBtn||card.hidden) return;
-    if(window.innerWidth<=560){card.style.left='';card.style.top='';return}
-    const r=curBtn.getBoundingClientRect(), w=card.offsetWidth, h=card.offsetHeight, vw=window.innerWidth, vh=window.innerHeight;
-    const left=Math.max(12,Math.min(r.right-w,vw-w-12));
+    if(!curBtn||card.hidden||moved) return;
+    const vw=window.innerWidth, vh=window.innerHeight, w=card.offsetWidth, h=card.offsetHeight;
+    if(vw<=560){ setPos((vw-w)/2, vh-h-12); return }
+    const r=curBtn.getBoundingClientRect();
     let top=r.bottom+8; if(top+h>vh-12) top=Math.max(12,r.top-h-8);
-    card.style.left=left+'px'; card.style.top=top+'px';
+    setPos(r.right-w, top);
   }
   function fill(keys){
     if(cache[keys]){cardBody.innerHTML=cache[keys];return Promise.resolve()}
     cardBody.innerHTML=keys.split(' ').filter(k=>TEO[k]).map(k=>'<section>'+TEO[k]+'</section>').join('');
     if(!window.__mj) return Promise.resolve();
-    const done=MathJax.typesetPromise([cardBody]).then(()=>{gluePunct(cardBody);cache[keys]=cardBody.innerHTML});
-    chain=chain.then(()=>done).catch(()=>{});
-    return done;
+    const p=MathJax.typesetPromise([cardBody]).then(()=>{gluePunct(cardBody);fitMath(cardBody);cache[keys]=cardBody.innerHTML});
+    chain=chain.then(()=>p).catch(()=>{});
+    return p;
   }
   function openCard(btn,pin){
     clearTimeout(hideT);
     if(curBtn&&curBtn!==btn) curBtn.setAttribute('aria-expanded','false');
-    curBtn=btn; pinned=pin; btn.setAttribute('aria-expanded','true');
+    curBtn=btn; btn.setAttribute('aria-expanded','true');
+    if(pin){ pinned=true; card.classList.add('pinned') }
     cardGo.dataset.goto=btn.dataset.teo.split(' ')[0];
-    card.hidden=false; card.scrollTop=0;
-    fill(btn.dataset.teo).then(place); place();
+    const wasHidden=card.hidden; card.hidden=false; if(wasHidden) card.scrollTop=0;
+    fill(btn.dataset.teo).then(()=>{ fitMath(cardBody); moved?setPos(card.offsetLeft,card.offsetTop):place() });
+    moved?setPos(card.offsetLeft,card.offsetTop):place();
   }
   function closeCard(){
-    clearTimeout(hideT); card.hidden=true; pinned=false;
+    clearTimeout(hideT); card.hidden=true; pinned=false; moved=false; card.classList.remove('pinned');
     if(curBtn){curBtn.setAttribute('aria-expanded','false'); curBtn=null}
   }
   function later(){ if(pinned) return; clearTimeout(hideT); hideT=setTimeout(closeCard,250) }
   document.querySelectorAll('.teo-btn').forEach(b=>{
     b.setAttribute('aria-controls','teo-card');
-    if(canHover){ b.addEventListener('mouseenter',()=>{ if(!pinned||curBtn!==b) openCard(b,false) }); b.addEventListener('mouseleave',later); }
+    if(canHover){ b.addEventListener('mouseenter',()=>{ if(!pinned) openCard(b,false) }); b.addEventListener('mouseleave',later); }
     b.addEventListener('click',e=>{ e.stopPropagation(); if(curBtn===b&&pinned) closeCard(); else openCard(b,true) });
   });
   card.addEventListener('mouseenter',()=>clearTimeout(hideT));
   card.addEventListener('mouseleave',later);
-  card.addEventListener('click',e=>e.stopPropagation());
-  card.querySelector('.teo-close').addEventListener('click',closeCard);
-  cardGo.addEventListener('click',()=>{const id=cardGo.dataset.goto; closeCard(); goTo(id)});
-  document.addEventListener('click',()=>{ if(!card.hidden) closeCard() });
+  card.querySelector('.teo-close').addEventListener('click',e=>{e.stopPropagation();closeCard()});
+  cardGo.addEventListener('click',()=>{const id=cardGo.dataset.goto; goTo(id)});
+  /* arrastrar desde la barra superior: al soltarla queda fija y abierta */
+  let drag=null;
+  cardTop.addEventListener('pointerdown',e=>{
+    if(e.target.closest('.teo-close')) return;
+    drag={dx:e.clientX-card.offsetLeft, dy:e.clientY-card.offsetTop, id:e.pointerId};
+    try{cardTop.setPointerCapture(e.pointerId)}catch(_){} card.classList.add('dragging'); e.preventDefault();
+  });
+  cardTop.addEventListener('pointermove',e=>{
+    if(!drag||e.pointerId!==drag.id) return;
+    moved=true; pinned=true; card.classList.add('pinned'); clearTimeout(hideT);
+    setPos(e.clientX-drag.dx, e.clientY-drag.dy);
+  });
+  const endDrag=e=>{ if(!drag) return; drag=null; card.classList.remove('dragging'); };
+  cardTop.addEventListener('pointerup',endDrag); cardTop.addEventListener('pointercancel',endDrag);
   document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!card.hidden){ const b=curBtn; closeCard(); b&&b.focus() } });
-  window.addEventListener('resize',place); window.addEventListener('scroll',()=>{ if(pinned) place(); else if(!card.hidden) closeCard() },{passive:true});
+  window.addEventListener('scroll',()=>{ if(!card.hidden&&!pinned) closeCard() },{passive:true});
+  let rT=null;
+  window.addEventListener('resize',()=>{ clearTimeout(rT); rT=setTimeout(()=>{
+    const p=document.getElementById('pn-'+topic+'-'+tab); if(p) fitMath(p);
+    if(!card.hidden){ fitMath(cardBody); moved?setPos(card.offsetLeft,card.offsetTop):place() }
+  },150) });
 
   document.querySelectorAll('.topic').forEach(b=>b.addEventListener('click',()=>{topic=b.dataset.topic;tab='teoria';go()}));
   document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{tab=b.dataset.tab;go()}));
