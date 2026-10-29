@@ -88,6 +88,25 @@ article.ej.flash{box-shadow:0 0 0 3px var(--blue)}
 .tabs{overflow-x:auto;overflow-y:hidden}
 .tab{white-space:nowrap}
 .cc-sub{margin-top:10px;padding-top:12px;border-top:1px solid var(--rule);font-size:1.15rem}
+.teo-btn{all:unset;box-sizing:border-box;cursor:pointer;margin-left:auto;font-family:var(--f-display);font-weight:700;font-size:.8rem;color:var(--purple);background:var(--purple-soft);border:1.5px solid transparent;border-radius:999px;padding:4px 12px;white-space:nowrap}
+.teo-btn:hover,.teo-btn[aria-expanded="true"]{border-color:var(--purple)}
+.teo-btn:focus-visible{outline:2px solid var(--purple);outline-offset:2px}
+.head-btns{margin-left:auto;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px}
+.head-btns .teo-btn,.head-btns .sim-btn{margin-left:0}
+.box > .box-link{align-self:flex-start;margin-left:0;margin-top:4px}
+.ex-group{font-size:1.2rem;padding-top:14px;border-top:2px solid var(--ink);scroll-margin-top:16px}
+.teo-card{position:fixed;z-index:60;width:min(460px,calc(100vw - 24px));max-height:min(70vh,580px);overflow:auto;background:var(--sheet);color:var(--ink);border:1.5px solid var(--purple);border-radius:12px;box-shadow:0 14px 36px rgba(15,20,30,.22);padding:12px 16px 14px;display:flex;flex-direction:column;gap:10px;font-size:.92rem}
+.teo-card[hidden]{display:none!important}
+.teo-card .teo-top{display:flex;align-items:center;justify-content:space-between;position:sticky;top:-12px;background:var(--sheet);padding-top:2px;z-index:1}
+.teo-close{all:unset;cursor:pointer;font-size:1.4rem;line-height:1;padding:2px 8px;border-radius:6px;color:var(--muted)}
+.teo-close:hover,.teo-close:focus-visible{color:var(--ink);outline:2px solid var(--purple)}
+.teo-body{display:flex;flex-direction:column;gap:10px}
+.teo-body section{display:flex;flex-direction:column;gap:8px}
+.teo-body section + section{border-top:1px solid var(--rule);padding-top:10px}
+.teo-body h2{font-size:1.05rem}
+.teo-body ol,.teo-body ul{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:4px}
+.teo-card .teo-go{margin-left:0;align-self:flex-start}
+@media (max-width:560px){.teo-card{left:12px!important;right:12px;width:auto;top:auto!important;bottom:12px;max-height:65vh}}
 .chip.ok{color:var(--green);background:var(--green-soft)}
 .chip.bad{color:var(--red);background:var(--red-soft)}
 .chip.warnc{color:var(--amber);background:var(--amber-soft)}
@@ -221,17 +240,16 @@ window.MathJax={
     <span class="note">Al <b>reemplazar</b> un valor, el número se pinta del color de lo que representa: por ejemplo, el \(\az4\) azul en \(k=(\az4)^2-8(\az4)+15\) es la \(h\) del vértice.</span>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-par-def">
     <h2>¿Qué es una parábola?</h2>
     <p>Una parábola vertical es el conjunto de puntos \((x,y)\) que cumplen</p>
     <div class="math">\[y=ax^2+bx+c,\qquad a\neq0.\]</div>
     <ul>
       <li>Si \(a\gt0\), la parábola abre hacia arriba y el vértice es el punto más bajo (valor <b>mínimo</b>).</li>
       <li>Si \(a\lt0\), abre hacia abajo y el vértice es el punto más alto (valor <b>máximo</b>).</li>
-    </ul>
-  </div>
+    </ul></div>
 
-  <div class="box">
+  <div class="box" id="t-par-vertice">
     <h2 class="t-az">1. El vértice</h2>
     <p>El vértice es \(\az{V=(h,k)}\). Se halla en tres pasos:</p>
     <div class="steps-box"><ol>
@@ -239,20 +257,10 @@ window.MathJax={
       <li>\(\az{h=\dfrac{-b}{2a}}\).</li>
       <li>\(\az{k}\) = reemplazar \(x=\az h\) en la ecuación.</li>
     </ol></div>
-    <h4>Ejemplo: \(y=x^2+6x+8\)</h4>
-    <p>\(a=1\), \(b=6\), \(c=8\).</p>
-    <div class="math">\[\az{h}=\frac{-6}{2\cdot1}=\az{-3}\]</div>
-    <div class="math">\[\az{k}=(\az{-3})^2+6(\az{-3})+8=9-18+8=\az{-1}\]</div>
-    <div class="math">\[\az{V=(-3,-1)}\]</div>
-    <p>Con el vértice, la ecuación también se puede escribir en forma canónica \(y-\az k=a(x-\az h)^2\):</p>
-    <div class="math">\[y-(\az{-1})=1\,(x-(\az{-3}))^2\iff y+1=(x+3)^2\]</div>
-    <h4>Ejemplo con \(a\lt0\): \(y=-2x^2-48x+200\)</h4>
-    <div class="math">\[\az h=\frac{-(-48)}{2(-2)}=\frac{48}{-4}=\az{-12}\]</div>
-    <div class="math">\[\az k=-2(\az{-12})^2-48(\az{-12})+200=-288+576+200=\az{488}\]</div>
-    <p>Como \(a=-2\lt0\), el valor <b>máximo</b> de \(y\) es 488 y se alcanza en \(x=-12\).</p>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-par-vertice">Ver ejemplos de esta parte →</button>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-par-interceptos">
     <h2 class="t-na">2. Interceptos con los ejes</h2>
     <div class="steps-box"><ol>
       <li>Con el eje \(y\): \(\na{x=0\to y=\,?}\). Siempre da \(y=c\).</li>
@@ -264,14 +272,10 @@ window.MathJax={
       <li>\(\Delta=0\): uno solo (el vértice está sobre el eje \(x\)).</li>
       <li>\(\Delta\lt0\): no corta al eje \(x\).</li>
     </ul>
-    <h4>Ejemplo: \(y=x^2+6x+8\)</h4>
-    <div class="math">\[\na{x=0}\to y=(\na0)^2+6(\na0)+8=8\]</div>
-    <div class="math">\[\na{(0,8)}\]</div>
-    <div class="aspa-wrap"><div class="aspa2" aria-label="Aspa simple"><span class="a-pre">\(\na{y=0}\to\)</span><span class="a-lead">\(x^2\)</span><span class="a-mid">\(+6x\)</span><span class="a-c">\(+8\)</span><span class="a-eq">\(=0\)</span><span class="a-v1">\(x\)</span><svg class="cross" viewBox="0 0 54 44" preserveAspectRatio="none" aria-hidden="true"><line x1="4" y1="6" x2="50" y2="38"/><line x1="4" y1="38" x2="50" y2="6"/></svg><span class="a-r1">\(+4\)</span><span class="a-v2">\(x\)</span><span class="a-r2">\(+2\)</span><span class="a-chk">Comprobación: \(x(+2)+x(+4)=6x\) ✓</span><span class="a-fac">\((x+4)(x+2)\)</span><span class="a-eq2">\(=0\)</span><span class="a-roots">\(x=\na{-4}\qquad x=\na{-2}\)</span><span class="a-pts">\(\na{(-4,0)}\qquad\na{(-2,0)}\)</span></div></div>
-    <div class="plot" id="g-tp1"></div>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-par-interceptos">Ver ejemplos de esta parte →</button>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-par-interseccion">
     <h2 class="t-mo">3. Intersección con una recta u otra parábola</h2>
     <div class="steps-box"><ol>
       <li>Armar el sistema con las dos ecuaciones.</li>
@@ -279,43 +283,23 @@ window.MathJax={
       <li>Resolverla. Cada \(\mo x\) se reemplaza en una de las ecuaciones para hallar su \(y\).</li>
     </ol></div>
     <p>El discriminante de esa cuadrática decide: \(\Delta\gt0\) dos puntos, \(\Delta=0\) un punto (se tocan, son tangentes), \(\Delta\lt0\) no se cortan.</p>
-    <h4>Ejemplo sencillo: \(y=x^2\) e \(y=x+2\)</h4>
-    <div class="math">\[\mo{\begin{cases}y=x^2\\y=x+2\end{cases}}\]</div>
-    <div class="math">\[x^2=x+2\]</div>
-    <div class="aspa-wrap"><div class="aspa2" aria-label="Aspa simple"><span class="a-lead">\(x^2\)</span><span class="a-mid">\(-x\)</span><span class="a-c">\(-2\)</span><span class="a-eq">\(=0\)</span><span class="a-v1">\(x\)</span><svg class="cross" viewBox="0 0 54 44" preserveAspectRatio="none" aria-hidden="true"><line x1="4" y1="6" x2="50" y2="38"/><line x1="4" y1="38" x2="50" y2="6"/></svg><span class="a-r1">\(-2\)</span><span class="a-v2">\(x\)</span><span class="a-r2">\(+1\)</span><span class="a-chk">Comprobación: \(x(+1)+x(-2)=-x\) ✓</span><span class="a-fac">\((x-2)(x+1)\)</span><span class="a-eq2">\(=0\)</span><span class="a-roots">\(x=\mo2\qquad x=\mo{-1}\)</span></div></div>
-    <p>Reemplazamos cada \(x\) en la recta \(y=x+2\):</p>
-    <div class="math">\[x=\mo2\to y=\mo2+2=4\qquad\mo{(2,4)}\]</div>
-    <div class="math">\[x=\mo{-1}\to y=\mo{-1}+2=1\qquad\mo{(-1,1)}\]</div>
-
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-par-interseccion">Ver ejemplos de esta parte →</button>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-par-tangente">
     <h2 class="t-ma">4. Recta tangente a la parábola</h2>
     <p>La pendiente de la recta tangente a \(y=ax^2+bx+c\) en el punto \(\ma{(x_0,y_0)}\) es</p>
     <div class="math">\[\na{m}=2a\,\ma{x_0}+b\]</div>
     <p>y la recta se escribe con punto-pendiente: \(y-\ma{y_0}=\na m(x-\ma{x_0})\).</p>
     <p>Otra forma, sin la fórmula: la recta es tangente cuando el sistema recta-parábola da \(\Delta=0\).</p>
-    <h4>Ejemplo sencillo: \(y=x^2\) en \(\ma{(2,4)}\)</h4>
-    <p>Aquí \(a=1\), \(b=0\) y \(\ma{x_0=2}\):</p>
-    <div class="math">\[\na m=2(1)(\ma2)+0=\na4\]</div>
-    <div class="math">\[y-\ma4=\na4(x-\ma2)\]</div>
-    <div class="math">\[y=4x-4\]</div>
-    <p>Comprobación: \(x^2=4x-4\), es decir \(x^2-4x+4=0\), que es \((x-2)^2=0\): una sola solución.</p>
-    <h4>Otro ejemplo, con \(b\neq0\): \(y=x^2+2x\) en \(\ma{(1,3)}\)</h4>
-    <div class="math">\[\na m=2(1)(\ma1)+2=\na4\]</div>
-    <div class="math">\[y-\ma3=\na4(x-\ma1)\]</div>
-    <div class="math">\[y=4x-1\]</div>
-    <p>Comprobación:</p>
-    <div class="math">\[x^2+2x=4x-1\]</div>
-    <div class="math">\[x^2-2x+1=0\]</div>
-    <div class="math">\[(x-1)^2=0\]</div>
-    <p>Hay una sola solución.</p>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-par-tangente">Ver ejemplos de esta parte →</button>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-par-area">
     <h2 class="t-ve">5. Área de un triángulo con sus vértices</h2>
     <p>Se escriben los vértices en columna, repitiendo el primero al final, y se multiplica en cruz:</p>
     <div class="math">\[A=\frac12\left|\begin{matrix}x_1&amp;y_1\\x_2&amp;y_2\\x_3&amp;y_3\\x_1&amp;y_1\end{matrix}\right|=\frac12\Big|\big(x_1y_2+x_2y_3+x_3y_1\big)-\big(y_1x_2+y_2x_3+y_3x_1\big)\Big|\]</div>
+    <button class="sim-btn box-link" type="button" data-goto="ex-p4">Ver un ejemplo →</button>
   </div>
 </div>
 
@@ -348,7 +332,7 @@ window.MathJax={
   </div>
 
   <article class="ej" id="p1">
-    <div class="ej-head"><span class="num">1</span><h3>Suma de las coordenadas del vértice</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-p1">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">1</span><h3>Suma de las coordenadas del vértice</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-p1">Ver ejemplos similares →</button></span></div>
     <p class="enun">Calcule la suma de las coordenadas del vértice de la parábola de ecuación \(y=x^2-8x+4\).</p>
     <div class="sol">
       <p class="paso">Paso 1 · Identificar a, b, c</p>
@@ -364,7 +348,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="p2">
-    <div class="ej-head"><span class="num">2</span><h3>Graficar \(y=x^2-8x+15\)</h3><span class="chip bad">Error en la unidad</span><button class="sim-btn" type="button" data-goto="ex-p2">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">2</span><h3>Graficar \(y=x^2-8x+15\)</h3><span class="chip bad">Error en la unidad</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-p2">Ver ejemplos similares →</button></span></div>
     <p class="enun">Grafique la parábola de ecuación \(y=x^2-8x+15\), indicando el vértice y los interceptos con los ejes coordenados.</p>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice</p>
@@ -386,7 +370,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="p3">
-    <div class="ej-head"><span class="num">3</span><h3>Graficar \(y=x^2-12x+32\)</h3><span class="chip bad">Error en la unidad</span><button class="sim-btn" type="button" data-goto="ex-p3">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">3</span><h3>Graficar \(y=x^2-12x+32\)</h3><span class="chip bad">Error en la unidad</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-p3">Ver ejemplos similares →</button></span></div>
     <p class="enun">Grafique la parábola de ecuación \(y=x^2-12x+32\) e indique su vértice y los interceptos con los ejes coordenados.</p>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice</p>
@@ -407,7 +391,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="p4">
-    <div class="ej-head"><span class="num">4</span><h3>Parábola, recta y área del triángulo</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-p4">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">4</span><h3>Parábola, recta y área del triángulo</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interseccion t-par-area" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-p4">Ver ejemplos similares →</button></span></div>
     <div class="enun">Consideremos la parábola de ecuación \(y=x^2-2x+1\) y la recta de ecuación \(y=-x+3\). Determine:<br>• El vértice de la parábola.<br>• Los dos puntos de intersección entre la parábola y la recta.<br>• El área del triángulo cuyos vértices son los determinados en los ítems anteriores.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice</p>
@@ -433,7 +417,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="p5">
-    <div class="ej-head"><span class="num">5</span><h3>Recta tangente a \(y=x^2\) en \((1,1)\)</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-p5">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">5</span><h3>Recta tangente a \(y=x^2\) en \((1,1)\)</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-p5">Ver ejemplos similares →</button></span></div>
     <p class="enun">Dado el gráfico siguiente, determine la ecuación de la recta tangente. (El gráfico muestra la parábola \(y=x^2\) y una recta tangente a ella en el punto \((1,1)\).)</p>
     <div class="sol">
       <p class="paso">Paso 1 · Datos</p>
@@ -455,7 +439,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="p6">
-    <div class="ej-head"><span class="num">6</span><h3>Un único punto de intersección</h3><span class="chip bad">Respuesta incompleta</span><button class="sim-btn" type="button" data-goto="ex-p6">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">6</span><h3>Un único punto de intersección</h3><span class="chip bad">Respuesta incompleta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-interseccion" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-p6">Ver ejemplos similares →</button></span></div>
     <p class="enun">Sean \(a,b,c\in\mathbb R\) y consideremos las parábolas de ecuaciones \(y=ax^2+bx+c\ \wedge\ y=bx^2+cx+a\). ¿Qué condiciones deben cumplir \(a,b,c\) para que las parábolas tengan un único punto de intersección?</p>
     <div class="sol">
       <p class="paso">Paso 1 · Sistema de ecuaciones</p>
@@ -492,7 +476,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="p7">
-    <div class="ej-head"><span class="num">7</span><h3>Cuerda de longitud L</h3><span class="chip bad">Errata en la unidad</span><button class="sim-btn" type="button" data-goto="ex-p7">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">7</span><h3>Cuerda de longitud L</h3><span class="chip bad">Errata en la unidad</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-p7">Ver ejemplos similares →</button></span></div>
     <div class="enun">Se da una cuerda de longitud \(L\) m a una persona para que delimite un área rectangular.<br>• Si uno de los lados tiene longitud \(x\) m, pruebe que el área delimitada es \(A=Lx/2-x^2\) y además \(0\lt x\le L/2\).<br>• ¿Delimitará una circunferencia de longitud \(L\) un área mayor que la que hemos calculado en el ítem anterior?</div>
     <div class="sol">
       <p class="paso">Planteamiento</p>
@@ -549,7 +533,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="p8">
-    <div class="ej-head"><span class="num">8</span><h3>Cable del puente</h3><span class="chip bad">Respuesta incompleta</span><button class="sim-btn" type="button" data-goto="ex-p8">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">8</span><h3>Cable del puente</h3><span class="chip bad">Respuesta incompleta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-p8">Ver ejemplos similares →</button></span></div>
     <div class="enun">En la figura se observan dos torres de un puente que atraviesa el río Hablador, ubicadas a 400 m de distancia, y un cable parabólico conectado a la parte superior de ellas. El punto más bajo del cable está a 10 m de la cubierta del puente. Si las torres son de 110 m de altura desde la cubierta del puente:<br>• Determine una ecuación de parábola que describa el cable e indique el vértice de dicha parábola.<br>• Calcule la altura del cable directamente por encima de un punto de la cubierta del puente que se encuentra a 50 m a la derecha de la torre de la izquierda.<br>• Si un punto del cable tiene una altura de 14 m desde la cubierta del puente, determine las distancias del punto a las torres.</div>
     <div class="sol">
       <p class="paso">Planteamiento</p>
@@ -597,7 +581,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="p9">
-    <div class="ej-head"><span class="num">9</span><h3>Utilidad \(U(x)=4x-x^2\)</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-p9">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">9</span><h3>Utilidad \(U(x)=4x-x^2\)</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-p9">Ver ejemplos similares →</button></span></div>
     <div class="enun">El gerente de una empresa que vende CDs multimedia educativos ha determinado que su utilidad \(U\) se define por \(U(x)=4x-x^2\), donde \(U\) está expresada en miles de dólares y \(x\) en miles de CDs producidos y vendidos. Determine el valor de verdad de las siguientes afirmaciones (justifique):<br>• La utilidad máxima es 2 000 dólares y se obtiene al producir y vender 4 000 CDs.<br>• La utilidad obtenida al producir y vender 1 000 CDs es la misma que la obtenida al producir y vender 3 000 CDs.<br>• La utilidad obtenida al producir y vender 1 800 CDs es mayor que la obtenida al producir y vender 3 000 CDs.<br>• No hay beneficio para la empresa si las unidades producidas y vendidas de CDs son mayores o iguales a 4 000.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice (utilidad máxima)</p>
@@ -617,7 +601,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="p10">
-    <div class="ej-head"><span class="num">10</span><h3>Dos parábolas</h3><span class="chip bad">Error en el gráfico de la unidad</span><button class="sim-btn" type="button" data-goto="ex-p10">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">10</span><h3>Dos parábolas</h3><span class="chip bad">Error en el gráfico de la unidad</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos t-par-interseccion" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-p10">Ver ejemplos similares →</button></span></div>
     <div class="enun">Dadas las parábolas de ecuaciones \(9y=8x^2+32x+44\ \wedge\ 9y=-4x^2+8x+32\):<br>• Indique los vértices de las parábolas.<br>• Indique los puntos de intersección de las parábolas con los ejes coordenados.<br>• Indique el o los puntos de intersección entre las parábolas.<br>• Grafique las parábolas.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Despejar y</p>
@@ -659,7 +643,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="p11">
-    <div class="ej-head"><span class="num">11</span><h3>\(y=-x^2+4x+6\) y su triángulo</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-p11">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">11</span><h3>\(y=-x^2+4x+6\) y su triángulo</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos t-par-area" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-p11">Ver ejemplos similares →</button></span></div>
     <p class="enun">Grafique la parábola de ecuación \(y=-x^2+4x+6\), indicando su vértice y sus interceptos con el eje \(x\). Además, calcule el área del triángulo formado por el vértice y los interceptos con el eje \(x\).</p>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice</p>
@@ -682,7 +666,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="p12">
-    <div class="ej-head"><span class="num">12</span><h3>Tangencia en el IIIC</h3><span class="chip bad">Error en la unidad</span><button class="sim-btn" type="button" data-goto="ex-p12">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">12</span><h3>Tangencia en el IIIC</h3><span class="chip bad">Error en la unidad</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-interseccion t-par-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-p12">Ver ejemplos similares →</button></span></div>
     <p class="enun">Si el punto de tangencia de la parábola \(y=kx^2\) y la recta \(y=2x-k\) pertenece al IIIC, determine el valor de \(k\).</p>
     <div class="sol">
       <p class="paso">Paso 1 · Sistema</p>
@@ -718,11 +702,76 @@ window.MathJax={
     <span><i class="dot" style="background:var(--green)"></i>áreas</span>
     <span class="note">Los números reemplazados van del color de lo que representan.</span>
   </div>
-  <div class="box"><h3>Ejemplos de práctica</h3><p>Hay dos ejemplos por cada ejercicio de la unidad (por ejemplo, 3.1 y 3.2 se parecen al ejercicio 3), armados para que los resultados salgan exactos. Los botones con números llevan a los ejemplos de cada ejercicio. El botón de cada ejemplo lleva al ejercicio parecido de la unidad, y desde la unidad el botón «Ver ejemplos similares» trae aquí.</p></div>
-  <div class="jump" aria-label="Ir a los ejemplos del ejercicio"><button data-go="ex-p1">1</button><button data-go="ex-p2">2</button><button data-go="ex-p3">3</button><button data-go="ex-p4">4</button><button data-go="ex-p5">5</button><button data-go="ex-p6">6</button><button data-go="ex-p7">7</button><button data-go="ex-p8">8</button><button data-go="ex-p9">9</button><button data-go="ex-p10">10</button><button data-go="ex-p11">11</button><button data-go="ex-p12">12</button></div>
+  <div class="box"><h3>Ejemplos de práctica</h3><p>Primero están los ejemplos de la teoría. Después hay dos ejemplos por cada ejercicio de la unidad (por ejemplo, 3.1 y 3.2 se parecen al ejercicio 3), armados para que los resultados salgan exactos. Los botones con números llevan a los ejemplos de cada ejercicio. El botón de cada ejemplo lleva al ejercicio parecido de la unidad, y desde la unidad el botón «Ver ejemplos similares» trae aquí.</p></div>
+  <div class="jump" aria-label="Ir a los ejemplos del ejercicio"><button data-go="grp-parabolas-teo">Teoría</button><button data-go="ex-p1">1</button><button data-go="ex-p2">2</button><button data-go="ex-p3">3</button><button data-go="ex-p4">4</button><button data-go="ex-p5">5</button><button data-go="ex-p6">6</button><button data-go="ex-p7">7</button><button data-go="ex-p8">8</button><button data-go="ex-p9">9</button><button data-go="ex-p10">10</button><button data-go="ex-p11">11</button><button data-go="ex-p12">12</button></div>
+
+  <h2 class="ex-group" id="grp-parabolas-teo">Ejemplos de la teoría</h2>
+  <article class="ej ex ex-teo" id="ex-t-par-vertice">
+    <div class="ej-head"><h3>El vértice</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-vertice">Ver la teoría ↑</button></span></div>
+    <div class="sol">
+<h4>Ejemplo: \(y=x^2+6x+8\)</h4>
+    <p>\(a=1\), \(b=6\), \(c=8\).</p>
+    <div class="math">\[\az{h}=\frac{-6}{2\cdot1}=\az{-3}\]</div>
+    <div class="math">\[\az{k}=(\az{-3})^2+6(\az{-3})+8=9-18+8=\az{-1}\]</div>
+    <div class="math">\[\az{V=(-3,-1)}\]</div>
+    <p>Con el vértice, la ecuación también se puede escribir en forma canónica \(y-\az k=a(x-\az h)^2\):</p>
+    <div class="math">\[y-(\az{-1})=1\,(x-(\az{-3}))^2\iff y+1=(x+3)^2\]</div>
+    <h4>Ejemplo con \(a\lt0\): \(y=-2x^2-48x+200\)</h4>
+    <div class="math">\[\az h=\frac{-(-48)}{2(-2)}=\frac{48}{-4}=\az{-12}\]</div>
+    <div class="math">\[\az k=-2(\az{-12})^2-48(\az{-12})+200=-288+576+200=\az{488}\]</div>
+    <p>Como \(a=-2\lt0\), el valor <b>máximo</b> de \(y\) es 488 y se alcanza en \(x=-12\).</p>
+    </div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-par-interceptos">
+    <div class="ej-head"><h3>Interceptos con los ejes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-interceptos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-interceptos">Ver la teoría ↑</button></span></div>
+    <div class="sol">
+<h4>Ejemplo: \(y=x^2+6x+8\)</h4>
+    <div class="math">\[\na{x=0}\to y=(\na0)^2+6(\na0)+8=8\]</div>
+    <div class="math">\[\na{(0,8)}\]</div>
+    <div class="aspa-wrap"><div class="aspa2" aria-label="Aspa simple"><span class="a-pre">\(\na{y=0}\to\)</span><span class="a-lead">\(x^2\)</span><span class="a-mid">\(+6x\)</span><span class="a-c">\(+8\)</span><span class="a-eq">\(=0\)</span><span class="a-v1">\(x\)</span><svg class="cross" viewBox="0 0 54 44" preserveAspectRatio="none" aria-hidden="true"><line x1="4" y1="6" x2="50" y2="38"/><line x1="4" y1="38" x2="50" y2="6"/></svg><span class="a-r1">\(+4\)</span><span class="a-v2">\(x\)</span><span class="a-r2">\(+2\)</span><span class="a-chk">Comprobación: \(x(+2)+x(+4)=6x\) ✓</span><span class="a-fac">\((x+4)(x+2)\)</span><span class="a-eq2">\(=0\)</span><span class="a-roots">\(x=\na{-4}\qquad x=\na{-2}\)</span><span class="a-pts">\(\na{(-4,0)}\qquad\na{(-2,0)}\)</span></div></div>
+    <div class="plot" id="g-tp1"></div>
+    </div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-par-interseccion">
+    <div class="ej-head"><h3>Intersección con una recta</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-interseccion" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-interseccion">Ver la teoría ↑</button></span></div>
+    <div class="sol">
+<h4>Ejemplo sencillo: \(y=x^2\) e \(y=x+2\)</h4>
+    <div class="math">\[\mo{\begin{cases}y=x^2\\y=x+2\end{cases}}\]</div>
+    <div class="math">\[x^2=x+2\]</div>
+    <div class="aspa-wrap"><div class="aspa2" aria-label="Aspa simple"><span class="a-lead">\(x^2\)</span><span class="a-mid">\(-x\)</span><span class="a-c">\(-2\)</span><span class="a-eq">\(=0\)</span><span class="a-v1">\(x\)</span><svg class="cross" viewBox="0 0 54 44" preserveAspectRatio="none" aria-hidden="true"><line x1="4" y1="6" x2="50" y2="38"/><line x1="4" y1="38" x2="50" y2="6"/></svg><span class="a-r1">\(-2\)</span><span class="a-v2">\(x\)</span><span class="a-r2">\(+1\)</span><span class="a-chk">Comprobación: \(x(+1)+x(-2)=-x\) ✓</span><span class="a-fac">\((x-2)(x+1)\)</span><span class="a-eq2">\(=0\)</span><span class="a-roots">\(x=\mo2\qquad x=\mo{-1}\)</span></div></div>
+    <p>Reemplazamos cada \(x\) en la recta \(y=x+2\):</p>
+    <div class="math">\[x=\mo2\to y=\mo2+2=4\qquad\mo{(2,4)}\]</div>
+    <div class="math">\[x=\mo{-1}\to y=\mo{-1}+2=1\qquad\mo{(-1,1)}\]</div>
+    </div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-par-tangente">
+    <div class="ej-head"><h3>Recta tangente a la parábola</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-par-tangente">Ver la teoría ↑</button></span></div>
+    <div class="sol">
+<h4>Ejemplo sencillo: \(y=x^2\) en \(\ma{(2,4)}\)</h4>
+    <p>Aquí \(a=1\), \(b=0\) y \(\ma{x_0=2}\):</p>
+    <div class="math">\[\na m=2(1)(\ma2)+0=\na4\]</div>
+    <div class="math">\[y-\ma4=\na4(x-\ma2)\]</div>
+    <div class="math">\[y=4x-4\]</div>
+    <p>Comprobación: \(x^2=4x-4\), es decir \(x^2-4x+4=0\), que es \((x-2)^2=0\): una sola solución.</p>
+    <h4>Otro ejemplo, con \(b\neq0\): \(y=x^2+2x\) en \(\ma{(1,3)}\)</h4>
+    <div class="math">\[\na m=2(1)(\ma1)+2=\na4\]</div>
+    <div class="math">\[y-\ma3=\na4(x-\ma1)\]</div>
+    <div class="math">\[y=4x-1\]</div>
+    <p>Comprobación:</p>
+    <div class="math">\[x^2+2x=4x-1\]</div>
+    <div class="math">\[x^2-2x+1=0\]</div>
+    <div class="math">\[(x-1)^2=0\]</div>
+    <p>Hay una sola solución.</p>
+    </div>
+  </article>
+
+  <h2 class="ex-group" id="grp-parabolas-unidad">Ejemplos parecidos a los ejercicios de la unidad</h2>
 
   <article class="ej ex" id="ex-p1">
-    <div class="ej-head"><span class="num">1.1</span><h3>Suma de las coordenadas del vértice</h3><button class="sim-btn" type="button" data-goto="p1">Parecido al ejercicio 1 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">1.1</span><h3>Suma de las coordenadas del vértice</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p1">Parecido al ejercicio 1 de la unidad ↑</button></span></div>
     <div class="enun">Calcule la suma de las coordenadas del vértice de la parábola \(y=x^2-6x+1\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Identificar a, b, c</p>
@@ -739,7 +788,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p1b">
-    <div class="ej-head"><span class="num">1.2</span><h3>Vértice con a negativo</h3><button class="sim-btn" type="button" data-goto="p1">Parecido al ejercicio 1 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">1.2</span><h3>Vértice con a negativo</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p1">Parecido al ejercicio 1 de la unidad ↑</button></span></div>
     <div class="enun">Calcule la suma de las coordenadas del vértice de la parábola \(y=-2x^2+8x-3\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Identificar a, b, c</p>
@@ -757,7 +806,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p2">
-    <div class="ej-head"><span class="num">2.1</span><h3>Graficar \(y=x^2-6x+8\)</h3><button class="sim-btn" type="button" data-goto="p2">Parecido al ejercicio 2 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">2.1</span><h3>Graficar \(y=x^2-6x+8\)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p2">Parecido al ejercicio 2 de la unidad ↑</button></span></div>
     <div class="enun">Grafique la parábola de ecuación \(y=x^2-6x+8\), indicando el vértice y los interceptos con los ejes coordenados.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice</p>
@@ -778,7 +827,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p2b">
-    <div class="ej-head"><span class="num">2.2</span><h3>Graficar \(y=-x^2+2x+3\)</h3><button class="sim-btn" type="button" data-goto="p2">Parecido al ejercicio 2 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">2.2</span><h3>Graficar \(y=-x^2+2x+3\)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p2">Parecido al ejercicio 2 de la unidad ↑</button></span></div>
     <div class="enun">Grafique la parábola \(y=-x^2+2x+3\), indicando el vértice y los interceptos con los ejes coordenados.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice</p>
@@ -801,7 +850,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p3">
-    <div class="ej-head"><span class="num">3.1</span><h3>Graficar \(y=x^2-10x+21\)</h3><button class="sim-btn" type="button" data-goto="p3">Parecido al ejercicio 3 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">3.1</span><h3>Graficar \(y=x^2-10x+21\)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p3">Parecido al ejercicio 3 de la unidad ↑</button></span></div>
     <div class="enun">Grafique la parábola de ecuación \(y=x^2-10x+21\) e indique su vértice y los interceptos con los ejes coordenados.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice</p>
@@ -821,7 +870,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p3b">
-    <div class="ej-head"><span class="num">3.2</span><h3>Graficar \(y=x^2+4x-5\)</h3><button class="sim-btn" type="button" data-goto="p3">Parecido al ejercicio 3 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">3.2</span><h3>Graficar \(y=x^2+4x-5\)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p3">Parecido al ejercicio 3 de la unidad ↑</button></span></div>
     <div class="enun">Grafique la parábola \(y=x^2+4x-5\) e indique su vértice y los interceptos con los ejes.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice</p>
@@ -841,7 +890,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p4">
-    <div class="ej-head"><span class="num">4.1</span><h3>Parábola, recta y área del triángulo</h3><button class="sim-btn" type="button" data-goto="p4">Parecido al ejercicio 4 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">4.1</span><h3>Parábola, recta y área del triángulo</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interseccion t-par-area" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p4">Parecido al ejercicio 4 de la unidad ↑</button></span></div>
     <div class="enun">Consideremos la parábola \(y=x^2-4x+4\) y la recta \(y=x\). Determine el vértice de la parábola, los dos puntos de intersección entre la parábola y la recta, y el área del triángulo cuyos vértices son esos tres puntos.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice</p>
@@ -868,7 +917,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p4b">
-    <div class="ej-head"><span class="num">4.2</span><h3>Parábola, recta y triángulo (otra versión)</h3><button class="sim-btn" type="button" data-goto="p4">Parecido al ejercicio 4 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">4.2</span><h3>Parábola, recta y triángulo (otra versión)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interseccion t-par-area" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p4">Parecido al ejercicio 4 de la unidad ↑</button></span></div>
     <div class="enun">Para la parábola \(y=x^2-2x-3\) y la recta \(y=x+1\), determine el vértice, los puntos de intersección y el área del triángulo formado por esos tres puntos.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice</p>
@@ -890,7 +939,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p5">
-    <div class="ej-head"><span class="num">5.1</span><h3>Recta tangente a \(y=x^2-2x\) en \((3,3)\)</h3><button class="sim-btn" type="button" data-goto="p5">Parecido al ejercicio 5 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">5.1</span><h3>Recta tangente a \(y=x^2-2x\) en \((3,3)\)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p5">Parecido al ejercicio 5 de la unidad ↑</button></span></div>
     <div class="enun">Determine la ecuación de la recta tangente a la parábola \(y=x^2-2x\) en el punto \((3,3)\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Datos</p>
@@ -914,7 +963,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p5b">
-    <div class="ej-head"><span class="num">5.2</span><h3>Tangente a una parábola que abre hacia abajo</h3><button class="sim-btn" type="button" data-goto="p5">Parecido al ejercicio 5 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">5.2</span><h3>Tangente a una parábola que abre hacia abajo</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p5">Parecido al ejercicio 5 de la unidad ↑</button></span></div>
     <div class="enun">Determine la recta tangente a \(y=-x^2+4x\) en el punto \((1,3)\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Datos</p>
@@ -935,7 +984,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p6">
-    <div class="ej-head"><span class="num">6.1</span><h3>Un único punto de intersección</h3><button class="sim-btn" type="button" data-goto="p6">Parecido al ejercicio 6 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">6.1</span><h3>Un único punto de intersección</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-interseccion" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p6">Parecido al ejercicio 6 de la unidad ↑</button></span></div>
     <div class="enun">¿Para qué valor de \(k\) las parábolas \(y=x^2+3\) e \(y=-x^2+4x+k\) tienen un único punto de intersección? Halle ese punto.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Sistema de ecuaciones</p>
@@ -963,7 +1012,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p6b">
-    <div class="ej-head"><span class="num">6.2</span><h3>Un único punto: dos valores posibles</h3><button class="sim-btn" type="button" data-goto="p6">Parecido al ejercicio 6 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">6.2</span><h3>Un único punto: dos valores posibles</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-interseccion" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p6">Parecido al ejercicio 6 de la unidad ↑</button></span></div>
     <div class="enun">¿Para qué valores de \(k\) las parábolas \(y=x^2+kx+5\) e \(y=-x^2+2x+3\) tienen un único punto de intersección?</div>
     <div class="sol">
       <p class="paso">Paso 1 · Sistema de ecuaciones</p>
@@ -991,7 +1040,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p7">
-    <div class="ej-head"><span class="num">7.1</span><h3>Cerca de 40 m</h3><button class="sim-btn" type="button" data-goto="p7">Parecido al ejercicio 7 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">7.1</span><h3>Cerca de 40 m</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p7">Parecido al ejercicio 7 de la unidad ↑</button></span></div>
     <div class="enun">Con 40 m de cerca se quiere encerrar un terreno rectangular.<br>• Si uno de los lados mide \(x\) m, exprese el área en función de \(x\) e indique los valores posibles de \(x\).<br>• ¿Cuál es el área máxima?<br>• ¿Una circunferencia de 40 m de longitud encierra más área?</div>
     <div class="sol">
       <p class="paso">Planteamiento</p>
@@ -1019,7 +1068,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p7b">
-    <div class="ej-head"><span class="num">7.2</span><h3>Terreno junto a un río</h3><button class="sim-btn" type="button" data-goto="p7">Parecido al ejercicio 7 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">7.2</span><h3>Terreno junto a un río</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p7">Parecido al ejercicio 7 de la unidad ↑</button></span></div>
     <div class="enun">Un granjero tiene 60 m de cerca para encerrar un terreno rectangular junto a un río. No pone cerca en el lado del río. Si los lados perpendiculares al río miden \(x\) m, exprese el área en función de \(x\) y halle el área máxima.</div>
     <div class="sol">
       <p class="paso">Planteamiento</p>
@@ -1040,7 +1089,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p8">
-    <div class="ej-head"><span class="num">8.1</span><h3>Puente colgante</h3><button class="sim-btn" type="button" data-goto="p8">Parecido al ejercicio 8 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">8.1</span><h3>Puente colgante</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p8">Parecido al ejercicio 8 de la unidad ↑</button></span></div>
     <div class="enun">Las torres de un puente colgante están a 200 m una de otra y miden 60 m desde la cubierta. El cable tiene forma de parábola y su punto más bajo está a 10 m de la cubierta.<br>• Determine la ecuación del cable y su vértice.<br>• Calcule la altura del cable 20 m a la derecha de la torre izquierda.<br>• Si un punto del cable está a 28 m de la cubierta, ¿a qué distancia está de cada torre?</div>
     <div class="sol">
       <p class="paso">Planteamiento</p>
@@ -1068,7 +1117,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p8b">
-    <div class="ej-head"><span class="num">8.2</span><h3>Arco parabólico</h3><button class="sim-btn" type="button" data-goto="p8">Parecido al ejercicio 8 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">8.2</span><h3>Arco parabólico</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p8">Parecido al ejercicio 8 de la unidad ↑</button></span></div>
     <div class="enun">Un arco parabólico mide 60 m de ancho en el suelo y 18 m de altura máxima.<br>• Determine la ecuación del arco y su vértice.<br>• Calcule la altura del arco a 20 m del extremo izquierdo.<br>• ¿En qué puntos el arco tiene 10 m de altura? ¿A qué distancia están de cada extremo?</div>
     <div class="sol">
       <p class="paso">Planteamiento</p>
@@ -1096,7 +1145,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p9">
-    <div class="ej-head"><span class="num">9.1</span><h3>Utilidad \(U(x)=6x-x^2\)</h3><button class="sim-btn" type="button" data-goto="p9">Parecido al ejercicio 9 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">9.1</span><h3>Utilidad \(U(x)=6x-x^2\)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p9">Parecido al ejercicio 9 de la unidad ↑</button></span></div>
     <div class="enun">La utilidad de una empresa es \(U(x)=6x-x^2\), con \(U\) en miles de dólares y \(x\) en miles de unidades vendidas. Determine si cada afirmación es verdadera o falsa:<br>• La utilidad máxima es 6 000 dólares y se obtiene con 3 000 unidades.<br>• La utilidad con 1 000 unidades es igual a la utilidad con 5 000 unidades.<br>• La utilidad con 2 000 unidades es mayor que con 5 000 unidades.<br>• No hay beneficio si se venden 6 000 unidades o más.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice (utilidad máxima)</p>
@@ -1119,7 +1168,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p9b">
-    <div class="ej-head"><span class="num">9.2</span><h3>Utilidad con pérdidas</h3><button class="sim-btn" type="button" data-goto="p9">Parecido al ejercicio 9 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">9.2</span><h3>Utilidad con pérdidas</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p9">Parecido al ejercicio 9 de la unidad ↑</button></span></div>
     <div class="enun">La utilidad de una empresa es \(U(x)=-x^2+8x-12\) (miles de dólares; \(x\) en miles de unidades). Verdadero o falso:<br>• La utilidad máxima es 4 000 dólares y se logra con 4 000 unidades.<br>• Con 1 000 unidades la empresa pierde dinero.<br>• La utilidad con 3 000 unidades es mayor que con 5 000 unidades.<br>• Solo hay ganancia si se venden entre 2 000 y 6 000 unidades.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice</p>
@@ -1144,7 +1193,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p10">
-    <div class="ej-head"><span class="num">10.1</span><h3>Dos parábolas tangentes</h3><button class="sim-btn" type="button" data-goto="p10">Parecido al ejercicio 10 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">10.1</span><h3>Dos parábolas tangentes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos t-par-interseccion" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p10">Parecido al ejercicio 10 de la unidad ↑</button></span></div>
     <div class="enun">Dadas las parábolas \(P_1:\ y=x^2+2x+2\) y \(P_2:\ y=-x^2+6x\):<br>• Indique sus vértices.<br>• Indique sus interceptos con los ejes.<br>• Indique el o los puntos de intersección entre ellas.<br>• Grafíquelas.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice de P₁</p>
@@ -1188,7 +1237,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p10b">
-    <div class="ej-head"><span class="num">10.2</span><h3>Dos parábolas que se cortan en dos puntos</h3><button class="sim-btn" type="button" data-goto="p10">Parecido al ejercicio 10 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">10.2</span><h3>Dos parábolas que se cortan en dos puntos</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos t-par-interseccion" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p10">Parecido al ejercicio 10 de la unidad ↑</button></span></div>
     <div class="enun">Dadas \(P_1:\ y=x^2-4x+6\) y \(P_2:\ y=-x^2+4x\), indique sus vértices, sus interceptos con los ejes y sus puntos de intersección, y grafíquelas.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértices</p>
@@ -1222,7 +1271,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p11">
-    <div class="ej-head"><span class="num">11.1</span><h3>\(y=-x^2+2x+8\) y su triángulo</h3><button class="sim-btn" type="button" data-goto="p11">Parecido al ejercicio 11 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">11.1</span><h3>\(y=-x^2+2x+8\) y su triángulo</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos t-par-area" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p11">Parecido al ejercicio 11 de la unidad ↑</button></span></div>
     <div class="enun">Grafique la parábola \(y=-x^2+2x+8\), indicando su vértice y sus interceptos con el eje \(x\). Calcule el área del triángulo formado por el vértice y esos interceptos.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice</p>
@@ -1243,7 +1292,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p11b">
-    <div class="ej-head"><span class="num">11.2</span><h3>Triángulo bajo el eje x</h3><button class="sim-btn" type="button" data-goto="p11">Parecido al ejercicio 11 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">11.2</span><h3>Triángulo bajo el eje x</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-vertice t-par-interceptos t-par-area" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p11">Parecido al ejercicio 11 de la unidad ↑</button></span></div>
     <div class="enun">Grafique \(y=x^2-6x+5\), indique su vértice y sus interceptos con el eje \(x\), y calcule el área del triángulo que forman.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértice</p>
@@ -1261,7 +1310,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p12">
-    <div class="ej-head"><span class="num">12.1</span><h3>Tangencia en el IIIC</h3><button class="sim-btn" type="button" data-goto="p12">Parecido al ejercicio 12 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">12.1</span><h3>Tangencia en el IIIC</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-interseccion t-par-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p12">Parecido al ejercicio 12 de la unidad ↑</button></span></div>
     <div class="enun">Si el punto de tangencia de la parábola \(y=kx^2\) y la recta \(y=4x-k\) pertenece al IIIC, determine el valor de \(k\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Sistema</p>
@@ -1290,7 +1339,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-p12b">
-    <div class="ej-head"><span class="num">12.2</span><h3>Tangencia en el IVC</h3><button class="sim-btn" type="button" data-goto="p12">Parecido al ejercicio 12 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">12.2</span><h3>Tangencia en el IVC</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-par-interseccion t-par-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="p12">Parecido al ejercicio 12 de la unidad ↑</button></span></div>
     <div class="enun">Si el punto de tangencia de \(y=kx^2\) y la recta \(y=-2x-k\) está en el IVC, determine \(k\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Sistema</p>
@@ -1328,14 +1377,14 @@ window.MathJax={
     <span class="note">Al reemplazar un punto, sus coordenadas se pintan de su color.</span>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-cir-def">
     <h2>¿Qué es una circunferencia?</h2>
     <p>Es el conjunto de puntos que están a la misma distancia \(\az r\) (el radio) de un punto fijo \(\az{C=(h,k)}\) (el centro). Su ecuación ordinaria es</p>
     <div class="math">\[(x-\az h)^2+(y-\az k)^2=\az r^2,\qquad r\gt0.\]</div>
-    <p>Ejemplo: centro \(\az{(3,3)}\) y radio \(\az2\) dan \((x-\az3)^2+(y-\az3)^2=\az2^2=4\).</p>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-cir-def">Ver ejemplos de esta parte →</button>
   </div>
 
-  <div class="box" id="completar-cuadrados">
+  <div class="box" id="t-cir-completar">
     <h2 class="t-ma">1. Completar cuadrados</h2>
     <p>Completar cuadrados es escribir \(x^2+bx\) como un cuadrado perfecto menos un número. Se basa en el binomio al cuadrado:</p>
     <div class="math">\[(x+\ma n)^2=x^2+2\ma n\,x+\ma n^2\]</div>
@@ -1346,71 +1395,10 @@ window.MathJax={
       <li>Escribir \((x+\text{mitad})^2\).</li>
       <li>Restar la mitad al cuadrado, porque al desarrollar el paréntesis aparece de más.</li>
     </ol></div>
-    <h4>Ejemplo 1: \(x^2+6x\)</h4>
-    <p>La mitad de \(6\) es \(\ma3\):</p>
-    <div class="math">\[x^2+6x=(x+\ma3)^2-\ma3^2=(x+3)^2-9\]</div>
-    <p>Comprobación: \((x+3)^2-9=x^2+6x+9-9=x^2+6x\) ✓</p>
-    <h4>Ejemplo 2: \(x^2-10x\)</h4>
-    <p>La mitad de \(-10\) es \(\ma{-5}\):</p>
-    <div class="math">\[x^2-10x=(x-\ma5)^2-\ma5^2=(x-5)^2-25\]</div>
-    <h4>Ejemplo 3: \(y^2+4y\) (con la otra variable es igual)</h4>
-    <p>La mitad de \(4\) es \(\ma2\):</p>
-    <div class="math">\[y^2+4y=(y+\ma2)^2-\ma2^2=(y+2)^2-4\]</div>
-    <h4>Ejemplo 4: \(x^2-5x\) (mitad con fracción)</h4>
-    <p>La mitad de \(-5\) es \(\ma{-\frac52}\):</p>
-    <div class="math">\[x^2-5x=\left(x-\ma{\tfrac52}\right)^2-\left(\ma{\tfrac52}\right)^2=\left(x-\tfrac52\right)^2-\tfrac{25}4\]</div>
-    <h4>Ejemplo 5: \(2x^2-12x\) (coeficiente distinto de 1)</h4>
-    <p>Primero se saca factor común el número que acompaña a \(x^2\), y se completa dentro del paréntesis:</p>
-    <div class="math">\[2x^2-12x=2(x^2-6x)\]</div>
-    <div class="math">\[2(x^2-6x)=2\big[(x-\ma3)^2-\ma3^2\big]=2\big[(x-3)^2-9\big]=2(x-3)^2-18\]</div>
-    <h4>Ejemplo 6: un trinomio completo, \(x^2-8x+15\)</h4>
-    <p>Se completa el cuadrado con \(x^2-8x\) y el número suelto se suma al final:</p>
-    <div class="math">\[x^2-8x+15=(x-\ma4)^2-\ma4^2+15=(x-4)^2-16+15=(x-4)^2-1\]</div>
-    <p>Así la parábola \(y=x^2-8x+15\) queda como \(y-(\az{-1})=(x-\az4)^2\), con vértice \(\az{(4,-1)}\): el mismo que da \(h=\frac{-b}{2a}\).</p>
-    <h4>En una circunferencia: \(x^2+y^2-2x+6y-6=0\)</h4>
-    <p>Se completa por separado el grupo de las \(x\) y el de las \(y\):</p>
-    <div class="math">\[\am{x^2-2x}+\ce{y^2+6y}=6\]</div>
-    <div class="math">\[\am{(x-1)^2-1}+\ce{(y+3)^2-9}=6\]</div>
-    <div class="math">\[(x-1)^2+(y+3)^2=6+1+9=16=4^2\]</div>
-    <p>Centro \(\az{(1,-3)}\) y radio \(\az4\). Los pasos completos para hallar centro y radio están en la sección 2.</p>
-    <h3 class="cc-sub">Casos más difíciles (solo el completar cuadrados)</h3>
-    <p>En estos casos se muestra únicamente cómo queda el cuadrado completado. La mitad va en magenta.</p>
-    <h4>a) Coeficiente negativo: \(-x^2+6x\)</h4>
-    <p>Sacamos factor común \(-1\) y completamos dentro:</p>
-    <div class="math">\[-x^2+6x=-(x^2-6x)\]</div>
-    <div class="math">\[=-\big[(x-\ma3)^2-\ma3^2\big]\]</div>
-    <div class="math">\[=-(x-3)^2+9\]</div>
-    <p>Ojo: el \(-9\) de adentro sale como \(+9\), porque se multiplica por \(-1\).</p>
-    <h4>b) Coeficiente distinto de 1 y número suelto: \(3x^2+12x-1\)</h4>
-    <div class="math">\[3x^2+12x-1=3(x^2+4x)-1\]</div>
-    <div class="math">\[=3\big[(x+\ma2)^2-\ma2^2\big]-1\]</div>
-    <div class="math">\[=3(x+2)^2-12-1\]</div>
-    <div class="math">\[=3(x+2)^2-13\]</div>
-    <p>El \(-4\) de adentro se multiplica por 3 al salir: \(3\cdot(-4)=-12\).</p>
-    <h4>c) Coeficiente impar: \(x^2+3x+1\)</h4>
-    <p>La mitad de 3 es \(\ma{\tfrac32}\):</p>
-    <div class="math">\[x^2+3x+1=\left(x+\ma{\tfrac32}\right)^2-\left(\ma{\tfrac32}\right)^2+1\]</div>
-    <div class="math">\[=\left(x+\tfrac32\right)^2-\tfrac94+\tfrac44\]</div>
-    <div class="math">\[=\left(x+\tfrac32\right)^2-\tfrac54\]</div>
-    <h4>d) Factor común y fracción a la vez: \(2x^2-5x\)</h4>
-    <div class="math">\[2x^2-5x=2\left(x^2-\tfrac52x\right)\]</div>
-    <p>La mitad de \(-\tfrac52\) es \(\ma{-\tfrac54}\):</p>
-    <div class="math">\[=2\left[\left(x-\ma{\tfrac54}\right)^2-\left(\ma{\tfrac54}\right)^2\right]\]</div>
-    <div class="math">\[=2\left(x-\tfrac54\right)^2-2\cdot\tfrac{25}{16}\]</div>
-    <div class="math">\[=2\left(x-\tfrac54\right)^2-\tfrac{25}8\]</div>
-    <h4>e) Coeficiente fraccionario: \(x^2+\tfrac23x\)</h4>
-    <p>La mitad de \(\tfrac23\) es \(\ma{\tfrac13}\):</p>
-    <div class="math">\[x^2+\tfrac23x=\left(x+\ma{\tfrac13}\right)^2-\left(\ma{\tfrac13}\right)^2=\left(x+\tfrac13\right)^2-\tfrac19\]</div>
-    <h4>f) Dos variables con coeficiente 4: \(4x^2+4y^2-8x+12y-3=0\)</h4>
-    <p>Primero se divide todo entre 4 y luego se completa cada grupo:</p>
-    <div class="math">\[x^2+y^2-2x+3y-\tfrac34=0\]</div>
-    <div class="math">\[\am{x^2-2x}+\ce{y^2+3y}=\tfrac34\]</div>
-    <div class="math">\[\am{(x-\ma1)^2-\ma1^2}+\ce{\left(y+\ma{\tfrac32}\right)^2-\left(\ma{\tfrac32}\right)^2}=\tfrac34\]</div>
-    <div class="math">\[(x-1)^2+\left(y+\tfrac32\right)^2=\tfrac34+1+\tfrac94=4\]</div>
-
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-cir-completar">Ver ejemplos de esta parte →</button>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-cir-centro">
     <h2 class="t-az">2. Hallar centro y radio</h2>
     <p>Cuando la ecuación viene desarrollada, por ejemplo \(x^2+y^2+Dx+Ey+F=0\):</p>
     <div class="steps-box"><ol>
@@ -1420,35 +1408,21 @@ window.MathJax={
       <li>El número que queda solo es \(\az{r^2}\).</li>
     </ol></div>
     <p>Si \(x^2\) e \(y^2\) tienen el mismo coeficiente distinto de 1 (por ejemplo, 2), primero se divide toda la ecuación entre ese número.</p>
-    <h4>Ejemplo: \(x^2+y^2+4x-6y-12=0\)</h4>
-    <div class="math">\[\am{x^2+4x}+\ce{y^2-6y}=12\]</div>
-    <div class="math">\[\am{(x+2)^2-2^2}+\ce{(y-3)^2-3^2}=12\]</div>
-    <div class="math">\[(x+2)^2+(y-3)^2=12+4+9=25=5^2\]</div>
-    <div class="math">\[(x-(\az{-2}))^2+(y-\az3)^2=\az5^2\]</div>
-    <div class="math">\[\az{C=(-2,3)},\ \az{r=5}\]</div>
-    <div class="plot" id="g-tc1"></div>
-    <p>Si al final el número es 0, la ecuación es un solo punto; si es negativo, no hay ningún punto. En ninguno de los dos casos es una circunferencia.</p>
+<p>Si al final el número es 0, la ecuación es un solo punto; si es negativo, no hay ningún punto. En ninguno de los dos casos es una circunferencia.</p>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-cir-centro">Ver ejemplos de esta parte →</button>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-cir-ejes">
     <h2 class="t-na">3. Interceptos y tangencia con los ejes</h2>
     <ul>
       <li>Con el eje \(y\): \(\na{x=0\to y=\,?}\). Con el eje \(x\): \(\na{y=0\to x=\,?}\).</li>
       <li>La circunferencia es tangente al eje \(x\) cuando el radio es igual a la altura del centro: \(r=|k|\).</li>
       <li>Es tangente al eje \(y\) cuando \(r=|h|\).</li>
     </ul>
-    <h4>Ejemplo sencillo: \((x-3)^2+(y-2)^2=4\)</h4>
-    <p>Centro \(\az{(3,2)}\), radio \(\az2\). La altura del centro es \(|2|=2=r\): es tangente al eje \(x\).</p>
-    <div class="math">\[\na{y=0}:\ (x-3)^2+(\na0-2)^2=4\]</div>
-    <div class="math">\[(x-3)^2=0\]</div>
-    <div class="math">\[x=3\qquad\na{(3,0)}\ \text{(un solo punto: tangente)}\]</div>
-    <div class="math">\[\na{x=0}:\ (\na0-3)^2+(y-2)^2=4\]</div>
-    <div class="math">\[(y-2)^2=-5\]</div>
-    <p>Un cuadrado no puede ser negativo: no corta al eje \(y\) (la distancia del centro al eje \(y\) es 3, mayor que el radio).</p>
-
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-cir-ejes">Ver ejemplos de esta parte →</button>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-cir-recta">
     <h2 class="t-mo">4. Recta y circunferencia</h2>
     <p>Para saber dónde se cortan, se reemplaza \(y=mx+b\) en la ecuación de la circunferencia. Sale una cuadrática en \(x\):</p>
     <ul>
@@ -1456,42 +1430,17 @@ window.MathJax={
       <li>\(\Delta=0\): la toca en un solo punto (tangente).</li>
       <li>\(\Delta\lt0\): no la corta.</li>
     </ul>
-    <h4>Ejemplo sencillo: \(x^2+y^2=10\) y \(y=x+2\)</h4>
-    <div class="math">\[\mo{\begin{cases}x^2+y^2=10\\y=x+2\end{cases}}\]</div>
-    <p>Reemplazamos \(y=x+2\) en la circunferencia:</p>
-    <div class="math">\[x^2+(\mo{x+2})^2=10\]</div>
-    <div class="math">\[x^2+x^2+4x+4=10\]</div>
-    <div class="math">\[2x^2+4x-6=0\]</div>
-    <p>Dividimos entre 2:</p>
-    <div class="aspa-wrap"><div class="aspa2" aria-label="Aspa simple"><span class="a-lead">\(x^2\)</span><span class="a-mid">\(+2x\)</span><span class="a-c">\(-3\)</span><span class="a-eq">\(=0\)</span><span class="a-v1">\(x\)</span><svg class="cross" viewBox="0 0 54 44" preserveAspectRatio="none" aria-hidden="true"><line x1="4" y1="6" x2="50" y2="38"/><line x1="4" y1="38" x2="50" y2="6"/></svg><span class="a-r1">\(+3\)</span><span class="a-v2">\(x\)</span><span class="a-r2">\(-1\)</span><span class="a-chk">Comprobación: \(x(-1)+x(+3)=2x\) ✓</span><span class="a-fac">\((x+3)(x-1)\)</span><span class="a-eq2">\(=0\)</span><span class="a-roots">\(x=\mo{-3}\qquad x=\mo1\)</span></div></div>
-    <div class="math">\[x=\mo1\to y=\mo1+2=3\qquad\mo{(1,3)}\]</div>
-    <div class="math">\[x=\mo{-3}\to y=\mo{-3}+2=-1\qquad\mo{(-3,-1)}\]</div>
-    <p>Dos soluciones: la recta es secante.</p>
-
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-cir-recta">Ver ejemplos de esta parte →</button>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-cir-tangente">
     <h2 class="t-ma">5. Recta tangente en un punto</h2>
     <p>La recta tangente es perpendicular al radio que llega al punto de tangencia \(\ma T\):</p>
     <div class="math">\[\na{m}\cdot\text{rc}(\ma T,\az C)=-1\]</div>
-    <h4>Ejemplo sencillo: tangente a \(x^2+y^2=25\) en \(\ma{T=(3,4)}\)</h4>
-    <p>El centro es \(\az{O=(0,0)}\). Pendiente del radio y de la tangente:</p>
-    <div class="math">\[\text{rc}(\ma T,\az O)=\frac{\ma4-\az0}{\ma3-\az0}=\frac43\]</div>
-    <div class="math">\[\na m\cdot\tfrac43=-1\]</div>
-    <div class="math">\[\na m=-\tfrac34\]</div>
-    <div class="math">\[y-\ma4=\na{-\tfrac34}(x-\ma3)\]</div>
-    <h4>Otro ejemplo, cuando el centro no es el origen: tangente a \(x^2-6x+y^2-8y=0\) en \(\ma{T=(7,7)}\)</h4>
-    <div class="math">\[\am{x^2-6x}+\ce{y^2-8y}=0\]</div>
-    <div class="math">\[\am{(x-3)^2-9}+\ce{(y-4)^2-16}=0\]</div>
-    <div class="math">\[(x-\az3)^2+(y-\az4)^2=\az5^2\]</div>
-    <p>Centro \(\az{C=(3,4)}\), radio \(\az5\).</p>
-    <div class="math">\[\text{rc}(\ma T,\az C)=\frac{\ma7-\az4}{\ma7-\az3}=\frac34\]</div>
-    <div class="math">\[\na m=-\frac43\]</div>
-    <div class="math">\[y-\ma7=\na{-\tfrac43}(x-\ma7)\]</div>
-    <div class="plot" id="g-tc2"></div>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-cir-tangente">Ver ejemplos de esta parte →</button>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-cir-condiciones">
     <h2>6. Encontrar una circunferencia con condiciones</h2>
     <p>Se plantean las incógnitas \(h\), \(k\), \(r\) y se usa cada dato:</p>
     <ul>
@@ -1500,6 +1449,7 @@ window.MathJax={
       <li>"Es tangente a una recta en \(T\)": el centro está en la perpendicular a esa recta que pasa por \(T\).</li>
     </ul>
     <p>Con dos ecuaciones que tienen \(r^2\), se igualan para eliminar \(r^2\).</p>
+    <button class="sim-btn box-link" type="button" data-goto="ex-c5">Ver un ejemplo →</button>
   </div>
 </div>
 
@@ -1530,7 +1480,7 @@ window.MathJax={
   </div>
 
   <article class="ej" id="c1">
-    <div class="ej-head"><span class="num">1</span><h3>Centro y radio</h3><span class="chip bad">Error en (f)</span><button class="sim-btn" type="button" data-goto="ex-c1">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">1</span><h3>Centro y radio</h3><span class="chip bad">Error en (f)</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-completar t-cir-centro" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-c1">Ver ejemplos similares →</button></span></div>
     <div class="enun">Determine el centro y radio de las siguientes circunferencias:<br>a) \(x^2+y^2-2y=0\) &nbsp; b) \(2x^2+2(y-1)^2-3=15\) &nbsp; c) \(x^2+2x+y^2-2y=0\)<br>d) \(x^2-2x+y^2-y=0\) &nbsp; e) \(x^2+y^2+4x-6y-12=0\) &nbsp; f) \(2(x-1)^2+(y-1)^2=4-y^2\)</div>
     <div class="sol">
       <p class="paso">a) \(x^2+y^2-2y=0\)</p>
@@ -1571,7 +1521,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="c2">
-    <div class="ej-head"><span class="num">2</span><h3>Tangente al eje X</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-c2">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">2</span><h3>Tangente al eje X</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-c2">Ver ejemplos similares →</button></span></div>
     <p class="enun">Si la circunferencia de ecuación \(x^2+y^2-8x-2y+k=0\) es tangente al eje \(X\), determine el valor de \(k\).</p>
     <div class="sol">
       <p class="paso">Paso 1 · Completar cuadrados</p>
@@ -1594,7 +1544,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="c3">
-    <div class="ej-head"><span class="num">3</span><h3>Radio 5, tangente a l en (4, 1)</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-c3">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">3</span><h3>Radio 5, tangente a l en (4, 1)</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-tangente t-cir-condiciones" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-c3">Ver ejemplos similares →</button></span></div>
     <p class="enun">Determine la ecuación de la circunferencia de radio 5 que es tangente a la recta \(l\) de ecuación \(3x+4y-16=0\) en el punto \((4,1)\).</p>
     <div class="sol">
       <p class="paso">Planteamiento</p>
@@ -1638,7 +1588,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="c4">
-    <div class="ej-head"><span class="num">4</span><h3>Recta por P = (9, 12) y el centro</h3><span class="chip bad">Error en la unidad</span><button class="sim-btn" type="button" data-goto="ex-c4">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">4</span><h3>Recta por P = (9, 12) y el centro</h3><span class="chip bad">Error en la unidad</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-recta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-c4">Ver ejemplos similares →</button></span></div>
     <p class="enun">La circunferencia de ecuación \(x^2-6x+y^2-8y=0\) se intercepta en dos puntos con la recta que pasa por el punto \(P=(9,12)\) y por el centro de la circunferencia. Determine dichos puntos.</p>
     <div class="sol">
       <p class="paso">Paso 1 · Centro y radio</p>
@@ -1666,7 +1616,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="c5">
-    <div class="ej-head"><span class="num">5</span><h3>Centro en el eje x, pasa por A y B</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-c5">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">5</span><h3>Centro en el eje x, pasa por A y B</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-condiciones" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-c5">Ver ejemplos similares →</button></span></div>
     <p class="enun">Determine la ecuación de la circunferencia cuyo centro se encuentra sobre el eje \(x\) y que pasa por los puntos \(A=(1,3)\) y \(B=(4,6)\).</p>
     <div class="sol">
       <p class="paso">Paso 1 · Plantear</p>
@@ -1690,7 +1640,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="c6">
-    <div class="ej-head"><span class="num">6</span><h3>Tangentes desde P = (7, 1) a x² + y² = 25</h3><span class="chip bad">Respuesta incompleta</span><button class="sim-btn" type="button" data-goto="ex-c6">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">6</span><h3>Tangentes desde P = (7, 1) a x² + y² = 25</h3><span class="chip bad">Respuesta incompleta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-c6">Ver ejemplos similares →</button></span></div>
     <p class="enun">Determine una ecuación de las rectas tangentes a la circunferencia \(\mathcal C\), de ecuación \(x^2+y^2=25\), trazadas desde el punto \(P=(7,1)\).</p>
     <div class="sol">
       <p class="paso">Planteamiento</p>
@@ -1742,7 +1692,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="c7">
-    <div class="ej-head"><span class="num">7</span><h3>Pasa por el origen, radio 13</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-c7">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">7</span><h3>Pasa por el origen, radio 13</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-condiciones" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-c7">Ver ejemplos similares →</button></span></div>
     <p class="enun">Determine la ecuación de la circunferencia que pasa por el origen, tiene radio 13 y cuyo centro tiene abscisa −12 y se encuentra en el tercer cuadrante.</p>
     <div class="sol">
       <p class="paso">Paso 1 · Plantear</p>
@@ -1760,7 +1710,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="c8">
-    <div class="ej-head"><span class="num">8</span><h3>Circunferencia y recta por (π, 0) y (0, 2π)</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-c8">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">8</span><h3>Circunferencia y recta por (π, 0) y (0, 2π)</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-def t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-c8">Ver ejemplos similares →</button></span></div>
     <div class="enun">En la gráfica adjunta se tiene una circunferencia \(\mathcal C\) de radio 2 y centro \((-1,1)\), y la recta \(l\) que pasa por \((\pi,0)\) y \((0,2\pi)\):<br>a) Determine la pendiente de la recta \(l\).<br>b) Determine la ecuación punto-pendiente de la recta \(l\).<br>c) Determine la ecuación de la circunferencia \(\mathcal C\).<br>d) Determine los interceptos de la circunferencia \(\mathcal C\) con los ejes (x-intercepto; y-intercepto).</div>
     <div class="sol">
       <p class="paso">a) Pendiente</p>
@@ -1783,7 +1733,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="c9">
-    <div class="ej-head"><span class="num">9</span><h3>Puntos M, N, P y Q</h3><span class="chip bad">Errata en la unidad</span><button class="sim-btn" type="button" data-goto="ex-c9">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">9</span><h3>Puntos M, N, P y Q</h3><span class="chip bad">Errata en la unidad</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-c9">Ver ejemplos similares →</button></span></div>
     <p class="enun">Del gráfico, determine la ecuación de la circunferencia \(\mathcal C:\ x^2-2x+y^2-2y-2=0\) indicando su centro y radio. También indique las coordenadas de los puntos M, N, P y Q. (En el gráfico, M y P están en el eje \(y\), y N y Q en el eje \(x\).)</p>
     <div class="sol">
       <p class="paso">Paso 1 · Centro y radio</p>
@@ -1807,7 +1757,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="c10">
-    <div class="ej-head"><span class="num">10</span><h3>Área de la región sombreada</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-c10">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">10</span><h3>Área de la región sombreada</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-par-area" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-c10">Ver ejemplos similares →</button></span></div>
     <p class="enun">Del siguiente gráfico, determine el área de la región sombreada. (El gráfico muestra una circunferencia de centro \((-1,1)\) y la recta \(y=x-2\). El triángulo sombreado une el centro con los puntos donde la recta corta a los ejes.)</p>
     <div class="sol">
       <p class="paso">Paso 1 · Vértices del triángulo</p>
@@ -1826,7 +1776,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="c11">
-    <div class="ej-head"><span class="num">11</span><h3>Trapecio entre dos circunferencias</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-c11">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">11</span><h3>Trapecio entre dos circunferencias</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-c11">Ver ejemplos similares →</button></span></div>
     <p class="enun">Del gráfico, determine el área del trapecio de la región sombreada, siendo \(C_1\) y \(C_2\) los centros de las circunferencias \(x^2-4x+y^2-4y+4=0\) y \(x^2-12x+y^2-2y+36=0\), y \(T_1\), \(T_2\) los puntos de tangencia entre las circunferencias y el eje \(X\).</p>
     <div class="sol">
       <p class="paso">Paso 1 · Primera circunferencia</p>
@@ -1848,7 +1798,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="c12">
-    <div class="ej-head"><span class="num">12</span><h3>Potencia de un punto</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-c12">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">12</span><h3>Potencia de un punto</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-recta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-c12">Ver ejemplos similares →</button></span></div>
     <p class="enun">Desde un punto \(P\) del plano se traza una recta secante \(\mathcal L\) a la circunferencia \(\mathcal C\), con puntos de intersección \(A\) y \(B\). Se define la potencia de \(P\) con respecto a \(\mathcal C\) y \(\mathcal L\) como \(\text{Pot}_{\mathcal C,\mathcal L}(P)=d(P,A)\,d(P,B)\). Determine la potencia del punto \(P=(0,0)\) con respecto a la circunferencia \(\mathcal C:\ x^2-8x+y^2-8y+14=0\) y la recta \(\mathcal L:\ y-x=0\).</p>
     <div class="sol">
       <p class="paso">Paso 1 · Puntos A y B (sistema)</p>
@@ -1877,11 +1827,158 @@ window.MathJax={
     <span><i class="dot" style="background:var(--magenta)"></i>puntos dados</span>
     <span class="note">Los números reemplazados van del color de lo que representan.</span>
   </div>
-  <div class="box"><h3>Ejemplos de práctica</h3><p>Hay dos ejemplos por cada ejercicio de la unidad (por ejemplo, 3.1 y 3.2 se parecen al ejercicio 3), armados para que los resultados salgan exactos. Los botones con números llevan a los ejemplos de cada ejercicio. El botón de cada ejemplo lleva al ejercicio parecido de la unidad, y desde la unidad el botón «Ver ejemplos similares» trae aquí.</p></div>
-  <div class="jump" aria-label="Ir a los ejemplos del ejercicio"><button data-go="ex-c1">1</button><button data-go="ex-c2">2</button><button data-go="ex-c3">3</button><button data-go="ex-c4">4</button><button data-go="ex-c5">5</button><button data-go="ex-c6">6</button><button data-go="ex-c7">7</button><button data-go="ex-c8">8</button><button data-go="ex-c9">9</button><button data-go="ex-c10">10</button><button data-go="ex-c11">11</button><button data-go="ex-c12">12</button></div>
+  <div class="box"><h3>Ejemplos de práctica</h3><p>Primero están los ejemplos de la teoría. Después hay dos ejemplos por cada ejercicio de la unidad (por ejemplo, 3.1 y 3.2 se parecen al ejercicio 3), armados para que los resultados salgan exactos. Los botones con números llevan a los ejemplos de cada ejercicio. El botón de cada ejemplo lleva al ejercicio parecido de la unidad, y desde la unidad el botón «Ver ejemplos similares» trae aquí.</p></div>
+  <div class="jump" aria-label="Ir a los ejemplos del ejercicio"><button data-go="grp-circunferencias-teo">Teoría</button><button data-go="ex-c1">1</button><button data-go="ex-c2">2</button><button data-go="ex-c3">3</button><button data-go="ex-c4">4</button><button data-go="ex-c5">5</button><button data-go="ex-c6">6</button><button data-go="ex-c7">7</button><button data-go="ex-c8">8</button><button data-go="ex-c9">9</button><button data-go="ex-c10">10</button><button data-go="ex-c11">11</button><button data-go="ex-c12">12</button></div>
+
+  <h2 class="ex-group" id="grp-circunferencias-teo">Ejemplos de la teoría</h2>
+  <article class="ej ex ex-teo" id="ex-t-cir-def">
+    <div class="ej-head"><h3>Ecuación ordinaria</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-def" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-def">Ver la teoría ↑</button></span></div>
+    <div class="sol">
+<p>Ejemplo: centro \(\az{(3,3)}\) y radio \(\az2\) dan \((x-\az3)^2+(y-\az3)^2=\az2^2=4\).</p>
+    </div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-cir-completar">
+    <div class="ej-head"><h3>Completar cuadrados</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-completar" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-completar">Ver la teoría ↑</button></span></div>
+    <div class="sol">
+<h4>Ejemplo 1: \(x^2+6x\)</h4>
+    <p>La mitad de \(6\) es \(\ma3\):</p>
+    <div class="math">\[x^2+6x=(x+\ma3)^2-\ma3^2=(x+3)^2-9\]</div>
+    <p>Comprobación: \((x+3)^2-9=x^2+6x+9-9=x^2+6x\) ✓</p>
+    <h4>Ejemplo 2: \(x^2-10x\)</h4>
+    <p>La mitad de \(-10\) es \(\ma{-5}\):</p>
+    <div class="math">\[x^2-10x=(x-\ma5)^2-\ma5^2=(x-5)^2-25\]</div>
+    <h4>Ejemplo 3: \(y^2+4y\) (con la otra variable es igual)</h4>
+    <p>La mitad de \(4\) es \(\ma2\):</p>
+    <div class="math">\[y^2+4y=(y+\ma2)^2-\ma2^2=(y+2)^2-4\]</div>
+    <h4>Ejemplo 4: \(x^2-5x\) (mitad con fracción)</h4>
+    <p>La mitad de \(-5\) es \(\ma{-\frac52}\):</p>
+    <div class="math">\[x^2-5x=\left(x-\ma{\tfrac52}\right)^2-\left(\ma{\tfrac52}\right)^2=\left(x-\tfrac52\right)^2-\tfrac{25}4\]</div>
+    <h4>Ejemplo 5: \(2x^2-12x\) (coeficiente distinto de 1)</h4>
+    <p>Primero se saca factor común el número que acompaña a \(x^2\), y se completa dentro del paréntesis:</p>
+    <div class="math">\[2x^2-12x=2(x^2-6x)\]</div>
+    <div class="math">\[2(x^2-6x)=2\big[(x-\ma3)^2-\ma3^2\big]=2\big[(x-3)^2-9\big]=2(x-3)^2-18\]</div>
+    <h4>Ejemplo 6: un trinomio completo, \(x^2-8x+15\)</h4>
+    <p>Se completa el cuadrado con \(x^2-8x\) y el número suelto se suma al final:</p>
+    <div class="math">\[x^2-8x+15=(x-\ma4)^2-\ma4^2+15=(x-4)^2-16+15=(x-4)^2-1\]</div>
+    <p>Así la parábola \(y=x^2-8x+15\) queda como \(y-(\az{-1})=(x-\az4)^2\), con vértice \(\az{(4,-1)}\): el mismo que da \(h=\frac{-b}{2a}\).</p>
+    <h4>En una circunferencia: \(x^2+y^2-2x+6y-6=0\)</h4>
+    <p>Se completa por separado el grupo de las \(x\) y el de las \(y\):</p>
+    <div class="math">\[\am{x^2-2x}+\ce{y^2+6y}=6\]</div>
+    <div class="math">\[\am{(x-1)^2-1}+\ce{(y+3)^2-9}=6\]</div>
+    <div class="math">\[(x-1)^2+(y+3)^2=6+1+9=16=4^2\]</div>
+    <p>Centro \(\az{(1,-3)}\) y radio \(\az4\). Los pasos completos para hallar centro y radio están en la sección 2.</p>
+    </div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-cir-completar-2">
+    <div class="ej-head"><h3>Completar cuadrados: casos más difíciles</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-completar" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-completar">Ver la teoría ↑</button></span></div>
+    <div class="sol">
+<p>En estos casos se muestra únicamente cómo queda el cuadrado completado. La mitad va en magenta.</p>
+    <h4>a) Coeficiente negativo: \(-x^2+6x\)</h4>
+    <p>Sacamos factor común \(-1\) y completamos dentro:</p>
+    <div class="math">\[-x^2+6x=-(x^2-6x)\]</div>
+    <div class="math">\[=-\big[(x-\ma3)^2-\ma3^2\big]\]</div>
+    <div class="math">\[=-(x-3)^2+9\]</div>
+    <p>Ojo: el \(-9\) de adentro sale como \(+9\), porque se multiplica por \(-1\).</p>
+    <h4>b) Coeficiente distinto de 1 y número suelto: \(3x^2+12x-1\)</h4>
+    <div class="math">\[3x^2+12x-1=3(x^2+4x)-1\]</div>
+    <div class="math">\[=3\big[(x+\ma2)^2-\ma2^2\big]-1\]</div>
+    <div class="math">\[=3(x+2)^2-12-1\]</div>
+    <div class="math">\[=3(x+2)^2-13\]</div>
+    <p>El \(-4\) de adentro se multiplica por 3 al salir: \(3\cdot(-4)=-12\).</p>
+    <h4>c) Coeficiente impar: \(x^2+3x+1\)</h4>
+    <p>La mitad de 3 es \(\ma{\tfrac32}\):</p>
+    <div class="math">\[x^2+3x+1=\left(x+\ma{\tfrac32}\right)^2-\left(\ma{\tfrac32}\right)^2+1\]</div>
+    <div class="math">\[=\left(x+\tfrac32\right)^2-\tfrac94+\tfrac44\]</div>
+    <div class="math">\[=\left(x+\tfrac32\right)^2-\tfrac54\]</div>
+    <h4>d) Factor común y fracción a la vez: \(2x^2-5x\)</h4>
+    <div class="math">\[2x^2-5x=2\left(x^2-\tfrac52x\right)\]</div>
+    <p>La mitad de \(-\tfrac52\) es \(\ma{-\tfrac54}\):</p>
+    <div class="math">\[=2\left[\left(x-\ma{\tfrac54}\right)^2-\left(\ma{\tfrac54}\right)^2\right]\]</div>
+    <div class="math">\[=2\left(x-\tfrac54\right)^2-2\cdot\tfrac{25}{16}\]</div>
+    <div class="math">\[=2\left(x-\tfrac54\right)^2-\tfrac{25}8\]</div>
+    <h4>e) Coeficiente fraccionario: \(x^2+\tfrac23x\)</h4>
+    <p>La mitad de \(\tfrac23\) es \(\ma{\tfrac13}\):</p>
+    <div class="math">\[x^2+\tfrac23x=\left(x+\ma{\tfrac13}\right)^2-\left(\ma{\tfrac13}\right)^2=\left(x+\tfrac13\right)^2-\tfrac19\]</div>
+    <h4>f) Dos variables con coeficiente 4: \(4x^2+4y^2-8x+12y-3=0\)</h4>
+    <p>Primero se divide todo entre 4 y luego se completa cada grupo:</p>
+    <div class="math">\[x^2+y^2-2x+3y-\tfrac34=0\]</div>
+    <div class="math">\[\am{x^2-2x}+\ce{y^2+3y}=\tfrac34\]</div>
+    <div class="math">\[\am{(x-\ma1)^2-\ma1^2}+\ce{\left(y+\ma{\tfrac32}\right)^2-\left(\ma{\tfrac32}\right)^2}=\tfrac34\]</div>
+    <div class="math">\[(x-1)^2+\left(y+\tfrac32\right)^2=\tfrac34+1+\tfrac94=4\]</div>
+    </div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-cir-centro">
+    <div class="ej-head"><h3>Centro y radio</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-centro">Ver la teoría ↑</button></span></div>
+    <div class="sol">
+<h4>Ejemplo: \(x^2+y^2+4x-6y-12=0\)</h4>
+    <div class="math">\[\am{x^2+4x}+\ce{y^2-6y}=12\]</div>
+    <div class="math">\[\am{(x+2)^2-2^2}+\ce{(y-3)^2-3^2}=12\]</div>
+    <div class="math">\[(x+2)^2+(y-3)^2=12+4+9=25=5^2\]</div>
+    <div class="math">\[(x-(\az{-2}))^2+(y-\az3)^2=\az5^2\]</div>
+    <div class="math">\[\az{C=(-2,3)},\ \az{r=5}\]</div>
+    <div class="plot" id="g-tc1"></div>
+    </div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-cir-ejes">
+    <div class="ej-head"><h3>Interceptos y tangencia con los ejes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-ejes">Ver la teoría ↑</button></span></div>
+    <div class="sol">
+<h4>Ejemplo sencillo: \((x-3)^2+(y-2)^2=4\)</h4>
+    <p>Centro \(\az{(3,2)}\), radio \(\az2\). La altura del centro es \(|2|=2=r\): es tangente al eje \(x\).</p>
+    <div class="math">\[\na{y=0}:\ (x-3)^2+(\na0-2)^2=4\]</div>
+    <div class="math">\[(x-3)^2=0\]</div>
+    <div class="math">\[x=3\qquad\na{(3,0)}\ \text{(un solo punto: tangente)}\]</div>
+    <div class="math">\[\na{x=0}:\ (\na0-3)^2+(y-2)^2=4\]</div>
+    <div class="math">\[(y-2)^2=-5\]</div>
+    <p>Un cuadrado no puede ser negativo: no corta al eje \(y\) (la distancia del centro al eje \(y\) es 3, mayor que el radio).</p>
+    </div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-cir-recta">
+    <div class="ej-head"><h3>Recta y circunferencia</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-recta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-recta">Ver la teoría ↑</button></span></div>
+    <div class="sol">
+<h4>Ejemplo sencillo: \(x^2+y^2=10\) y \(y=x+2\)</h4>
+    <div class="math">\[\mo{\begin{cases}x^2+y^2=10\\y=x+2\end{cases}}\]</div>
+    <p>Reemplazamos \(y=x+2\) en la circunferencia:</p>
+    <div class="math">\[x^2+(\mo{x+2})^2=10\]</div>
+    <div class="math">\[x^2+x^2+4x+4=10\]</div>
+    <div class="math">\[2x^2+4x-6=0\]</div>
+    <p>Dividimos entre 2:</p>
+    <div class="aspa-wrap"><div class="aspa2" aria-label="Aspa simple"><span class="a-lead">\(x^2\)</span><span class="a-mid">\(+2x\)</span><span class="a-c">\(-3\)</span><span class="a-eq">\(=0\)</span><span class="a-v1">\(x\)</span><svg class="cross" viewBox="0 0 54 44" preserveAspectRatio="none" aria-hidden="true"><line x1="4" y1="6" x2="50" y2="38"/><line x1="4" y1="38" x2="50" y2="6"/></svg><span class="a-r1">\(+3\)</span><span class="a-v2">\(x\)</span><span class="a-r2">\(-1\)</span><span class="a-chk">Comprobación: \(x(-1)+x(+3)=2x\) ✓</span><span class="a-fac">\((x+3)(x-1)\)</span><span class="a-eq2">\(=0\)</span><span class="a-roots">\(x=\mo{-3}\qquad x=\mo1\)</span></div></div>
+    <div class="math">\[x=\mo1\to y=\mo1+2=3\qquad\mo{(1,3)}\]</div>
+    <div class="math">\[x=\mo{-3}\to y=\mo{-3}+2=-1\qquad\mo{(-3,-1)}\]</div>
+    <p>Dos soluciones: la recta es secante.</p>
+    </div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-cir-tangente">
+    <div class="ej-head"><h3>Recta tangente en un punto</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-cir-tangente">Ver la teoría ↑</button></span></div>
+    <div class="sol">
+<h4>Ejemplo sencillo: tangente a \(x^2+y^2=25\) en \(\ma{T=(3,4)}\)</h4>
+    <p>El centro es \(\az{O=(0,0)}\). Pendiente del radio y de la tangente:</p>
+    <div class="math">\[\text{rc}(\ma T,\az O)=\frac{\ma4-\az0}{\ma3-\az0}=\frac43\]</div>
+    <div class="math">\[\na m\cdot\tfrac43=-1\]</div>
+    <div class="math">\[\na m=-\tfrac34\]</div>
+    <div class="math">\[y-\ma4=\na{-\tfrac34}(x-\ma3)\]</div>
+    <h4>Otro ejemplo, cuando el centro no es el origen: tangente a \(x^2-6x+y^2-8y=0\) en \(\ma{T=(7,7)}\)</h4>
+    <div class="math">\[\am{x^2-6x}+\ce{y^2-8y}=0\]</div>
+    <div class="math">\[\am{(x-3)^2-9}+\ce{(y-4)^2-16}=0\]</div>
+    <div class="math">\[(x-\az3)^2+(y-\az4)^2=\az5^2\]</div>
+    <p>Centro \(\az{C=(3,4)}\), radio \(\az5\).</p>
+    <div class="math">\[\text{rc}(\ma T,\az C)=\frac{\ma7-\az4}{\ma7-\az3}=\frac34\]</div>
+    <div class="math">\[\na m=-\frac43\]</div>
+    <div class="math">\[y-\ma7=\na{-\tfrac43}(x-\ma7)\]</div>
+    <div class="plot" id="g-tc2"></div>
+    </div>
+  </article>
+
+  <h2 class="ex-group" id="grp-circunferencias-unidad">Ejemplos parecidos a los ejercicios de la unidad</h2>
 
   <article class="ej ex" id="ex-c1">
-    <div class="ej-head"><span class="num">1.1</span><h3>Centro y radio</h3><button class="sim-btn" type="button" data-goto="c1">Parecido al ejercicio 1 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">1.1</span><h3>Centro y radio</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-completar t-cir-centro" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c1">Parecido al ejercicio 1 de la unidad ↑</button></span></div>
     <div class="enun">Determine el centro y el radio de:<br>a) \(x^2+y^2+6x-8y=0\) &nbsp; b) \(x^2+y^2-2x+4y-4=0\)<br>c) \(2x^2+2y^2-8x+4y-8=0\) &nbsp; d) \(x^2+y^2-x+y-\tfrac12=0\)</div>
     <div class="sol">
       <p class="paso">a) \(x^2+y^2+6x-8y=0\)</p>
@@ -1916,7 +2013,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c1b">
-    <div class="ej-head"><span class="num">1.2</span><h3>Centro y radio (incluye un caso que no es circunferencia)</h3><button class="sim-btn" type="button" data-goto="c1">Parecido al ejercicio 1 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">1.2</span><h3>Centro y radio (incluye un caso que no es circunferencia)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-completar t-cir-centro" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c1">Parecido al ejercicio 1 de la unidad ↑</button></span></div>
     <div class="enun">Determine el centro y el radio, si existen:<br>a) \(x^2+y^2-10x=0\) &nbsp; b) \(x^2+y^2+8y+7=0\)<br>c) \(4x^2+4y^2-4x-8y-11=0\) &nbsp; d) \(x^2+y^2+2x-6y+10=0\)</div>
     <div class="sol">
       <p class="paso">a) \(x^2+y^2-10x=0\)</p>
@@ -1947,7 +2044,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c2">
-    <div class="ej-head"><span class="num">2.1</span><h3>Tangente al eje Y</h3><button class="sim-btn" type="button" data-goto="c2">Parecido al ejercicio 2 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">2.1</span><h3>Tangente al eje Y</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c2">Parecido al ejercicio 2 de la unidad ↑</button></span></div>
     <div class="enun">Si la circunferencia \(x^2+y^2-6x+4y+k=0\) es tangente al eje \(Y\), determine el valor de \(k\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Completar cuadrados</p>
@@ -1972,7 +2069,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c2b">
-    <div class="ej-head"><span class="num">2.2</span><h3>Tangente al eje X y al eje Y</h3><button class="sim-btn" type="button" data-goto="c2">Parecido al ejercicio 2 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">2.2</span><h3>Tangente al eje X y al eje Y</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c2">Parecido al ejercicio 2 de la unidad ↑</button></span></div>
     <div class="enun">Para \(x^2+y^2+4x-2y+k=0\), halle \(k\) para que la circunferencia sea tangente: a) al eje \(X\); b) al eje \(Y\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Completar cuadrados</p>
@@ -1994,7 +2091,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c3">
-    <div class="ej-head"><span class="num">3.1</span><h3>Radio 5, tangente a l en (1, 7)</h3><button class="sim-btn" type="button" data-goto="c3">Parecido al ejercicio 3 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">3.1</span><h3>Radio 5, tangente a l en (1, 7)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-tangente t-cir-condiciones" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c3">Parecido al ejercicio 3 de la unidad ↑</button></span></div>
     <div class="enun">Determine la ecuación de la circunferencia de radio 5 que es tangente a la recta \(l:\ 4x+3y-25=0\) en el punto \((1,7)\).</div>
     <div class="sol">
       <p class="paso">Paso 0 · Comprobar que T está en l</p>
@@ -2022,7 +2119,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c3b">
-    <div class="ej-head"><span class="num">3.2</span><h3>Radio √10, tangente a l en (1, 2)</h3><button class="sim-btn" type="button" data-goto="c3">Parecido al ejercicio 3 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">3.2</span><h3>Radio √10, tangente a l en (1, 2)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-tangente t-cir-condiciones" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c3">Parecido al ejercicio 3 de la unidad ↑</button></span></div>
     <div class="enun">Determine la circunferencia de radio \(\sqrt{10}\) tangente a \(l:\ x-3y+5=0\) en el punto \((1,2)\).</div>
     <div class="sol">
       <p class="paso">Paso 0 · T está en l</p>
@@ -2048,7 +2145,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c4">
-    <div class="ej-head"><span class="num">4.1</span><h3>Recta por P = (8, 9) y el centro</h3><button class="sim-btn" type="button" data-goto="c4">Parecido al ejercicio 4 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">4.1</span><h3>Recta por P = (8, 9) y el centro</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-recta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c4">Parecido al ejercicio 4 de la unidad ↑</button></span></div>
     <div class="enun">La circunferencia \(x^2-4x+y^2-2y-20=0\) se corta con la recta que pasa por \(P=(8,9)\) y por su centro. Determine los dos puntos de corte.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Centro y radio</p>
@@ -2072,7 +2169,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c4b">
-    <div class="ej-head"><span class="num">4.2</span><h3>Recta por P = (5, 10) y el centro</h3><button class="sim-btn" type="button" data-goto="c4">Parecido al ejercicio 4 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">4.2</span><h3>Recta por P = (5, 10) y el centro</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-recta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c4">Parecido al ejercicio 4 de la unidad ↑</button></span></div>
     <div class="enun">La circunferencia \(x^2+y^2+2x-4y-20=0\) se corta con la recta que pasa por \(P=(5,10)\) y por su centro. Halle los puntos de corte.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Centro y radio</p>
@@ -2095,7 +2192,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c5">
-    <div class="ej-head"><span class="num">5.1</span><h3>Centro en el eje x, pasa por A y B</h3><button class="sim-btn" type="button" data-goto="c5">Parecido al ejercicio 5 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">5.1</span><h3>Centro en el eje x, pasa por A y B</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-condiciones" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c5">Parecido al ejercicio 5 de la unidad ↑</button></span></div>
     <div class="enun">Determine la ecuación de la circunferencia cuyo centro está sobre el eje \(x\) y que pasa por \(A=(1,2)\) y \(B=(3,4)\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Plantear</p>
@@ -2119,7 +2216,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c5b">
-    <div class="ej-head"><span class="num">5.2</span><h3>Centro en el eje y, pasa por A y B</h3><button class="sim-btn" type="button" data-goto="c5">Parecido al ejercicio 5 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">5.2</span><h3>Centro en el eje y, pasa por A y B</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-condiciones" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c5">Parecido al ejercicio 5 de la unidad ↑</button></span></div>
     <div class="enun">Halle la circunferencia con centro sobre el eje \(y\) que pasa por \(A=(2,1)\) y \(B=(4,3)\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Plantear</p>
@@ -2141,7 +2238,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c6">
-    <div class="ej-head"><span class="num">6.1</span><h3>Tangentes desde P = (3, 1) a x² + y² = 5</h3><button class="sim-btn" type="button" data-goto="c6">Parecido al ejercicio 6 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">6.1</span><h3>Tangentes desde P = (3, 1) a x² + y² = 5</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c6">Parecido al ejercicio 6 de la unidad ↑</button></span></div>
     <div class="enun">Determine las ecuaciones de las rectas tangentes a la circunferencia \(x^2+y^2=5\) trazadas desde el punto \(P=(3,1)\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Datos</p>
@@ -2179,7 +2276,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c6b">
-    <div class="ej-head"><span class="num">6.2</span><h3>Tangentes desde P = (0, 5) a x² + y² = 5</h3><button class="sim-btn" type="button" data-goto="c6">Parecido al ejercicio 6 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">6.2</span><h3>Tangentes desde P = (0, 5) a x² + y² = 5</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-tangente" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c6">Parecido al ejercicio 6 de la unidad ↑</button></span></div>
     <div class="enun">Determine las rectas tangentes a \(x^2+y^2=5\) trazadas desde \(P=(0,5)\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Datos</p>
@@ -2206,7 +2303,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c7">
-    <div class="ej-head"><span class="num">7.1</span><h3>Pasa por el origen, radio 10</h3><button class="sim-btn" type="button" data-goto="c7">Parecido al ejercicio 7 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">7.1</span><h3>Pasa por el origen, radio 10</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-condiciones" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c7">Parecido al ejercicio 7 de la unidad ↑</button></span></div>
     <div class="enun">Determine la ecuación de la circunferencia que pasa por el origen, tiene radio 10 y cuyo centro tiene abscisa −6 y está en el tercer cuadrante.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Plantear</p>
@@ -2224,7 +2321,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c7b">
-    <div class="ej-head"><span class="num">7.2</span><h3>Pasa por el origen, radio 5, centro en el IIC</h3><button class="sim-btn" type="button" data-goto="c7">Parecido al ejercicio 7 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">7.2</span><h3>Pasa por el origen, radio 5, centro en el IIC</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-condiciones" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c7">Parecido al ejercicio 7 de la unidad ↑</button></span></div>
     <div class="enun">Halle la circunferencia que pasa por el origen, tiene radio 5 y cuyo centro tiene ordenada 3 y está en el segundo cuadrante.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Plantear</p>
@@ -2242,7 +2339,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c8">
-    <div class="ej-head"><span class="num">8.1</span><h3>Circunferencia y recta</h3><button class="sim-btn" type="button" data-goto="c8">Parecido al ejercicio 8 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">8.1</span><h3>Circunferencia y recta</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-def t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c8">Parecido al ejercicio 8 de la unidad ↑</button></span></div>
     <div class="enun">La circunferencia \(\mathcal C\) tiene centro \((3,4)\) y radio 5, y la recta \(l\) pasa por \((2,0)\) y \((0,4)\).<br>a) Pendiente de \(l\). b) Ecuación punto-pendiente de \(l\). c) Ecuación de \(\mathcal C\). d) Interceptos de \(\mathcal C\) con los ejes.</div>
     <div class="sol">
       <p class="paso">a) Pendiente</p>
@@ -2266,7 +2363,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c8b">
-    <div class="ej-head"><span class="num">8.2</span><h3>Circunferencia que pasa por el origen y recta</h3><button class="sim-btn" type="button" data-goto="c8">Parecido al ejercicio 8 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">8.2</span><h3>Circunferencia que pasa por el origen y recta</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-def t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c8">Parecido al ejercicio 8 de la unidad ↑</button></span></div>
     <div class="enun">\(\mathcal C\) tiene centro \((4,3)\) y radio 5; la recta \(l\) pasa por \((6,0)\) y \((0,3)\). a) Pendiente de \(l\). b) Punto-pendiente. c) Ecuación de \(\mathcal C\). d) Interceptos de \(\mathcal C\).</div>
     <div class="sol">
       <p class="paso">a) Pendiente</p>
@@ -2289,7 +2386,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c9">
-    <div class="ej-head"><span class="num">9.1</span><h3>Puntos M, N, P y Q</h3><button class="sim-btn" type="button" data-goto="c9">Parecido al ejercicio 9 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">9.1</span><h3>Puntos M, N, P y Q</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c9">Parecido al ejercicio 9 de la unidad ↑</button></span></div>
     <div class="enun">Para la circunferencia \(\mathcal C:\ x^2-2x+y^2-2y-8=0\), indique su centro y radio, y los puntos donde corta a los ejes: \(M\) y \(P\) en el eje \(y\) (\(M\) arriba), \(N\) y \(Q\) en el eje \(x\) (\(N\) a la izquierda).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Centro y radio</p>
@@ -2312,7 +2409,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c9b">
-    <div class="ej-head"><span class="num">9.2</span><h3>Puntos M, N, P y Q (otra versión)</h3><button class="sim-btn" type="button" data-goto="c9">Parecido al ejercicio 9 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">9.2</span><h3>Puntos M, N, P y Q (otra versión)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c9">Parecido al ejercicio 9 de la unidad ↑</button></span></div>
     <div class="enun">Para \(\mathcal C:\ x^2-4x+y^2-4y-5=0\), indique centro, radio y los cortes con los ejes: \(M\) (arriba) y \(P\) en el eje \(y\), \(N\) (izquierda) y \(Q\) en el eje \(x\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Centro y radio</p>
@@ -2333,7 +2430,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c10">
-    <div class="ej-head"><span class="num">10.1</span><h3>Área de la región sombreada</h3><button class="sim-btn" type="button" data-goto="c10">Parecido al ejercicio 10 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">10.1</span><h3>Área de la región sombreada</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-par-area" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c10">Parecido al ejercicio 10 de la unidad ↑</button></span></div>
     <div class="enun">Una circunferencia tiene centro \((-1,2)\) y radio 1. Calcule el área del triángulo cuyos vértices son el centro y los puntos donde la recta \(y=x-2\) corta a los ejes.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértices del triángulo</p>
@@ -2349,7 +2446,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c10b">
-    <div class="ej-head"><span class="num">10.2</span><h3>Área del triángulo (otra versión)</h3><button class="sim-btn" type="button" data-goto="c10">Parecido al ejercicio 10 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">10.2</span><h3>Área del triángulo (otra versión)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-par-area" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c10">Parecido al ejercicio 10 de la unidad ↑</button></span></div>
     <div class="enun">Una circunferencia tiene centro \((2,3)\) y radio 1. Calcule el área del triángulo con vértices en el centro y en los cortes de \(y=-x+2\) con los ejes.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Vértices</p>
@@ -2364,7 +2461,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c11">
-    <div class="ej-head"><span class="num">11.1</span><h3>Trapecio entre dos circunferencias</h3><button class="sim-btn" type="button" data-goto="c11">Parecido al ejercicio 11 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">11.1</span><h3>Trapecio entre dos circunferencias</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c11">Parecido al ejercicio 11 de la unidad ↑</button></span></div>
     <div class="enun">Sean \(C_1\) y \(C_2\) los centros de \(x^2-6x+y^2-6y+9=0\) y \(x^2-14x+y^2-2y+49=0\), y \(T_1\), \(T_2\) sus puntos de tangencia con el eje \(X\). Calcule el área del trapecio \(T_1C_1C_2T_2\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Primera circunferencia</p>
@@ -2386,7 +2483,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c11b">
-    <div class="ej-head"><span class="num">11.2</span><h3>Trapecio con circunferencias tangentes al eje Y</h3><button class="sim-btn" type="button" data-goto="c11">Parecido al ejercicio 11 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">11.2</span><h3>Trapecio con circunferencias tangentes al eje Y</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-centro t-cir-ejes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c11">Parecido al ejercicio 11 de la unidad ↑</button></span></div>
     <div class="enun">Sean \(C_1\), \(C_2\) los centros de \(x^2+y^2-4x-6y+9=0\) y \(x^2+y^2-2x-14y+49=0\), y \(T_1\), \(T_2\) sus puntos de tangencia con el eje \(Y\). Calcule el área del trapecio \(T_1C_1C_2T_2\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Primera</p>
@@ -2406,7 +2503,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c12">
-    <div class="ej-head"><span class="num">12.1</span><h3>Potencia de un punto</h3><button class="sim-btn" type="button" data-goto="c12">Parecido al ejercicio 12 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">12.1</span><h3>Potencia de un punto</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-recta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c12">Parecido al ejercicio 12 de la unidad ↑</button></span></div>
     <div class="enun">Calcule \(\text{Pot}_{\mathcal C,\mathcal L}(P)=d(P,A)\,d(P,B)\) para \(P=(0,0)\), \(\mathcal C:\ x^2-6x+y^2-6y+10=0\) y \(\mathcal L:\ y=x\), donde \(A\) y \(B\) son los puntos de corte de la recta con la circunferencia.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Puntos A y B (sistema)</p>
@@ -2426,7 +2523,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-c12b">
-    <div class="ej-head"><span class="num">12.2</span><h3>Potencia de un punto (otra versión)</h3><button class="sim-btn" type="button" data-goto="c12">Parecido al ejercicio 12 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">12.2</span><h3>Potencia de un punto (otra versión)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-cir-recta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="c12">Parecido al ejercicio 12 de la unidad ↑</button></span></div>
     <div class="enun">Calcule \(\text{Pot}_{\mathcal C,\mathcal L}(P)\) para \(P=(0,0)\), \(\mathcal C:\ x^2+y^2-4x-8y+15=0\) y \(\mathcal L:\ y=2x\).</div>
     <div class="sol">
       <p class="paso">Paso 1 · Puntos A y B</p>
@@ -2458,16 +2555,15 @@ window.MathJax={
     <span class="note">Los puntos de la oferta se reemplazan en azul, los de la demanda en naranja y los del equilibrio en morado.</span>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-od-variables">
     <h2>Variables y gráfico</h2>
     <ul>
       <li>\(q\) = cantidad (eje horizontal) y \(p\) = precio unitario (eje vertical). Siempre \(p\ge0\) y \(q\ge0\).</li>
       <li><span class="t-az">Oferta</span>: lo que el productor <b>vende</b>. Si sube el precio, ofrece más, así que su pendiente es <b>positiva</b>.</li>
       <li><span class="t-na">Demanda</span>: lo que el consumidor <b>compra</b>. Si sube el precio, compra menos, así que su pendiente es <b>negativa</b>.</li>
-    </ul>
-  </div>
+    </ul></div>
 
-  <div class="box">
+  <div class="box" id="t-od-ecuacion">
     <h2>1. Ecuación de la oferta o la demanda</h2>
     <div class="steps-box"><ol>
       <li>Escribir los datos como puntos \((q,p)\): "vende 10 unidades a 40 soles" es \((10,40)\).</li>
@@ -2478,16 +2574,18 @@ window.MathJax={
       <li>"Por cada aumento de 10 soles, compra 2 unidades menos" significa \(m=\dfrac{\Delta p}{\Delta q}=\dfrac{10}{-2}=-5\).</li>
       <li>Si la ecuación viene como \(q=\dots\) (por ejemplo \(q=100-6p\)), se despeja \(p\).</li>
     </ul>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-od-completo">Ver ejemplos de esta parte →</button>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-od-equilibrio">
     <h2 class="t-mo">2. Punto de equilibrio</h2>
     <p>Es donde se cruzan la oferta y la demanda: \(\mo{(q_e,p_e)}\). Se halla resolviendo el sistema:</p>
     <div class="math">\[\mo{\begin{cases}O:\ p=m_1q+b_1\\D:\ p=m_2q+b_2\end{cases}}\]</div>
     <p>\(p_e\) es el precio de mercado y \(q_e\) la cantidad de mercado.</p>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-od-completo">Ver ejemplos de esta parte →</button>
   </div>
 
-  <div class="box">
+  <div class="box" id="t-od-excedentes">
     <h2>3. Excedentes</h2>
     <p>\(b_2\) es donde la demanda corta al eje \(p\) y \(b_1\) donde lo corta la oferta.</p>
     <div class="math">\[\text{EC (consumidor)}=\frac{\ve{q_e}\,(b_2-\mo{p_e})}{2}\qquad\qquad\text{EP (productor)}=\frac{\ve{q_e}\,(\mo{p_e}-b_1)}{2}\]</div>
@@ -2497,32 +2595,10 @@ window.MathJax={
       <li>El <b>EP</b> es el triángulo entre la oferta, el eje \(p\) y la recta \(p=p_e\) (por debajo de \(p_e\)).</li>
       <li>Si la oferta corta al eje \(p\) en un valor negativo (\(b_1\lt0\)), como \(p\ge0\) el EP es un <b>trapecio</b> entre \(p=0\) y \(p=p_e\): \(EP=\dfrac{(q_0+q_e)\,p_e}{2}\), donde \(q_0\) es donde la oferta corta al eje \(q\).</li>
     </ul>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-od-completo">Ver ejemplos de esta parte →</button>
   </div>
 
-  <div class="box">
-    <h2>Ejemplo completo</h2>
-    <p class="enun">Un productor oferta 5 unidades de un producto cuando el precio unitario llega a 30 soles, y ofertará 10 unidades cuando el precio alcance los 40 soles. Al mismo tiempo, un comprador puede gastar 100 soles en dos unidades y, por cada 10 soles de aumento en el precio unitario, dejará de comprar 2 unidades. Asumiendo que la oferta y la demanda son lineales, descríbalas y explique el significado de las pendientes.</p>
-    <p class="paso">Oferta con (5, 30) y (10, 40)</p>
-    <div class="math">\[m=\frac{\az{40}-\az{30}}{\az{10}-\az5}=\frac{10}{5}=2\]</div>
-    <div class="math">\[p-\az{30}=2(q-\az5)\]</div>
-    <div class="math">\[\az{p=2q+20}\]</div>
-    <p class="paso">Demanda</p>
-    <p>"100 soles en 2 unidades" es un precio de 50 por unidad: \(\na{(2,50)}\). La pendiente es \(m=\frac{10}{-2}=-5\).</p>
-    <div class="math">\[p-\na{50}=-5(q-\na2)\]</div>
-    <div class="math">\[\na{p=-5q+60}\]</div>
-    <p>Las pendientes significan: el productor pide 2 soles más por cada unidad extra, y el consumidor paga 5 soles menos por cada unidad extra.</p>
-    <p class="paso">Equilibrio</p>
-    <div class="math">\[\mo{2q+20=-5q+60}\]</div>
-    <div class="math">\[7q=40\]</div>
-    <div class="math">\[q_e=\frac{40}7\]</div>
-    <div class="math">\[p_e=2\left(\mo{\tfrac{40}7}\right)+20=\frac{80}7+\frac{140}7=\frac{220}7\]</div>
-    <div class="math">\[\mo{\left(\tfrac{40}7,\tfrac{220}7\right)}\]</div>
-    <p class="paso">Excedentes</p>
-    <div class="math">\[EC=\frac{\ve{\frac{40}7}\left(60-\mo{\frac{220}7}\right)}2=\frac{\frac{40}7\cdot\frac{200}7}{2}=\frac{4000}{49}\]</div>
-    <div class="math">\[EP=\frac{\ve{\frac{40}7}\left(\mo{\frac{220}7}-20\right)}2=\frac{\frac{40}7\cdot\frac{80}7}2=\frac{1600}{49}\]</div>
-    <p>Excedente total: \(\frac{5600}{49}=\frac{800}7\).</p>
-    <div class="plot" id="g-to1"></div>
-  </div>
+  
 </div>
 
 <div class="panel" id="pn-oferta-demanda-ejercicios" role="tabpanel" hidden>
@@ -2550,7 +2626,7 @@ window.MathJax={
   </div>
 
   <article class="ej" id="od1">
-    <div class="ej-head"><span class="num">1</span><h3>Demanda q = 100 − 6p</h3><span class="chip warnc">Enunciado mal planteado</span><button class="sim-btn" type="button" data-goto="ex-od1">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">1</span><h3>Demanda q = 100 − 6p</h3><span class="chip warnc">Enunciado mal planteado</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-od1">Ver ejemplos similares →</button></span></div>
     <p class="enun">En un mercado los consumidores tienen una demanda dada por la ecuación \(q=100-6p\). Los productores desean vender 31 unidades a 31 soles y 34 unidades a 68 soles. Encuentre la ecuación de la demanda, el punto de equilibrio, el excedente del consumidor y el del productor.</p>
     <div class="warn"><b>Sobre los datos:</b> con \((31,31)\) y \((34,68)\) la oferta sería \(p=\frac{37}3q-\frac{1054}3\). Cortaría el eje \(p\) en \(-351.3\) y el equilibrio saldría \(q=29.44\), \(p=11.76\), sin relación con la respuesta. La respuesta de la unidad, \((52,8)\), sale con <b>31 unidades a S/ 1 y 34 unidades a S/ 2</b>. Lo resolvemos con esos datos.</div>
     <div class="sol">
@@ -2589,7 +2665,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="od2">
-    <div class="ej-head"><span class="num">2</span><h3>Equilibrio: 52 unidades a S/ 8</h3><span class="chip warnc">No coincide con la respuesta</span><button class="sim-btn" type="button" data-goto="ex-od2">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">2</span><h3>Equilibrio: 52 unidades a S/ 8</h3><span class="chip warnc">No coincide con la respuesta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-od2">Ver ejemplos similares →</button></span></div>
     <p class="enun">En el equilibrio se venden 52 unidades a 8 soles por unidad. Por cada aumento de 10 soles en el precio unitario, los consumidores demandan 60 unidades menos y los productores ofertan 30 unidades adicionales. Encuentre la ecuación de la oferta y de la demanda, el punto de equilibrio y los excedentes del consumidor y del productor.</p>
     <div class="sol">
       <p class="paso">Paso 1 · Traducir los datos</p>
@@ -2616,7 +2692,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="od3">
-    <div class="ej-head"><span class="num">3</span><h3>Caso general</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-od3">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">3</span><h3>Caso general</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-equilibrio t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-od3">Ver ejemplos similares →</button></span></div>
     <p class="enun">Las ecuaciones \(O:p=m_1q+b_1\) y \(D:p=m_2q+b_2\) representan la oferta y la demanda, donde las constantes cumplen \(m_1\gt0\), \(m_2\lt0\), \(0\lt b_1\lt b_2\). Calcule el precio de equilibrio, el excedente del consumidor y el excedente del productor en términos de estas constantes.</p>
     <div class="sol">
       <p class="paso">Paso 1 · Cantidad de equilibrio</p>
@@ -2637,7 +2713,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="od4">
-    <div class="ej-head"><span class="num">4</span><h3>Oferta con p<sub>e</sub> = 3 y EP = 2</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-od4">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">4</span><h3>Oferta con p<sub>e</sub> = 3 y EP = 2</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-od4">Ver ejemplos similares →</button></span></div>
     <p class="enun">Se sabe que en un mercado el productor aumenta la oferta en una unidad por cada sol que aumenta el precio unitario. Además, el precio del mercado (equilibrio) es de 3 soles por unidad. Si el excedente del productor es de 2 soles, encuentre la ecuación de la oferta.</p>
     <div class="sol">
       <p class="paso">Planteamiento</p>
@@ -2664,7 +2740,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="od5">
-    <div class="ej-head"><span class="num">5</span><h3>Ecuaciones desde el gráfico</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-od5">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">5</span><h3>Ecuaciones desde el gráfico</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-od5">Ver ejemplos similares →</button></span></div>
     <p class="enun">Encuentre las ecuaciones de oferta y demanda representadas en la figura. (En la figura, la oferta \(p=aq+b\) corta el eje \(p\) en 5, la demanda es \(p=25-cq\) y ambas se cruzan en \(q=4\), \(p=17\).)</p>
     <div class="sol">
       <p class="paso">Paso 1 · Oferta</p>
@@ -2684,7 +2760,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="od6">
-    <div class="ej-head"><span class="num">6</span><h3>Mercado de San Juan</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-od6">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">6</span><h3>Mercado de San Juan</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-od6">Ver ejemplos similares →</button></span></div>
     <div class="enun">Para determinado producto, en el mercado de abarrotes de San Juan se observa lo siguiente: los productores están dispuestos a ofrecer 54 kilos si el precio fuese de 50 soles el kilo, y si fuese 40 soles el kilo solo ofrecerían 42 kilos. Por otro lado, los consumidores comprarían 3 kilos a 11 soles cada kilo, pero si el precio fuese de 9 soles comprarían 9 kilos. Si tanto la oferta como la demanda son lineales, determine:<br>a) La ecuación de la oferta y la demanda.<br>b) El precio y la cantidad de equilibrio del mercado.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Oferta con (42, 40) y (54, 50)</p>
@@ -2710,7 +2786,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="od7">
-    <div class="ej-head"><span class="num">7</span><h3>Bienes A y B</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-od7">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">7</span><h3>Bienes A y B</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-od7">Ver ejemplos similares →</button></span></div>
     <div class="enun">Estudiantes de la U.P. están realizando un estudio de mercado para dos bienes (A y B) que se comercializan en Lima, y encuentran que:<br>• Para el bien A, cuando el precio \(p\) es de S/ 10, la cantidad demandada \(q\) es de 2 unidades. Su comportamiento es lineal y, cuando el precio disminuye en 20 %, la cantidad demandada se triplica.<br>• La demanda del bien B está dada por la ecuación \(p+q=14\).<br>• La gráfica de la oferta para ambos bienes es perpendicular a la gráfica de la demanda del bien A en el punto donde \(p=10\) y \(q=2\).<br>Se solicita: a) La expresión de la demanda del bien A, para \(p\) en términos de \(q\). b) El precio para el que se demanda la misma cantidad de ambos bienes. c) La expresión de una oferta para \(p\) en términos de \(q\). d) Las gráficas (en un mismo plano) de las demandas de ambos bienes y de la oferta.</div>
     <div class="sol">
       <p class="paso">a) Demanda del bien A</p>
@@ -2737,7 +2813,7 @@ window.MathJax={
   </article>
 
   <article class="ej" id="od8">
-    <div class="ej-head"><span class="num">8</span><h3>El capitán y el ron</h3><span class="chip ok">Unidad correcta</span><button class="sim-btn" type="button" data-goto="ex-od8">Ver ejemplos similares →</button></div>
+    <div class="ej-head"><span class="num">8</span><h3>El capitán y el ron</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-od8">Ver ejemplos similares →</button></span></div>
     <div class="enun">El capitán de un navío se encuentra en un mercado del Caribe donde los productores de caña de azúcar hacen sus ventas. El capitán puede pagar 40 monedas de oro por 5 botellas de ron. El precio de equilibrio se establece en 7 monedas de oro por botella. El excedente del capitán es de 10 monedas de oro.<br>a) Encuentre la ecuación de la demanda del capitán.<br>b) Los productores ofertan 20 botellas a un precio mayor al que el capitán está dispuesto a pagar por ellas. La diferencia entre estos precios por unidad es de 7 monedas de oro. ¿Cuánto debe subir el precio unitario para que los productores oferten 4 botellas adicionales?<br>c) Calcule el excedente de los productores.</div>
     <div class="sol">
       <p class="paso">Planteamiento</p>
@@ -2786,11 +2862,41 @@ window.MathJax={
     <span><i class="dot" style="background:var(--green)"></i>qₑ</span>
     <span class="note">Los números reemplazados van del color de la recta a la que pertenecen.</span>
   </div>
-  <div class="box"><h3>Ejemplos de práctica</h3><p>Hay dos ejemplos por cada ejercicio de la unidad (por ejemplo, 3.1 y 3.2 se parecen al ejercicio 3), armados para que los resultados salgan exactos. Los botones con números llevan a los ejemplos de cada ejercicio. El botón de cada ejemplo lleva al ejercicio parecido de la unidad, y desde la unidad el botón «Ver ejemplos similares» trae aquí.</p></div>
-  <div class="jump" aria-label="Ir a los ejemplos del ejercicio"><button data-go="ex-od1">1</button><button data-go="ex-od2">2</button><button data-go="ex-od3">3</button><button data-go="ex-od4">4</button><button data-go="ex-od5">5</button><button data-go="ex-od6">6</button><button data-go="ex-od7">7</button><button data-go="ex-od8">8</button></div>
+  <div class="box"><h3>Ejemplos de práctica</h3><p>Primero están los ejemplos de la teoría. Después hay dos ejemplos por cada ejercicio de la unidad (por ejemplo, 3.1 y 3.2 se parecen al ejercicio 3), armados para que los resultados salgan exactos. Los botones con números llevan a los ejemplos de cada ejercicio. El botón de cada ejemplo lleva al ejercicio parecido de la unidad, y desde la unidad el botón «Ver ejemplos similares» trae aquí.</p></div>
+  <div class="jump" aria-label="Ir a los ejemplos del ejercicio"><button data-go="grp-oferta-demanda-teo">Teoría</button><button data-go="ex-od1">1</button><button data-go="ex-od2">2</button><button data-go="ex-od3">3</button><button data-go="ex-od4">4</button><button data-go="ex-od5">5</button><button data-go="ex-od6">6</button><button data-go="ex-od7">7</button><button data-go="ex-od8">8</button></div>
+
+  <h2 class="ex-group" id="grp-oferta-demanda-teo">Ejemplos de la teoría</h2>
+  <article class="ej ex ex-teo" id="ex-t-od-completo">
+    <div class="ej-head"><h3>Ejemplo completo: oferta, demanda, equilibrio y excedentes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-od-ecuacion">Ver la teoría ↑</button></span></div>
+    <div class="sol">
+<p class="enun">Un productor oferta 5 unidades de un producto cuando el precio unitario llega a 30 soles, y ofertará 10 unidades cuando el precio alcance los 40 soles. Al mismo tiempo, un comprador puede gastar 100 soles en dos unidades y, por cada 10 soles de aumento en el precio unitario, dejará de comprar 2 unidades. Asumiendo que la oferta y la demanda son lineales, descríbalas y explique el significado de las pendientes.</p>
+    <p class="paso">Oferta con (5, 30) y (10, 40)</p>
+    <div class="math">\[m=\frac{\az{40}-\az{30}}{\az{10}-\az5}=\frac{10}{5}=2\]</div>
+    <div class="math">\[p-\az{30}=2(q-\az5)\]</div>
+    <div class="math">\[\az{p=2q+20}\]</div>
+    <p class="paso">Demanda</p>
+    <p>"100 soles en 2 unidades" es un precio de 50 por unidad: \(\na{(2,50)}\). La pendiente es \(m=\frac{10}{-2}=-5\).</p>
+    <div class="math">\[p-\na{50}=-5(q-\na2)\]</div>
+    <div class="math">\[\na{p=-5q+60}\]</div>
+    <p>Las pendientes significan: el productor pide 2 soles más por cada unidad extra, y el consumidor paga 5 soles menos por cada unidad extra.</p>
+    <p class="paso">Equilibrio</p>
+    <div class="math">\[\mo{2q+20=-5q+60}\]</div>
+    <div class="math">\[7q=40\]</div>
+    <div class="math">\[q_e=\frac{40}7\]</div>
+    <div class="math">\[p_e=2\left(\mo{\tfrac{40}7}\right)+20=\frac{80}7+\frac{140}7=\frac{220}7\]</div>
+    <div class="math">\[\mo{\left(\tfrac{40}7,\tfrac{220}7\right)}\]</div>
+    <p class="paso">Excedentes</p>
+    <div class="math">\[EC=\frac{\ve{\frac{40}7}\left(60-\mo{\frac{220}7}\right)}2=\frac{\frac{40}7\cdot\frac{200}7}{2}=\frac{4000}{49}\]</div>
+    <div class="math">\[EP=\frac{\ve{\frac{40}7}\left(\mo{\frac{220}7}-20\right)}2=\frac{\frac{40}7\cdot\frac{80}7}2=\frac{1600}{49}\]</div>
+    <p>Excedente total: \(\frac{5600}{49}=\frac{800}7\).</p>
+    <div class="plot" id="g-to1"></div>
+    </div>
+  </article>
+
+  <h2 class="ex-group" id="grp-oferta-demanda-unidad">Ejemplos parecidos a los ejercicios de la unidad</h2>
 
   <article class="ej ex" id="ex-od1">
-    <div class="ej-head"><span class="num">1.1</span><h3>Demanda q = 80 − 4p</h3><button class="sim-btn" type="button" data-goto="od1">Parecido al ejercicio 1 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">1.1</span><h3>Demanda q = 80 − 4p</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od1">Parecido al ejercicio 1 de la unidad ↑</button></span></div>
     <div class="enun">En un mercado la demanda es \(q=80-4p\). Los productores venden 10 unidades a 7 soles y 20 unidades a 12 soles. Encuentre la ecuación de la demanda (\(p\) en términos de \(q\)), el punto de equilibrio y los excedentes del consumidor y del productor.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Demanda (despejar p)</p>
@@ -2821,7 +2927,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od1b">
-    <div class="ej-head"><span class="num">1.2</span><h3>Demanda q = 90 − 3p</h3><button class="sim-btn" type="button" data-goto="od1">Parecido al ejercicio 1 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">1.2</span><h3>Demanda q = 90 − 3p</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od1">Parecido al ejercicio 1 de la unidad ↑</button></span></div>
     <div class="enun">La demanda es \(q=90-3p\). Los productores venden 12 unidades a 10 soles y 24 unidades a 14 soles. Halle la demanda (\(p\) en términos de \(q\)), el equilibrio y los excedentes.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Demanda</p>
@@ -2847,7 +2953,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od2">
-    <div class="ej-head"><span class="num">2.1</span><h3>Equilibrio: 40 unidades a S/ 10</h3><button class="sim-btn" type="button" data-goto="od2">Parecido al ejercicio 2 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">2.1</span><h3>Equilibrio: 40 unidades a S/ 10</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od2">Parecido al ejercicio 2 de la unidad ↑</button></span></div>
     <div class="enun">En el equilibrio se venden 40 unidades a 10 soles. Por cada aumento de 5 soles en el precio, los consumidores demandan 20 unidades menos y los productores ofertan 40 unidades más. Encuentre la oferta, la demanda y los excedentes.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Traducir los datos</p>
@@ -2871,7 +2977,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od2b">
-    <div class="ej-head"><span class="num">2.2</span><h3>Equilibrio: 30 unidades a S/ 12</h3><button class="sim-btn" type="button" data-goto="od2">Parecido al ejercicio 2 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">2.2</span><h3>Equilibrio: 30 unidades a S/ 12</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od2">Parecido al ejercicio 2 de la unidad ↑</button></span></div>
     <div class="enun">En el equilibrio se venden 30 unidades a 12 soles. Por cada aumento de 6 soles, se demandan 18 unidades menos y se ofertan 36 unidades más. Halle la oferta, la demanda y los excedentes.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Pendientes</p>
@@ -2890,7 +2996,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od3">
-    <div class="ej-head"><span class="num">3.1</span><h3>Comprobar las fórmulas generales</h3><button class="sim-btn" type="button" data-goto="od3">Parecido al ejercicio 3 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">3.1</span><h3>Comprobar las fórmulas generales</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-equilibrio t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od3">Parecido al ejercicio 3 de la unidad ↑</button></span></div>
     <div class="enun">Con \(O:p=2q+4\) y \(D:p=-3q+24\), calcule el equilibrio y los excedentes directamente, y compruebe que coinciden con las fórmulas del ejercicio 3.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Identificar las constantes</p>
@@ -2914,7 +3020,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od3b">
-    <div class="ej-head"><span class="num">3.2</span><h3>Fórmulas generales con otros números</h3><button class="sim-btn" type="button" data-goto="od3">Parecido al ejercicio 3 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">3.2</span><h3>Fórmulas generales con otros números</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-equilibrio t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od3">Parecido al ejercicio 3 de la unidad ↑</button></span></div>
     <div class="enun">Con \(O:p=q+2\) y \(D:p=-2q+14\), compruebe las fórmulas del ejercicio 3.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Constantes</p>
@@ -2933,7 +3039,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od4">
-    <div class="ej-head"><span class="num">4.1</span><h3>Oferta con p<sub>e</sub> = 6 y EP = 9</h3><button class="sim-btn" type="button" data-goto="od4">Parecido al ejercicio 4 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">4.1</span><h3>Oferta con p<sub>e</sub> = 6 y EP = 9</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od4">Parecido al ejercicio 4 de la unidad ↑</button></span></div>
     <div class="enun">Un productor aumenta la oferta en 2 unidades por cada sol que sube el precio. El precio de equilibrio es 6 soles y el excedente del productor es 9 soles. Encuentre la ecuación de la oferta.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Pendiente</p>
@@ -2959,7 +3065,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od4b">
-    <div class="ej-head"><span class="num">4.2</span><h3>Demanda con p<sub>e</sub> = 5 y EC = 6</h3><button class="sim-btn" type="button" data-goto="od4">Parecido al ejercicio 4 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">4.2</span><h3>Demanda con p<sub>e</sub> = 5 y EC = 6</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od4">Parecido al ejercicio 4 de la unidad ↑</button></span></div>
     <div class="enun">Un consumidor compra 3 unidades menos por cada sol que sube el precio. El precio de equilibrio es 5 soles y el excedente del consumidor es 6 soles. Halle la demanda.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Pendiente</p>
@@ -2982,7 +3088,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od5">
-    <div class="ej-head"><span class="num">5.1</span><h3>Ecuaciones desde el gráfico</h3><button class="sim-btn" type="button" data-goto="od5">Parecido al ejercicio 5 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">5.1</span><h3>Ecuaciones desde el gráfico</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od5">Parecido al ejercicio 5 de la unidad ↑</button></span></div>
     <div class="enun">En un gráfico, la oferta \(p=aq+b\) corta el eje \(p\) en 8, la demanda es \(p=28-cq\), y ambas se cruzan en \(q=4\), \(p=16\). Encuentre las dos ecuaciones.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Oferta</p>
@@ -3002,7 +3108,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od5b">
-    <div class="ej-head"><span class="num">5.2</span><h3>Ecuaciones desde el gráfico (otra versión)</h3><button class="sim-btn" type="button" data-goto="od5">Parecido al ejercicio 5 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">5.2</span><h3>Ecuaciones desde el gráfico (otra versión)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od5">Parecido al ejercicio 5 de la unidad ↑</button></span></div>
     <div class="enun">La oferta \(p=aq+b\) corta el eje \(p\) en 2 y la demanda \(p=20-cq\) la cruza en \((6,14)\). Halle las ecuaciones.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Oferta</p>
@@ -3019,7 +3125,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od6">
-    <div class="ej-head"><span class="num">6.1</span><h3>Mercado de abarrotes</h3><button class="sim-btn" type="button" data-goto="od6">Parecido al ejercicio 6 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">6.1</span><h3>Mercado de abarrotes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od6">Parecido al ejercicio 6 de la unidad ↑</button></span></div>
     <div class="enun">Los productores ofrecen 50 kilos si el precio es 30 soles el kilo y 30 kilos si es 20 soles. Los consumidores compran 4 kilos a 13 soles el kilo y 8 kilos a 11 soles. Si la oferta y la demanda son lineales, determine sus ecuaciones y el equilibrio.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Oferta con (30, 20) y (50, 30)</p>
@@ -3043,7 +3149,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od6b">
-    <div class="ej-head"><span class="num">6.2</span><h3>Mercado (otra versión)</h3><button class="sim-btn" type="button" data-goto="od6">Parecido al ejercicio 6 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">6.2</span><h3>Mercado (otra versión)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od6">Parecido al ejercicio 6 de la unidad ↑</button></span></div>
     <div class="enun">Los productores ofrecen 20 unidades a 8 soles y 40 unidades a 12 soles. Los consumidores compran 10 unidades a 16 soles y 20 unidades a 13 soles. Halle las ecuaciones y el equilibrio.</div>
     <div class="sol">
       <p class="paso">Paso 1 · Oferta</p>
@@ -3067,7 +3173,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od7">
-    <div class="ej-head"><span class="num">7.1</span><h3>Bienes A y B</h3><button class="sim-btn" type="button" data-goto="od7">Parecido al ejercicio 7 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">7.1</span><h3>Bienes A y B</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od7">Parecido al ejercicio 7 de la unidad ↑</button></span></div>
     <div class="enun">Para el bien A, con precio 12 soles se demandan 3 unidades; la demanda es lineal y si el precio baja 25 %, la cantidad demandada se duplica. La demanda del bien B es \(p+2q=21\). La oferta es perpendicular a la demanda de A en el punto \((3,12)\).<br>a) Demanda de A. b) Precio para el que se demanda la misma cantidad de ambos bienes. c) Ecuación de la oferta. d) Gráficas.</div>
     <div class="sol">
       <p class="paso">a) Demanda del bien A</p>
@@ -3092,7 +3198,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od7b">
-    <div class="ej-head"><span class="num">7.2</span><h3>Bienes A y B (otra versión)</h3><button class="sim-btn" type="button" data-goto="od7">Parecido al ejercicio 7 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">7.2</span><h3>Bienes A y B (otra versión)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-equilibrio" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od7">Parecido al ejercicio 7 de la unidad ↑</button></span></div>
     <div class="enun">Bien A: a 10 soles se demandan 8 unidades; si el precio baja 20 %, la cantidad sube 50 %. Bien B: \(p+q=16\). La oferta es perpendicular a la demanda de A en \((8,10)\). a) Demanda de A. b) Precio con la misma cantidad. c) Oferta.</div>
     <div class="sol">
       <p class="paso">a) Demanda de A</p>
@@ -3117,7 +3223,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od8">
-    <div class="ej-head"><span class="num">8.1</span><h3>El capitán y el ron (otra versión)</h3><button class="sim-btn" type="button" data-goto="od8">Parecido al ejercicio 8 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">8.1</span><h3>El capitán y el ron (otra versión)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od8">Parecido al ejercicio 8 de la unidad ↑</button></span></div>
     <div class="enun">El capitán puede pagar 32 monedas por 4 botellas de ron. El precio de equilibrio es 6 monedas por botella y el excedente del capitán es 16 monedas.<br>a) Encuentre la demanda del capitán.<br>b) Los productores ofertan 16 botellas a un precio 6 monedas mayor al que el capitán pagaría por ellas. ¿Cuánto debe subir el precio para que oferten 4 botellas más?<br>c) Calcule el excedente de los productores.</div>
     <div class="sol">
       <p class="paso">a) Paso 1 · Datos</p>
@@ -3153,7 +3259,7 @@ window.MathJax={
   </article>
 
   <article class="ej ex" id="ex-od8b">
-    <div class="ej-head"><span class="num">8.2</span><h3>El capitán y el ron (tercera versión)</h3><button class="sim-btn" type="button" data-goto="od8">Parecido al ejercicio 8 de la unidad ↑</button></div>
+    <div class="ej-head"><span class="num">8.2</span><h3>El capitán y el ron (tercera versión)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-od-ecuacion t-od-excedentes" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="od8">Parecido al ejercicio 8 de la unidad ↑</button></span></div>
     <div class="enun">El capitán puede pagar 21 monedas por 3 botellas. El precio de equilibrio es 4 monedas y su excedente es 18 monedas.<br>a) Halle la demanda del capitán.<br>b) Los productores ofertan 9 botellas a un precio 5 monedas mayor al que el capitán pagaría por ellas. ¿Cuánto debe subir el precio para que oferten 3 botellas más?<br>c) Calcule el excedente de los productores.</div>
     <div class="sol">
       <p class="paso">a) Datos</p>
@@ -3187,6 +3293,7 @@ window.MathJax={
 
 </div>
 
+<div class="teo-card" id="teo-card" role="dialog" aria-label="Teoría" hidden><div class="teo-top"><span class="label">Teoría que se usa</span><button class="teo-close" type="button" aria-label="Cerrar">×</button></div><div class="teo-body"></div><button class="sim-btn teo-go" type="button">Ir a la teoría completa →</button></div>
 <script src="app.js"></script>
 </body>
 </html>

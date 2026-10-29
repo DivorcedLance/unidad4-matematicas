@@ -1,4 +1,10 @@
 (function(){
+  /* teoría guardada antes de que MathJax la procese, para la tarjeta flotante */
+  const TEO={};
+  document.querySelectorAll('.panel[id$="-teoria"] .box[id^="t-"]').forEach(b=>{
+    const c=b.cloneNode(true); c.querySelectorAll('.box-link').forEach(x=>x.remove()); TEO[b.id]=c.innerHTML;
+  });
+
   /* ---------------- gráficos SVG ---------------- */
   let uid=0;
   const NS='http://www.w3.org/2000/svg';
@@ -418,7 +424,54 @@
     requestAnimationFrame(show);
     chain.then(()=>requestAnimationFrame(()=>el.scrollIntoView({behavior:smooth?'smooth':'auto',block:'start'})));
   }
-  document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>goTo(b.dataset.goto)));
+  document.querySelectorAll('[data-goto]:not(.teo-go)').forEach(b=>b.addEventListener('click',()=>goTo(b.dataset.goto)));
+  /* ---------- tarjeta flotante de teoría ---------- */
+  const card=document.getElementById('teo-card'), cardBody=card.querySelector('.teo-body'), cardGo=card.querySelector('.teo-go');
+  const cache={}; let curBtn=null, pinned=false, hideT=null;
+  const canHover=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  function place(){
+    if(!curBtn||card.hidden) return;
+    if(window.innerWidth<=560){card.style.left='';card.style.top='';return}
+    const r=curBtn.getBoundingClientRect(), w=card.offsetWidth, h=card.offsetHeight, vw=window.innerWidth, vh=window.innerHeight;
+    const left=Math.max(12,Math.min(r.right-w,vw-w-12));
+    let top=r.bottom+8; if(top+h>vh-12) top=Math.max(12,r.top-h-8);
+    card.style.left=left+'px'; card.style.top=top+'px';
+  }
+  function fill(keys){
+    if(cache[keys]){cardBody.innerHTML=cache[keys];return Promise.resolve()}
+    cardBody.innerHTML=keys.split(' ').filter(k=>TEO[k]).map(k=>'<section>'+TEO[k]+'</section>').join('');
+    if(!window.__mj) return Promise.resolve();
+    const done=MathJax.typesetPromise([cardBody]).then(()=>{gluePunct(cardBody);cache[keys]=cardBody.innerHTML});
+    chain=chain.then(()=>done).catch(()=>{});
+    return done;
+  }
+  function openCard(btn,pin){
+    clearTimeout(hideT);
+    if(curBtn&&curBtn!==btn) curBtn.setAttribute('aria-expanded','false');
+    curBtn=btn; pinned=pin; btn.setAttribute('aria-expanded','true');
+    cardGo.dataset.goto=btn.dataset.teo.split(' ')[0];
+    card.hidden=false; card.scrollTop=0;
+    fill(btn.dataset.teo).then(place); place();
+  }
+  function closeCard(){
+    clearTimeout(hideT); card.hidden=true; pinned=false;
+    if(curBtn){curBtn.setAttribute('aria-expanded','false'); curBtn=null}
+  }
+  function later(){ if(pinned) return; clearTimeout(hideT); hideT=setTimeout(closeCard,250) }
+  document.querySelectorAll('.teo-btn').forEach(b=>{
+    b.setAttribute('aria-controls','teo-card');
+    if(canHover){ b.addEventListener('mouseenter',()=>{ if(!pinned||curBtn!==b) openCard(b,false) }); b.addEventListener('mouseleave',later); }
+    b.addEventListener('click',e=>{ e.stopPropagation(); if(curBtn===b&&pinned) closeCard(); else openCard(b,true) });
+  });
+  card.addEventListener('mouseenter',()=>clearTimeout(hideT));
+  card.addEventListener('mouseleave',later);
+  card.addEventListener('click',e=>e.stopPropagation());
+  card.querySelector('.teo-close').addEventListener('click',closeCard);
+  cardGo.addEventListener('click',()=>{const id=cardGo.dataset.goto; closeCard(); goTo(id)});
+  document.addEventListener('click',()=>{ if(!card.hidden) closeCard() });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!card.hidden){ const b=curBtn; closeCard(); b&&b.focus() } });
+  window.addEventListener('resize',place); window.addEventListener('scroll',()=>{ if(pinned) place(); else if(!card.hidden) closeCard() },{passive:true});
+
   document.querySelectorAll('.topic').forEach(b=>b.addEventListener('click',()=>{topic=b.dataset.topic;tab='teoria';go()}));
   document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{tab=b.dataset.tab;go()}));
   document.querySelector('.tabs').addEventListener('keydown',e=>{
