@@ -3,31 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Unidad 4: Teoría y Ejercicios</title>
-<meta name="description" content="Parábolas, circunferencias y oferta y demanda: teoría, ejercicios de la Unidad 4 resueltos paso a paso con los colores de clase, y ejemplos de práctica con resultados exactos.">
+<title>Propedéutico: Teoría y Ejercicios</title>
+<meta name="description" content="Propedéutico en matemáticas. Unidad 4: parábolas, circunferencias y oferta y demanda. Unidad 5: magnitudes proporcionales e interés simple y compuesto. Teoría, ejercicios resueltos paso a paso con los colores de clase y ejemplos de práctica.">
 <meta name="author" content="Jose Vergara">
-<meta name="keywords" content="parábola, vértice, circunferencia, completar cuadrados, oferta y demanda, equilibrio, excedente del consumidor, excedente del productor, propedéutico, matemáticas">
+<meta name="keywords" content="parábola, vértice, circunferencia, completar cuadrados, oferta y demanda, equilibrio, excedente del consumidor, excedente del productor, magnitudes proporcionales, razones, reparto proporcional, tanto por ciento, interés simple, interés compuesto, propedéutico, matemáticas">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://divorcedlance.github.io/unidad4-matematicas/">
 <meta name="theme-color" content="#f6f7fa" id="meta-theme">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_PE">
 <meta property="og:site_name" content="Propedéutico en matemáticas">
-<meta property="og:title" content="Unidad 4: Teoría y Ejercicios">
-<meta property="og:description" content="Parábolas, circunferencias y oferta y demanda: teoría, ejercicios de la Unidad 4 resueltos paso a paso con los colores de clase, y ejemplos de práctica con resultados exactos.">
+<meta property="og:title" content="Propedéutico: Teoría y Ejercicios">
+<meta property="og:description" content="Propedéutico en matemáticas. Unidad 4: parábolas, circunferencias y oferta y demanda. Unidad 5: magnitudes proporcionales e interés simple y compuesto. Teoría, ejercicios resueltos paso a paso con los colores de clase y ejemplos de práctica.">
 <meta property="og:url" content="https://divorcedlance.github.io/unidad4-matematicas/">
-<meta property="og:image" content="https://divorcedlance.github.io/unidad4-matematicas/og-image.png">
+<meta property="og:image" content="https://divorcedlance.github.io/unidad4-matematicas/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Unidad 4: Teoría y Ejercicios. Parábolas, circunferencias y oferta y demanda.">
+<meta property="og:image:alt" content="Propedéutico en matemáticas: Teoría y Ejercicios. Unidad 4: parábolas, circunferencias, oferta y demanda. Unidad 5: magnitudes proporcionales e interés.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Unidad 4: Teoría y Ejercicios">
-<meta name="twitter:description" content="Parábolas, circunferencias y oferta y demanda: teoría, ejercicios de la Unidad 4 resueltos paso a paso con los colores de clase, y ejemplos de práctica con resultados exactos.">
-<meta name="twitter:image" content="https://divorcedlance.github.io/unidad4-matematicas/og-image.png">
+<meta name="twitter:title" content="Propedéutico: Teoría y Ejercicios">
+<meta name="twitter:description" content="Propedéutico en matemáticas. Unidad 4: parábolas, circunferencias y oferta y demanda. Unidad 5: magnitudes proporcionales e interés simple y compuesto. Teoría, ejercicios resueltos paso a paso con los colores de clase y ejemplos de práctica.">
+<meta name="twitter:image" content="https://divorcedlance.github.io/unidad4-matematicas/assets/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
 <style>
@@ -72,14 +72,23 @@ header{display:flex;flex-direction:column;gap:8px}
 .theme-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .theme-btn .ic{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink);background:linear-gradient(90deg,var(--ink) 50%,transparent 50%)}
 
-.topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.topics{display:flex;gap:12px}
+.topics .topic{flex:1 1 0;max-width:calc((100% - 24px)/3)}
+.units{display:flex;gap:6px;background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:5px}
+.unit{all:unset;box-sizing:border-box;cursor:pointer;flex:1 1 0;display:flex;flex-direction:column;gap:1px;padding:8px 14px;border-radius:9px;min-width:0}
+.unit .u-n{font-family:var(--f-display);font-weight:800;font-size:1rem}
+.unit .u-t{font-size:.84rem;color:var(--muted)}
+.unit:hover{background:var(--paper)}
+.unit[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.unit[aria-pressed="true"] .u-t{color:var(--paper);opacity:.8}
+.unit:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .topic{all:unset;box-sizing:border-box;cursor:pointer;background:var(--sheet);border:2px solid var(--rule);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;min-width:0}
 .topic .t-name{font-weight:800;font-size:1.08rem}
 .topic .t-sub{font-family:var(--f-body);font-size:.88rem;color:var(--muted)}
 .topic:hover{border-color:var(--muted)}
 .topic:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .topic[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 3px 0 var(--ink)}
-@media (max-width:560px){.topics{grid-template-columns:1fr}}
+
 
 .tabs{display:flex;gap:4px;border-bottom:2px solid var(--ink)}
 .tab{all:unset;cursor:pointer;font-weight:700;font-size:.98rem;padding:9px 16px;border-radius:8px 8px 0 0;color:var(--muted);border:2px solid transparent;border-bottom:none;margin-bottom:-2px}
@@ -134,6 +143,22 @@ article.ej.flash{box-shadow:0 0 0 3px var(--blue)}
 .plan-box{border-left:3px solid var(--purple);background:var(--purple-soft);border-radius:0 8px 8px 0;padding:10px 14px}
 .plan-box .plan-t{font-family:var(--f-display);font-weight:700;font-size:.85rem;color:var(--purple);margin-bottom:6px}
 .plan-box ul{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:6px}
+/* tablas de magnitudes */
+.mtab-wrap{overflow-x:auto;max-width:100%;display:flex;justify-content:center}
+table.mtab{width:auto;min-width:0;margin:4px auto;font-size:.95rem}
+.mtab th,.mtab td{padding:6px 12px;text-align:center;border-bottom:1px solid var(--rule);white-space:nowrap;vertical-align:bottom}
+.mtab thead th{font-family:var(--f-display);font-size:.82rem;font-weight:700;text-transform:none;letter-spacing:0;color:var(--ink)}
+.mtab .tag{display:block;font-size:.68rem;letter-spacing:.08em;font-weight:800;margin-bottom:2px}
+.mtab .k-dp{color:var(--blue)} .mtab .k-ip{color:var(--orange)}
+.mtab .box-ref{border:1.5px solid var(--ink);border-radius:4px;padding:2px 6px}
+.mtab tbody th{font-family:var(--f-display);font-size:.82rem;color:var(--muted);text-align:left;white-space:nowrap;text-transform:none;letter-spacing:0}
+/* lectura del enunciado */
+.lect{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:10px 14px;line-height:2;font-size:.97rem}
+.u{padding:0 1px;border-bottom:2.5px solid currentColor}
+.u-az{color:var(--blue)} .u-na{color:var(--orange)} .u-ve{color:var(--green)} .u-ma{color:var(--magenta)} .u-mo{color:var(--purple)}
+.u .u{border-bottom-style:dotted}
+.n{font-weight:700;border:1.5px solid currentColor;border-bottom-width:1.5px;border-radius:4px;padding:0 4px}
+@media (max-width:560px){.mtab th,.mtab td{padding:5px 7px}.mtab thead th{font-size:.74rem}}
 .chip.ok{color:var(--green);background:var(--green-soft)}
 .chip.bad{color:var(--red);background:var(--red-soft)}
 .chip.warnc{color:var(--amber);background:var(--amber-soft)}
@@ -198,6 +223,11 @@ svg.sk .sk-t{font-family:var(--f-display);font-weight:700;font-size:16px;fill:va
 svg.sk .sk-var{font-style:italic;font-family:var(--f-body);font-size:19px}
 svg.sk .sk-az{fill:var(--blue)} svg.sk text.sk-na{fill:var(--orange)} svg.sk .sk-ma{fill:var(--magenta)}
 svg.sk .sk-ve{fill:var(--green)} svg.sk .sk-dt{fill:var(--magenta)}
+svg.sk.sk-tl .sk-t{font-size:20px} svg.sk.sk-tl .sk-cap{font-size:17px}
+.n{white-space:nowrap}
+@media (max-width:560px){.mtab-wrap.d-only{display:none}}
+svg.sk .sk-bar-az{fill:var(--blue);fill-opacity:.2;stroke:var(--blue);stroke-width:2}
+svg.sk .sk-bar-na{fill:var(--orange);fill-opacity:.2;stroke:var(--orange);stroke-width:2}
 svg.sk .sk-cap{font-size:14px;font-weight:600;fill:var(--muted)}
 @media (max-width:600px){.aspa2 .a-chk{grid-column:1 / -1;grid-row:7;justify-self:center;padding-left:0;margin-top:6px;white-space:normal;text-align:center;width:0;min-width:100%}}
 .t-az{color:var(--blue);font-weight:600} .t-na{color:var(--orange);font-weight:600} .t-mo{color:var(--purple);font-weight:600} .t-ve{color:var(--green);font-weight:600} .t-ma{color:var(--magenta);font-weight:600}
@@ -232,7 +262,10 @@ mjx-container rect[fill="cyan"]{fill:var(--hl-cyan)}
   .theme-btn{padding:5px 10px;font-size:.78rem;white-space:nowrap;flex:none}
   h1{font-size:1.55rem}
   header .lead{font-size:.92rem}
-  .topics{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .topics{gap:8px}
+  .topics .topic{max-width:none}
+  .unit{padding:7px 10px}
+  .unit .u-t{font-size:.74rem;line-height:1.3}
   .topic{padding:10px 8px;border-radius:10px;text-align:center;justify-content:center}
   .topic .t-name{font-size:.86rem;line-height:1.25}
   .topic .t-sub{display:none}
@@ -288,17 +321,21 @@ window.MathJax={
 <div class="wrap">
 <header>
   <div class="top">
-    <span class="label">Propedéutico en matemáticas · 2026-0 · Unidad de aprendizaje 4</span>
+    <span class="label">Propedéutico en matemáticas · 2026-0</span>
     <button class="theme-btn" id="theme-btn" type="button"><span class="ic" aria-hidden="true"></span><span id="theme-txt">Modo oscuro</span></button>
   </div>
-  <h1>Unidad 4: Teoría y Ejercicios</h1>
-  <p class="lead">Elige un tema y luego la pestaña de teoría o la de ejercicios resueltos paso a paso.</p>
+  <h1>Teoría y Ejercicios</h1>
+  <p class="lead">Elige la unidad, el tema y luego la pestaña de teoría, ejercicios resueltos o ejemplos.</p>
 </header>
 
+<div class="units" role="group" aria-label="Unidad"><button class="unit" type="button" data-unit="4" aria-pressed="true"><span class="u-n">Unidad 4</span><span class="u-t">Parábolas, circunferencias, oferta y demanda</span></button><button class="unit" type="button" data-unit="5" aria-pressed="false"><span class="u-n">Unidad 5</span><span class="u-t">Magnitudes proporcionales, interés simple y compuesto</span></button></div>
+
 <div class="topics" role="group" aria-label="Tema">
-  <button class="topic" data-topic="parabolas" aria-pressed="true"><span class="t-name">Parábolas</span><span class="t-sub">Vértice, interceptos, intersecciones y tangentes · 12 ejercicios</span></button>
-  <button class="topic" data-topic="circunferencias" aria-pressed="false"><span class="t-name">Circunferencias</span><span class="t-sub">Centro, radio, completar cuadrados y tangentes · 12 ejercicios</span></button>
-  <button class="topic" data-topic="oferta-demanda" aria-pressed="false"><span class="t-name">Oferta y demanda</span><span class="t-sub">Rectas, equilibrio y excedentes · 8 ejercicios</span></button>
+  <button class="topic" data-topic="parabolas" data-unit="4" aria-pressed="true"><span class="t-name">Parábolas</span><span class="t-sub">Vértice, interceptos, intersecciones y tangentes · 12 ejercicios</span></button>
+  <button class="topic" data-topic="circunferencias" data-unit="4" aria-pressed="false"><span class="t-name">Circunferencias</span><span class="t-sub">Centro, radio, completar cuadrados y tangentes · 12 ejercicios</span></button>
+  <button class="topic" data-topic="oferta-demanda" data-unit="4" aria-pressed="false"><span class="t-name">Oferta y demanda</span><span class="t-sub">Rectas, equilibrio y excedentes · 8 ejercicios</span></button>
+  <button class="topic" data-topic="magnitudes" data-unit="5" aria-pressed="false" hidden><span class="t-name">Magnitudes proporcionales</span><span class="t-sub">Razones, DP e IP, reparto y tramos · 15 ejercicios</span></button>
+  <button class="topic" data-topic="interes" data-unit="5" aria-pressed="false" hidden><span class="t-name">Interés simple y compuesto</span><span class="t-sub">Tanto por ciento, interés simple y compuesto · 12 ejercicios</span></button>
 </div>
 
 <div class="tabs" role="tablist" aria-label="Contenido">
@@ -3503,6 +3540,1788 @@ window.MathJax={
     <div class="resp"><b>Respuesta</b>a) \(D:p=-q+10\) · b) 2 monedas · c) 12 monedas</div>
   </article>
 </div>
+
+<!-- ===================== MAGNITUDES PROPORCIONALES ===================== -->
+
+<div class="panel" id="pn-magnitudes-teoria" role="tabpanel" hidden>
+  <div class="legend" aria-label="Colores"><span><i class="dot" style="background:var(--blue)"></i>DP (directamente proporcional)</span><span><i class="dot" style="background:var(--orange)"></i>IP (inversamente proporcional)</span><span><i class="dot" style="background:var(--purple)"></i>constante \(k\)</span><span><i class="dot" style="background:var(--magenta)"></i>lo que se busca</span><span class="note">En las tablas, la magnitud de referencia va en un recuadro. En «Leer el enunciado», cada color une una frase con su número o su expresión.</span></div>
+
+  <div class="box" id="t-mp-razon">
+    <h2 class="t-mo">1. Razones</h2>
+    <p>"\(A\) y \(B\) están en la razón \(m\) a \(n\)" (o "en la relación \(m\), \(n\)"):</p>
+    <div class="math">\[A=m\mo k\qquad B=n\mo k\]</div>
+    <div class="steps-box"><ol><li><b>Leer el enunciado</b>: marcar qué cosas se comparan y unir cada una con su número, en el mismo orden ("respectivamente").</li><li>Escribir cada cantidad como su número por \(\mo k\).</li><li>Escribir la condición del enunciado con esas expresiones, despejar \(\mo k\) y reemplazar.</li></ol></div>
+    <div class="plan-box"><p class="plan-t">Lo que hay que entender</p><ul><li>Los números van en el <b>mismo orden</b> que las cosas comparadas: en "la edad de Javier y la diferencia… están en la relación de 4 a 1", lo primero (la edad) va con 4 y lo segundo (la diferencia) con 1.</li><li>\(\mo k\) es una "parte": cada cantidad tiene tantas partes como dice su número. "Liz tiene 6 más que Giuliana" con 5 y 3 partes: \(5k=3k+6\).</li><li>Si los números de la razón son fracciones (4, 5/2, 3/2), se multiplican todos por el mismo número para que sean enteros (8, 5, 3).</li><li>Si a <b>las dos</b> cantidades se les agrega lo mismo (\(7k+x\) y \(5k+x\)), la diferencia no cambia: \(x\) se cancela. Si se agrega a <b>una sola</b>, la nueva razón se escribe como proporción: \(\dfrac{3k}{2k+10}=\dfrac34\).</li><li>Si hay compras y ventas entre personas, se actualiza lo que tiene cada una paso a paso: quien vende resta, quien compra suma.</li></ul></div>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-mp-razon">Ver ejemplos de esta parte →</button>
+  </div>
+
+  <div class="box" id="t-mp-proporciones">
+    <h2 class="t-mo">2. Propiedades de las proporciones</h2>
+    <div class="math">\[\frac ab=\frac cd=\frac ef=\frac{a+c+e}{b+d+f}\]</div>
+    <p>Si varias razones son iguales, también son iguales a la suma de los de arriba entre la suma de los de abajo.</p>
+    <div class="plan-box"><p class="plan-t">Lo que hay que entender</p><ul><li>Si te dan una razón entre expresiones, como \(\dfrac{3a^2+2b^2}{3a^2-2b^2}=\dfrac{31}{19}\), escribe arriba \(=31t\) y abajo \(=19t\). Sumando y restando esas dos ecuaciones se despejan \(a^2\) y \(b^2\), y de ahí sale \(\frac ab\).</li><li>Cuando conoces \(\frac ab\), cualquier expresión con \(a\) y \(b\) se calcula reemplazando \(a\) por ese múltiplo de \(b\): si \(\frac ab=\frac53\), usa \(a=5\) y \(b=3\).</li></ul></div>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-mp-proporciones">Ver ejemplos de esta parte →</button>
+  </div>
+
+  <div class="box" id="t-mp-dpip">
+    <h2 class="t-az">3. Magnitudes DP e IP</h2>
+    <ul>
+      <li><span class="t-az">DP</span> (directamente proporcional): si una aumenta, la otra aumenta en la misma proporción. \(\dfrac AB=\mo k\).</li>
+      <li><span class="t-na">IP</span> (inversamente proporcional): si una aumenta, la otra disminuye. \(A\cdot B=\mo k\).</li>
+      <li>"DP al cuadrado de \(B\)": \(\dfrac A{B^2}=\mo k\). "IP a la raíz de \(B\)": \(A\sqrt B=\mo k\). "\(\sqrt A\) IP \(C\)": \(\sqrt A\cdot C=\mo k\), o sea \(A\cdot C^2=\mo k\).</li>
+    </ul>
+    <div class="plan-box"><p class="plan-t">Lo que hay que entender</p><ul><li>Para saber si es DP o IP, pregúntate: si una aumenta, ¿la otra aumenta o disminuye? Más obreros, menos días (IP); más peso, más precio (DP).</li><li>Eficiencia y tiempo son IP. Si dos personas trabajan juntas, se suman sus eficiencias.</li><li>En "se divide en partes cuyos pesos son como 2 es a 3" conviene elegir un peso total que se pueda repartir de todas las formas que pide el problema (por ejemplo, 35 sirve para 2:3 y para 3:4).</li></ul></div>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-mp-dpip">Ver ejemplos de esta parte →</button>
+  </div>
+
+  <div class="box" id="t-mp-compuesta">
+    <h2 class="t-ma">4. Varias magnitudes a la vez</h2>
+    <div class="steps-box"><ol><li>Tabla: una columna por magnitud y una fila por situación. Encerrar la magnitud de <b>referencia</b>.</li><li>Marcar cada columna como <span class="t-az">DP</span> o <span class="t-na">IP</span> respecto a la referencia.</li><li>Fórmula: las <span class="t-na">IP</span> multiplican y las <span class="t-az">DP</span> dividen.</li><li>Igualar la fila ① con la fila ②, simplificar y despejar \(\ma x\).</li></ol></div>
+    <div class="math">\[\frac{\text{Referencia}\cdot\na{\text{IP}}}{\az{\text{DP}}}=\mo k\]</div>
+    <div class="plan-box"><p class="plan-t">Lo que hay que entender</p><ul><li>La referencia es la magnitud con la que el enunciado compara a todas las demás: en "el sueldo es DP a la edad", la referencia es el sueldo.</li><li>Si el enunciado no dice DP o IP, se razona con la referencia: más personas, más obra (DP); más tiempo libre, menos obra (IP).</li><li>Las potencias y raíces van sobre la magnitud: "IP al cuadrado de la categoría" se escribe \(\na{(\text{categoría})^2}\).</li><li>Hay datos escondidos: "entró 3 años después" significa 3 años menos de servicio; "consume la cuarta parte" significa llamar \(y\) a un consumo y \(4y\) al otro (la \(y\) se cancela).</li><li>Antes de multiplicar, simplificar números de arriba con los de abajo.</li></ul></div>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-mp-compuesta">Ver ejemplos de esta parte →</button>
+  </div>
+
+  <div class="box" id="t-mp-reparto">
+    <h2 class="t-mo">5. Reparto proporcional</h2>
+    <div class="steps-box"><ol><li>Llamar \(a,b,c\) a las partes y hacer la tabla.</li><li>Para cada parte: \(\dfrac{\text{parte}\cdot\na{\text{IP}}}{\az{\text{DP}}}=\mo k\). Despejar cada parte en función de \(\mo k\).</li><li>Usar la condición (el total, una diferencia, la mayor parte) para hallar \(\mo k\).</li></ol></div>
+    <div class="plan-box"><p class="plan-t">Lo que hay que entender</p><ul><li>Todas las condiciones (DP a la edad, DP a las notas, IP a las faltas…) van juntas en la misma fracción.</li><li><b>Regla de compañía</b>: en una sociedad, la ganancia de cada socio es DP a su capital y al tiempo que lo aportó: \(\dfrac{\text{ganancia}}{\text{capital}\cdot\text{tiempo}}=\mo k\). Si todos están el mismo tiempo, el tiempo no influye.</li><li>"Número de orden de nacimiento": el mayor nació primero, es el 1. "La mayor diferencia" es la parte mayor menos la menor.</li><li>Si el reparto es DP a expresiones (\(m^2\), \(2m\), \(1\)), las partes son \(m^2t\), \(2mt\), \(t\): la suma da una ecuación en \(m\).</li></ul></div>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-mp-reparto">Ver ejemplos de esta parte →</button>
+  </div>
+
+  <div class="box" id="t-mp-tablas">
+    <h2 class="t-az">6. Tablas de valores</h2>
+    <div class="plan-box"><p class="plan-t">El planteamiento</p><ul><li>Cada columna de la tabla es una situación distinta, pero en todas da la <b>misma</b> \(\mo k\).</li><li>Con una columna completa se calcula \(\mo k\); cada columna con incógnitas da una ecuación.</li><li>Si los exponentes son desconocibles (\(A^mB^nC^p=k\)), compara dos columnas donde una magnitud vale lo mismo: esa magnitud se cancela. Escribe los números como potencias de 2 y 3 (\(324=2^2\cdot3^4\)) e iguala exponentes.</li><li>Una potencia de 2 solo es igual a una potencia de 3 si las dos son \(2^0=3^0=1\).</li></ul></div>
+    <button class="sim-btn box-link" type="button" data-goto="ex-mp7">Ver ejemplos de esta parte →</button>
+  </div>
+
+  <div class="box" id="t-mp-tramos">
+    <h2 class="t-na">7. Cuando la relación cambia por tramos</h2>
+    <div class="plan-box"><p class="plan-t">El planteamiento</p><ul><li>Cada tramo tiene su propia constante: en un tramo <span class="t-az">DP</span> se mantiene \(\dfrac Pd\); en uno <span class="t-na">IP</span> se mantiene \(P\cdot d\).</li><li>El valor al final de un tramo es el comienzo del siguiente: con ese punto se calcula la constante del tramo nuevo.</li><li>Conviene hacer una lista de tramos (días, DP o IP) antes de calcular, y avanzar tramo por tramo.</li></ul></div>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-mp-tramos">Ver ejemplos de esta parte →</button>
+  </div>
+</div>
+
+<div class="panel" id="pn-magnitudes-ejercicios" role="tabpanel" hidden>
+  <div class="legend" aria-label="Colores"><span><i class="dot" style="background:var(--blue)"></i>DP (directamente proporcional)</span><span><i class="dot" style="background:var(--orange)"></i>IP (inversamente proporcional)</span><span><i class="dot" style="background:var(--purple)"></i>constante \(k\)</span><span><i class="dot" style="background:var(--magenta)"></i>lo que se busca</span><span class="note">En las tablas, la magnitud de referencia va en un recuadro. En «Leer el enunciado», cada color une una frase con su número o su expresión.</span></div>
+  <div class="box"><p>Los 15 ejercicios de magnitudes proporcionales de la Unidad 5. En los problemas de texto, el primer paso es leer el enunciado marcando cada dato con un color.</p></div>
+  <div class="box">
+    <h3>Errores encontrados en la unidad</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Ejercicio</th><th>La unidad dice</th><th>Lo correcto</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>30 litros de agua y 28 litros de vino</td><td>28 litros de vino y 20 litros de agua</td></tr>
+        <tr><td>3</td><td>No da respuesta</td><td>\(\frac{a+b}{a-b}=4\)</td></tr>
+        <tr><td>4</td><td>4</td><td>Una pérdida de 1 200 soles</td></tr>
+        <tr><td>5</td><td>60 escalones (enunciado ambiguo)</td><td>60 si "diferencia" es de pasos; 50 si es de escalones</td></tr>
+        <tr><td>10</td><td>1 350 soles</td><td>1 350 dólares (el enunciado está en dólares)</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="jump" aria-label="Ir al ejercicio"><button class="bad" data-go="mp1">1</button><button data-go="mp2">2</button><button class="warnc" data-go="mp3">3</button><button class="bad" data-go="mp4">4</button><button class="warnc" data-go="mp5">5</button><button data-go="mp6">6</button><button data-go="mp7">7</button><button data-go="mp8">8</button><button data-go="mp9">9</button><button class="bad" data-go="mp10">10</button><button data-go="mp11">11</button><button data-go="mp12">12</button><button data-go="mp13">13</button><button data-go="mp14">14</button><button data-go="mp15">15</button></div>
+
+  <article class="ej" id="mp1">
+    <div class="ej-head"><span class="num">1</span><h3>Vino y agua</h3><span class="chip bad">Error en la unidad</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp1">Ver ejemplos similares →</button></span></div>
+    <div class="enun">En un recipiente se mezcló vino y agua a razón de 7 a 5 respectivamente. Se agrega tanto de vino como de agua, de forma que la diferencia entre las cantidades de vino y agua es 8 litros. ¿Cuánto había de vino y agua al inicio?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">En un recipiente se mezcló <span class="u u-az">vino</span> y <span class="u u-na">agua</span> a razón de <span class="n u-az">7</span> a <span class="n u-na">5</span> respectivamente. Se agrega <span class="u u-ve">tanto de vino como de agua</span>, de forma que <span class="u u-ma">la diferencia entre las cantidades de vino y agua es 8 litros</span>. ¿Cuánto había de vino y agua al inicio?</div>
+      <p>"Respectivamente" une en orden: el vino va con 7 y el agua con 5. "Tanto de vino como de agua" significa que a los dos se les agrega <b>la misma</b> cantidad, \(\ve x\).</p>
+      <p class="paso">Paso 2 · Plantear con k</p>
+      <div class="mtab-wrap"><table class="mtab"><thead><tr><th></th><th class="k-n">Vino</th><th class="k-n">Agua</th></tr></thead><tbody><tr><th>① Al inicio</th><td class="k-n">\(\az{7k}\)</td><td class="k-n">\(\na{5k}\)</td></tr><tr><th>② Después</th><td class="k-n">\(\az{7k}+\ve x\)</td><td class="k-n">\(\na{5k}+\ve x\)</td></tr></tbody></table></div>
+      <p class="paso">Paso 3 · La diferencia después de agregar</p>
+      <div class="math">\[\ma{(7k+x)-(5k+x)=8}\]</div>
+      <div class="math">\[7k+x-5k-x=8\]</div>
+      <div class="math">\[2k=8\]</div>
+      <div class="math">\[\mo{k=4}\]</div>
+      <p>La cantidad agregada \(x\) se cancela: no hace falta conocerla.</p>
+      <p class="paso">Paso 4 · Cantidades al inicio</p>
+      <div class="math">\[\text{vino}=\az7(\mo4)=28\qquad\text{agua}=\na5(\mo4)=20\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>28 litros de vino y 20 litros de agua.</div>
+    <div class="err"><b>En la unidad:</b> la respuesta dice "30 litros de agua". El agua es \(5\cdot4=20\) litros.</div>
+  </article>
+
+  <article class="ej" id="mp2">
+    <div class="ej-head"><span class="num">2</span><h3>La edad de Javier</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp2">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Si la edad de Javier y la diferencia entre la edad que tendrá dentro de cuatro años y la edad que tenía hace cuatro años están en la relación de 4 a 1, determine la edad de Javier.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Si <span class="u u-az">la edad de Javier</span> y <span class="u u-na">la diferencia entre <span class="u u-ve">la edad que tendrá dentro de cuatro años</span> y <span class="u u-ma">la edad que tenía hace cuatro años</span></span> están en la relación de <span class="n u-az">4</span> a <span class="n u-na">1</span>, determine la edad de Javier.</div>
+      <p>Se comparan <b>dos</b> cosas y los números van en el mismo orden: la primera, <span class="u u-az">la edad de Javier</span>, va con <span class="n u-az">4</span>; la segunda, <span class="u u-na">la diferencia…</span>, va con <span class="n u-na">1</span>. La diferencia tiene a su vez dos partes: <span class="u u-ve">dentro de 4 años</span> menos <span class="u u-ma">hace 4 años</span>.</p>
+      <p class="paso">Paso 2 · Traducir cada frase</p>
+      <ul><li><span class="u u-az">Edad de Javier</span>: \(\az x\)</li><li><span class="u u-ve">Dentro de 4 años</span>: \(\ve{x+4}\)</li><li><span class="u u-ma">Hace 4 años</span>: \(\ma{x-4}\)</li><li><span class="u u-na">La diferencia</span>: \(\na{(\ve{x+4})-(\ma{x-4})}\)</li></ul>
+      <p class="paso">Paso 3 · Relación 4 a 1</p>
+      <div class="math">\[\az x=\az4\mo k\]</div>
+      <div class="math">\[\na{(\ve{x+4})-(\ma{x-4})}=\na1\mo k\]</div>
+      <p class="paso">Paso 4 · Resolver</p>
+      <div class="math">\[x+4-x+4=k\]</div>
+      <div class="math">\[\mo{k=8}\]</div>
+      <div class="math">\[\az x=4(\mo8)=32\]</div>
+      <p>La diferencia entre dos edades de la misma persona es el tiempo que pasó (8 años), sin importar \(x\).</p>
+    </div>
+    <div class="resp"><b>Respuesta</b>32 años.</div>
+  </article>
+
+  <article class="ej" id="mp3">
+    <div class="ej-head"><span class="num">3</span><h3>Razón entre expresiones</h3><span class="chip warnc">La unidad no da respuesta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-proporciones" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp3">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Sean \(a,b\in\mathbb R^+\). Si se cumple \(\dfrac{3a^2+2b^2}{3a^2-2b^2}=\dfrac{31}{19}\), calcule \(\dfrac{a+b}{a-b}\).</div>
+    <div class="warn"><b>Sobre el enunciado:</b> la unidad no incluye la respuesta de este ejercicio.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Idea</p>
+      <p>La razón dice que el numerador tiene 31 partes y el denominador 19 partes de una misma cantidad \(\mo t\):</p>
+      <div class="math">\[3a^2+2b^2=31\mo t\]</div>
+      <div class="math">\[3a^2-2b^2=19\mo t\]</div>
+      <p class="paso">Paso 2 · Sumar y restar las ecuaciones</p>
+      <div class="math">\[\text{sumando: }6a^2=50t\qquad a^2=\tfrac{25}3t\]</div>
+      <div class="math">\[\text{restando: }4b^2=12t\qquad b^2=3t\]</div>
+      <p class="paso">Paso 3 · La razón a/b</p>
+      <div class="math">\[\frac{a^2}{b^2}=\frac{25t/3}{3t}=\frac{25}9\]</div>
+      <div class="math">\[\frac ab=\frac53\]</div>
+      <p>Como \(a,b>0\), se toma la raíz positiva. Podemos usar \(a=5\) y \(b=3\):</p>
+      <p class="paso">Paso 4 · Calcular</p>
+      <div class="math">\[\frac{a+b}{a-b}=\frac{5+3}{5-3}=\frac82=4\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(4\)</div>
+  </article>
+
+  <article class="ej" id="mp4">
+    <div class="ej-head"><span class="num">4</span><h3>Diamante partido</h3><span class="chip bad">Error en la unidad</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-dpip" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp4">Ver ejemplos similares →</button></span></div>
+    <div class="enun">El precio de un diamante varía proporcionalmente con el cuadrado de su peso. Si un diamante se divide en 2 partes tales que sus pesos son entre sí como 2 es a 3, se ocasiona una pérdida de 1176 soles. ¿Qué pérdida se ocasiona si dicho diamante se divide en 2 partes cuyos pesos son entre sí como 3 es a 4?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect"><span class="u u-az">El precio</span> de un diamante varía proporcionalmente con <span class="u u-az">el cuadrado de su peso</span>. Si un diamante se divide en 2 partes tales que <span class="u u-ve">sus pesos son entre sí como 2 es a 3</span>, se ocasiona <span class="u u-ma">una pérdida de 1176 soles</span>. ¿Qué pérdida se ocasiona si dicho diamante se divide en 2 partes cuyos pesos son entre sí como <span class="u u-na">3 es a 4</span>?</div>
+      <p>"Pérdida" es lo que valía el diamante entero menos lo que valen las dos partes juntas. Como el precio es DP al cuadrado del peso: \(\text{precio}=\mo k\cdot\text{peso}^2\).</p>
+      <p class="paso">Paso 2 · Elegir el peso total</p>
+      <p>El peso total se tiene que poder repartir en 2 + 3 = 5 partes y en 3 + 4 = 7 partes. Tomamos un peso total de \(35u\):</p>
+      <ul><li><span class="u u-ve">2 a 3</span>: \(\ve{14u}\) y \(\ve{21u}\)</li><li><span class="u u-na">3 a 4</span>: \(\na{15u}\) y \(\na{20u}\)</li></ul>
+      <p class="paso">Paso 3 · Pérdida del primer corte</p>
+      <div class="math">\[\text{entero: }k(35u)^2=1225\,ku^2\]</div>
+      <div class="math">\[\text{partes: }k(\ve{14u})^2+k(\ve{21u})^2=196\,ku^2+441\,ku^2=637\,ku^2\]</div>
+      <div class="math">\[\ma{1225\,ku^2-637\,ku^2=1176}\]</div>
+      <div class="math">\[588\,ku^2=1176\]</div>
+      <div class="math">\[\mo{ku^2=2}\]</div>
+      <p class="paso">Paso 4 · Pérdida del segundo corte</p>
+      <div class="math">\[\text{partes: }k(\na{15u})^2+k(\na{20u})^2=225\,ku^2+400\,ku^2=625\,ku^2\]</div>
+      <div class="math">\[\text{pérdida}=1225\,ku^2-625\,ku^2=600\,ku^2=600(\mo2)=1200\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>1 200 soles.</div>
+    <div class="err"><b>En la unidad:</b> la respuesta dice "4", que no tiene unidades ni corresponde a una pérdida (parece copiada del ejercicio 3). La pérdida es 1 200 soles.</div>
+  </article>
+
+  <article class="ej" id="mp5">
+    <div class="ej-head"><span class="num">5</span><h3>Pepito y Luchito en la escalera</h3><span class="chip warnc">Enunciado ambiguo</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp5">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Pepito y Luchito, que son niños muy inquietos, suben los escalones de una escalera de tres en tres y de dos en dos respectivamente. ¿Cuántos escalones habrán recorrido juntos, cuando su diferencia sea 10?</div>
+    <div class="warn"><b>Sobre el enunciado:</b> "su diferencia" puede leerse de dos formas. Si es la diferencia de <b>pasos</b> hasta el mismo escalón, sale 60 (la respuesta de la unidad). Si dan los mismos pasos y es la diferencia de <b>escalones</b>, sería \(3n-2n=10\): Pepito 30, Luchito 20 y juntos 50.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect"><span class="u u-az">Pepito</span> y <span class="u u-na">Luchito</span>, que son niños muy inquietos, suben los escalones de una escalera de <span class="n u-az">tres en tres</span> y de <span class="n u-na">dos en dos</span> respectivamente. ¿Cuántos escalones habrán recorrido juntos, cuando <span class="u u-ma">su diferencia sea 10</span>?</div>
+      <p>Pepito sube 3 escalones por paso y Luchito 2. El enunciado no dice de qué es "su diferencia". La respuesta de la unidad (60) sale si los dos suben la misma escalera hasta el mismo escalón y la diferencia es en el <b>número de pasos</b>.</p>
+      <p class="paso">Paso 2 · Plantear</p>
+      <p>Si los dos llegan al escalón \(\ma E\):</p>
+      <div class="math">\[\text{pasos de Pepito}=\frac{E}{\az3}\qquad\text{pasos de Luchito}=\frac E{\na2}\]</div>
+      <p class="paso">Paso 3 · La diferencia de pasos es 10</p>
+      <div class="math">\[\ma{\frac E2-\frac E3=10}\]</div>
+      <div class="math">\[\frac{3E-2E}{6}=10\]</div>
+      <div class="math">\[\ma E=60\]</div>
+      <p>Pepito dio 20 pasos y Luchito 30: la diferencia es 10 ✓</p>
+    </div>
+    <div class="resp"><b>Respuesta</b>Llegan al escalón 60.</div>
+  </article>
+
+  <article class="ej" id="mp6">
+    <div class="ej-head"><span class="num">6</span><h3>Tabla con A, B y C</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-tablas t-mp-dpip" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp6">Ver ejemplos similares →</button></span></div>
+    <div class="enun">El cuadro muestra algunos de los valores que toman las magnitudes \(A, B\) y \(C\) tal que \(A\) DP \(B\) cuando \(C\) es constante y \(\sqrt A\) IP \(C\) cuando \(B\) es constante. Calcule \(a+b\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">…tal que <span class="u u-az">A DP B</span> cuando C es constante y <span class="u u-na">√A IP C</span> cuando B es constante.</div>
+      <p><span class="u u-az">A DP B</span>: B divide. <span class="u u-na">√A IP C</span>: \(\sqrt A\cdot C\) es constante; elevando al cuadrado, \(A\cdot C^2\) es constante: C² multiplica.</p>
+      <div class="mtab-wrap"><table class="mtab"><thead><tr><th></th><th class="k-ref"><span class="box-ref">A</span></th><th class="k-dp"><span class="tag">DP</span>B</th><th class="k-ip"><span class="tag">IP</span>C²</th></tr></thead><tbody><tr><th>①</th><td class="k-ref">\(6\)</td><td class="k-dp">\(2\)</td><td class="k-ip">\(1\)</td></tr><tr><th>②</th><td class="k-ref">\(1\)</td><td class="k-dp">\(27\)</td><td class="k-ip">\(a\)</td></tr><tr><th>③</th><td class="k-ref">\(b\)</td><td class="k-dp">\(8a\)</td><td class="k-ip">\(b\)</td></tr></tbody></table></div>
+      <p class="paso">Paso 2 · Fórmula</p>
+      <div class="math">\[\frac{A\cdot\na{C^2}}{\az B}=\mo k\]</div>
+      <p class="paso">Paso 3 · k con la columna completa ①</p>
+      <div class="math">\[\frac{6\cdot\na{1^2}}{\az2}=\mo3\]</div>
+      <p class="paso">Paso 4 · Columna ②</p>
+      <div class="math">\[\frac{1\cdot\na{a^2}}{\az{27}}=\mo3\]</div>
+      <div class="math">\[a^2=81\]</div>
+      <div class="math">\[\ma a=9\]</div>
+      <p class="paso">Paso 5 · Columna ③ (con a = 9, B = 72)</p>
+      <div class="math">\[\frac{b\cdot\na{b^2}}{\az{72}}=\mo3\]</div>
+      <div class="math">\[b^3=216\]</div>
+      <div class="math">\[\ma b=6\]</div>
+      <p class="paso">Paso 6 · Suma</p>
+      <div class="math">\[a+b=9+6=15\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(15\)</div>
+  </article>
+
+  <article class="ej" id="mp7">
+    <div class="ej-head"><span class="num">7</span><h3>Exponentes desconocidos</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-tablas" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp7">Ver ejemplos similares →</button></span></div>
+    <div class="enun">En un fenómeno en el que intervienen las magnitudes \(A, B\) y \(C\), se cumple \(A^m\times B^n\times C^p=k\) (\(k\) constante). Con la tabla, calcule \(b\times c\).</div>
+    <div class="sol">
+      <div class="mtab-wrap"><table class="mtab"><thead><tr><th></th><th class="k-n">A</th><th class="k-n">B</th><th class="k-n">C</th></tr></thead><tbody><tr><th>①</th><td class="k-n">\(1\)</td><td class="k-n">\(4\)</td><td class="k-n">\(8\)</td></tr><tr><th>②</th><td class="k-n">\(1\)</td><td class="k-n">\(9\)</td><td class="k-n">\(27\)</td></tr><tr><th>③</th><td class="k-n">\(3\)</td><td class="k-n">\(324\)</td><td class="k-n">\(8\)</td></tr><tr><th>④</th><td class="k-n">\(4\)</td><td class="k-n">\(b\)</td><td class="k-n">\(1\)</td></tr><tr><th>⑤</th><td class="k-n">\(\sqrt2\)</td><td class="k-n">\(1\)</td><td class="k-n">\(c\)</td></tr></tbody></table></div>
+      <p class="paso">Paso 1 · Columnas ① y ②: A vale 1 en las dos</p>
+      <div class="math">\[4^n\cdot8^p=9^n\cdot27^p\]</div>
+      <div class="math">\[2^{2n}\cdot2^{3p}=3^{2n}\cdot3^{3p}\]</div>
+      <div class="math">\[2^{2n+3p}=3^{2n+3p}\]</div>
+      <p>Una potencia de 2 solo es igual a una de 3 si las dos valen 1: el exponente es 0.</p>
+      <div class="math">\[2n+3p=0\qquad\mo{k=1}\]</div>
+      <p class="paso">Paso 2 · Columna ③</p>
+      <p>\(324=2^2\cdot3^4\):</p>
+      <div class="math">\[3^m\cdot(2^2\cdot3^4)^n\cdot2^{3p}=1\]</div>
+      <div class="math">\[3^{m+4n}\cdot2^{2n+3p}=1\]</div>
+      <div class="math">\[3^{m+4n}=1\]</div>
+      <div class="math">\[m=-4n\]</div>
+      <p class="paso">Paso 3 · Columna ④</p>
+      <div class="math">\[4^m\cdot b^n\cdot1=1\]</div>
+      <div class="math">\[b^n=4^{-m}=4^{4n}\]</div>
+      <div class="math">\[\ma b=4^4=256\]</div>
+      <p class="paso">Paso 4 · Columna ⑤</p>
+      <div class="math">\[(\sqrt2)^m\cdot1\cdot c^p=1\]</div>
+      <div class="math">\[c^p=2^{-m/2}=2^{2n}\]</div>
+      <p>Con \(p=-\tfrac{2n}3\):</p>
+      <div class="math">\[c^{-2n/3}=2^{2n}\]</div>
+      <div class="math">\[\ma c=2^{-3}=\tfrac18\]</div>
+      <p class="paso">Paso 5 · Producto</p>
+      <div class="math">\[b\cdot c=256\cdot\tfrac18=32\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(32\)</div>
+  </article>
+
+  <article class="ej" id="mp8">
+    <div class="ej-head"><span class="num">8</span><h3>Producción de lámparas por tramos</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-tramos t-mp-dpip" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp8">Ver ejemplos similares →</button></span></div>
+    <div class="enun">En una planta de producción de lámparas, la producción es directamente proporcional al número de días hasta el día 8, donde se han producido 500 unidades; luego la producción se hace inversamente proporcional al número de días hasta el día 16, para ser nuevamente directamente proporcional hasta el día en que se producen 375 unidades, donde finalmente vuelve a ser inversamente proporcional hasta el día 36. Si la producción del cuarto día fue vendida en 5 soles la unidad y la producción del día 36 en 6 soles la unidad, calcule los ingresos en dichos días.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">En una planta de producción de lámparas, la producción es <span class="u u-az">directamente proporcional al número de días hasta el día 8, donde se han producido 500 unidades</span>; luego <span class="u u-na">la producción se hace inversamente proporcional al número de días hasta el día 16</span>, para ser <span class="u u-az">nuevamente directamente proporcional hasta el día en que se producen 375 unidades</span>, donde <span class="u u-na">finalmente vuelve a ser inversamente proporcional hasta el día 36</span>. Si <span class="u u-ma">la producción del cuarto día fue vendida en 5 soles</span> la unidad y <span class="u u-ma">la producción del día 36 en 6 soles</span> la unidad, calcule los ingresos en dichos días.</div>
+      <p>Cada frase subrayada es un tramo: azul DP, naranja IP. "Ingreso" es unidades producidas por precio.</p>
+      <p class="paso">Paso 2 · Ordenar los tramos</p>
+      <div class="mtab-wrap"><table class="mtab"><thead><tr><th>Tramo</th><th>Días</th><th>Relación</th><th>Se mantiene</th></tr></thead><tbody><tr><th>1</th><td>0 a 8</td><td class="k-dp">DP</td><td class="k-dp">\(P/d\)</td></tr><tr><th>2</th><td>8 a 16</td><td class="k-ip">IP</td><td class="k-ip">\(P\cdot d\)</td></tr><tr><th>3</th><td>16 a ?</td><td class="k-dp">DP</td><td class="k-dp">\(P/d\)</td></tr><tr><th>4</th><td>? a 36</td><td class="k-ip">IP</td><td class="k-ip">\(P\cdot d\)</td></tr></tbody></table></div>
+      <p>El final de cada tramo es el comienzo del siguiente.</p>
+      <p class="paso">Paso 3 · Tramo 1 (DP): día 4</p>
+      <div class="math">\[\frac{\ma{P_4}}{4}=\frac{500}{8}\]</div>
+      <div class="math">\[\ma{P_4}=\frac{500\cdot4}{8}=250\]</div>
+      <p class="paso">Paso 4 · Tramo 2 (IP): día 16</p>
+      <div class="math">\[P_{16}\cdot16=500\cdot8\]</div>
+      <div class="math">\[P_{16}=\frac{4000}{16}=250\]</div>
+      <p class="paso">Paso 5 · Tramo 3 (DP): día en que se producen 375</p>
+      <div class="math">\[\frac{375}{\ma d}=\frac{250}{16}\]</div>
+      <div class="math">\[\ma d=\frac{375\cdot16}{250}=24\]</div>
+      <p class="paso">Paso 6 · Tramo 4 (IP): día 36</p>
+      <div class="math">\[\ma{P_{36}}\cdot36=375\cdot24\]</div>
+      <div class="math">\[\ma{P_{36}}=\frac{9000}{36}=250\]</div>
+      <p class="paso">Paso 7 · Ingresos</p>
+      <div class="math">\[\text{día }4:\ 250\cdot5=1250\qquad\text{día }36:\ 250\cdot6=1500\]</div>
+      <div class="plot" id="g-mp8"></div>
+    </div>
+    <div class="resp"><b>Respuesta</b>Día 4: 1 250 soles. Día 36: 1 500 soles.</div>
+  </article>
+
+  <article class="ej" id="mp9">
+    <div class="ej-head"><span class="num">9</span><h3>Sueldo, edad y categoría</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-compuesta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp9">Ver ejemplos similares →</button></span></div>
+    <div class="enun">En una empresa el sueldo es D.P. a la edad y a los años de servicio del empleado e I.P. al cuadrado de la categoría de rentas. Juan es un empleado de Rentas de segunda categoría con 10 años de servicio y con 56 años de edad ganando 2 000 soles. José, que entró a la empresa 3 años después que Juan, gana 500 soles y es empleado de Rentas de tercera categoría. Halle la diferencia de edades de ambos.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">En una empresa <span class="u u-mo">el sueldo</span> es <span class="u u-az">D.P. a la edad</span> y <span class="u u-az">a los años de servicio</span> del empleado e <span class="u u-na">I.P. al cuadrado de la categoría</span> de rentas. Juan es un empleado de Rentas de segunda categoría con 10 años de servicio y con 56 años de edad ganando 2 000 soles. <span class="u u-ma">José, que entró a la empresa 3 años después que Juan</span>, gana 500 soles y es empleado de Rentas de tercera categoría. Halle la diferencia de edades de ambos.</div>
+      <p>Todo se compara con <span class="u u-mo">el sueldo</span>: es la referencia. <span class="u u-ma">Entró 3 años después</span> significa que José tiene 3 años menos de servicio: \(10-3=7\).</p>
+      <p class="paso">Paso 2 · Tabla</p>
+      <div class="mtab-wrap"><table class="mtab"><thead><tr><th></th><th class="k-ref"><span class="box-ref">Sueldo</span></th><th class="k-dp"><span class="tag">DP</span>Edad</th><th class="k-dp"><span class="tag">DP</span>Años de servicio</th><th class="k-ip"><span class="tag">IP</span>(Categoría)²</th></tr></thead><tbody><tr><th>① Juan</th><td class="k-ref">\(2000\)</td><td class="k-dp">\(56\)</td><td class="k-dp">\(10\)</td><td class="k-ip">\(2\)</td></tr><tr><th>② José</th><td class="k-ref">\(500\)</td><td class="k-dp">\(\ma x\)</td><td class="k-dp">\(7\)</td><td class="k-ip">\(3\)</td></tr></tbody></table></div>
+      <p class="paso">Paso 3 · Fórmula</p>
+      <div class="math">\[\frac{\text{Sueldo}\cdot\na{(\text{Categoría})^2}}{\az{\text{Edad}}\cdot\az{\text{Años}}}=\mo k\]</div>
+      <p class="paso">Paso 4 · Igualar las dos filas</p>
+      <div class="math">\[\frac{2000\cdot\na{2^2}}{\az{56}\cdot\az{10}}=\frac{500\cdot\na{3^2}}{\ma x\cdot\az7}\]</div>
+      <div class="math">\[\ma x=\frac{500\cdot9\cdot56\cdot10}{7\cdot2000\cdot4}\]</div>
+      <p>Simplificamos: \(56\div7=8\) y \(\frac{500}{2000}=\frac14\):</p>
+      <div class="math">\[\ma x=\frac{9\cdot8\cdot10}{4\cdot4}=\frac{720}{16}=45\]</div>
+      <p class="paso">Paso 5 · Diferencia de edades</p>
+      <div class="math">\[56-45=11\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>11 años.</div>
+  </article>
+
+  <article class="ej" id="mp10">
+    <div class="ej-head"><span class="num">10</span><h3>Precio de un televisor</h3><span class="chip bad">Errata en la unidad</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-compuesta t-mp-dpip" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp10">Ver ejemplos similares →</button></span></div>
+    <div class="enun">El precio de un televisor varía en forma directamente proporcional al cuadrado de su tamaño medido en pulgadas e inversamente proporcional a la raíz cuadrada de la cantidad de energía que consume mensualmente. Si el precio de un televisor de 14 pulgadas es 300 dólares, ¿cuál es el precio de un televisor de 21 pulgadas, si su consumo de energía es la cuarta parte que el consumo de energía del televisor de 14 pulgadas?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect"><span class="u u-mo">El precio</span> de un televisor varía en forma <span class="u u-az">directamente proporcional al cuadrado de su tamaño</span> medido en pulgadas e <span class="u u-na">inversamente proporcional a la raíz cuadrada de la cantidad de energía</span> que consume mensualmente. Si el precio de un televisor de 14 pulgadas es 300 dólares, ¿cuál es el precio de un televisor de 21 pulgadas, si <span class="u u-ma">su consumo de energía es la cuarta parte que el consumo de energía del televisor de 14 pulgadas</span>?</div>
+      <p>No dan los consumos: <span class="u u-ma">la cuarta parte</span> dice que si el de 21 pulgadas consume \(y\), el de 14 consume \(4y\).</p>
+      <p class="paso">Paso 2 · Tabla</p>
+      <div class="mtab-wrap"><table class="mtab"><thead><tr><th></th><th class="k-ref"><span class="box-ref">Precio</span></th><th class="k-dp"><span class="tag">DP</span>(Tamaño)²</th><th class="k-ip"><span class="tag">IP</span>√Energía</th></tr></thead><tbody><tr><th>①</th><td class="k-ref">\(300\)</td><td class="k-dp">\(14\)</td><td class="k-ip">\(4y\)</td></tr><tr><th>②</th><td class="k-ref">\(\ma x\)</td><td class="k-dp">\(21\)</td><td class="k-ip">\(y\)</td></tr></tbody></table></div>
+      <p class="paso">Paso 3 · Fórmula e igualar</p>
+      <div class="math">\[\frac{\text{Precio}\cdot\na{\sqrt{\text{Energía}}}}{\az{(\text{Tamaño})^2}}=\mo k\]</div>
+      <div class="math">\[\frac{300\cdot\na{\sqrt{4y}}}{\az{14^2}}=\frac{\ma x\cdot\na{\sqrt y}}{\az{21^2}}\]</div>
+      <p>Como \(\sqrt{4y}=2\sqrt y\), la \(\sqrt y\) se cancela:</p>
+      <div class="math">\[\frac{300\cdot2}{196}=\frac{\ma x}{441}\]</div>
+      <div class="math">\[\ma x=600\cdot\frac{441}{196}=600\cdot\frac94=1350\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>1 350 dólares.</div>
+    <div class="err"><b>En la unidad:</b> la respuesta dice "1 350 soles", pero el enunciado da el precio en dólares.</div>
+  </article>
+
+  <article class="ej" id="mp11">
+    <div class="ej-head"><span class="num">11</span><h3>El campo de Malena, Diana y Francesca</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp11">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Malena, Diana y Francesca juntas poseen un campo, siendo sus partes proporcionales a los números 4, 5/2 y 3/2. Malena vende la mitad de su parte a Francesca y ella vende 100 m² a Diana y así las partes de Diana y Francesca son iguales. ¿Cuántos metros cuadrados poseía Malena al principio?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect"><span class="u u-az">Malena</span>, <span class="u u-na">Diana</span> y <span class="u u-ve">Francesca</span> juntas poseen un campo, siendo sus partes proporcionales a los números <span class="n u-az">4</span>, <span class="n u-na">5/2</span> y <span class="n u-ve">3/2</span>. <span class="u u-az">Malena vende la mitad de su parte</span> a <span class="u u-ve">Francesca</span> y <span class="u u-ve">ella</span> vende 100 m² a <span class="u u-na">Diana</span> y así <span class="u u-ma">las partes de Diana y Francesca son iguales</span>. ¿Cuántos metros cuadrados poseía Malena al principio?</div>
+      <p>El orden une: Malena 4, Diana 5/2, Francesca 3/2. "Ella" es Francesca, la última persona nombrada. Las ventas se hacen en orden.</p>
+      <p class="paso">Paso 2 · Números enteros</p>
+      <p>Multiplicamos 4, 5/2 y 3/2 por 2: quedan 8, 5 y 3.</p>
+      <div class="math">\[\az M=8\mo k\qquad\na D=5\mo k\qquad\ve F=3\mo k\]</div>
+      <p class="paso">Paso 3 · Seguir las ventas</p>
+      <ul><li>Malena vende la mitad, \(4k\), a Francesca: \(\ve F=3k+4k=7k\).</li><li>Francesca vende 100 a Diana: \(\ve F=7k-100\) y \(\na D=5k+100\).</li></ul>
+      <p class="paso">Paso 4 · Quedan iguales</p>
+      <div class="math">\[\ma{7k-100=5k+100}\]</div>
+      <div class="math">\[2k=200\]</div>
+      <div class="math">\[\mo{k=100}\]</div>
+      <p class="paso">Paso 5 · Malena al principio</p>
+      <div class="math">\[\az M=8(\mo{100})=800\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>800 m².</div>
+  </article>
+
+  <article class="ej" id="mp12">
+    <div class="ej-head"><span class="num">12</span><h3>Reparto entre tres hijos</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-reparto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp12">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Un padre encarga a su esposa repartir una cantidad de \(N\) soles entre sus tres hijos de manera que sea D.P. a sus edades, que son 12, 13 y 16 años, también que sea D.P. a sus notas del colegio, que son 15, 14 y 10 respectivamente, e I.P. al número de faltas al colegio, que son 3, 7 y 5 respectivamente. Pero al momento de repartirlo, la madre considera además hacerlo en forma inversamente proporcional al número de orden de nacimiento de sus 3 hijos. Si la mayor diferencia de lo que reciben dos de ellos es 9 500 soles, calcule el valor de \(N\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">…repartir <span class="u u-mo">una cantidad de N soles</span> entre sus tres hijos de manera que sea <span class="u u-az">D.P. a sus edades</span>, que son 12, 13 y 16 años, también que sea <span class="u u-az">D.P. a sus notas</span> del colegio, que son 15, 14 y 10 respectivamente, e <span class="u u-na">I.P. al número de faltas</span> al colegio, que son 3, 7 y 5 respectivamente. … hacerlo en forma <span class="u u-na">inversamente proporcional al número de orden de nacimiento</span> de sus 3 hijos. Si <span class="u u-ma">la mayor diferencia de lo que reciben dos de ellos es 9 500 soles</span>, calcule el valor de N.</div>
+      <p>Hay cuatro condiciones: dos DP (azul) y dos IP (naranja). Todas van en la misma fracción. <span class="u u-ma">La mayor diferencia</span> es lo que recibe el que más recibe menos lo que recibe el que menos recibe.</p>
+      <p class="paso">Paso 2 · Número de orden</p>
+      <p>El mayor (16 años) nació primero: orden 1. El de 13 años: orden 2. El de 12 años: orden 3.</p>
+      <p class="paso">Paso 3 · Tabla</p>
+      <div class="mtab-wrap"><table class="mtab"><thead><tr><th></th><th class="k-ref"><span class="box-ref">Parte</span></th><th class="k-dp"><span class="tag">DP</span>Edad</th><th class="k-dp"><span class="tag">DP</span>Notas</th><th class="k-ip"><span class="tag">IP</span>Faltas</th><th class="k-ip"><span class="tag">IP</span>Orden</th></tr></thead><tbody><tr><th>1</th><td class="k-ref">\(a\)</td><td class="k-dp">\(12\)</td><td class="k-dp">\(15\)</td><td class="k-ip">\(3\)</td><td class="k-ip">\(3\)</td></tr><tr><th>2</th><td class="k-ref">\(b\)</td><td class="k-dp">\(13\)</td><td class="k-dp">\(14\)</td><td class="k-ip">\(7\)</td><td class="k-ip">\(2\)</td></tr><tr><th>3</th><td class="k-ref">\(c\)</td><td class="k-dp">\(16\)</td><td class="k-dp">\(10\)</td><td class="k-ip">\(5\)</td><td class="k-ip">\(1\)</td></tr></tbody></table></div>
+      <p class="paso">Paso 4 · Cada parte en función de k</p>
+      <div class="math">\[\frac{a\cdot\na3\cdot\na3}{\az{12}\cdot\az{15}}=\mo k\qquad a=\frac{12\cdot15}{9}\mo k=20\mo k\]</div>
+      <div class="math">\[\frac{b\cdot\na7\cdot\na2}{\az{13}\cdot\az{14}}=\mo k\qquad b=\frac{13\cdot14}{14}\mo k=13\mo k\]</div>
+      <div class="math">\[\frac{c\cdot\na5\cdot\na1}{\az{16}\cdot\az{10}}=\mo k\qquad c=\frac{160}{5}\mo k=32\mo k\]</div>
+      <p class="paso">Paso 5 · La mayor diferencia</p>
+      <p>El que más recibe es \(c\) y el que menos, \(b\):</p>
+      <div class="math">\[\ma{32k-13k=9500}\]</div>
+      <div class="math">\[19k=9500\]</div>
+      <div class="math">\[\mo{k=500}\]</div>
+      <p class="paso">Paso 6 · Total</p>
+      <div class="math">\[N=20k+13k+32k=65k\]</div>
+      <div class="math">\[N=65(\mo{500})=32\,500\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(N=32\,500\) soles.</div>
+  </article>
+
+  <article class="ej" id="mp13">
+    <div class="ej-head"><span class="num">13</span><h3>Propinas</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp13">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Giuliana, Liz y Emily tienen sus propinas en la relación de 3, 5 y 7 respectivamente. Si Liz tiene 6 soles más que Giuliana, ¿cuánto tiene cada una?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect"><span class="u u-az">Giuliana</span>, <span class="u u-na">Liz</span> y <span class="u u-ve">Emily</span> tienen sus propinas en la relación de <span class="n u-az">3</span>, <span class="n u-na">5</span> y <span class="n u-ve">7</span> respectivamente. Si <span class="u u-ma">Liz tiene 6 soles más que Giuliana</span>, ¿cuánto tiene cada una?</div>
+      <p>"Respectivamente": Giuliana 3, Liz 5, Emily 7. <span class="u u-ma">"6 más que Giuliana"</span>: lo de Liz es igual a lo de Giuliana más 6.</p>
+      <p class="paso">Paso 2 · Plantear con k</p>
+      <div class="math">\[\az G=3\mo k\qquad\na L=5\mo k\qquad\ve E=7\mo k\]</div>
+      <p class="paso">Paso 3 · Condición</p>
+      <div class="math">\[\ma{\na{5k}=\az{3k}+6}\]</div>
+      <div class="math">\[2k=6\]</div>
+      <div class="math">\[\mo{k=3}\]</div>
+      <p class="paso">Paso 4 · Reemplazar</p>
+      <div class="math">\[\az G=3(\mo3)=9\qquad\na L=5(\mo3)=15\qquad\ve E=7(\mo3)=21\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>Giuliana 9, Liz 15 y Emily 21 soles.</div>
+  </article>
+
+  <article class="ej" id="mp14">
+    <div class="ej-head"><span class="num">14</span><h3>Reparto con m</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-reparto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp14">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Se reparte 100 soles en partes directamente proporcionales a \(m^2\), \(2m\) y 1, siendo \(m\) un número natural. Si la mayor cantidad repartida es 64 soles, calcule \(m\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Se reparte <span class="u u-mo">100 soles</span> en partes <span class="u u-az">directamente proporcionales a m², 2m y 1</span>, siendo m un número natural. Si <span class="u u-ma">la mayor cantidad repartida es 64 soles</span>, calcule m.</div>
+      <p>DP a \(m^2\), \(2m\) y 1: las partes son \(m^2\mo t\), \(2m\mo t\) y \(\mo t\).</p>
+      <p class="paso">Paso 2 · El total</p>
+      <div class="math">\[\mo{m^2t+2mt+t=100}\]</div>
+      <div class="math">\[t(m+1)^2=100\]</div>
+      <p class="paso">Paso 3 · La mayor parte</p>
+      <p>Si \(m\ge2\), la mayor es \(m^2t\). (Con \(m=1\) la mayor sería 50, no 64.)</p>
+      <div class="math">\[\ma{m^2t=64}\]</div>
+      <p class="paso">Paso 4 · Dividir las dos ecuaciones</p>
+      <div class="math">\[\frac{m^2t}{(m+1)^2t}=\frac{64}{100}\]</div>
+      <div class="math">\[\frac{m}{m+1}=\frac{8}{10}\]</div>
+      <div class="math">\[10m=8m+8\]</div>
+      <div class="math">\[m=4\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(m=4\)</div>
+  </article>
+
+  <article class="ej" id="mp15">
+    <div class="ej-head"><span class="num">15</span><h3>Cuatro socios</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-reparto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-mp15">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Cuatro socios reúnen 2000 soles, de los cuales el primero aporta 400 soles, el segundo 3/4 de lo que puso el primero, el tercero los 5/3 de lo que puso el segundo y el cuarto lo restante. Además, explotan una industria durante 4 años. Si hay que repartir una ganancia de 200 000 soles, ¿cuánto le corresponde al segundo?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Cuatro socios reúnen <span class="u u-mo">2000 soles</span>, de los cuales <span class="u u-az">el primero aporta 400 soles</span>, <span class="u u-na">el segundo 3/4 de lo que puso el primero</span>, <span class="u u-ve">el tercero los 5/3 de lo que puso el segundo</span> y <span class="u u-ma">el cuarto lo restante</span>. Además, explotan una industria <span class="u u-mo">durante 4 años</span>. Si hay que repartir una ganancia de 200 000 soles, ¿cuánto le corresponde al segundo?</div>
+      <p>Cada aporte depende del anterior: hay que calcularlos en orden. Como todos están <span class="u u-mo">los mismos 4 años</span>, el tiempo no cambia el reparto: la ganancia es DP solo al capital.</p>
+      <p class="paso">Paso 2 · Aportes</p>
+      <div class="math">\[\az{1.^\circ}=400\qquad\na{2.^\circ}=\tfrac34(400)=300\qquad\ve{3.^\circ}=\tfrac53(300)=500\]</div>
+      <div class="math">\[\ma{4.^\circ}=2000-400-300-500=800\]</div>
+      <p class="paso">Paso 3 · Ganancia DP al capital</p>
+      <div class="math">\[\frac{\text{ganancia}}{\text{capital}}=\mo k=\frac{200\,000}{2000}=100\]</div>
+      <p class="paso">Paso 4 · El segundo</p>
+      <div class="math">\[300\cdot\mo{100}=30\,000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>30 000 soles.</div>
+  </article>
+</div>
+
+<div class="panel" id="pn-magnitudes-ejemplos" role="tabpanel" hidden>
+  <div class="legend" aria-label="Colores"><span><i class="dot" style="background:var(--blue)"></i>DP (directamente proporcional)</span><span><i class="dot" style="background:var(--orange)"></i>IP (inversamente proporcional)</span><span><i class="dot" style="background:var(--purple)"></i>constante \(k\)</span><span><i class="dot" style="background:var(--magenta)"></i>lo que se busca</span><span class="note">En las tablas, la magnitud de referencia va en un recuadro. En «Leer el enunciado», cada color une una frase con su número o su expresión.</span></div>
+  <div class="box"><h3>Ejemplos de práctica</h3><p>Primero están los ejemplos de la teoría. Después hay dos ejemplos por cada ejercicio de la unidad (por ejemplo, 9.1 y 9.2 se parecen al ejercicio 9), con resultados exactos.</p></div>
+  <div class="jump" aria-label="Ir a los ejemplos del ejercicio"><button data-go="grp-magnitudes-teo">Teoría</button><button data-go="ex-mp1">1</button><button data-go="ex-mp2">2</button><button data-go="ex-mp3">3</button><button data-go="ex-mp4">4</button><button data-go="ex-mp5">5</button><button data-go="ex-mp6">6</button><button data-go="ex-mp7">7</button><button data-go="ex-mp8">8</button><button data-go="ex-mp9">9</button><button data-go="ex-mp10">10</button><button data-go="ex-mp11">11</button><button data-go="ex-mp12">12</button><button data-go="ex-mp13">13</button><button data-go="ex-mp14">14</button><button data-go="ex-mp15">15</button></div>
+
+  <h2 class="ex-group" id="grp-magnitudes-teo">Ejemplos de la teoría</h2>
+  <article class="ej ex ex-teo" id="ex-t-mp-razon">
+    <div class="ej-head"><span class="num">T1</span><h3>Razón y suma</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-mp-razon">Ver la teoría ↑</button></span></div>
+    <div class="enun">Dos números están en la razón 4 a 7 y su suma es 66. Halle los números.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Plantear con k</p>
+      <div class="math">\[A=4\mo k\qquad B=7\mo k\]</div>
+      <p class="paso">Paso 2 · La suma</p>
+      <div class="math">\[4k+7k=66\]</div>
+      <div class="math">\[11k=66\]</div>
+      <div class="math">\[\mo{k=6}\]</div>
+      <p class="paso">Paso 3 · Reemplazar</p>
+      <div class="math">\[A=4(\mo6)=24\qquad B=7(\mo6)=42\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>24 y 42.</div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-mp-proporciones">
+    <div class="ej-head"><span class="num">T2</span><h3>Suma de antecedentes y consecuentes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-proporciones" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-mp-proporciones">Ver la teoría ↑</button></span></div>
+    <div class="enun">Si \(\dfrac a3=\dfrac b5=\dfrac c7\) y \(a+b+c=45\), halle \(b\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Propiedad</p>
+      <div class="math">\[\frac a3=\frac b5=\frac c7=\frac{a+b+c}{3+5+7}=\frac{45}{15}=3\]</div>
+      <p class="paso">Paso 2 · Despejar</p>
+      <div class="math">\[\frac b5=3\qquad b=15\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(b=15\)</div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-mp-dpip">
+    <div class="ej-head"><span class="num">T3</span><h3>Obreros y días (IP)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-dpip" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-mp-dpip">Ver la teoría ↑</button></span></div>
+    <div class="enun">Si 6 obreros hacen una obra en 20 días, ¿en cuántos días harían la misma obra 8 obreros?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · ¿DP o IP?</p>
+      <p>Más obreros terminan en menos días: obreros y días son <span class="t-na">IP</span>. Se mantiene el producto.</p>
+      <p class="paso">Paso 2 · Producto constante</p>
+      <div class="math">\[\na6\cdot20=\na8\cdot\ma x\]</div>
+      <div class="math">\[\ma x=\frac{120}{8}=15\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>15 días.</div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-mp-compuesta">
+    <div class="ej-head"><span class="num">T4</span><h3>Obra con tres magnitudes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-compuesta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-mp-compuesta">Ver la teoría ↑</button></span></div>
+    <div class="enun">La cantidad de pared que se construye es DP al número de obreros y a las horas diarias de trabajo, e IP a la dificultad del terreno. 8 obreros, trabajando 6 horas diarias en un terreno de dificultad 2, construyen 240 m². ¿Cuántos m² construirán 10 obreros trabajando 9 horas diarias en un terreno de dificultad 3?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tabla</p>
+      <div class="mtab-wrap"><table class="mtab"><thead><tr><th></th><th class="k-ref"><span class="box-ref">Obra (m²)</span></th><th class="k-dp"><span class="tag">DP</span>Obreros</th><th class="k-dp"><span class="tag">DP</span>Horas</th><th class="k-ip"><span class="tag">IP</span>Dificultad</th></tr></thead><tbody><tr><th>①</th><td class="k-ref">\(240\)</td><td class="k-dp">\(8\)</td><td class="k-dp">\(6\)</td><td class="k-ip">\(2\)</td></tr><tr><th>②</th><td class="k-ref">\(\ma x\)</td><td class="k-dp">\(10\)</td><td class="k-dp">\(9\)</td><td class="k-ip">\(3\)</td></tr></tbody></table></div>
+      <p class="paso">Paso 2 · Igualar</p>
+      <div class="math">\[\frac{240\cdot\na2}{\az8\cdot\az6}=\frac{\ma x\cdot\na3}{\az{10}\cdot\az9}\]</div>
+      <div class="math">\[10=\frac{3\ma x}{90}\]</div>
+      <div class="math">\[\ma x=300\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>300 m².</div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-mp-compuesta-2">
+    <div class="ej-head"><span class="num">T5</span><h3>Ejemplo de clase: obra y tiempo libre</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-compuesta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-mp-compuesta">Ver la teoría ↑</button></span></div>
+    <div class="enun">El tamaño de una obra es DP a la cantidad de personas que trabajan, al precio que se les paga y a las horas trabajadas, e IP al tiempo libre que tienen. 20 personas, con un precio de 20 soles y 2 000 horas trabajadas, hacen una obra de 1 000 m² y tienen 1 hora de tiempo libre. Si 15 personas, con un precio de 10 soles y 1 500 horas trabajadas, hacen una obra de 500 m², ¿cuánto tiempo libre tienen?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tabla</p>
+      <div class="mtab-wrap"><table class="mtab"><thead><tr><th></th><th class="k-ref"><span class="box-ref">Obra (m²)</span></th><th class="k-dp"><span class="tag">DP</span>Personas</th><th class="k-dp"><span class="tag">DP</span>Precio</th><th class="k-dp"><span class="tag">DP</span>Horas</th><th class="k-ip"><span class="tag">IP</span>Tiempo libre</th></tr></thead><tbody><tr><th>①</th><td class="k-ref">\(1000\)</td><td class="k-dp">\(20\)</td><td class="k-dp">\(20\)</td><td class="k-dp">\(2000\)</td><td class="k-ip">\(1\)</td></tr><tr><th>②</th><td class="k-ref">\(500\)</td><td class="k-dp">\(15\)</td><td class="k-dp">\(10\)</td><td class="k-dp">\(1500\)</td><td class="k-ip">\(\ma x\)</td></tr></tbody></table></div>
+      <p class="paso">Paso 2 · Fórmula</p>
+      <div class="math">\[\frac{\text{Obra}\cdot\na{\text{Tiempo libre}}}{\az{\text{Personas}}\cdot\az{\text{Precio}}\cdot\az{\text{Horas}}}=\mo k\]</div>
+      <p class="paso">Paso 3 · Igualar</p>
+      <div class="math">\[\frac{1000\cdot\na1}{\az{20}\cdot\az{20}\cdot\az{2000}}=\frac{500\cdot\na{\ma x}}{\az{15}\cdot\az{10}\cdot\az{1500}}\]</div>
+      <div class="math">\[\ma x=\frac{1000\cdot15\cdot10\cdot1500}{500\cdot20\cdot20\cdot2000}\]</div>
+      <p>Simplificamos: \(\frac{1000}{500}=2\) y \(\frac{1500}{2000}=\frac34\):</p>
+      <div class="math">\[\ma x=\frac{2\cdot15\cdot10\cdot3}{20\cdot20\cdot4}=\frac{900}{1600}=\frac9{16}\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(\frac9{16}\) de hora (unos 34 minutos).</div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-mp-reparto">
+    <div class="ej-head"><span class="num">T6</span><h3>Reparto DP e IP</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-reparto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-mp-reparto">Ver la teoría ↑</button></span></div>
+    <div class="enun">Reparta 900 soles en tres partes que sean DP a 2, 3 y 4 e IP a 1, 3 y 2, respectivamente.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Cada parte en función de k</p>
+      <div class="math">\[\frac{a\cdot\na1}{\az2}=\mo k\qquad a=2\mo k\]</div>
+      <div class="math">\[\frac{b\cdot\na3}{\az3}=\mo k\qquad b=\mo k\]</div>
+      <div class="math">\[\frac{c\cdot\na2}{\az4}=\mo k\qquad c=2\mo k\]</div>
+      <p class="paso">Paso 2 · El total</p>
+      <div class="math">\[2k+k+2k=900\]</div>
+      <div class="math">\[5k=900\]</div>
+      <div class="math">\[\mo{k=180}\]</div>
+      <p class="paso">Paso 3 · Reemplazar</p>
+      <div class="math">\[a=360\qquad b=180\qquad c=360\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>360, 180 y 360 soles.</div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-mp-tramos">
+    <div class="ej-head"><span class="num">T7</span><h3>Caudal por tramos</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-tramos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-mp-tramos">Ver la teoría ↑</button></span></div>
+    <div class="enun">El caudal con que se llena un tanque es DP al tiempo hasta el minuto 10, cuando llega a 30 L/min; desde ahí es IP al tiempo. ¿Cuál es el caudal en el minuto 4 y en el minuto 15?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tramo DP (hasta el minuto 10)</p>
+      <div class="math">\[\frac{\ma{Q_4}}{4}=\frac{30}{10}\]</div>
+      <div class="math">\[\ma{Q_4}=12\]</div>
+      <p class="paso">Paso 2 · Tramo IP (desde el minuto 10)</p>
+      <p>Empieza en el punto final del tramo anterior: minuto 10 y 30 L/min.</p>
+      <div class="math">\[\ma{Q_{15}}\cdot15=30\cdot10\]</div>
+      <div class="math">\[\ma{Q_{15}}=20\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>Minuto 4: 12 L/min. Minuto 15: 20 L/min.</div>
+  </article>
+
+  <h2 class="ex-group" id="grp-magnitudes-unidad">Ejemplos parecidos a los ejercicios de la unidad</h2>
+  <article class="ej ex" id="ex-mp1">
+    <div class="ej-head"><span class="num">1.1</span><h3>Leche y café</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp1">Parecido al ejercicio 1 de la unidad ↑</button></span></div>
+    <div class="enun">En una jarra hay leche y café en la razón de 5 a 3. Se agrega la misma cantidad de leche y de café, y la diferencia entre ambos es de 10 litros. ¿Cuánto había de cada uno al inicio?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Plantear</p>
+      <div class="math">\[\text{leche}=5\mo k+x\qquad\text{café}=3\mo k+x\]</div>
+      <p class="paso">Paso 2 · Diferencia</p>
+      <div class="math">\[(5k+x)-(3k+x)=10\]</div>
+      <div class="math">\[2k=10\]</div>
+      <div class="math">\[\mo{k=5}\]</div>
+      <p class="paso">Paso 3 · Al inicio</p>
+      <div class="math">\[\text{leche}=25\qquad\text{café}=15\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>25 litros de leche y 15 de café.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp1b">
+    <div class="ej-head"><span class="num">1.2</span><h3>Se agrega solo a uno</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp1">Parecido al ejercicio 1 de la unidad ↑</button></span></div>
+    <div class="enun">Vino y agua están en la razón de 3 a 2. Si se agregan 10 litros de agua, la razón se vuelve 3 a 4. ¿Cuánto vino hay?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Plantear</p>
+      <p>Al agregar solo agua, la razón cambia. La nueva razón se escribe como proporción:</p>
+      <div class="math">\[\frac{3k}{2k+10}=\frac34\]</div>
+      <p class="paso">Paso 2 · Resolver</p>
+      <div class="math">\[4(3k)=3(2k+10)\]</div>
+      <div class="math">\[12k=6k+30\]</div>
+      <div class="math">\[\mo{k=5}\]</div>
+      <p class="paso">Paso 3 · Vino</p>
+      <div class="math">\[3(\mo5)=15\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>15 litros de vino (y 10 de agua al inicio).</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp2">
+    <div class="ej-head"><span class="num">2.1</span><h3>La edad de Ana</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp2">Parecido al ejercicio 2 de la unidad ↑</button></span></div>
+    <div class="enun">La edad de Ana y la diferencia entre la edad que tendrá dentro de 6 años y la que tenía hace 6 años están en la relación de 3 a 2. Halle la edad de Ana.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Plantear</p>
+      <div class="math">\[\ma x=3\mo k\]</div>
+      <div class="math">\[(x+6)-(x-6)=2\mo k\]</div>
+      <p class="paso">Paso 2 · Resolver</p>
+      <div class="math">\[12=2k\]</div>
+      <div class="math">\[\mo{k=6}\]</div>
+      <div class="math">\[\ma x=3(\mo6)=18\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>18 años.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp2b">
+    <div class="ej-head"><span class="num">2.2</span><h3>Padre e hijo</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp2">Parecido al ejercicio 2 de la unidad ↑</button></span></div>
+    <div class="enun">Las edades de un padre y su hijo están en la razón de 5 a 2. Dentro de 6 años estarán en la razón de 2 a 1. Halle las edades actuales.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Plantear</p>
+      <div class="math">\[\text{padre}=5\mo k\qquad\text{hijo}=2\mo k\]</div>
+      <p>Dentro de 6 años los dos suman 6, y la razón es 2 a 1:</p>
+      <div class="math">\[\frac{5k+6}{2k+6}=\frac21\]</div>
+      <p class="paso">Paso 2 · Resolver</p>
+      <div class="math">\[5k+6=2(2k+6)\]</div>
+      <div class="math">\[5k+6=4k+12\]</div>
+      <div class="math">\[\mo{k=6}\]</div>
+      <p class="paso">Paso 3 · Edades</p>
+      <div class="math">\[\text{padre}=30\qquad\text{hijo}=12\]</div>
+      <p>Comprobación: dentro de 6 años tendrán 36 y 18, que están en razón 2 a 1 ✓</p>
+    </div>
+    <div class="resp"><b>Respuesta</b>Padre 30 años, hijo 12 años.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp3">
+    <div class="ej-head"><span class="num">3.1</span><h3>Razón entre expresiones</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-proporciones" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp3">Parecido al ejercicio 3 de la unidad ↑</button></span></div>
+    <div class="enun">Si \(\dfrac{2a^2+b^2}{2a^2-b^2}=\dfrac97\) con \(a,b>0\), calcule \(\dfrac{a+b}{a-b}\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Partes</p>
+      <div class="math">\[2a^2+b^2=9\mo t\qquad2a^2-b^2=7\mo t\]</div>
+      <p class="paso">Paso 2 · Sumar y restar</p>
+      <div class="math">\[4a^2=16t\qquad a^2=4t\]</div>
+      <div class="math">\[2b^2=2t\qquad b^2=t\]</div>
+      <p class="paso">Paso 3 · a/b</p>
+      <div class="math">\[\frac{a^2}{b^2}=4\qquad\frac ab=2\]</div>
+      <p>Usamos \(a=2\), \(b=1\):</p>
+      <div class="math">\[\frac{a+b}{a-b}=\frac{3}{1}=3\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(3\)</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp3b">
+    <div class="ej-head"><span class="num">3.2</span><h3>Propiedad de las proporciones</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-proporciones" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp3">Parecido al ejercicio 3 de la unidad ↑</button></span></div>
+    <div class="enun">Si \(\dfrac ab=\dfrac cd=\dfrac34\) y \(a+c=21\), halle \(b+d\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Propiedad</p>
+      <div class="math">\[\frac{a+c}{b+d}=\frac34\]</div>
+      <p class="paso">Paso 2 · Reemplazar</p>
+      <div class="math">\[\frac{21}{b+d}=\frac34\]</div>
+      <div class="math">\[b+d=\frac{21\cdot4}{3}=28\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(b+d=28\)</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp4">
+    <div class="ej-head"><span class="num">4.1</span><h3>Precio de una joya</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-dpip" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp4">Parecido al ejercicio 4 de la unidad ↑</button></span></div>
+    <div class="enun">El precio de una joya es DP al cuadrado de su peso. Una joya de 4 g cuesta 800 soles. ¿Cuánto cuesta una de 6 g?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Fórmula</p>
+      <div class="math">\[\frac{\text{precio}}{\az{\text{peso}^2}}=\mo k\]</div>
+      <p class="paso">Paso 2 · Igualar</p>
+      <div class="math">\[\frac{800}{\az{4^2}}=\frac{\ma x}{\az{6^2}}\]</div>
+      <div class="math">\[\ma x=50\cdot36=1800\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>1 800 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp4b">
+    <div class="ej-head"><span class="num">4.2</span><h3>Diamante partido (otra versión)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-dpip" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp4">Parecido al ejercicio 4 de la unidad ↑</button></span></div>
+    <div class="enun">El precio de un diamante es DP al cuadrado de su peso. Si se parte en dos trozos iguales, se pierden 2 000 soles. ¿Cuánto se pierde si se parte en dos trozos cuyos pesos están en la razón 1 a 3?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Peso total</p>
+      <p>Tiene que poder partirse en 2 partes iguales y en 1 + 3 = 4 partes: tomamos \(4u\).</p>
+      <p class="paso">Paso 2 · Trozos iguales</p>
+      <div class="math">\[k(4u)^2-[k(2u)^2+k(2u)^2]=16ku^2-8ku^2=8ku^2\]</div>
+      <div class="math">\[8ku^2=2000\qquad\mo{ku^2=250}\]</div>
+      <p class="paso">Paso 3 · Razón 1 a 3</p>
+      <div class="math">\[16ku^2-[k(u)^2+k(3u)^2]=16ku^2-10ku^2=6ku^2\]</div>
+      <div class="math">\[6(\mo{250})=1500\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>1 500 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp5">
+    <div class="ej-head"><span class="num">5.1</span><h3>Ana y Beto en la escalera</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp5">Parecido al ejercicio 5 de la unidad ↑</button></span></div>
+    <div class="enun">Ana sube una escalera de 4 en 4 escalones y Beto de 3 en 3, dando cada uno un paso al mismo tiempo. ¿Cuántos escalones ha subido cada uno cuando Ana le lleva 12 escalones a Beto?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Plantear</p>
+      <p>Después de \(n\) pasos, Ana subió \(4n\) y Beto \(3n\) escalones.</p>
+      <p class="paso">Paso 2 · Diferencia de escalones</p>
+      <div class="math">\[4n-3n=12\qquad n=12\]</div>
+      <div class="math">\[\text{Ana}=48\qquad\text{Beto}=36\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>Ana 48 escalones y Beto 36.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp5b">
+    <div class="ej-head"><span class="num">5.2</span><h3>La misma escalera</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp5">Parecido al ejercicio 5 de la unidad ↑</button></span></div>
+    <div class="enun">Dos niños suben la misma escalera hasta el último escalón: uno de 2 en 2 y el otro de 5 en 5. Si uno dio 15 pasos más que el otro, ¿cuántos escalones tiene la escalera?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Pasos de cada uno</p>
+      <div class="math">\[\frac E2\qquad\frac E5\]</div>
+      <p class="paso">Paso 2 · Diferencia de pasos</p>
+      <div class="math">\[\frac E2-\frac E5=15\]</div>
+      <div class="math">\[\frac{3E}{10}=15\]</div>
+      <div class="math">\[\ma E=50\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>50 escalones.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp6">
+    <div class="ej-head"><span class="num">6.1</span><h3>Tabla con DP e IP</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-tablas" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp6">Parecido al ejercicio 6 de la unidad ↑</button></span></div>
+    <div class="enun">\(A\) es DP a \(B\) (con \(C\) constante) e IP a \(C\) (con \(B\) constante). Si \(A=12\) cuando \(B=4\) y \(C=3\), halle \(A\) cuando \(B=6\) y \(C=9\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Fórmula</p>
+      <div class="math">\[\frac{A\cdot\na C}{\az B}=\mo k\]</div>
+      <p class="paso">Paso 2 · k</p>
+      <div class="math">\[\frac{12\cdot3}{4}=\mo9\]</div>
+      <p class="paso">Paso 3 · Nueva situación</p>
+      <div class="math">\[\frac{\ma A\cdot9}{6}=9\]</div>
+      <div class="math">\[\ma A=6\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(A=6\)</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp6b">
+    <div class="ej-head"><span class="num">6.2</span><h3>Con cuadrado y raíz</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-tablas t-mp-dpip" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp6">Parecido al ejercicio 6 de la unidad ↑</button></span></div>
+    <div class="enun">\(A\) es DP a \(B^2\) e IP a \(\sqrt C\). Si \(A=8\) cuando \(B=2\) y \(C=16\), halle \(A\) cuando \(B=3\) y \(C=4\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Fórmula</p>
+      <div class="math">\[\frac{A\cdot\na{\sqrt C}}{\az{B^2}}=\mo k\]</div>
+      <p class="paso">Paso 2 · k</p>
+      <div class="math">\[\frac{8\cdot4}{4}=\mo8\]</div>
+      <p class="paso">Paso 3 · Nueva situación</p>
+      <div class="math">\[\frac{\ma A\cdot2}{9}=8\]</div>
+      <div class="math">\[\ma A=36\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(A=36\)</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp7">
+    <div class="ej-head"><span class="num">7.1</span><h3>Un exponente desconocido</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-tablas" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp7">Parecido al ejercicio 7 de la unidad ↑</button></span></div>
+    <div class="enun">Se cumple \(A^m\cdot B=k\). Si \(B=12\) cuando \(A=2\), y \(B=3\) cuando \(A=4\), halle \(m\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Igualar las dos situaciones</p>
+      <div class="math">\[2^m\cdot12=4^m\cdot3\]</div>
+      <div class="math">\[4=\frac{4^m}{2^m}=2^m\]</div>
+      <div class="math">\[m=2\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(m=2\)</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp7b">
+    <div class="ej-head"><span class="num">7.2</span><h3>Dos exponentes</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-tablas" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp7">Parecido al ejercicio 7 de la unidad ↑</button></span></div>
+    <div class="enun">Se cumple \(A^m\cdot B^n=k\) y la tabla es: \((A,B)=(1,4),\ (2,1),\ (4,b)\). Halle \(b\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Columna con A = 1</p>
+      <div class="math">\[1^m\cdot4^n=\mo k\qquad\mo{k=4^n}\]</div>
+      <p class="paso">Paso 2 · Segunda columna</p>
+      <div class="math">\[2^m\cdot1=4^n=2^{2n}\qquad m=2n\]</div>
+      <p class="paso">Paso 3 · Tercera columna</p>
+      <div class="math">\[4^m\cdot b^n=4^n\]</div>
+      <div class="math">\[4^{2n}\cdot b^n=4^n\]</div>
+      <div class="math">\[b^n=4^{-n}\]</div>
+      <div class="math">\[\ma b=\tfrac14\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(b=\frac14\)</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp8">
+    <div class="ej-head"><span class="num">8.1</span><h3>Producción en dos tramos</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-tramos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp8">Parecido al ejercicio 8 de la unidad ↑</button></span></div>
+    <div class="enun">La producción de una fábrica es DP al número de días hasta el día 6, cuando se producen 300 unidades; luego es IP al número de días. Si la producción del día 3 y la del día 20 se venden a 4 soles la unidad, calcule los ingresos de esos días.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tramo DP: día 3</p>
+      <div class="math">\[\frac{\ma{P_3}}{3}=\frac{300}{6}\]</div>
+      <div class="math">\[\ma{P_3}=150\]</div>
+      <p class="paso">Paso 2 · Tramo IP: día 20</p>
+      <div class="math">\[\ma{P_{20}}\cdot20=300\cdot6\]</div>
+      <div class="math">\[\ma{P_{20}}=90\]</div>
+      <p class="paso">Paso 3 · Ingresos</p>
+      <div class="math">\[150\cdot4=600\qquad90\cdot4=360\]</div>
+      <div class="plot" id="g-ex-mp8"></div>
+    </div>
+    <div class="resp"><b>Respuesta</b>Día 3: 600 soles. Día 20: 360 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp8b">
+    <div class="ej-head"><span class="num">8.2</span><h3>Producción en tres tramos</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-tramos" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp8">Parecido al ejercicio 8 de la unidad ↑</button></span></div>
+    <div class="enun">La producción es DP al número de días hasta el día 10, cuando se producen 400 unidades; luego es IP al número de días hasta el día 20, y después vuelve a ser DP. Halle la producción de los días 5, 20 y 30.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tramo DP (0 a 10): día 5</p>
+      <div class="math">\[\frac{\ma{P_5}}5=\frac{400}{10}\]</div>
+      <div class="math">\[\ma{P_5}=200\]</div>
+      <p class="paso">Paso 2 · Tramo IP (10 a 20): día 20</p>
+      <div class="math">\[\ma{P_{20}}\cdot20=400\cdot10\]</div>
+      <div class="math">\[\ma{P_{20}}=200\]</div>
+      <p class="paso">Paso 3 · Tramo DP (desde el día 20): día 30</p>
+      <p>Empieza en el punto (20, 200):</p>
+      <div class="math">\[\frac{\ma{P_{30}}}{30}=\frac{200}{20}\]</div>
+      <div class="math">\[\ma{P_{30}}=300\]</div>
+      <div class="plot" id="g-ex-mp8b"></div>
+    </div>
+    <div class="resp"><b>Respuesta</b>200, 200 y 300 unidades.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp9">
+    <div class="ej-head"><span class="num">9.1</span><h3>Sueldo y años de servicio</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-compuesta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp9">Parecido al ejercicio 9 de la unidad ↑</button></span></div>
+    <div class="enun">El sueldo de un empleado es DP a sus años de servicio e IP a su categoría. Ana tiene 6 años de servicio, es de categoría 2 y gana 1 500 soles. Luis es de categoría 3 y gana 2 000 soles. ¿Cuántos años de servicio tiene Luis?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tabla</p>
+      <div class="mtab-wrap"><table class="mtab"><thead><tr><th></th><th class="k-ref"><span class="box-ref">Sueldo</span></th><th class="k-dp"><span class="tag">DP</span>Años</th><th class="k-ip"><span class="tag">IP</span>Categoría</th></tr></thead><tbody><tr><th>① Ana</th><td class="k-ref">\(1500\)</td><td class="k-dp">\(6\)</td><td class="k-ip">\(2\)</td></tr><tr><th>② Luis</th><td class="k-ref">\(2000\)</td><td class="k-dp">\(\ma x\)</td><td class="k-ip">\(3\)</td></tr></tbody></table></div>
+      <p class="paso">Paso 2 · Igualar</p>
+      <div class="math">\[\frac{1500\cdot\na2}{\az6}=\frac{2000\cdot\na3}{\ma x}\]</div>
+      <div class="math">\[500=\frac{6000}{\ma x}\]</div>
+      <div class="math">\[\ma x=12\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>12 años.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp9b">
+    <div class="ej-head"><span class="num">9.2</span><h3>Sueldo con categoría al cuadrado</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-compuesta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp9">Parecido al ejercicio 9 de la unidad ↑</button></span></div>
+    <div class="enun">El sueldo es DP a la edad y a los años de servicio, e IP al cuadrado de la categoría. Pedro tiene 40 años, 10 años de servicio, es de categoría 2 y gana 2 000 soles. Rosa entró a la empresa 2 años después que Pedro, es de categoría 3 y gana 800 soles. Halle la diferencia de edades.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Dato escondido</p>
+      <p>Rosa entró 2 años después: tiene \(10-2=8\) años de servicio.</p>
+      <p class="paso">Paso 2 · Tabla</p>
+      <div class="mtab-wrap"><table class="mtab"><thead><tr><th></th><th class="k-ref"><span class="box-ref">Sueldo</span></th><th class="k-dp"><span class="tag">DP</span>Edad</th><th class="k-dp"><span class="tag">DP</span>Años</th><th class="k-ip"><span class="tag">IP</span>(Categoría)²</th></tr></thead><tbody><tr><th>① Pedro</th><td class="k-ref">\(2000\)</td><td class="k-dp">\(40\)</td><td class="k-dp">\(10\)</td><td class="k-ip">\(2\)</td></tr><tr><th>② Rosa</th><td class="k-ref">\(800\)</td><td class="k-dp">\(\ma x\)</td><td class="k-dp">\(8\)</td><td class="k-ip">\(3\)</td></tr></tbody></table></div>
+      <p class="paso">Paso 3 · Igualar</p>
+      <div class="math">\[\frac{2000\cdot\na{2^2}}{\az{40}\cdot\az{10}}=\frac{800\cdot\na{3^2}}{\ma x\cdot\az8}\]</div>
+      <div class="math">\[20=\frac{900}{\ma x}\]</div>
+      <div class="math">\[\ma x=45\]</div>
+      <p class="paso">Paso 4 · Diferencia</p>
+      <div class="math">\[45-40=5\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>5 años (Rosa tiene 45 y Pedro 40).</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp10">
+    <div class="ej-head"><span class="num">10.1</span><h3>Precio de una pizza</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-dpip" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp10">Parecido al ejercicio 10 de la unidad ↑</button></span></div>
+    <div class="enun">El precio de una pizza es DP al cuadrado de su diámetro. Si una pizza de 20 cm cuesta 16 soles, ¿cuánto cuesta una de 30 cm?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Fórmula</p>
+      <div class="math">\[\frac{\text{Precio}}{\az{(\text{diámetro})^2}}=\mo k\]</div>
+      <p class="paso">Paso 2 · Igualar</p>
+      <div class="math">\[\frac{16}{\az{20^2}}=\frac{\ma x}{\az{30^2}}\]</div>
+      <div class="math">\[\ma x=16\cdot\frac{900}{400}=16\cdot\frac94=36\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>36 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp10b">
+    <div class="ej-head"><span class="num">10.2</span><h3>Precio de un terreno</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-compuesta" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp10">Parecido al ejercicio 10 de la unidad ↑</button></span></div>
+    <div class="enun">El precio de un terreno es DP al cuadrado de su frente e IP a la raíz cuadrada de su distancia al centro de la ciudad. Un terreno de 10 m de frente cuesta 20 000 soles. ¿Cuánto cuesta uno de 15 m de frente que está a la cuarta parte de esa distancia?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Dato escondido</p>
+      <p>Si el segundo está a \(y\), el primero está a \(4y\).</p>
+      <p class="paso">Paso 2 · Tabla</p>
+      <div class="mtab-wrap"><table class="mtab"><thead><tr><th></th><th class="k-ref"><span class="box-ref">Precio</span></th><th class="k-dp"><span class="tag">DP</span>(Frente)²</th><th class="k-ip"><span class="tag">IP</span>√Distancia</th></tr></thead><tbody><tr><th>①</th><td class="k-ref">\(20\,000\)</td><td class="k-dp">\(10\)</td><td class="k-ip">\(4y\)</td></tr><tr><th>②</th><td class="k-ref">\(\ma x\)</td><td class="k-dp">\(15\)</td><td class="k-ip">\(y\)</td></tr></tbody></table></div>
+      <p class="paso">Paso 3 · Igualar</p>
+      <div class="math">\[\frac{20\,000\cdot\na{\sqrt{4y}}}{\az{10^2}}=\frac{\ma x\cdot\na{\sqrt y}}{\az{15^2}}\]</div>
+      <div class="math">\[\frac{20\,000\cdot2}{100}=\frac{\ma x}{225}\]</div>
+      <div class="math">\[\ma x=400\cdot225=90\,000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>90 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp11">
+    <div class="ej-head"><span class="num">11.1</span><h3>Terrenos de tres hermanos</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp11">Parecido al ejercicio 11 de la unidad ↑</button></span></div>
+    <div class="enun">Tres hermanos tienen terrenos proporcionales a 3, 2 y 1. El primero le da 50 m² al tercero y así el segundo y el tercero quedan con lo mismo. ¿Cuánto tenía el primero?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Plantear</p>
+      <div class="math">\[\az{1.^\circ}=3\mo k\qquad\na{2.^\circ}=2\mo k\qquad\ve{3.^\circ}=\mo k\]</div>
+      <p class="paso">Paso 2 · Después de dar 50</p>
+      <div class="math">\[\ve{3.^\circ}=k+50\]</div>
+      <p class="paso">Paso 3 · Iguales</p>
+      <div class="math">\[k+50=2k\qquad\mo{k=50}\]</div>
+      <div class="math">\[\az{1.^\circ}=3(50)=150\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>150 m².</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp11b">
+    <div class="ej-head"><span class="num">11.2</span><h3>Partes con fracciones</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp11">Parecido al ejercicio 11 de la unidad ↑</button></span></div>
+    <div class="enun">Tres socias tienen un campo en partes proporcionales a 2, 3/2 y 1/2. La primera vende la mitad de su parte a la segunda y la segunda vende 60 m² a la tercera; así la segunda y la tercera quedan con lo mismo. ¿Cuánto tenía la primera?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Números enteros</p>
+      <p>Multiplicamos por 2: 4, 3 y 1.</p>
+      <div class="math">\[\az A=4\mo k\qquad\na B=3\mo k\qquad\ve C=\mo k\]</div>
+      <p class="paso">Paso 2 · Ventas</p>
+      <ul><li>A vende \(2k\) a B: \(\na B=5k\).</li><li>B vende 60 a C: \(\na B=5k-60\), \(\ve C=k+60\).</li></ul>
+      <p class="paso">Paso 3 · Iguales</p>
+      <div class="math">\[5k-60=k+60\]</div>
+      <div class="math">\[\mo{k=30}\]</div>
+      <div class="math">\[\az A=4(30)=120\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>120 m².</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp12">
+    <div class="ej-head"><span class="num">12.1</span><h3>Reparto entre hermanos</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-reparto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp12">Parecido al ejercicio 12 de la unidad ↑</button></span></div>
+    <div class="enun">Reparta 1 400 soles entre tres hermanos de forma DP a sus edades, 4, 6 y 8 años, e IP a sus faltas, 1, 3 y 2.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Cada parte en función de k</p>
+      <div class="math">\[\frac{a\cdot\na1}{\az4}=\mo k\qquad a=4\mo k\]</div>
+      <div class="math">\[\frac{b\cdot\na3}{\az6}=\mo k\qquad b=2\mo k\]</div>
+      <div class="math">\[\frac{c\cdot\na2}{\az8}=\mo k\qquad c=4\mo k\]</div>
+      <p class="paso">Paso 2 · Total</p>
+      <div class="math">\[4k+2k+4k=1400\]</div>
+      <div class="math">\[\mo{k=140}\]</div>
+      <p class="paso">Paso 3 · Partes</p>
+      <div class="math">\[a=560\qquad b=280\qquad c=560\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>560, 280 y 560 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp12b">
+    <div class="ej-head"><span class="num">12.2</span><h3>Premio por notas y orden de llegada</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-reparto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp12">Parecido al ejercicio 12 de la unidad ↑</button></span></div>
+    <div class="enun">Un premio se reparte entre tres alumnos de forma DP a sus notas, 12, 16 y 18, e IP a su orden de llegada (1.º, 2.º y 3.º, respectivamente). Si el que recibió más obtuvo 600 soles más que el que recibió menos, ¿de cuánto fue el premio?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Cada parte en función de k</p>
+      <div class="math">\[\frac{a\cdot\na1}{\az{12}}=\mo k\qquad a=12\mo k\]</div>
+      <div class="math">\[\frac{b\cdot\na2}{\az{16}}=\mo k\qquad b=8\mo k\]</div>
+      <div class="math">\[\frac{c\cdot\na3}{\az{18}}=\mo k\qquad c=6\mo k\]</div>
+      <p class="paso">Paso 2 · Mayor menos menor</p>
+      <div class="math">\[12k-6k=600\]</div>
+      <div class="math">\[\mo{k=100}\]</div>
+      <p class="paso">Paso 3 · Premio</p>
+      <div class="math">\[12k+8k+6k=26k=2600\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>2 600 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp13">
+    <div class="ej-head"><span class="num">13.1</span><h3>Dinero de tres amigos</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp13">Parecido al ejercicio 13 de la unidad ↑</button></span></div>
+    <div class="enun">Ana, Beto y Carla tienen dinero en la relación de 2, 3 y 5. Si Carla tiene 12 soles más que Ana, ¿cuánto tiene cada uno?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Plantear</p>
+      <div class="math">\[A=2\mo k\qquad B=3\mo k\qquad C=5\mo k\]</div>
+      <p class="paso">Paso 2 · Condición</p>
+      <div class="math">\[5k=2k+12\]</div>
+      <div class="math">\[\mo{k=4}\]</div>
+      <p class="paso">Paso 3 · Reemplazar</p>
+      <div class="math">\[A=8\qquad B=12\qquad C=20\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>Ana 8, Beto 12 y Carla 20 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp13b">
+    <div class="ej-head"><span class="num">13.2</span><h3>Tres números</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp13">Parecido al ejercicio 13 de la unidad ↑</button></span></div>
+    <div class="enun">Tres números están en la relación de 4, 5 y 9. Si la suma del primero y el tercero excede al segundo en 32, halle los números.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Plantear</p>
+      <div class="math">\[4\mo k,\quad5\mo k,\quad9\mo k\]</div>
+      <p class="paso">Paso 2 · "Excede en 32"</p>
+      <p>Excede en 32 significa que la resta da 32:</p>
+      <div class="math">\[(4k+9k)-5k=32\]</div>
+      <div class="math">\[8k=32\]</div>
+      <div class="math">\[\mo{k=4}\]</div>
+      <p class="paso">Paso 3 · Reemplazar</p>
+      <div class="math">\[16,\quad20,\quad36\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>16, 20 y 36.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp14">
+    <div class="ej-head"><span class="num">14.1</span><h3>Reparto con m (lineal)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-reparto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp14">Parecido al ejercicio 14 de la unidad ↑</button></span></div>
+    <div class="enun">Se reparten 90 soles DP a \(m\), 2 y 1, con \(m\gt2\). Si la mayor parte es 60 soles, halle \(m\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Partes</p>
+      <div class="math">\[m\mo t,\quad2\mo t,\quad\mo t\]</div>
+      <div class="math">\[(m+3)t=90\qquad mt=60\]</div>
+      <p class="paso">Paso 2 · Dividir</p>
+      <div class="math">\[\frac{m}{m+3}=\frac{60}{90}=\frac23\]</div>
+      <div class="math">\[3m=2m+6\]</div>
+      <div class="math">\[m=6\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(m=6\)</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp14b">
+    <div class="ej-head"><span class="num">14.2</span><h3>Reparto con m² y m</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-reparto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp14">Parecido al ejercicio 14 de la unidad ↑</button></span></div>
+    <div class="enun">Se reparten 210 soles DP a \(m^2\), \(m\) y 1, con \(m\) natural mayor que 1. Si la mayor parte es 160 soles, halle \(m\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Partes</p>
+      <div class="math">\[(m^2+m+1)\mo t=210\qquad m^2\mo t=160\]</div>
+      <p class="paso">Paso 2 · Dividir</p>
+      <div class="math">\[\frac{m^2}{m^2+m+1}=\frac{160}{210}=\frac{16}{21}\]</div>
+      <div class="math">\[21m^2=16m^2+16m+16\]</div>
+      <div class="math">\[5m^2-16m-16=0\]</div>
+      <div class="math">\[(5m+4)(m-4)=0\]</div>
+      <p>Como \(m\) es natural: \(m=4\).</p>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(m=4\)</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp15">
+    <div class="ej-head"><span class="num">15.1</span><h3>Socios con el mismo tiempo</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-reparto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp15">Parecido al ejercicio 15 de la unidad ↑</button></span></div>
+    <div class="enun">Tres socios aportan 2 000, 3 000 y 5 000 soles durante el mismo tiempo. Si la ganancia es de 4 000 soles, ¿cuánto recibe cada uno?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · DP al capital</p>
+      <div class="math">\[\frac{4000}{10\,000}=\mo{0.4}\]</div>
+      <p class="paso">Paso 2 · Ganancias</p>
+      <div class="math">\[2000(0.4)=800\qquad3000(0.4)=1200\qquad5000(0.4)=2000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>800, 1 200 y 2 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-mp15b">
+    <div class="ej-head"><span class="num">15.2</span><h3>Regla de compañía</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-mp-reparto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="mp15">Parecido al ejercicio 15 de la unidad ↑</button></span></div>
+    <div class="enun">Ana aporta 4 000 soles por 6 meses, Beto 3 000 soles por 10 meses y Carla 2 000 soles por 12 meses. Si la ganancia total es 9 100 soles, ¿cuánto recibe cada uno?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Ganancia DP a capital · tiempo</p>
+      <div class="math">\[4000\cdot6=24\,000\qquad3000\cdot10=30\,000\qquad2000\cdot12=24\,000\]</div>
+      <p>Simplificando entre 6 000: 4, 5 y 4.</p>
+      <p class="paso">Paso 2 · Repartir</p>
+      <div class="math">\[\frac{9100}{4+5+4}=\mo{700}\]</div>
+      <div class="math">\[4(700)=2800\qquad5(700)=3500\qquad4(700)=2800\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>Ana 2 800, Beto 3 500 y Carla 2 800 soles.</div>
+  </article>
+</div>
+
+<!-- ===================== INTERÉS SIMPLE Y COMPUESTO ===================== -->
+
+<div class="panel" id="pn-interes-teoria" role="tabpanel" hidden>
+  <div class="legend" aria-label="Colores"><span><i class="dot" style="background:var(--blue)"></i>capital \(K\)</span><span><i class="dot" style="background:var(--orange)"></i>tasa \(r\%\)</span><span><i class="dot" style="background:var(--green)"></i>tiempo \(t\) o periodos \(n\)</span><span><i class="dot" style="background:var(--purple)"></i>interés \(I\)</span><span><i class="dot" style="background:var(--magenta)"></i>lo que se busca</span><span class="note">En «Leer el enunciado», cada color une una frase con su número o su expresión.</span></div>
+
+  <div class="box" id="t-in-porc">
+    <h2 class="t-mo">1. Tanto por ciento</h2>
+    <div class="math">\[\na{r\%}=\frac{r}{100}\]</div>
+    <div class="steps-box"><ol><li>"El \(r\%\) de \(N\)": \(\dfrac{r}{100}\cdot N\).</li><li>"¿Qué tanto por ciento es \(A\) de \(B\)?": \(\dfrac AB\cdot100\%\).</li><li>Aumentar \(N\) en un \(r\%\): \(N+r\%\cdot N=N(1+r\%)\).</li></ol></div>
+    <div class="plan-box"><p class="plan-t">Lo que hay que entender</p><ul><li>Lo que va después de "de" es el total, el 100 %. "El 20 % <b>del monto</b>" se calcula sobre el monto, no sobre el capital.</li><li>Si el dato es un porcentaje de algo que todavía no conoces, escríbelo como ecuación: "400 es el 20 % de \(N\)" es \(\tfrac{20}{100}N=400\).</li></ul></div>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-in-porc">Ver ejemplos de esta parte →</button>
+  </div>
+
+  <div class="box" id="t-in-simple">
+    <h2 class="t-az">2. Interés simple</h2>
+    <p>Capital \(\az K\) (lo que se presta), tasa \(\na{r\%}\), tiempo \(\ve t\), interés \(\mo I\) (lo que se gana) y monto \(M\) (lo que se recibe al final).</p>
+    <div class="math">\[\mo I=\az K\cdot\na{r\%}\cdot\ve t\qquad M=\az K+\mo I\]</div>
+    <div class="steps-box"><ol><li>Ver el periodo de la tasa: mensual, bimestral, trimestral… Si no dice, es <b>anual</b>.</li><li>Pasar el tiempo a ese periodo. Un año tiene 12 meses, 6 bimestres, 4 trimestres, 3 cuatrimestres o 2 semestres.</li><li>Reemplazar en la fórmula.</li></ol></div>
+    <div class="plan-box"><p class="plan-t">Lo que hay que entender</p><ul><li><b>La tasa manda</b>: el tiempo se mide en la unidad de la tasa. Al 3 % mensual durante 2 años, \(\ve t=24\). Al 6 % anual durante 9 meses, \(\ve t=\tfrac9{12}\).</li><li>El interés es DP al capital y al tiempo: en el doble de tiempo se gana el doble de interés.</li><li>"Interés" es solo lo que se gana; "monto" es capital más interés. Fíjate cuál de los dos da o pide el enunciado.</li><li>Si a mitad de camino el dinero cambia (se retira una parte, se pasa a otra tasa), se parte el tiempo en tramos y cada tramo se calcula aparte. Ayuda dibujar una línea de tiempo.</li></ul></div>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-in-simple">Ver ejemplos de esta parte →</button>
+  </div>
+
+  <div class="box" id="t-in-compuesto">
+    <h2 class="t-mo">3. Interés compuesto</h2>
+    <p>"Capitalizable" significa que al final de cada periodo el interés se suma al capital, y el siguiente periodo gana interés sobre todo eso.</p>
+    <div class="math">\[M=\az K(1+\na{r\%})^{\ve n}\qquad \mo I=M-\az K\]</div>
+    <div class="steps-box"><ol><li>"Capitalizable trimestralmente, semestralmente…" dice el periodo.</li><li>Pasar la tasa a ese periodo: 20 % anual = 10 % semestral; 10 % bimestral = 60 % anual.</li><li>\(\ve n\) = número de periodos en el tiempo total.</li><li>Reemplazar en la fórmula.</li></ol></div>
+    <div class="mtab-wrap d-only"><table class="mtab"><thead><tr><th></th><th class="k-n">Al empezar</th><th class="k-n">Interés del periodo</th><th class="k-n">Al terminar</th></tr></thead><tbody><tr><th>1.º</th><td class="k-n">\(\az K\)</td><td class="k-n">\(\az K\cdot\na{r\%}\)</td><td class="k-n">\(\az K(1+\na{r\%})\)</td></tr><tr><th>2.º</th><td class="k-n">\(\az K(1+\na{r\%})\)</td><td class="k-n">\(\az K(1+\na{r\%})\cdot\na{r\%}\)</td><td class="k-n">\(\az K(1+\na{r\%})^2\)</td></tr><tr><th>3.º</th><td class="k-n">\(\az K(1+\na{r\%})^2\)</td><td class="k-n">\(\az K(1+\na{r\%})^2\cdot\na{r\%}\)</td><td class="k-n">\(\az K(1+\na{r\%})^3\)</td></tr></tbody></table></div>
+    <div class="math m-only">\[\begin{aligned}\text{al empezar}&:\ \az K\\\text{fin del 1.º}&:\ \az K(1+\na{r\%})\\\text{fin del 2.º}&:\ \az K(1+\na{r\%})^2\\\text{fin del 3.º}&:\ \az K(1+\na{r\%})^3\end{aligned}\]</div>
+    
+    <div class="plan-box"><p class="plan-t">Lo que hay que entender</p><ul><li>Cada periodo multiplica por \(1+r\%\): lo que hay al terminar un periodo es el capital del siguiente.</li><li><b>"Capitalizable" manda sobre el periodo de la tasa</b>: 5 % trimestral capitalizable semestralmente se trabaja con 10 % semestral, y el tiempo se cuenta en semestres.</li><li>El interés de un solo periodo (por ejemplo, "el tercer periodo") es la tasa por lo que hay <b>al empezar</b> ese periodo: \(\mo{I_n}=\az K(1+\na{r\%})^{n-1}\cdot\na{r\%}\).</li><li>Si el enunciado no dice "capitalizable" ni "compuesto", es interés simple.</li><li>Para hallar \(\ve n\) se toma logaritmo: \(\ve n=\dfrac{\log(M/K)}{\log(1+r\%)}\).</li></ul></div>
+    <button class="sim-btn box-link" type="button" data-goto="ex-t-in-compuesto">Ver ejemplos de esta parte →</button>
+  </div>
+</div>
+
+<div class="panel" id="pn-interes-ejercicios" role="tabpanel" hidden>
+  <div class="legend" aria-label="Colores"><span><i class="dot" style="background:var(--blue)"></i>capital \(K\)</span><span><i class="dot" style="background:var(--orange)"></i>tasa \(r\%\)</span><span><i class="dot" style="background:var(--green)"></i>tiempo \(t\) o periodos \(n\)</span><span><i class="dot" style="background:var(--purple)"></i>interés \(I\)</span><span><i class="dot" style="background:var(--magenta)"></i>lo que se busca</span><span class="note">En «Leer el enunciado», cada color une una frase con su número o su expresión.</span></div>
+  <div class="box"><p>Los ejercicios 4 al 15 de «Tanto por ciento e interés» de la Unidad 5, con la numeración de la unidad. Cuando la tasa no dice su periodo, se toma como anual.</p></div>
+  <div class="box">
+    <h3>Errores encontrados en la unidad</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Ejercicio</th><th>La unidad dice</th><th>Lo correcto</th></tr></thead>
+      <tbody>
+        <tr><td>6</td><td>62 891.25 soles</td><td>63 971.25 soles (falta el interés de los 48 000 soles en los últimos 9 meses)</td></tr>
+        <tr><td>7</td><td>50 000 soles</td><td>Falta la tasa del negocio nuevo. Los 50 000 salen suponiendo ganancia = capital · tiempo</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="jump" aria-label="Ir al ejercicio"><button data-go="in4">4</button><button data-go="in5">5</button><button class="bad" data-go="in6">6</button><button class="warnc" data-go="in7">7</button><button data-go="in8">8</button><button data-go="in9">9</button><button data-go="in10">10</button><button data-go="in11">11</button><button data-go="in12">12</button><button data-go="in13">13</button><button data-go="in14">14</button><button data-go="in15">15</button></div>
+
+  <article class="ej" id="in4">
+    <div class="ej-head"><span class="num">4</span><h3>Las dos partes de Norberto</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-in4">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Norberto divide su dinero en dos partes que están en relación de 2 a 5. La menor parte la deposita a su banco que le ofrece un interés simple de 20 % cuatrimestral y la otra parte la coloca en una caja municipal que le ofrece un interés simple del 15 % semestral. Luego se percata que esta última produce en un año 360 soles más que la que produjo la otra parte en el mismo tiempo. ¿Cuánto dinero tuvo al inicio Norberto?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Norberto divide su dinero en dos partes que están en relación de <span class="n u-az">2</span> a <span class="n u-na">5</span>. <span class="u u-az">La menor parte</span> la deposita a su banco que le ofrece un interés simple de <span class="n u-az">20 % cuatrimestral</span> y <span class="u u-na">la otra parte</span> la coloca en una caja municipal que le ofrece un interés simple del <span class="n u-na">15 % semestral</span>. Luego se percata que <span class="u u-ma"><span class="u u-na">esta última</span> produce en <span class="n u-ve">un año</span> 360 soles más que <span class="u u-az">la que produjo la otra parte</span></span> en el mismo tiempo. ¿Cuánto dinero tuvo al inicio Norberto?</div>
+      <p>La menor parte va con <span class="n u-az">2</span> y con el banco; la otra (la mayor) va con <span class="n u-na">5</span> y con la caja municipal. "<span class="u u-na">Esta última</span>" es la última que se mencionó: la caja municipal.</p>
+      <p>Cada tasa tiene su propio periodo, así que <span class="n u-ve">un año</span> se cuenta distinto para cada parte.</p>
+      <p class="paso">Paso 2 · Las dos partes</p>
+      <div class="math">\[\text{menor}=\az{2k}\qquad\text{mayor}=\az{5k}\]</div>
+      <p class="paso">Paso 3 · El año en la unidad de cada tasa</p>
+      <p>1 año = \(\ve3\) cuatrimestres = \(\ve2\) semestres.</p>
+      <p class="paso">Paso 4 · Interés de cada parte en un año</p>
+      <div class="math">\[\mo{I_{\text{banco}}}=\az{2k}\cdot\na{\tfrac{20}{100}}\cdot\ve3=1.2k\]</div>
+      <div class="math">\[\mo{I_{\text{caja}}}=\az{5k}\cdot\na{\tfrac{15}{100}}\cdot\ve2=1.5k\]</div>
+      <p class="paso">Paso 5 · La caja produce 360 más</p>
+      <div class="math">\[\mo{I_{\text{caja}}}-\mo{I_{\text{banco}}}=360\]</div>
+      <div class="math">\[1.5k-1.2k=360\]</div>
+      <div class="math">\[0.3k=360\]</div>
+      <div class="math">\[k=1200\]</div>
+      <p class="paso">Paso 6 · Dinero inicial</p>
+      <div class="math">\[\ma{2k+5k}=7(1200)=8400\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>8 400 soles.</div>
+  </article>
+
+  <article class="ej" id="in5">
+    <div class="ej-head"><span class="num">5</span><h3>Invertir para pagar una deuda</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-in5">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Una persona desea invertir cierta cantidad de dinero a plazo fijo ganando 10 % de interés anual por un periodo de 4 años. Al término de este tiempo los intereses provenientes de la inversión se usarán para pagar una deuda de $10 000 que entonces deberá saldar. ¿Cuánto deberá invertir de modo que tenga lo suficiente para pagar la deuda?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Una persona desea invertir <span class="u u-az">cierta cantidad de dinero</span> a plazo fijo ganando <span class="n u-na">10 % de interés anual</span> por un periodo de <span class="n u-ve">4 años</span>. Al término de este tiempo <span class="u u-mo">los intereses</span> provenientes de la inversión se usarán para pagar una deuda de <span class="n u-mo">$10 000</span> que entonces deberá saldar. ¿Cuánto deberá invertir de modo que tenga lo suficiente para pagar la deuda?</div>
+      <p>La deuda se paga solo con <span class="u u-mo">los intereses</span>, no con el monto: el interés tiene que ser 10 000. La tasa es anual y el tiempo ya está en años.</p>
+      <p class="paso">Paso 2 · Interés en 4 años</p>
+      <div class="math">\[\mo I=\az K\cdot\na{\tfrac{10}{100}}\cdot\ve4=0.4K\]</div>
+      <p class="paso">Paso 3 · Igualar a la deuda</p>
+      <div class="math">\[0.4K=10\,000\]</div>
+      <div class="math">\[\ma K=\frac{10\,000}{0.4}=25\,000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>25 000 dólares.</div>
+  </article>
+
+  <article class="ej" id="in6">
+    <div class="ej-head"><span class="num">6</span><h3>El terreno</h3><span class="chip bad">Error en la unidad</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-in6">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Un capital de S/60 000 es impuesto al 3 %. Al cabo de 15 meses se retira el interés y el 20 % del capital para invertirlos en una transacción a una tasa de interés del 6 %. Si al cumplirse dos años en total se retira todo y adquiere un terreno con todo el dinero, determine el costo del terreno.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Un capital de <span class="n u-az">S/60 000</span> es impuesto al <span class="n u-az">3 %</span>. Al cabo de <span class="n u-ve">15 meses</span> se retira <span class="u u-na">el interés y el 20 % del capital</span> para invertirlos en una transacción a una tasa de interés del <span class="n u-na">6 %</span>. Si al cumplirse <span class="n u-ve">dos años en total</span> se retira todo y adquiere un terreno con <span class="u u-ma">todo el dinero</span>, determine el costo del terreno.</div>
+      <p>Las tasas no dicen periodo: son anuales, y los meses se pasan a años.</p>
+      <p>"<span class="n u-ve">Dos años en total</span>" se cuenta desde el inicio: después de los 15 meses quedan 24 − 15 = 9 meses.</p>
+      <p>A los 15 meses el dinero se separa en dos: <span class="u u-na">lo que se retira</span> pasa al 6 %, y el 80 % del capital que no se retiró sigue al 3 %. "<span class="u u-ma">Todo el dinero</span>" es lo que hay en las dos partes al final.</p>
+      <p class="paso">Paso 2 · Planteamiento</p>
+      <figure class="fig"><svg class="sk sk-tl" viewBox="0 0 520 205" role="img" aria-label="Línea de tiempo de 24 meses: 60 000 al 3 % hasta el mes 15; luego 48 000 siguen al 3 % y 14 250 pasan al 6 % hasta el mes 24"><rect class="sk-bar-az" x="30" y="52" width="287.5" height="16" rx="3"/><rect class="sk-bar-az" x="317.5" y="52" width="172.5" height="16" rx="3"/><rect class="sk-bar-na" x="317.5" y="112" width="172.5" height="16" rx="3"/><line class="sk-dash" x1="317.5" y1="30" x2="317.5" y2="160"/><text class="sk-t sk-az" x="173.8" y="42" text-anchor="middle">60 000 al 3 %</text><text class="sk-t sk-az" x="403.8" y="42" text-anchor="middle">48 000 al 3 %</text><text class="sk-t sk-na" x="403.8" y="102" text-anchor="middle">14 250 al 6 %</text><line class="sk-thin" x1="30" y1="160" x2="490" y2="160"/><line class="sk-thin" x1="30.0" y1="154" x2="30.0" y2="166"/><line class="sk-thin" x1="317.5" y1="154" x2="317.5" y2="166"/><line class="sk-thin" x1="490.0" y1="154" x2="490.0" y2="166"/><text class="sk-t sk-cap" x="173.8" y="150" text-anchor="middle">15 meses</text><text class="sk-t sk-cap" x="403.8" y="150" text-anchor="middle">9 meses</text><text class="sk-t sk-cap" x="30" y="186" text-anchor="start">inicio</text><text class="sk-t sk-cap" x="317.5" y="186" text-anchor="middle">mes 15</text><text class="sk-t sk-cap" x="490" y="186" text-anchor="end">mes 24</text></svg><figcaption>Hasta el mes 15 está todo el capital. Desde ahí hay dos partes que corren al mismo tiempo durante 9 meses.</figcaption></figure>
+      <p class="paso">Paso 3 · Los primeros 15 meses</p>
+      <div class="math">\[\mo{I}=\az{60\,000}\cdot\na{\tfrac{3}{100}}\cdot\ve{\tfrac{15}{12}}=2250\]</div>
+      <p class="paso">Paso 4 · Cómo se separa el dinero</p>
+      <div class="math d-only">\[\text{se retira: }2250+\tfrac{20}{100}(60\,000)=2250+12\,000=14\,250\]</div>
+      <div class="math m-only">\[\begin{aligned}\text{se retira}&=2250+\tfrac{20}{100}(60\,000)\\&=2250+12\,000\\&=14\,250\end{aligned}\]</div>
+      <div class="math">\[\text{sigue al }3\%\text{: }60\,000-12\,000=48\,000\]</div>
+      <p class="paso">Paso 5 · Los últimos 9 meses</p>
+      <div class="math d-only">\[\text{al }6\%\text{: }14\,250+\az{14\,250}\cdot\na{\tfrac{6}{100}}\cdot\ve{\tfrac9{12}}=14\,250+641.25=14\,891.25\]</div>
+      <div class="math m-only">\[\begin{aligned}\text{al }6\%\text{: }&14\,250+\az{14\,250}\cdot\na{\tfrac{6}{100}}\cdot\ve{\tfrac9{12}}\\&=14\,250+641.25\\&=14\,891.25\end{aligned}\]</div>
+      <div class="math d-only">\[\text{al }3\%\text{: }48\,000+\az{48\,000}\cdot\na{\tfrac{3}{100}}\cdot\ve{\tfrac9{12}}=48\,000+1080=49\,080\]</div>
+      <div class="math m-only">\[\begin{aligned}\text{al }3\%\text{: }&48\,000+\az{48\,000}\cdot\na{\tfrac{3}{100}}\cdot\ve{\tfrac9{12}}\\&=48\,000+1080\\&=49\,080\end{aligned}\]</div>
+      <p class="paso">Paso 6 · Todo el dinero</p>
+      <div class="math">\[\ma{14\,891.25+49\,080=63\,971.25}\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>63 971.25 soles.</div>
+    <div class="err"><b>En la unidad:</b> la respuesta dice 62 891.25 soles. Ese número sale si se olvida el interés de los 48 000 soles que siguen impuestos los últimos 9 meses (1 080 soles). El terreno cuesta 63 971.25 soles.</div>
+  </article>
+
+  <article class="ej" id="in7">
+    <div class="ej-head"><span class="num">7</span><h3>Tres socios</h3><span class="chip warnc">Falta un dato</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple t-mp-reparto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-in7">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Tres socios imponen una misma cantidad de dinero al 2 % anual, 5 % semestral y 4 % mensual respectivamente. Si al final del año se retiran sus intereses y forman con estos otro negocio que le produce una ganancia total de S/113 000, además el tiempo en que estos socios permanecieron en este negocio fue: 2 años, 3 años, 4 años respectivamente; determine la cantidad de dinero que cada socio invirtió inicialmente.</div>
+    <div class="warn"><b>Sobre el enunciado:</b> no dice cuánto rinde el negocio nuevo (su tasa). Sin ese dato solo se puede saber cómo se reparte la ganancia, no cuánto puso cada socio. La respuesta de la unidad (50 000 soles) supone que la ganancia de cada socio es su capital por su tiempo.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Tres socios imponen <span class="u u-az">una misma cantidad de dinero</span> al <span class="n u-ve">2 % anual</span>, <span class="n u-na">5 % semestral</span> y <span class="n u-ma">4 % mensual</span> respectivamente. Si <span class="u u-mo">al final del año se retiran sus intereses</span> y forman con estos otro negocio que le produce una ganancia total de S/113 000, además el tiempo en que estos socios permanecieron en este negocio fue: <span class="n u-ve">2 años</span>, <span class="n u-na">3 años</span>, <span class="n u-ma">4 años</span> respectivamente; determine la cantidad de dinero que cada socio invirtió inicialmente.</div>
+      <p>Hay dos "respectivamente": cada color es un socio, con su tasa y con su tiempo en el negocio nuevo. Los tres empiezan con el mismo capital \(\az C\).</p>
+      <p>El negocio nuevo no se arma con el capital, sino con <span class="u u-mo">los intereses del primer año</span>. Ahí se usa la regla de compañía: la ganancia es DP al capital y al tiempo.</p>
+      <p class="paso">Paso 2 · Intereses del primer año</p>
+      <div class="math">\[\ve{\text{socio 1}}:\ \az C\cdot\na{\tfrac{2}{100}}\cdot\ve1=0.02C\]</div>
+      <div class="math">\[\na{\text{socio 2}}:\ \az C\cdot\na{\tfrac{5}{100}}\cdot\ve2=0.10C\]</div>
+      <div class="math">\[\ma{\text{socio 3}}:\ \az C\cdot\na{\tfrac{4}{100}}\cdot\ve{12}=0.48C\]</div>
+      <p class="paso">Paso 3 · Regla de compañía: capital · tiempo</p>
+      <div class="math d-only">\[0.02C\cdot\ve2=0.04C\qquad0.10C\cdot\na3=0.30C\qquad0.48C\cdot\ma4=1.92C\]</div>
+      <div class="math m-only">\[\begin{aligned}0.02C\cdot\ve2&=0.04C\\0.10C\cdot\na3&=0.30C\\0.48C\cdot\ma4&=1.92C\end{aligned}\]</div>
+      <p>Las ganancias están en la razón 0.04 : 0.30 : 1.92, es decir 2 : 15 : 96. Eso reparte los 113 000 soles, pero \(C\) se cancela:</p>
+      <div class="math">\[\frac{113\,000}{2+15+96}=1000\qquad 2\,000,\ 15\,000\ \text{y}\ 96\,000\]</div>
+      <p>Para hallar \(C\) falta saber cuánto rinde el negocio nuevo.</p>
+      <p class="paso">Paso 4 · Con el supuesto de la unidad</p>
+      <p>La unidad toma la ganancia de cada socio igual a su capital por su tiempo (como si el negocio rindiera 100 % anual):</p>
+      <div class="math">\[0.04C+0.30C+1.92C=113\,000\]</div>
+      <div class="math">\[2.26C=113\,000\]</div>
+      <div class="math">\[\ma C=50\,000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>Con el supuesto de la unidad, 50 000 soles cada uno. Lo que sí sale del enunciado es el reparto de la ganancia: 2 000, 15 000 y 96 000 soles.</div>
+  </article>
+
+  <article class="ej" id="in8">
+    <div class="ej-head"><span class="num">8</span><h3>El 20 % del monto</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-porc t-in-simple" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-in8">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Un capital impuesto durante 8 meses genera el 20 % del monto. ¿Qué tanto por ciento del monto producirá en 18 meses?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Un capital impuesto durante <span class="n u-ve">8 meses</span> genera <span class="u u-mo">el 20 % del monto</span>. ¿Qué tanto por ciento <span class="u u-ma">del monto</span> producirá en <span class="n u-ve">18 meses</span>?</div>
+      <p>El 20 % es <b>del monto</b>, no del capital: el interés es el 20 % de (capital + interés). "Producirá" se refiere al interés.</p>
+      <p>En 18 meses el interés cambia y el monto también: la pregunta es sobre el monto <span class="u u-ma">de los 18 meses</span>.</p>
+      <p class="paso">Paso 2 · Traducir el dato (8 meses)</p>
+      <div class="math">\[\mo I=\frac{20}{100}M=\frac15(\az K+\mo I)\]</div>
+      <div class="math">\[5I=K+I\]</div>
+      <div class="math">\[4I=K\]</div>
+      <div class="math">\[\mo I=\frac K4\]</div>
+      <p class="paso">Paso 3 · Interés en 18 meses</p>
+      <p>El interés es DP al tiempo: en 18 meses se gana \(\tfrac{18}{8}\) de lo de 8 meses.</p>
+      <div class="math">\[\mo{I_{18}}=\frac K4\cdot\frac{18}8=\frac{9K}{16}\]</div>
+      <div class="math">\[M_{18}=K+\frac{9K}{16}=\frac{25K}{16}\]</div>
+      <p class="paso">Paso 4 · ¿Qué tanto por ciento es el interés del monto?</p>
+      <div class="math">\[\frac{9K/16}{25K/16}\cdot100\%=\frac9{25}\cdot100\%=\ma{36\%}\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>36 %.</div>
+  </article>
+
+  <article class="ej" id="in9">
+    <div class="ej-head"><span class="num">9</span><h3>Capital en dos partes</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-in9">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Los 3/7 de un capital se imponen al 5 % durante 18 meses, el resto se impone al 3 % durante 15 meses, obteniéndose un monto total de S/28 025. Calcule el interés total.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Los <span class="n u-az">3/7</span> de un capital se imponen al <span class="n u-az">5 %</span> durante <span class="n u-az">18 meses</span>, <span class="u u-na">el resto</span> se impone al <span class="n u-na">3 %</span> durante <span class="n u-na">15 meses</span>, obteniéndose <span class="u u-mo">un monto total de S/28 025</span>. Calcule <span class="u u-ma">el interés total</span>.</div>
+      <p><span class="u u-na">El resto</span> son los 4/7. Las tasas no dicen periodo: son anuales (18 meses = \(\tfrac32\) años, 15 meses = \(\tfrac54\) años).</p>
+      <p><span class="u u-mo">El monto total</span> es todo el capital más los dos intereses. Se pide solo <span class="u u-ma">el interés</span>.</p>
+      <p class="paso">Paso 2 · Las partes</p>
+      <p>Tomamos el capital como \(7k\): las partes son \(\az{3k}\) y \(\az{4k}\).</p>
+      <p class="paso">Paso 3 · Intereses</p>
+      <div class="math">\[\mo{I_1}=\az{3k}\cdot\na{\tfrac{5}{100}}\cdot\ve{\tfrac32}=0.225k\]</div>
+      <div class="math">\[\mo{I_2}=\az{4k}\cdot\na{\tfrac{3}{100}}\cdot\ve{\tfrac54}=0.15k\]</div>
+      <div class="math">\[\mo I=0.225k+0.15k=0.375k\]</div>
+      <p class="paso">Paso 4 · Monto total</p>
+      <div class="math">\[7k+0.375k=28\,025\]</div>
+      <div class="math">\[7.375k=28\,025\]</div>
+      <div class="math">\[k=3800\]</div>
+      <p class="paso">Paso 5 · Interés total</p>
+      <div class="math">\[\ma{\mo I}=0.375(3800)=1425\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>1 425 soles.</div>
+  </article>
+
+  <article class="ej" id="in10">
+    <div class="ej-head"><span class="num">10</span><h3>Capitalizable trimestralmente</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto t-in-porc" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-in10">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Un capital se coloca al 10 % capitalizable trimestralmente, ¿qué tanto por ciento del capital se genera luego de medio año?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Un capital se coloca al <span class="n u-na">10 %</span> <span class="u u-ve">capitalizable trimestralmente</span>, ¿<span class="u u-ma">qué tanto por ciento del capital se genera</span> luego de <span class="n u-ve">medio año</span>?</div>
+      <p>La tasa no dice periodo: es anual. "<span class="u u-ve">Capitalizable trimestralmente</span>" dice que el periodo es el trimestre, así que la tasa se pasa a trimestral y el tiempo se cuenta en trimestres.</p>
+      <p>"Lo que se genera" es el interés; se compara con el capital.</p>
+      <p class="paso">Paso 2 · Tasa y número de periodos</p>
+      <div class="math">\[\na{r\%}=\frac{10\%}{4}=2.5\%\ \text{trimestral}\qquad\ve n=2\ \text{trimestres}\]</div>
+      <p class="paso">Paso 3 · Monto e interés</p>
+      <div class="math">\[M=\az K(1+\na{0.025})^{\ve2}=1.050625K\]</div>
+      <div class="math">\[\mo I=1.050625K-K=0.050625K\]</div>
+      <p class="paso">Paso 4 · Tanto por ciento del capital</p>
+      <div class="math">\[\frac{0.050625K}{K}\cdot100\%=\ma{5.0625\%}\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>5.0625 %.</div>
+  </article>
+
+  <article class="ej" id="in11">
+    <div class="ej-head"><span class="num">11</span><h3>Número de periodos</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-in11">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Si al depositar un capital \(C\) al \(r\%\) anual a interés compuesto con capitalización anual se obtiene un monto final \(M\). Determine el número de periodos al que estuvo impuesto el capital en términos de \(M\), \(C\) y \(r\).</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Fórmula</p>
+      <div class="math">\[M=\az C(1+\na{r\%})^{\ma n}\]</div>
+      <p class="paso">Paso 2 · Dejar sola la potencia</p>
+      <div class="math">\[\frac MC=(1+r\%)^{n}\]</div>
+      <p class="paso">Paso 3 · Tomar logaritmo</p>
+      <p>El logaritmo baja el exponente: \(\log(a^n)=n\log a\).</p>
+      <div class="math">\[\log\frac MC=n\log(1+r\%)\]</div>
+      <div class="math">\[\ma n=\frac{\log(M/C)}{\log(1+r\%)}\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(n=\dfrac{\log(M/C)}{\log(1+r\%)}\)</div>
+  </article>
+
+  <article class="ej" id="in12">
+    <div class="ej-head"><span class="num">12</span><h3>Interés del tercer periodo</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-in12">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Determine el capital que se invierte al 25 % anual capitalizable semestralmente, si el interés generado en el tercer periodo de capitalización excede al interés generado en el periodo inmediato anterior en 171 soles.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Determine <span class="u u-ma">el capital</span> que se invierte al <span class="n u-na">25 % anual</span> <span class="u u-ve">capitalizable semestralmente</span>, si <span class="u u-mo">el interés generado en el tercer periodo de capitalización</span> excede al <span class="u u-az">interés generado en el periodo inmediato anterior</span> en 171 soles.</div>
+      <p>"<span class="u u-ve">Capitalizable semestralmente</span>": cada periodo es un semestre y la tasa se pasa a semestral. <span class="u u-mo">El tercer periodo</span> es el tercer semestre y <span class="u u-az">el inmediato anterior</span> es el segundo.</p>
+      <p>No se pide el interés total, sino el de <b>un</b> periodo: la tasa por lo que hay al empezar ese periodo.</p>
+      <p class="paso">Paso 2 · Tasa semestral</p>
+      <div class="math">\[\na{r\%}=\frac{25\%}{2}=12.5\%=\frac18\]</div>
+      <p class="paso">Paso 3 · Interés de cada periodo</p>
+      <div class="mtab-wrap"><table class="mtab"><thead><tr><th></th><th class="k-n">Al empezar</th><th class="k-n">Interés del periodo</th></tr></thead><tbody><tr><th>1.º</th><td class="k-n">\(C\)</td><td class="k-n">\(C\cdot\dfrac18\)</td></tr><tr><th>2.º</th><td class="k-n">\(\dfrac98C\)</td><td class="k-n">\(\az{\dfrac98C\cdot\dfrac18=\dfrac{9C}{64}}\)</td></tr><tr><th>3.º</th><td class="k-n">\(\dfrac{81}{64}C\)</td><td class="k-n">\(\mo{\dfrac{81}{64}C\cdot\dfrac18=\dfrac{81C}{512}}\)</td></tr></tbody></table></div>
+      <p class="paso">Paso 4 · La diferencia es 171</p>
+      <div class="math">\[\mo{\frac{81C}{512}}-\az{\frac{9C}{64}}=171\]</div>
+      <div class="math">\[\frac{81C}{512}-\frac{72C}{512}=171\]</div>
+      <div class="math">\[\frac{9C}{512}=171\]</div>
+      <div class="math">\[\ma C=\frac{171\cdot512}{9}=19\cdot512=9728\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>9 728 soles.</div>
+  </article>
+
+  <article class="ej" id="in13">
+    <div class="ej-head"><span class="num">13</span><h3>Cecilia y Pierina</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto t-in-porc" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-in13">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Cecilia le dice a Pierina: "Si te presto el 50 % de mi capital al 20 % capitalizable anualmente, obtendré N soles de monto". A esto Pierina responde: "Si yo te presto el 75 % de mi capital al doble de dicha tasa, obtendré el doble de tu capital como monto". ¿Qué tanto por ciento es N del capital de Pierina, si asumimos que el tiempo en ambos casos es de dos años?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Cecilia le dice a Pierina: "Si te presto <span class="u u-az">el 50 % de mi capital</span> al <span class="n u-na">20 %</span> capitalizable anualmente, obtendré <span class="u u-mo">N soles de monto</span>". A esto Pierina responde: "Si yo te presto <span class="u u-ve">el 75 % de mi capital</span> al <span class="u u-na">doble de dicha tasa</span>, obtendré <span class="u u-az">el doble de tu capital</span> como monto". ¿<span class="u u-ma">Qué tanto por ciento es N del capital de Pierina</span>, si asumimos que el tiempo en ambos casos es de <span class="n u-ve">dos años</span>?</div>
+      <p>Cada una habla de su propio capital: "mi capital" en boca de Cecilia es \(\az C\); en boca de Pierina es \(\ve P\). "<span class="u u-az">Tu capital</span>", dicho por Pierina, es el de Cecilia.</p>
+      <p>"<span class="u u-na">Dicha tasa</span>" es el 20 %: el doble es 40 %. Capitalizable anualmente durante 2 años: \(n=2\).</p>
+      <p class="paso">Paso 2 · Lo que dice Cecilia</p>
+      <div class="math">\[\mo N=\az{0.5C}(1+\na{0.2})^{\ve2}=0.5C\cdot1.44=0.72C\]</div>
+      <p class="paso">Paso 3 · Lo que dice Pierina</p>
+      <div class="math">\[\ve{0.75P}(1+\na{0.4})^{\ve2}=\az{2C}\]</div>
+      <div class="math">\[0.75P\cdot1.96=2C\]</div>
+      <div class="math">\[1.47P=2C\]</div>
+      <div class="math">\[C=0.735P\]</div>
+      <p class="paso">Paso 4 · N en función de P</p>
+      <div class="math">\[\mo N=0.72(0.735P)=0.5292P\]</div>
+      <p class="paso">Paso 5 · Tanto por ciento</p>
+      <div class="math">\[\frac{N}{P}\cdot100\%=\ma{52.92\%}\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>52.92 %.</div>
+  </article>
+
+  <article class="ej" id="in14">
+    <div class="ej-head"><span class="num">14</span><h3>Dos años contra uno</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-in14">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Un capital es prestado al 5 % trimestral y es capitalizable semestralmente. Si se presta dicho dinero durante 2 años produce S/2 541 más que si se prestara por un año. Calcule dicho capital.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Un capital es prestado al <span class="n u-na">5 % trimestral</span> y es <span class="u u-ve">capitalizable semestralmente</span>. Si se presta dicho dinero durante <span class="n u-az">2 años</span> produce <span class="u u-mo">S/2 541 más</span> que si se prestara por <span class="n u-ma">un año</span>. Calcule dicho capital.</div>
+      <p>La tasa está en trimestres, pero "<span class="u u-ve">capitalizable semestralmente</span>" manda: se pasa a semestral (un semestre son 2 trimestres) y el tiempo se cuenta en semestres.</p>
+      <p>Se comparan dos préstamos del mismo capital: <span class="n u-az">2 años</span> = 4 semestres y <span class="n u-ma">un año</span> = 2 semestres. La diferencia de montos es la misma que la de intereses.</p>
+      <p class="paso">Paso 2 · Tasa semestral</p>
+      <div class="math">\[\na{r\%}=2(5\%)=10\%\ \text{semestral}\]</div>
+      <p class="paso">Paso 3 · Montos</p>
+      <div class="math">\[M_{\text{2 años}}=\az C(1.1)^{\ve4}=1.4641C\]</div>
+      <div class="math">\[M_{\text{1 año}}=\az C(1.1)^{\ve2}=1.21C\]</div>
+      <p class="paso">Paso 4 · La diferencia</p>
+      <div class="math">\[1.4641C-1.21C=2541\]</div>
+      <div class="math">\[0.2541C=2541\]</div>
+      <div class="math">\[\ma C=10\,000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>10 000 soles.</div>
+  </article>
+
+  <article class="ej" id="in15">
+    <div class="ej-head"><span class="num">15</span><h3>Bimestral capitalizable anualmente</h3><span class="chip ok">Unidad correcta</span><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="ex-in15">Ver ejemplos similares →</button></span></div>
+    <div class="enun">Se deposita un capital al 10 % bimestral capitalizable anualmente durante 6 semestres. Calcule el capital si el interés en el tercer periodo de capitalización es de S/576.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Leer el enunciado</p>
+      <div class="lect">Se deposita un capital al <span class="n u-na">10 % bimestral</span> <span class="u u-ve">capitalizable anualmente</span> durante <span class="n u-ve">6 semestres</span>. Calcule <span class="u u-ma">el capital</span> si <span class="u u-mo">el interés en el tercer periodo de capitalización es de S/576</span>.</div>
+      <p>"<span class="u u-ve">Capitalizable anualmente</span>": cada periodo es un año. La tasa se pasa a anual (un año tiene 6 bimestres) y el tiempo a años (6 semestres = 3 años).</p>
+      <p><span class="u u-mo">El tercer periodo</span> es el tercer año: su interés es la tasa por lo que hay al empezar ese año.</p>
+      <p class="paso">Paso 2 · Tasa anual</p>
+      <div class="math">\[\na{r\%}=6(10\%)=60\%\ \text{anual}\]</div>
+      <p class="paso">Paso 3 · Interés del tercer año</p>
+      <p>Al empezar el tercer año ya pasaron 2 años:</p>
+      <div class="math">\[\mo{I_3}=\az C(1.6)^{\ve2}\cdot\na{0.6}=2.56C\cdot0.6=1.536C\]</div>
+      <p class="paso">Paso 4 · Igualar</p>
+      <div class="math">\[1.536C=576\]</div>
+      <div class="math">\[\ma C=375\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>375 soles.</div>
+  </article>
+</div>
+
+<div class="panel" id="pn-interes-ejemplos" role="tabpanel" hidden>
+  <div class="legend" aria-label="Colores"><span><i class="dot" style="background:var(--blue)"></i>capital \(K\)</span><span><i class="dot" style="background:var(--orange)"></i>tasa \(r\%\)</span><span><i class="dot" style="background:var(--green)"></i>tiempo \(t\) o periodos \(n\)</span><span><i class="dot" style="background:var(--purple)"></i>interés \(I\)</span><span><i class="dot" style="background:var(--magenta)"></i>lo que se busca</span><span class="note">En «Leer el enunciado», cada color une una frase con su número o su expresión.</span></div>
+  <div class="box"><h3>Ejemplos de práctica</h3><p>Primero están los ejemplos de la teoría. Después hay dos ejemplos por cada ejercicio de la unidad (por ejemplo, 9.1 y 9.2 se parecen al ejercicio 9), con resultados exactos.</p></div>
+  <div class="jump" aria-label="Ir a los ejemplos del ejercicio"><button data-go="grp-interes-teo">Teoría</button><button data-go="ex-in4">4</button><button data-go="ex-in5">5</button><button data-go="ex-in6">6</button><button data-go="ex-in7">7</button><button data-go="ex-in8">8</button><button data-go="ex-in9">9</button><button data-go="ex-in10">10</button><button data-go="ex-in11">11</button><button data-go="ex-in12">12</button><button data-go="ex-in13">13</button><button data-go="ex-in14">14</button><button data-go="ex-in15">15</button></div>
+
+  <h2 class="ex-group" id="grp-interes-teo">Ejemplos de la teoría</h2>
+  <article class="ej ex ex-teo" id="ex-t-in-porc">
+    <div class="ej-head"><span class="num">T1</span><h3>Tanto por ciento</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-porc" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-in-porc">Ver la teoría ↑</button></span></div>
+    <div class="enun">El 15 % de un número es 36. ¿Qué tanto por ciento de ese número es 60?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Hallar el número</p>
+      <div class="math">\[\tfrac{15}{100}N=36\]</div>
+      <div class="math">\[N=\frac{36\cdot100}{15}=240\]</div>
+      <p class="paso">Paso 2 · ¿Qué tanto por ciento es 60 de 240?</p>
+      <div class="math">\[\frac{60}{240}\cdot100\%=\ma{25\%}\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>25 %.</div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-in-simple">
+    <div class="ej-head"><span class="num">T2</span><h3>Monto con interés simple</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-in-simple">Ver la teoría ↑</button></span></div>
+    <div class="enun">Se prestan 2 400 soles al 6 % bimestral de interés simple durante 10 meses. ¿Cuál es el monto?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · El tiempo en bimestres</p>
+      <p>La tasa es bimestral: 10 meses = \(\ve5\) bimestres.</p>
+      <p class="paso">Paso 2 · Interés</p>
+      <div class="math">\[\mo I=\az{2400}\cdot\na{\tfrac{6}{100}}\cdot\ve5=720\]</div>
+      <p class="paso">Paso 3 · Monto</p>
+      <div class="math">\[\ma M=2400+720=3120\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>3 120 soles.</div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-in-compuesto">
+    <div class="ej-head"><span class="num">T3</span><h3>Monto con interés compuesto</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-in-compuesto">Ver la teoría ↑</button></span></div>
+    <div class="enun">Se prestan 10 000 soles al 20 % anual capitalizable semestralmente durante 2 años. ¿Cuál es el interés? ¿Cuánto sería con interés simple?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tasa y periodos</p>
+      <div class="math">\[\na{r\%}=\frac{20\%}{2}=10\%\ \text{semestral}\qquad\ve n=4\ \text{semestres}\]</div>
+      <p class="paso">Paso 2 · Monto</p>
+      <div class="math">\[M=\az{10\,000}(1+\na{0.1})^{\ve4}=10\,000\cdot1.4641=14\,641\]</div>
+      <p class="paso">Paso 3 · Interés</p>
+      <div class="math">\[\ma{\mo I}=14\,641-10\,000=4641\]</div>
+      <p class="paso">Paso 4 · Con interés simple</p>
+      <div class="math">\[\mo I=\az{10\,000}\cdot\na{\tfrac{20}{100}}\cdot\ve2=4000\]</div>
+      <p>El compuesto da más porque cada semestre gana interés también sobre los intereses anteriores.</p>
+    </div>
+    <div class="resp"><b>Respuesta</b>Interés compuesto: 4 641 soles. Con interés simple serían 4 000 soles.</div>
+  </article>
+
+  <article class="ej ex ex-teo" id="ex-t-in-compuesto-2">
+    <div class="ej-head"><span class="num">T4</span><h3>Interés de un solo periodo</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="t-in-compuesto">Ver la teoría ↑</button></span></div>
+    <div class="enun">Se depositan 8 000 soles al 25 % capitalizable anualmente. ¿Cuánto interés se gana solo en el tercer año?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Lo que hay al empezar el tercer año</p>
+      <p>Ya pasaron 2 años:</p>
+      <div class="math">\[\az{8000}(1+\na{0.25})^{2}=8000\cdot1.5625=12\,500\]</div>
+      <p class="paso">Paso 2 · Interés del tercer año</p>
+      <div class="math">\[\ma{\mo{I_3}}=12\,500\cdot\na{0.25}=3125\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>3 125 soles.</div>
+  </article>
+
+  <h2 class="ex-group" id="grp-interes-unidad">Ejemplos parecidos a los ejercicios de la unidad</h2>
+  <article class="ej ex" id="ex-in4">
+    <div class="ej-head"><span class="num">4.1</span><h3>Dos partes, dos tasas</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in4">Parecido al ejercicio 4 de la unidad ↑</button></span></div>
+    <div class="enun">Lucía divide su dinero en dos partes que están en relación de 3 a 4. La menor la deposita al 10 % trimestral y la mayor al 12 % semestral, ambas a interés simple. En un año, la menor produce 480 soles más que la mayor. ¿Cuánto dinero tenía Lucía?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Partes</p>
+      <div class="math">\[\text{menor}=\az{3k}\qquad\text{mayor}=\az{4k}\]</div>
+      <p class="paso">Paso 2 · Un año en cada unidad</p>
+      <p>1 año = \(\ve4\) trimestres = \(\ve2\) semestres.</p>
+      <p class="paso">Paso 3 · Intereses</p>
+      <div class="math">\[\az{3k}\cdot\na{\tfrac{10}{100}}\cdot\ve4=1.2k\qquad\az{4k}\cdot\na{\tfrac{12}{100}}\cdot\ve2=0.96k\]</div>
+      <p class="paso">Paso 4 · La menor produce 480 más</p>
+      <div class="math">\[1.2k-0.96k=480\]</div>
+      <div class="math">\[0.24k=480\]</div>
+      <div class="math">\[k=2000\]</div>
+      <p class="paso">Paso 5 · Total</p>
+      <div class="math">\[\ma{7k}=14\,000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>14 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in4b">
+    <div class="ej-head"><span class="num">4.2</span><h3>Dos partes en dos años</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple t-mp-razon" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in4">Parecido al ejercicio 4 de la unidad ↑</button></span></div>
+    <div class="enun">Pedro reparte su dinero en dos partes que están en relación de 2 a 3. La primera la impone al 2 % mensual y la segunda al 5 % bimestral, ambas a interés simple. En 2 años, entre las dos producen 2 760 soles de interés. ¿Cuánto dinero tenía Pedro?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Partes</p>
+      <div class="math">\[\az{2k}\qquad\az{3k}\]</div>
+      <p class="paso">Paso 2 · 2 años en cada unidad</p>
+      <p>2 años = \(\ve{24}\) meses = \(\ve{12}\) bimestres.</p>
+      <p class="paso">Paso 3 · Intereses</p>
+      <div class="math">\[\az{2k}\cdot\na{\tfrac{2}{100}}\cdot\ve{24}=0.96k\qquad\az{3k}\cdot\na{\tfrac{5}{100}}\cdot\ve{12}=1.8k\]</div>
+      <p class="paso">Paso 4 · Entre las dos</p>
+      <div class="math">\[0.96k+1.8k=2760\]</div>
+      <div class="math">\[2.76k=2760\]</div>
+      <div class="math">\[k=1000\]</div>
+      <p class="paso">Paso 5 · Total</p>
+      <div class="math">\[\ma{5k}=5000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>5 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in5">
+    <div class="ej-head"><span class="num">5.1</span><h3>Cuánto depositar para ganar</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in5">Parecido al ejercicio 5 de la unidad ↑</button></span></div>
+    <div class="enun">¿Cuánto hay que depositar al 8 % anual de interés simple durante 5 años para ganar 6 000 soles de intereses?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Interés</p>
+      <div class="math">\[\mo I=\az K\cdot\na{\tfrac{8}{100}}\cdot\ve5=0.4K\]</div>
+      <p class="paso">Paso 2 · Igualar</p>
+      <div class="math">\[0.4K=6000\]</div>
+      <div class="math">\[\ma K=15\,000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>15 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in5b">
+    <div class="ej-head"><span class="num">5.2</span><h3>Cuánto depositar para tener</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in5">Parecido al ejercicio 5 de la unidad ↑</button></span></div>
+    <div class="enun">Se quiere tener 13 000 soles en total dentro de 3 años. Si el banco paga 10 % anual de interés simple, ¿cuánto hay que depositar hoy?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · ¿Interés o monto?</p>
+      <p>"Tener 13 000 en total" es el <b>monto</b>: capital más interés.</p>
+      <p class="paso">Paso 2 · Monto</p>
+      <div class="math">\[M=\az K+\az K\cdot\na{\tfrac{10}{100}}\cdot\ve3=1.3K\]</div>
+      <p class="paso">Paso 3 · Igualar</p>
+      <div class="math">\[1.3K=13\,000\]</div>
+      <div class="math">\[\ma K=10\,000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>10 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in6">
+    <div class="ej-head"><span class="num">6.1</span><h3>Se retira y se reinvierte</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in6">Parecido al ejercicio 6 de la unidad ↑</button></span></div>
+    <div class="enun">Un capital de 40 000 soles se impone al 6 % anual. A los 8 meses se retira el interés y el 25 % del capital, y todo eso se invierte al 12 % anual. Al cumplirse un año y medio en total se retira todo. ¿Cuánto dinero se tiene?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Planteamiento</p>
+      <figure class="fig"><svg class="sk sk-tl" viewBox="0 0 520 205" role="img" aria-label="Línea de tiempo de 18 meses: 40 000 al 6 % hasta el mes 8; luego 30 000 siguen al 6 % y 11 600 pasan al 12 % hasta el mes 18"><rect class="sk-bar-az" x="30" y="52" width="204.4" height="16" rx="3"/><rect class="sk-bar-az" x="234.4" y="52" width="255.6" height="16" rx="3"/><rect class="sk-bar-na" x="234.4" y="112" width="255.6" height="16" rx="3"/><line class="sk-dash" x1="234.4" y1="30" x2="234.4" y2="160"/><text class="sk-t sk-az" x="132.2" y="42" text-anchor="middle">40 000 al 6 %</text><text class="sk-t sk-az" x="362.2" y="42" text-anchor="middle">30 000 al 6 %</text><text class="sk-t sk-na" x="362.2" y="102" text-anchor="middle">11 600 al 12 %</text><line class="sk-thin" x1="30" y1="160" x2="490" y2="160"/><line class="sk-thin" x1="30.0" y1="154" x2="30.0" y2="166"/><line class="sk-thin" x1="234.4" y1="154" x2="234.4" y2="166"/><line class="sk-thin" x1="490.0" y1="154" x2="490.0" y2="166"/><text class="sk-t sk-cap" x="132.2" y="150" text-anchor="middle">8 meses</text><text class="sk-t sk-cap" x="362.2" y="150" text-anchor="middle">10 meses</text><text class="sk-t sk-cap" x="30" y="186" text-anchor="start">inicio</text><text class="sk-t sk-cap" x="234.4" y="186" text-anchor="middle">mes 8</text><text class="sk-t sk-cap" x="490" y="186" text-anchor="end">mes 18</text></svg><figcaption>Un año y medio son 18 meses: después del mes 8 quedan 10 meses para las dos partes.</figcaption></figure>
+      <p class="paso">Paso 2 · Los primeros 8 meses</p>
+      <div class="math">\[\mo I=\az{40\,000}\cdot\na{\tfrac{6}{100}}\cdot\ve{\tfrac8{12}}=1600\]</div>
+      <p class="paso">Paso 3 · Cómo se separa</p>
+      <div class="math d-only">\[\text{se retira: }1600+\tfrac{25}{100}(40\,000)=11\,600\qquad\text{sigue: }30\,000\]</div>
+      <div class="math m-only">\[\begin{aligned}\text{se retira}&=1600+\tfrac{25}{100}(40\,000)=11\,600\\\text{sigue}&=30\,000\end{aligned}\]</div>
+      <p class="paso">Paso 4 · Los últimos 10 meses</p>
+      <div class="math d-only">\[\text{al }12\%\text{: }11\,600+\az{11\,600}\cdot\na{\tfrac{12}{100}}\cdot\ve{\tfrac{10}{12}}=11\,600+1160=12\,760\]</div>
+      <div class="math m-only">\[\begin{aligned}\text{al }12\%\text{: }&11\,600+\az{11\,600}\cdot\na{\tfrac{12}{100}}\cdot\ve{\tfrac{10}{12}}\\&=11\,600+1160\\&=12\,760\end{aligned}\]</div>
+      <div class="math d-only">\[\text{al }6\%\text{: }30\,000+\az{30\,000}\cdot\na{\tfrac{6}{100}}\cdot\ve{\tfrac{10}{12}}=30\,000+1500=31\,500\]</div>
+      <div class="math m-only">\[\begin{aligned}\text{al }6\%\text{: }&30\,000+\az{30\,000}\cdot\na{\tfrac{6}{100}}\cdot\ve{\tfrac{10}{12}}\\&=30\,000+1500\\&=31\,500\end{aligned}\]</div>
+      <p class="paso">Paso 5 · Todo</p>
+      <div class="math">\[\ma{12\,760+31\,500=44\,260}\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>44 260 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in6b">
+    <div class="ej-head"><span class="num">6.2</span><h3>Se retira la mitad</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in6">Parecido al ejercicio 6 de la unidad ↑</button></span></div>
+    <div class="enun">Se imponen 24 000 soles al 5 % anual. A los 6 meses se retira la mitad del capital, y el resto sigue impuesto hasta completar 2 años. ¿Cuánto interés se ganó en total?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Los primeros 6 meses</p>
+      <div class="math">\[\az{24\,000}\cdot\na{\tfrac{5}{100}}\cdot\ve{\tfrac12}=600\]</div>
+      <p class="paso">Paso 2 · Los 18 meses restantes</p>
+      <p>Sigue la mitad, 12 000, durante \(\ve{\tfrac32}\) años:</p>
+      <div class="math">\[\az{12\,000}\cdot\na{\tfrac{5}{100}}\cdot\ve{\tfrac32}=900\]</div>
+      <p class="paso">Paso 3 · Total</p>
+      <div class="math">\[\ma{\mo I}=600+900=1500\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>1 500 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in7">
+    <div class="ej-head"><span class="num">7.1</span><h3>Intereses que forman un negocio</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple t-mp-reparto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in7">Parecido al ejercicio 7 de la unidad ↑</button></span></div>
+    <div class="enun">Dos socios imponen la misma cantidad de dinero, uno al 3 % mensual y otro al 10 % semestral. Al final del año retiran sus intereses y con ellos forman un negocio: el primero se queda 2 años y el segundo 3 años. Si la ganancia es de 8 800 soles, ¿cuánto le toca a cada uno?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Intereses del primer año</p>
+      <div class="math">\[\az C\cdot\na{\tfrac{3}{100}}\cdot\ve{12}=0.36C\qquad\az C\cdot\na{\tfrac{10}{100}}\cdot\ve2=0.20C\]</div>
+      <p class="paso">Paso 2 · Capital · tiempo</p>
+      <div class="math">\[0.36C\cdot2=0.72C\qquad0.20C\cdot3=0.60C\]</div>
+      <p>Razón 0.72 : 0.60 = 6 : 5. Aquí sí alcanza: se pide el reparto, no \(C\).</p>
+      <p class="paso">Paso 3 · Repartir</p>
+      <div class="math">\[\frac{8800}{6+5}=800\]</div>
+      <div class="math">\[6(800)=4800\qquad5(800)=4000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>El primero 4 800 soles y el segundo 4 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in7b">
+    <div class="ej-head"><span class="num">7.2</span><h3>Tres socios con capital conocido</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple t-mp-reparto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in7">Parecido al ejercicio 7 de la unidad ↑</button></span></div>
+    <div class="enun">Tres socios imponen 10 000 soles cada uno al 4 % anual, 3 % semestral y 1 % mensual, respectivamente. Al final del año retiran sus intereses y los juntan en un negocio, donde permanecen 1, 2 y 3 años, respectivamente. Si la ganancia total es de 2 600 soles, ¿cuánto recibe cada uno?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Intereses del primer año</p>
+      <div class="math d-only">\[10\,000\cdot\na{\tfrac{4}{100}}\cdot\ve1=400\qquad10\,000\cdot\na{\tfrac{3}{100}}\cdot\ve2=600\qquad10\,000\cdot\na{\tfrac{1}{100}}\cdot\ve{12}=1200\]</div>
+      <div class="math m-only">\[\begin{aligned}10\,000\cdot\na{\tfrac{4}{100}}\cdot\ve1&=400\\10\,000\cdot\na{\tfrac{3}{100}}\cdot\ve2&=600\\10\,000\cdot\na{\tfrac{1}{100}}\cdot\ve{12}&=1200\end{aligned}\]</div>
+      <p class="paso">Paso 2 · Capital · tiempo</p>
+      <div class="math">\[400\cdot1=400\qquad600\cdot2=1200\qquad1200\cdot3=3600\]</div>
+      <p>Simplificando entre 400: 1, 3 y 9.</p>
+      <p class="paso">Paso 3 · Repartir</p>
+      <div class="math">\[\frac{2600}{1+3+9}=200\]</div>
+      <div class="math">\[200\qquad600\qquad1800\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>200, 600 y 1 800 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in8">
+    <div class="ej-head"><span class="num">8.1</span><h3>Porcentaje del monto</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-porc t-in-simple" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in8">Parecido al ejercicio 8 de la unidad ↑</button></span></div>
+    <div class="enun">Un capital impuesto durante 6 meses genera un interés igual al 20 % del monto. ¿Qué tanto por ciento del monto será el interés en 2 años?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · El dato (6 meses)</p>
+      <div class="math">\[\mo I=\frac15(K+I)\]</div>
+      <div class="math">\[4I=K\qquad \mo I=\frac K4\]</div>
+      <p class="paso">Paso 2 · En 24 meses</p>
+      <p>Es 4 veces el tiempo: 4 veces el interés.</p>
+      <div class="math">\[\mo{I_{24}}=4\cdot\frac K4=K\qquad M_{24}=2K\]</div>
+      <p class="paso">Paso 3 · Tanto por ciento</p>
+      <div class="math">\[\frac{K}{2K}\cdot100\%=\ma{50\%}\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>50 %.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in8b">
+    <div class="ej-head"><span class="num">8.2</span><h3>Porcentaje del monto (otra versión)</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-porc t-in-simple" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in8">Parecido al ejercicio 8 de la unidad ↑</button></span></div>
+    <div class="enun">Un capital impuesto durante 5 meses genera el 10 % del monto. ¿Qué tanto por ciento del monto generará en 15 meses?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · El dato (5 meses)</p>
+      <div class="math">\[\mo I=\frac1{10}(K+I)\]</div>
+      <div class="math">\[9I=K\qquad\mo I=\frac K9\]</div>
+      <p class="paso">Paso 2 · En 15 meses</p>
+      <p>Es el triple de tiempo:</p>
+      <div class="math">\[\mo{I_{15}}=3\cdot\frac K9=\frac K3\qquad M_{15}=\frac{4K}3\]</div>
+      <p class="paso">Paso 3 · Tanto por ciento</p>
+      <div class="math">\[\frac{K/3}{4K/3}\cdot100\%=\ma{25\%}\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>25 %.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in9">
+    <div class="ej-head"><span class="num">9.1</span><h3>Dos partes y monto total</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in9">Parecido al ejercicio 9 de la unidad ↑</button></span></div>
+    <div class="enun">Los 2/5 de un capital se imponen al 6 % anual durante 10 meses y el resto al 4 % anual durante un año y medio. Si el monto total es de 21 120 soles, calcule el interés total.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Partes</p>
+      <p>Capital \(5k\): las partes son \(\az{2k}\) y \(\az{3k}\).</p>
+      <p class="paso">Paso 2 · Intereses</p>
+      <div class="math">\[\az{2k}\cdot\na{\tfrac{6}{100}}\cdot\ve{\tfrac{10}{12}}=0.1k\qquad\az{3k}\cdot\na{\tfrac{4}{100}}\cdot\ve{\tfrac32}=0.18k\]</div>
+      <p class="paso">Paso 3 · Monto total</p>
+      <div class="math">\[5k+0.28k=21\,120\]</div>
+      <div class="math">\[5.28k=21\,120\]</div>
+      <div class="math">\[k=4000\]</div>
+      <p class="paso">Paso 4 · Interés total</p>
+      <div class="math">\[\ma{\mo I}=0.28(4000)=1120\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>1 120 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in9b">
+    <div class="ej-head"><span class="num">9.2</span><h3>Dos mitades</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-simple" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in9">Parecido al ejercicio 9 de la unidad ↑</button></span></div>
+    <div class="enun">Un capital se divide en dos partes iguales. Una se impone al 5 % anual durante 2 años y la otra al 1 % mensual durante 6 meses. Si el monto total es de 10 800 soles, ¿cuál era el capital?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Partes</p>
+      <p>Capital \(2k\): dos partes de \(\az k\).</p>
+      <p class="paso">Paso 2 · Intereses</p>
+      <div class="math">\[\az k\cdot\na{\tfrac{5}{100}}\cdot\ve2=0.1k\qquad\az k\cdot\na{\tfrac{1}{100}}\cdot\ve6=0.06k\]</div>
+      <p class="paso">Paso 3 · Monto total</p>
+      <div class="math">\[2k+0.16k=10\,800\]</div>
+      <div class="math">\[2.16k=10\,800\]</div>
+      <div class="math">\[k=5000\]</div>
+      <p class="paso">Paso 4 · Capital</p>
+      <div class="math">\[\ma{2k}=10\,000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>10 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in10">
+    <div class="ej-head"><span class="num">10.1</span><h3>Capitalizable semestralmente</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto t-in-porc" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in10">Parecido al ejercicio 10 de la unidad ↑</button></span></div>
+    <div class="enun">Un capital se coloca al 20 % anual capitalizable semestralmente. ¿Qué tanto por ciento del capital se gana en un año?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tasa y periodos</p>
+      <div class="math">\[\na{r\%}=10\%\ \text{semestral}\qquad\ve n=2\]</div>
+      <p class="paso">Paso 2 · Monto</p>
+      <div class="math">\[M=\az K(1.1)^{\ve2}=1.21K\]</div>
+      <p class="paso">Paso 3 · Interés</p>
+      <div class="math">\[\mo I=0.21K\]</div>
+      <div class="math">\[\frac{0.21K}{K}\cdot100\%=\ma{21\%}\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>21 % (con interés simple serían 20 %).</div>
+  </article>
+
+  <article class="ej ex" id="ex-in10b">
+    <div class="ej-head"><span class="num">10.2</span><h3>Capitalizable cuatrimestralmente</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto t-in-porc" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in10">Parecido al ejercicio 10 de la unidad ↑</button></span></div>
+    <div class="enun">Un capital se coloca al 12 % anual capitalizable cuatrimestralmente. ¿Qué tanto por ciento del capital se gana en 8 meses?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tasa y periodos</p>
+      <div class="math">\[\na{r\%}=\frac{12\%}{3}=4\%\ \text{cuatrimestral}\qquad\ve n=2\]</div>
+      <p class="paso">Paso 2 · Monto</p>
+      <div class="math">\[M=\az K(1.04)^{\ve2}=1.0816K\]</div>
+      <p class="paso">Paso 3 · Interés</p>
+      <div class="math">\[\mo I=0.0816K\]</div>
+      <div class="math">\[\frac{0.0816K}{K}\cdot100\%=\ma{8.16\%}\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>8.16 %.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in11">
+    <div class="ej-head"><span class="num">11.1</span><h3>En cuánto tiempo</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in11">Parecido al ejercicio 11 de la unidad ↑</button></span></div>
+    <div class="enun">Un capital de 6 250 soles se coloca al 80 % anual capitalizable trimestralmente. ¿En cuánto tiempo se convierte en 10 800 soles?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tasa trimestral</p>
+      <div class="math">\[\na{r\%}=\frac{80\%}4=20\%\]</div>
+      <p class="paso">Paso 2 · Fórmula</p>
+      <div class="math">\[10\,800=\az{6250}(1.2)^{\ma n}\]</div>
+      <div class="math">\[1.2^{n}=\frac{10\,800}{6250}=1.728\]</div>
+      <p class="paso">Paso 3 · Hallar n</p>
+      <div class="math">\[\ma n=\frac{\log1.728}{\log1.2}=3\]</div>
+      <p>O sin logaritmos: \(1.2^3=1.728\).</p>
+    </div>
+    <div class="resp"><b>Respuesta</b>3 trimestres (9 meses).</div>
+  </article>
+
+  <article class="ej ex" id="ex-in11b">
+    <div class="ej-head"><span class="num">11.2</span><h3>Despejar la tasa</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in11">Parecido al ejercicio 11 de la unidad ↑</button></span></div>
+    <div class="enun">Despeje la tasa \(r\%\) de \(M=C(1+r\%)^n\). Luego úsela para hallar la tasa anual con la que 1 000 soles se convierten en 1 440 soles en 2 años, capitalizable anualmente.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Dejar sola la potencia</p>
+      <div class="math">\[(1+r\%)^n=\frac MC\]</div>
+      <p class="paso">Paso 2 · Raíz n-ésima</p>
+      <div class="math">\[1+r\%=\sqrt[n]{\frac MC}\]</div>
+      <div class="math">\[\ma{r\%}=\sqrt[n]{\frac MC}-1\]</div>
+      <p class="paso">Paso 3 · Reemplazar</p>
+      <div class="math">\[r\%=\sqrt{\frac{1440}{1000}}-1=\sqrt{1.44}-1=0.2\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>\(r\%=\sqrt[n]{M/C}-1\). En el caso numérico, 20 % anual.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in12">
+    <div class="ej-head"><span class="num">12.1</span><h3>Interés del segundo periodo</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in12">Parecido al ejercicio 12 de la unidad ↑</button></span></div>
+    <div class="enun">Se invierte un capital al 20 % anual capitalizable semestralmente. El interés del segundo periodo excede al del primero en 50 soles. Halle el capital.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tasa semestral</p>
+      <div class="math">\[\na{r\%}=10\%\]</div>
+      <p class="paso">Paso 2 · Interés de cada periodo</p>
+      <div class="math">\[\mo{I_1}=C\cdot0.1=0.1C\qquad\mo{I_2}=1.1C\cdot0.1=0.11C\]</div>
+      <p class="paso">Paso 3 · Diferencia</p>
+      <div class="math">\[0.11C-0.1C=50\]</div>
+      <div class="math">\[0.01C=50\]</div>
+      <div class="math">\[\ma C=5000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>5 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in12b">
+    <div class="ej-head"><span class="num">12.2</span><h3>Cuarto contra tercer periodo</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in12">Parecido al ejercicio 12 de la unidad ↑</button></span></div>
+    <div class="enun">Se invierte un capital al 40 % anual capitalizable trimestralmente. El interés del cuarto periodo excede al del tercero en 121 soles. Halle el capital.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tasa trimestral</p>
+      <div class="math">\[\na{r\%}=10\%\]</div>
+      <p class="paso">Paso 2 · Interés de cada periodo</p>
+      <div class="math">\[\mo{I_3}=C(1.1)^2\cdot0.1=0.121C\]</div>
+      <div class="math">\[\mo{I_4}=C(1.1)^3\cdot0.1=0.1331C\]</div>
+      <p class="paso">Paso 3 · Diferencia</p>
+      <div class="math">\[0.1331C-0.121C=121\]</div>
+      <div class="math">\[0.0121C=121\]</div>
+      <div class="math">\[\ma C=10\,000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>10 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in13">
+    <div class="ej-head"><span class="num">13.1</span><h3>Ana y Beto</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto t-in-porc" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in13">Parecido al ejercicio 13 de la unidad ↑</button></span></div>
+    <div class="enun">Ana presta el 50 % de su capital al 20 % capitalizable anualmente y obtiene N soles de monto. Beto presta la mitad de su capital al 50 % capitalizable anualmente y obtiene como monto el capital de Ana. Si los dos préstamos duran 2 años, ¿qué tanto por ciento es N del capital de Beto?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Ana</p>
+      <div class="math">\[\mo N=0.5A(1.2)^2=0.72A\]</div>
+      <p class="paso">Paso 2 · Beto</p>
+      <div class="math">\[0.5B(1.5)^2=A\]</div>
+      <div class="math">\[A=1.125B\]</div>
+      <p class="paso">Paso 3 · N en función de B</p>
+      <div class="math">\[\mo N=0.72(1.125B)=0.81B\]</div>
+      <p class="paso">Paso 4 · Tanto por ciento</p>
+      <div class="math">\[\frac NB\cdot100\%=\ma{81\%}\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>81 %.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in13b">
+    <div class="ej-head"><span class="num">13.2</span><h3>Parte del capital</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in13">Parecido al ejercicio 13 de la unidad ↑</button></span></div>
+    <div class="enun">Si presto el 60 % de mi capital al 10 % capitalizable anualmente durante 2 años, obtengo un monto de 7 260 soles. ¿Cuál es mi capital?</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Lo que se presta</p>
+      <p>Se presta \(\az{0.6K}\), no todo el capital.</p>
+      <p class="paso">Paso 2 · Monto</p>
+      <div class="math">\[\az{0.6K}(1.1)^{\ve2}=7260\]</div>
+      <div class="math">\[0.726K=7260\]</div>
+      <div class="math">\[\ma K=10\,000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>10 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in14">
+    <div class="ej-head"><span class="num">14.1</span><h3>Un año contra seis meses</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in14">Parecido al ejercicio 14 de la unidad ↑</button></span></div>
+    <div class="enun">Un capital se presta al 4 % bimestral capitalizable semestralmente. Prestado por un año produce 672 soles más que prestado por 6 meses. Calcule el capital.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tasa semestral</p>
+      <p>Un semestre tiene 3 bimestres:</p>
+      <div class="math">\[\na{r\%}=3(4\%)=12\%\]</div>
+      <p class="paso">Paso 2 · Montos</p>
+      <div class="math">\[\az C(1.12)^{\ve2}=1.2544C\qquad\az C(1.12)^{\ve1}=1.12C\]</div>
+      <p class="paso">Paso 3 · Diferencia</p>
+      <div class="math">\[0.1344C=672\]</div>
+      <div class="math">\[\ma C=5000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>5 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in14b">
+    <div class="ej-head"><span class="num">14.2</span><h3>Nueve meses contra seis</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in14">Parecido al ejercicio 14 de la unidad ↑</button></span></div>
+    <div class="enun">Un capital se presta al 5 % mensual capitalizable trimestralmente. Prestado por 9 meses produce 1 587 soles más que prestado por 6 meses. Calcule el capital.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tasa trimestral</p>
+      <div class="math">\[\na{r\%}=3(5\%)=15\%\]</div>
+      <p class="paso">Paso 2 · Montos</p>
+      <div class="math">\[\az C(1.15)^{\ve3}=1.520875C\qquad\az C(1.15)^{\ve2}=1.3225C\]</div>
+      <p class="paso">Paso 3 · Diferencia</p>
+      <div class="math">\[0.198375C=1587\]</div>
+      <div class="math">\[\ma C=8000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>8 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in15">
+    <div class="ej-head"><span class="num">15.1</span><h3>Interés del segundo periodo</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in15">Parecido al ejercicio 15 de la unidad ↑</button></span></div>
+    <div class="enun">Se deposita un capital al 5 % mensual capitalizable semestralmente durante 2 años. El interés del segundo periodo de capitalización es de 3 900 soles. Halle el capital.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tasa semestral</p>
+      <div class="math">\[\na{r\%}=6(5\%)=30\%\]</div>
+      <p class="paso">Paso 2 · Interés del segundo semestre</p>
+      <p>Al empezar el segundo semestre hay \(1.3C\):</p>
+      <div class="math">\[\mo{I_2}=1.3C\cdot0.3=0.39C\]</div>
+      <p class="paso">Paso 3 · Igualar</p>
+      <div class="math">\[0.39C=3900\]</div>
+      <div class="math">\[\ma C=10\,000\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>10 000 soles.</div>
+  </article>
+
+  <article class="ej ex" id="ex-in15b">
+    <div class="ej-head"><span class="num">15.2</span><h3>El último periodo</h3><span class="head-btns"><button class="teo-btn" type="button" data-teo="t-in-compuesto" aria-expanded="false">Teoría</button><button class="sim-btn" type="button" data-goto="in15">Parecido al ejercicio 15 de la unidad ↑</button></span></div>
+    <div class="enun">Se deposita un capital al 5 % mensual capitalizable cuatrimestralmente durante un año. Si el interés del último periodo es de 720 soles, halle el capital y el monto final.</div>
+    <div class="sol">
+      <p class="paso">Paso 1 · Tasa y periodos</p>
+      <div class="math">\[\na{r\%}=4(5\%)=20\%\qquad\ve n=3\ \text{cuatrimestres}\]</div>
+      <p class="paso">Paso 2 · Interés del tercer periodo</p>
+      <div class="math">\[\mo{I_3}=C(1.2)^2\cdot0.2=0.288C\]</div>
+      <div class="math">\[0.288C=720\]</div>
+      <div class="math">\[\ma C=2500\]</div>
+      <p class="paso">Paso 3 · Monto final</p>
+      <div class="math">\[M=2500(1.2)^3=2500\cdot1.728=4320\]</div>
+    </div>
+    <div class="resp"><b>Respuesta</b>Capital: 2 500 soles. Monto final: 4 320 soles.</div>
+  </article>
+</div>
+
+
 
 </div>
 

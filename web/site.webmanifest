@@ -1,7 +1,7 @@
 {
-  "name": "Unidad 4: Teoría y Ejercicios",
-  "short_name": "Unidad 4",
-  "description": "Parábolas, circunferencias y oferta y demanda: teoría, ejercicios resueltos paso a paso y ejemplos de práctica.",
+  "name": "Propedéutico: Teoría y Ejercicios",
+  "short_name": "Propedéutico",
+  "description": "Unidad 4 (parábolas, circunferencias, oferta y demanda) y Unidad 5 (magnitudes proporcionales, interés simple y compuesto): teoría, ejercicios resueltos y ejemplos.",
   "lang": "es",
   "start_url": "./",
   "scope": "./",
@@ -9,8 +9,20 @@
   "background_color": "#f6f7fa",
   "theme_color": "#1f5fd1",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
   ]
 }

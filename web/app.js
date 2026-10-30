@@ -367,8 +367,20 @@
     fns:[{f:q=>-q+10,from:0,to:10,c:'orange',t:'D: p = −q + 10',tx:9.6,anchor:'start',dx:8,dy:-2},{f:q=>2*q/3,from:0,to:13,c:'blue',t:'O: p = 2q/3',tx:12.5,anchor:'end',dx:-8,dy:-8}],
     pts:[{x:6,y:4,c:'purple',t:'(6, 4)',dx:8,dy:16},{x:3,y:7,c:'orange',t:'(3, 7)',dx:8,dy:-8},{x:9,y:1,c:'orange',t:'(9, 1)',anchor:'end',dx:-8,dy:4},{x:9,y:6,c:'blue',t:'(9, 6)',anchor:'end',dx:-8,dy:-8}]});
 
+  /* ---------- magnitudes proporcionales ---------- */
+  plot('g-mp8',{alt:'Producción por tramos',x:[0,38],y:[0,560],gx:4,gy:100,lx:'día',ly:'P',tx:[4,8,16,24,36],ty:[250,375,500],
+    fns:[{f:d=>62.5*d,from:0,to:8,c:'blue',t:'DP',tx:6,anchor:'end',dx:-8,dy:-4},{f:d=>4000/d,from:8,to:16,c:'orange',t:'IP',tx:12,dx:4,dy:-10,anchor:'start'},
+      {f:d=>250/16*d,from:16,to:24,c:'blue',t:'DP',tx:20,anchor:'end',dx:-8,dy:-6},{f:d=>9000/d,from:24,to:36,c:'orange',t:'IP',tx:30,anchor:'start',dx:4,dy:-10}],
+    pts:[{x:4,y:250,c:'magenta',t:'día 4',anchor:'end',dx:-8,dy:-6},{x:8,y:500,c:'ink',t:'(8, 500)',dx:8,dy:-4},{x:16,y:250,c:'ink',t:'(16, 250)',dx:6,dy:18},{x:24,y:375,c:'ink',t:'(24, 375)',dx:6,dy:-8},{x:36,y:250,c:'magenta',t:'día 36',anchor:'end',dx:-8,dy:-8}]});
+  plot('g-ex-mp8',{alt:'Producción en dos tramos',x:[0,22],y:[0,340],gx:2,gy:50,lx:'día',ly:'P',tx:[3,6,20],ty:[90,150,300],
+    fns:[{f:d=>50*d,from:0,to:6,c:'blue',t:'DP',tx:4.5,anchor:'end',dx:-8,dy:-4},{f:d=>1800/d,from:6,to:21,c:'orange',t:'IP',tx:13,anchor:'start',dx:4,dy:-10}],
+    pts:[{x:3,y:150,c:'magenta',t:'día 3',anchor:'end',dx:-8,dy:-4},{x:6,y:300,c:'ink',t:'(6, 300)',dx:8,dy:-4},{x:20,y:90,c:'magenta',t:'día 20',anchor:'end',dx:-6,dy:-10}]});
+  plot('g-ex-mp8b',{alt:'Producción en tres tramos',x:[0,32],y:[0,450],gx:5,gy:50,lx:'día',ly:'P',tx:[5,10,20,30],ty:[200,300,400],
+    fns:[{f:d=>40*d,from:0,to:10,c:'blue',t:'DP',tx:8,anchor:'end',dx:-8,dy:-4},{f:d=>4000/d,from:10,to:20,c:'orange',t:'IP',tx:15,anchor:'start',dx:4,dy:-8},{f:d=>10*d,from:20,to:31,c:'blue',t:'DP',tx:26,anchor:'end',dx:-6,dy:-8}],
+    pts:[{x:5,y:200,c:'magenta',t:'día 5',anchor:'end',dx:-8,dy:-4},{x:10,y:400,c:'ink',t:'(10, 400)',dx:8,dy:-4},{x:20,y:200,c:'magenta',t:'día 20',dx:6,dy:18},{x:30,y:300,c:'magenta',t:'día 30',anchor:'end',dx:-8,dy:-6}]});
+
   /* ---------------- tema + pestañas ---------------- */
-  const TOPICS=['parabolas','circunferencias','oferta-demanda'];
+  const TOPICS=['parabolas','circunferencias','oferta-demanda','magnitudes','interes'];
   let topic='parabolas', tab='teoria';
   const done=new Set(); let chain=Promise.resolve();
   /* evita que un signo (. , ; : ) quede solo al inicio de una línea después de una fórmula */
@@ -407,11 +419,15 @@
     done.add(panel.id);
     chain=chain.then(()=>MathJax.typesetPromise([panel])).then(()=>{gluePunct(panel);fitMath(panel)}).catch(()=>{});
   }
+  const UNIT_OF={parabolas:'4',circunferencias:'4','oferta-demanda':'4',magnitudes:'5',interes:'5'};
   function render(){
+    const u=UNIT_OF[topic];
+    document.querySelectorAll('.unit').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.unit===u)));
+    document.querySelectorAll('.topic').forEach(b=>{b.hidden=b.dataset.unit!==u});
     document.querySelectorAll('.topic').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.topic===topic)));
     document.querySelectorAll('.tab').forEach(b=>{const on=b.dataset.tab===tab;b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1});
     document.querySelectorAll('.panel').forEach(p=>{p.hidden=p.id!=='pn-'+topic+'-'+tab});
-    const n={parabolas:12,circunferencias:12,'oferta-demanda':8}[topic];
+    const n={parabolas:12,circunferencias:12,'oferta-demanda':8,magnitudes:15,interes:12}[topic];
     document.getElementById('tab-ejercicios').innerHTML='Ejercicios<span class="tab-long"> resueltos</span> <span class="tab-n">('+n+')</span>';
     document.getElementById('tab-ejemplos').innerHTML='Ejemplos <span class="tab-n">('+document.querySelectorAll('#pn-'+topic+'-ejemplos article.ex').length+')</span>';
     document.getElementById('tab-ejemplos').setAttribute('aria-controls','pn-'+topic+'-ejemplos');
@@ -516,6 +532,7 @@
   },150) });
 
   document.querySelectorAll('.topic').forEach(b=>b.addEventListener('click',()=>{topic=b.dataset.topic;tab='teoria';go()}));
+  document.querySelectorAll('.unit').forEach(b=>b.addEventListener('click',()=>{ if(UNIT_OF[topic]===b.dataset.unit) return; topic=document.querySelector('.topic[data-unit="'+b.dataset.unit+'"]').dataset.topic; tab='teoria'; go() }));
   document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{tab=b.dataset.tab;go()}));
   document.querySelector('.tabs').addEventListener('keydown',e=>{
     if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
