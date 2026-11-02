@@ -1,7 +1,7 @@
 {
   "name": "Propedéutico: Teoría y Ejercicios",
   "short_name": "Propedéutico",
-  "description": "Unidad 4 (parábolas, circunferencias, oferta y demanda) y Unidad 5 (magnitudes proporcionales, interés simple y compuesto): teoría, ejercicios resueltos y ejemplos.",
+  "description": "Unidad 4 (parábolas, circunferencias, oferta y demanda) y Unidad 5 (magnitudes proporcionales, interés simple y compuesto): teoría, ejercicios resueltos, ejemplos y solucionarios de evaluaciones anteriores.",
   "lang": "es",
   "start_url": "./",
   "scope": "./",

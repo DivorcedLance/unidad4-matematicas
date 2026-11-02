@@ -5,7 +5,7 @@ Página de estudio del propedéutico de matemáticas (2026-0), organizada por un
 - **Unidad 4**: parábolas, circunferencias, oferta y demanda.
 - **Unidad 5**: magnitudes proporcionales; interés simple y compuesto.
 
-Cada tema tiene tres pestañas: **Teoría**, **Ejercicios resueltos** (los de la unidad, paso a paso, con los errores de la unidad señalados) y **Ejemplos** de práctica con resultados exactos.
+Cada tema tiene cuatro pestañas: **Teoría**, **Ejercicios resueltos** (los de la unidad, paso a paso, con los errores de la unidad señalados), **Ejemplos** de práctica con resultados exactos y **Solucionarios** (preguntas de PC y exámenes de ciclos anteriores, resueltas paso a paso). Cada ejercicio, ejemplo y problema de solucionario indica su dificultad: básico, intermedio o avanzado.
 
 Página publicada: https://divorcedlance.github.io/unidad4-matematicas/
 
@@ -17,7 +17,7 @@ web/                  sitio estático (lo que se publica)
   app.js              pestañas, gráficos y tarjeta de teoría
   site.webmanifest
   assets/             íconos e imagen para compartir
-material/             PDF de unidades y apuntes (solo local, no se sube)
+material/             PDF de unidades, apuntes, compendios y PC pasadas (solo local, no se sube)
 .github/workflows/    publica web/ en GitHub Pages en cada push a main
 ```
 

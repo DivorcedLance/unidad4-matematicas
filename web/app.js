@@ -379,6 +379,93 @@
     fns:[{f:d=>40*d,from:0,to:10,c:'blue',t:'DP',tx:8,anchor:'end',dx:-8,dy:-4},{f:d=>4000/d,from:10,to:20,c:'orange',t:'IP',tx:15,anchor:'start',dx:4,dy:-8},{f:d=>10*d,from:20,to:31,c:'blue',t:'DP',tx:26,anchor:'end',dx:-6,dy:-8}],
     pts:[{x:5,y:200,c:'magenta',t:'día 5',anchor:'end',dx:-8,dy:-4},{x:10,y:400,c:'ink',t:'(10, 400)',dx:8,dy:-4},{x:20,y:200,c:'magenta',t:'día 20',dx:6,dy:18},{x:30,y:300,c:'magenta',t:'día 30',anchor:'end',dx:-8,dy:-6}]});
 
+  /* ---------- solucionarios ---------- */
+  plot('g-sl-par-2',{alt:'Parábola y=−(x+1)²',x:[-4,2.5],y:[-5,1.5],tx:[],ty:[],fns:[{f:x=>-(x+1)*(x+1)}],
+    pts:[{x:-1,y:0,c:'blue',t:'V(−1, 0)',anchor:'middle',dx:0,dy:-10},{x:0,y:-1,c:'orange',t:'(0, −1)',dx:8,dy:4}]});
+  plot('g-sl-par-3-fig',{alt:'Figura: recta L de pendiente 3/2 y parábola P con vértice en (b, 0)',x:[-3.5,5.5],y:[-2.2,4.6],tx:[[-2,'a'],[2,'b']],ty:[[2,'b'],[-1,'−1']],
+    segs:[{a:[-2,0],b:[-2,-1]},{a:[-2,-1],b:[0,-1]}],
+    fns:[{f:x=>(x-2)*(x-2)/2,from:-0.9,to:5,t:'𝒫',tx:4.9,dy:-6},{f:x=>1.5*x+2,from:-3.3,to:1.7,c:'ink',wd:1.8,t:'ℒ',tx:1.6,anchor:'start',dx:6,dy:2}],
+    pts:[{x:-2,y:-1,c:'ink'},{x:0,y:2,c:'ink'},{x:2,y:0,c:'ink'}]});
+  plot('g-sl-par-3',{alt:'Solución: y=(x−2)²/2, recta y=1.5x+2 y tangente y=2x−6',x:[-3.5,5.5],y:[-2.2,4.6],tx:[-2,4],ty:[-1],
+    fns:[{f:x=>(x-2)*(x-2)/2,from:-0.9,to:5},{f:x=>1.5*x+2,from:-3.3,to:1.7,c:'muted',wd:1.6},{f:x=>2*x-6,from:2,to:5.4,c:'orange',t:'y = 2x − 6',tx:3.4,anchor:'start',dx:10,dy:24}],
+    pts:[{x:2,y:0,c:'blue',t:'V(2, 0)',dx:6,dy:16},{x:0,y:2,c:'orange',t:'(0, 2)',anchor:'end',dx:-8,dy:4},{x:-2,y:-1,c:'magenta',t:'(−2, −1)',anchor:'end',dx:-6,dy:-6},{x:3,y:0.5,c:'magenta',t:'(3, ½)',anchor:'end',dx:-6,dy:-8},{x:4,y:2,c:'magenta',t:'T(4, 2)',anchor:'end',dx:-8,dy:-6}]});
+  plot('g-sl-par-4',{alt:'Temperatura y=(−x²+20x+80)/8',x:[-1,22],y:[-1.5,25],gx:2,gy:5,lx:'x (h)',ly:'y (°C)',tx:[4,10,16,20],ty:[10,18,22.5],
+    segs:[{a:[0,18],b:[16,18]},{a:[10,0],b:[10,22.5]}],
+    fns:[{f:x=>(-x*x+20*x+80)/8,from:0,to:21.5}],
+    pts:[{x:10,y:22.5,c:'blue',t:'máx (10, 22.5)',anchor:'middle',dx:0,dy:-10},{x:4,y:18,c:'magenta',t:'(4, 18)',anchor:'end',dx:-8,dy:-6},{x:16,y:18,c:'magenta',t:'(16, 18)',dx:8,dy:-6},{x:0,y:10,c:'orange',t:'(0, 10)',dx:8,dy:16}]});
+  plot('g-sl-par-7',{alt:'Parábola y=−x²+2x+3 y tangente y=2x+3',x:[-2.5,4.5],y:[-3,6.5],tx:[1],ty:[4],
+    fns:[{f:x=>-x*x+2*x+3},{f:x=>2*x+3,c:'orange',t:'y = 2x + 3',from:-2.5,to:1.6,tx:1.55,anchor:'start',dx:4,dy:-4}],
+    pts:[{x:1,y:4,c:'blue',t:'V(1, 4)',dx:8,dy:-6},{x:-1,y:0,c:'orange',t:'(−1, 0)',anchor:'end',dx:-8,dy:16},{x:3,y:0,c:'orange',t:'(3, 0)',dx:8,dy:16},{x:0,y:3,c:'magenta',t:'(0, 3)',anchor:'end',dx:-8,dy:-4}]});
+  plot('g-sl-par-9',{alt:'Parábola y=−(x−3)²+4 y recta y=x−5',x:[-1.5,8],y:[-6.5,5.5],tx:[3],ty:[4],
+    fns:[{f:x=>-(x-3)*(x-3)+4},{f:x=>x-5,c:'green',t:'L: y = x − 5',tx:7.8,dy:-8}],
+    pts:[{x:3,y:4,c:'blue',t:'V(3, 4)',dx:8,dy:-6},{x:1,y:0,c:'orange',t:'(1, 0)',anchor:'end',dx:-8,dy:-6},{x:5,y:0,c:'purple',t:'(5, 0)',anchor:'end',dx:-8,dy:-8},{x:0,y:-5,c:'purple',t:'(0, −5)',dx:8,dy:16}]});
+  plot('g-sl-par-10',{alt:'Parábola y=x²−4x+3',x:[-1.5,5.5],y:[-2,8.5],tx:[2],ty:[3],fns:[{f:x=>x*x-4*x+3}],
+    pts:[{x:2,y:-1,c:'blue',t:'V(2, −1)',anchor:'middle',dx:0,dy:20},{x:1,y:0,c:'orange',t:'(1, 0)',anchor:'end',dx:-8,dy:-6},{x:3,y:0,c:'orange',t:'(3, 0)',dx:8,dy:-6},{x:0,y:3,c:'orange',t:'(0, 3)',dx:8}]});
+  plot('g-sl-par-11',{alt:'Parábola y=−x²/4+3x entre 0 y 12',x:[-0.8,13.2],y:[-1.2,10.8],lx:'x (meses)',ly:'y (miles)',tx:[6],ty:[9],
+    segs:[{a:[6,0],b:[6,9]}],fns:[{f:x=>-x*x/4+3*x,from:0,to:12}],
+    pts:[{x:6,y:9,c:'blue',t:'máx (6, 9)',anchor:'middle',dx:0,dy:-10},{x:0,y:0,c:'orange',t:'(0, 0)',dx:6,dy:16},{x:12,y:0,c:'orange',t:'(12, 0)',anchor:'end',dx:-6,dy:18}]});
+  plot('g-sl-par-12-fig',{alt:'Figura 1: arco parabólico AVB sobre un escenario de 8 m centrado en O',x:[-9.5,9.5],y:[-1,6.4],tx:[],ty:[],lx:'x',ly:'y',
+    polys:[{pts:[[-4,0],[4,0],[4,0.6],[-4,0.6]],c:'orange',op:.35},{pts:[[-4,0.6],[4,0.6],[4,3.75],[-4,3.75]],c:'magenta',op:.12}],
+    segs:[{a:[-4,3.75],b:[4,3.75],c:'ink',wd:3,dash:false},{a:[0,5],b:[8.9,5]},{a:[8.9,0],b:[8.9,5]}],
+    fns:[{f:x=>-5*x*x/64+5,from:-8,to:8,c:'green'}],
+    pts:[{x:-8,y:0,c:'ink',t:'A',anchor:'end',dx:-6,dy:16},{x:8,y:0,c:'ink',t:'B',dx:6,dy:16},{x:0,y:5,c:'blue',t:'V',dx:8,dy:-6},{x:-4,y:3.75,c:'blue',t:'P',anchor:'end',dx:-8,dy:-6},{x:4,y:3.75,c:'blue',t:'Q',dx:8,dy:-6},
+      {x:8.9,y:2.5,c:'ink',r:0.01,t:'5 m',anchor:'end',dx:-6,dy:4},{x:0,y:-0.62,c:'ink',r:0.01,t:'escenario: 8 m',anchor:'middle',dx:0,dy:4},{x:0,y:2.2,c:'magenta',r:0.01,t:'telón',anchor:'middle',dx:0,dy:4}]});
+  plot('g-sl-par-12',{alt:'Arco y=−5x²/64+5 con P y Q',x:[-9.5,9.5],y:[-1,6.4],tx:[-4,4],ty:[],
+    segs:[{a:[-4,3.75],b:[4,3.75],c:'ink',wd:2.5,dash:false},{a:[-4,0],b:[-4,3.75]},{a:[4,0],b:[4,3.75]}],
+    fns:[{f:x=>-5*x*x/64+5,from:-8,to:8}],
+    pts:[{x:-8,y:0,c:'orange',t:'A(−8, 0)',dx:4,dy:-10},{x:8,y:0,c:'orange',t:'B(8, 0)',anchor:'end',dx:-4,dy:-10},{x:0,y:5,c:'blue',t:'V(0, 5)',dx:8,dy:-6},{x:-4,y:3.75,c:'magenta',t:'P(−4, 15/4)',anchor:'end',dx:-6,dy:-8},{x:4,y:3.75,c:'magenta',t:'Q(4, 15/4)',dx:6,dy:-8}]});
+
+  plot('g-sl-cir-2',{alt:'Dos circunferencias que se cortan en (−1,−2) y (5,−2)',eq:true,x:[-4.5,8.5],y:[-12,2],gx:1,gy:1,tx:[2],ty:[-6],
+    circs:[{h:2,k:-2,r:3},{h:2,k:-6,r:5,c:'green'}],
+    pts:[{x:2,y:-2,c:'blue',t:'(2, −2)',dx:6,dy:-6},{x:2,y:-6,c:'blue',t:'(2, −6)',dx:6,dy:16},{x:-1,y:-2,c:'purple',t:'(−1, −2)',anchor:'end',dx:-8,dy:-6},{x:5,y:-2,c:'purple',t:'(5, −2)',dx:8,dy:-6}]});
+  plot('g-sl-cir-3',{alt:'Circunferencia de centro (−3a, 4a) y radio 5a (dibujada con a = 1)',eq:true,x:[-9,4.5],y:[-2,10.5],tx:[[-3,'−3a'],[2,'2a']],ty:[[4,'4a']],
+    circs:[{h:-3,k:4,r:5}],segs:[{a:[-3,4],b:[1,7],c:'blue',dash:false,wd:1.6},{a:[0,0],b:[0,8],c:'magenta',dash:false,wd:4}],
+    fns:[{f:x=>4+Math.sqrt(Math.max(0,25-(x+3)*(x+3))),from:0,to:2,c:'magenta',wd:4},{f:x=>4-Math.sqrt(Math.max(0,25-(x+3)*(x+3))),from:0,to:2,c:'magenta',wd:4},
+      {f:x=>0.75*x,from:-2.5,to:4.5,c:'orange',t:'3x − 4y = 0',tx:2.6,anchor:'start',dx:10,dy:24}],
+    pts:[{x:-3,y:4,c:'blue',t:'C',anchor:'end',dx:-6,dy:4},{x:0,y:0,c:'magenta',t:'P(0, 0)',dx:8,dy:16},{x:0,y:8,c:'magenta',t:'(0, 8a)',dx:8,dy:-4},{x:-1,y:7,c:'blue',r:0.01,t:'5a',dx:-14,dy:-4}]});
+  plot('g-sl-cir-4',{alt:'Circunferencia (x+1)²+(y+1)²=4 y tangentes desde (1,3)',eq:true,x:[-4.5,4.5],y:[-4,5],tx:[],ty:[3],
+    circs:[{h:-1,k:-1,r:2}],
+    segs:[{a:[-4.5,-4.5],b:[4.5,4.5],c:'muted'},{a:[1,-4],b:[1,5],c:'orange',dash:false,wd:2.2},{a:[-1,-1],b:[1,-1],c:'blue'},{a:[-1,-1],b:[-2.2,0.6],c:'blue'}],
+    fns:[{f:x=>3+0.75*(x-1),c:'orange',from:-4.5,to:3,t:'y − 3 = ¾(x − 1)',tx:-4.3,anchor:'start',dx:0,dy:-10}],
+    pts:[{x:-1,y:-1,c:'blue',t:'C(−1, −1)',anchor:'end',dx:-6,dy:16},{x:1,y:3,c:'magenta',t:'P(1, 3)',dx:8,dy:4},{x:1,y:-1,c:'magenta',t:'T₁',dx:8,dy:4},{x:-2.2,y:0.6,c:'magenta',t:'T₂',anchor:'end',dx:-8,dy:-4},{x:1,y:4.4,c:'orange',r:0.01,t:'x = 1',dx:8}]});
+  plot('g-sl-cir-7-fig',{alt:'Figura: circunferencias tangentes C1 (centro O) y C2 (centro C), con B en el eje y, A punto de tangencia y T en el eje x',eq:true,x:[-12,37],y:[-12,32],gx:5,gy:5,tx:[],ty:[],
+    polys:[{pts:[[0,10],[8,6],[20,15]],c:'muted',op:.35}],circs:[{h:0,k:0,r:10},{h:20,k:15,r:15}],
+    pts:[{x:0,y:0,c:'ink',t:'O',anchor:'end',dx:-6,dy:16},{x:0,y:10,c:'ink',t:'B',anchor:'end',dx:-6,dy:-4},{x:8,y:6,c:'ink',t:'A',dx:4,dy:16},{x:20,y:15,c:'ink',t:'C',dx:8},{x:20,y:0,c:'ink',t:'T',dx:4,dy:16},{x:-7.5,y:-7.5,c:'ink',r:0.01,t:'𝒞₁',anchor:'end'},{x:31,y:26,c:'ink',r:0.01,t:'𝒞₂'}]});
+  plot('g-sl-cir-7',{alt:'Solución: A=(8,6) en la recta OC y triángulo ABC de área 60',eq:true,x:[-12,37],y:[-12,32],gx:5,gy:5,tx:[8],ty:[6,15],
+    polys:[{pts:[[0,10],[8,6],[20,15]],c:'green',op:.35}],circs:[{h:0,k:0,r:10},{h:20,k:15,r:15}],
+    segs:[{a:[0,0],b:[20,15],c:'blue'},{a:[20,15],b:[20,0],c:'blue'}],
+    pts:[{x:0,y:0,c:'blue',t:'O',anchor:'end',dx:-6,dy:16},{x:0,y:10,c:'magenta',t:'B(0, 10)',anchor:'end',dx:-6,dy:-4},{x:8,y:6,c:'purple',t:'A(8, 6)',dx:6,dy:18},{x:20,y:15,c:'blue',t:'C(20, 15)',dx:8},{x:20,y:0,c:'orange',t:'T(20, 0)',dx:6,dy:16}]});
+  plot('g-sl-cir-9',{alt:'Circunferencia de centro (−2,3) y radio 5 con tangente en (1,7)',eq:true,x:[-8.5,7],y:[-3,10.5],tx:[-2,1],ty:[],
+    circs:[{h:-2,k:3,r:5}],segs:[{a:[-2,3],b:[1,7],c:'blue',dash:false,wd:1.6}],
+    fns:[{f:x=>7-0.75*(x-1),c:'orange',from:-4,to:7,t:'y − 7 = −¾(x − 1)',tx:6.8,dy:22}],
+    pts:[{x:-2,y:3,c:'blue',t:'C(−2, 3)',dy:16},{x:1,y:7,c:'magenta',t:'(1, 7)',dx:8,dy:-8}]});
+  plot('g-sl-cir-10-fig',{alt:'Figura: parábola con vértice en el eje y, circunferencia de centro T tangente al eje x y recta y=2x−4',eq:true,x:[-2.6,6.2],y:[-1.2,6.2],tx:[3],ty:[],
+    circs:[{h:3,k:2,r:2}],segs:[{a:[0,2],b:[3,2]},{a:[3,2],b:[3,0]}],
+    fns:[{f:x=>0.9*x*x+2,from:-2.2,to:2.2,t:'𝒫',tx:2.1,anchor:'start',dx:6,dy:0},{f:x=>2*x-4,c:'ink',wd:1.6,from:1.6,to:5.1,t:'ℒ: y = 2x − 4',tx:5.05,anchor:'end',dx:-6,dy:-4}],
+    pts:[{x:0,y:2,c:'ink'},{x:3,y:2,c:'ink',t:'T',dx:8,dy:16},{x:4.6,y:3.5,c:'ink',r:0.01,t:'𝒞'}]});
+  plot('g-sl-cir-11-fig',{alt:'Figura: circunferencia de centro (−12, k) que pasa por el origen; P en el eje x y Q en el eje y',eq:true,x:[-27,5],y:[-19.5,9.5],gx:4,gy:4,tx:[],ty:[],
+    circs:[{h:-12,k:-5,r:13}],
+    pts:[{x:-12,y:-5,c:'ink',t:'C = (−12, k)',anchor:'middle',dx:0,dy:-10},{x:0,y:0,c:'ink'},{x:-24,y:0,c:'ink',t:'P',dx:6,dy:-8},{x:0,y:-10,c:'ink',t:'Q',dx:8,dy:4}]});
+  plot('g-sl-cir-11',{alt:'Solución: (x+12)²+(y+5)²=169, P=(−24,0), Q=(0,−10) y tangente y=12x/5−10',eq:true,x:[-27,5],y:[-19.5,9.5],gx:4,gy:4,tx:[-12],ty:[],
+    circs:[{h:-12,k:-5,r:13}],segs:[{a:[-12,-5],b:[0,-10],c:'blue',dash:false,wd:1.6}],
+    fns:[{f:x=>2.4*x-10,c:'orange',from:-3.8,to:4.5,t:'y = 12x/5 − 10',tx:-3.6,anchor:'end',dx:-4,dy:6}],
+    pts:[{x:-12,y:-5,c:'blue',t:'C(−12, −5)',anchor:'middle',dx:0,dy:18},{x:0,y:0,c:'magenta',t:'O',dx:6,dy:-8},{x:-24,y:0,c:'orange',t:'P(−24, 0)',dx:6,dy:-8},{x:0,y:-10,c:'orange',t:'Q(0, −10)',dx:8,dy:16}]});
+
+  plot('g-sl-od-1',{alt:'Oferta p=2q+12 y excedente del productor',x:[0,10.5],y:[0,31],gx:1,gy:2,lx:'q',ly:'p',tx:[6],ty:[12,24],
+    polys:[{pts:[[0,12],[0,24],[6,24]],c:'blue',op:.25}],segs:[{a:[6,0],b:[6,24]}],
+    fns:[{f:q=>2*q+12,from:0,to:9.5,c:'blue',t:'O: p = 2q + 12',tx:7,anchor:'start',dx:8,dy:24}],
+    pts:[{x:6,y:24,c:'purple',t:'(6, 24)',anchor:'end',dx:-8,dy:-6},{x:1.4,y:20,c:'blue',r:0.01,t:'EP',anchor:'middle',dx:0,dy:4}]});
+  plot('g-sl-od-2-fig',{alt:'Figura: la oferta corta al eje p en 3 y la demanda corta al eje q en 9',x:[0,11],y:[0,20.5],gx:1,gy:2,lx:'q',ly:'p',tx:[9],ty:[3],
+    fns:[{f:q=>q+3,from:0,to:10,c:'ink',wd:1.8,t:'𝒪',tx:10,anchor:'start',dx:4},{f:q=>-2*q+18,from:0,to:9,c:'ink',wd:1.8,t:'𝒟',tx:9,anchor:'start',dx:6,dy:-4}]});
+  plot('g-sl-od-2',{alt:'Oferta p=q+3, demanda p=−2q+18 y excedente del consumidor',x:[0,11],y:[0,20.5],gx:1,gy:2,lx:'q',ly:'p',tx:[5,9],ty:[3,8,18],
+    polys:[{pts:[[0,18],[0,8],[5,8]],c:'orange',op:.3}],segs:[{a:[5,0],b:[5,8]}],
+    fns:[{f:q=>q+3,from:0,to:10,c:'blue',t:'O: p = q + 3',tx:10,dy:-8},{f:q=>-2*q+18,from:0,to:9,c:'orange',t:'D: p = −2q + 18',tx:7,anchor:'start',dx:10,dy:-2}],
+    pts:[{x:5,y:8,c:'purple',t:'(5, 8)',dx:8,dy:16},{x:1.5,y:11.5,c:'orange',r:0.01,t:'EC',anchor:'middle',dx:0,dy:4}]});
+  plot('g-sl-od-4',{alt:'Oferta p=q/10+1, demanda p=−10q+303 y excedente del consumidor',x:[0,44],y:[0,330],gx:5,gy:30,lx:'q',ly:'p',tx:[20,30,40],ty:[[3,'3'],303],
+    polys:[{pts:[[0,303],[0,3],[30,3]],c:'orange',op:.3}],
+    fns:[{f:q=>q/10+1,from:0,to:43,c:'blue',t:'O',tx:43,dy:-8},{f:q=>-10*q+303,from:0,to:30.3,c:'orange',t:'D: p = −10q + 303',tx:16,anchor:'start',dx:8,dy:-6}],
+    pts:[{x:30,y:3,c:'purple',t:'(30, 3)',dx:6,dy:-10},{x:20,y:3,c:'blue',r:3.5},{x:40,y:5,c:'blue',r:3.5},{x:8,y:90,c:'orange',r:0.01,t:'EC',anchor:'middle',dx:0,dy:4}]});
+
   /* ---------------- tema + pestañas ---------------- */
   const TOPICS=['parabolas','circunferencias','oferta-demanda','magnitudes','interes'];
   let topic='parabolas', tab='teoria';
@@ -431,13 +518,15 @@
     document.getElementById('tab-ejercicios').innerHTML='Ejercicios<span class="tab-long"> resueltos</span> <span class="tab-n">('+n+')</span>';
     document.getElementById('tab-ejemplos').innerHTML='Ejemplos <span class="tab-n">('+document.querySelectorAll('#pn-'+topic+'-ejemplos article.ex').length+')</span>';
     document.getElementById('tab-ejemplos').setAttribute('aria-controls','pn-'+topic+'-ejemplos');
+    document.getElementById('tab-solucionarios').innerHTML='<span class="tab-long">Solucionarios</span><span class="tab-short">Soluc.</span> <span class="tab-n">('+document.querySelectorAll('#pn-'+topic+'-solucionarios article.sl').length+')</span>';
+    document.getElementById('tab-solucionarios').setAttribute('aria-controls','pn-'+topic+'-solucionarios');
     const panel=document.getElementById('pn-'+topic+'-'+tab);
     document.getElementById('tab-teoria').setAttribute('aria-controls','pn-'+topic+'-teoria');
     document.getElementById('tab-ejercicios').setAttribute('aria-controls','pn-'+topic+'-ejercicios');
     typeset(panel);
     if(done.has(panel.id)) chain.then(()=>requestAnimationFrame(()=>fitMath(panel)));
   }
-  const TABS=['ejercicios','ejemplos'];
+  const TABS=['ejercicios','ejemplos','solucionarios'];
   function fromHash(){
     const h=(location.hash||'').slice(1);
     let t=h, tb='teoria';
@@ -449,7 +538,7 @@
   /* ir a un ejercicio o ejemplo concreto (botones «Ver ejemplo similar» y «Parecido al ejercicio…») */
   function goTo(id){
     const el=document.getElementById(id); if(!el) return;
-    const mt=el.closest('.panel').id.match(/^pn-(.+)-(teoria|ejercicios|ejemplos)$/); if(!mt) return;
+    const mt=el.closest('.panel').id.match(/^pn-(.+)-(teoria|ejercicios|ejemplos|solucionarios)$/); if(!mt) return;
     topic=mt[1]; tab=mt[2];
     const h=topic+(tab==='teoria'?'':'-'+tab);
     if(location.hash.slice(1)!==h) history.replaceState(null,'','#'+h);
@@ -536,8 +625,8 @@
   document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{tab=b.dataset.tab;go()}));
   document.querySelector('.tabs').addEventListener('keydown',e=>{
     if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
-    const order=['teoria','ejercicios','ejemplos'];const i=order.indexOf(tab);
-    tab=order[(i+(e.key==='ArrowRight'?1:2))%3];go();document.getElementById('tab-'+tab).focus();
+    const order=['teoria','ejercicios','ejemplos','solucionarios'];const i=order.indexOf(tab);
+    tab=order[(i+(e.key==='ArrowRight'?1:3))%4];go();document.getElementById('tab-'+tab).focus();
   });
   document.querySelectorAll('.jump button').forEach(b=>b.addEventListener('click',()=>{
     const t=document.getElementById(b.dataset.go); if(!t)return;
