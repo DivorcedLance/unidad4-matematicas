@@ -466,6 +466,18 @@
     fns:[{f:q=>q/10+1,from:0,to:43,c:'blue',t:'O',tx:43,dy:-8},{f:q=>-10*q+303,from:0,to:30.3,c:'orange',t:'D: p = −10q + 303',tx:16,anchor:'start',dx:8,dy:-6}],
     pts:[{x:30,y:3,c:'purple',t:'(30, 3)',dx:6,dy:-10},{x:20,y:3,c:'blue',r:3.5},{x:40,y:5,c:'blue',r:3.5},{x:8,y:90,c:'orange',r:0.01,t:'EC',anchor:'middle',dx:0,dy:4}]});
 
+  plot('g-sl-par-14',{alt:'Recta y=1.5x+2, parábola y=(x−2)²/2 y circunferencia (x+2)²+(y+1)²=4',eq:true,x:[-4.6,4.8],y:[-3.6,4.6],tx:[4],ty:[],
+    circs:[{h:-2,k:-1,r:2,c:'blue'}],segs:[{a:[-2,-1],b:[0,-1],c:'blue'}],
+    fns:[{f:x=>(x-2)*(x-2)/2,from:-0.95,to:4.8,c:'blue',t:'𝒫',tx:4.3,anchor:'start',dx:8},{f:x=>1.5*x+2,from:-3.7,to:1.7,c:'muted',wd:1.6,t:'ℒ',tx:1.5,anchor:'end',dx:-8}],
+    pts:[{x:-2,y:-1,c:'magenta',t:'A(−2, −1)',anchor:'end',dx:-6,dy:-8},{x:2,y:0,c:'blue',t:'V(2, 0)',dx:6,dy:16},{x:0,y:2,c:'orange',t:'(0, 2)',anchor:'end',dx:-8,dy:-4},{x:4,y:2,c:'blue',r:3.5},{x:0,y:-1,c:'green',t:'(0, −1)',dx:6,dy:16},{x:-1,y:-1.25,c:'blue',r:0.01,t:'r = 2',anchor:'middle',dx:0,dy:4}]});
+  plot('g-sl-od-5-plan',{alt:'Planteamiento: la oferta corta al eje p en Pp, la demanda en 2Pp y el equilibrio es (48, 24)',x:[0,64],y:[0,42],gx:8,gy:6,lx:'q',ly:'p',tx:[48],ty:[[36,'2Pₚ'],24,[18,'Pₚ']],
+    polys:[{pts:[[0,36],[0,24],[48,24]],c:'orange',op:.3},{pts:[[0,24],[0,18],[48,24]],c:'blue',op:.3}],segs:[{a:[48,0],b:[48,24]}],
+    fns:[{f:q=>q/8+18,from:0,to:62,c:'blue',t:'O',tx:62,dy:-8},{f:q=>-q/4+36,from:0,to:62,c:'orange',t:'D',tx:62,dy:-8}],
+    pts:[{x:48,y:24,c:'purple',t:'(48, 24)',anchor:'end',dx:-4,dy:-12},{x:11,y:27.8,c:'orange',r:0.01,t:'EC',anchor:'middle',dx:0,dy:4},{x:11,y:21.8,c:'blue',r:0.01,t:'EP',anchor:'middle',dx:0,dy:4}]});
+  plot('g-sl-od-5',{alt:'Oferta p=q/8+18, demanda p=−q/4+36, excedentes EC=288 y EP=144',x:[0,64],y:[0,42],gx:8,gy:6,lx:'q',ly:'p',tx:[48],ty:[18,24,36],
+    polys:[{pts:[[0,36],[0,24],[48,24]],c:'orange',op:.3},{pts:[[0,24],[0,18],[48,24]],c:'blue',op:.3}],segs:[{a:[48,0],b:[48,24]}],
+    fns:[{f:q=>q/8+18,from:0,to:62,c:'blue',t:'O: p = q/8 + 18',tx:24,anchor:'start',dx:0,dy:22},{f:q=>-q/4+36,from:0,to:62,c:'orange',t:'D: p = −q/4 + 36',tx:52,anchor:'start',dx:-20,dy:22}],
+    pts:[{x:48,y:24,c:'purple',t:'(48, 24)',anchor:'end',dx:-4,dy:-12},{x:11,y:27.8,c:'orange',r:0.01,t:'EC = 288',anchor:'middle',dx:0,dy:4},{x:11,y:21.8,c:'blue',r:0.01,t:'EP = 144',anchor:'middle',dx:0,dy:4}]});
   /* ---------------- tema + pestañas ---------------- */
   const TOPICS=['parabolas','circunferencias','oferta-demanda','magnitudes','interes'];
   let topic='parabolas', tab='teoria';
